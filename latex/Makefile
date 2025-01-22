@@ -1,9 +1,7 @@
 TARGET = TCC_FGA.pdf
 
+LATEX = pdflatex
 BIBTEX = bibtex
-LATEX = latex
-DVIPS = dvips
-PS2PDF = ps2pdf
 
 VERSION = 0.1.0
 
@@ -36,15 +34,15 @@ SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES)
 
 all: 
 	@make $(TARGET)
-     
+    
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(BIBTEX) $(AUX_FILE)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(DVIPS) $(DVI_FILE)
-	$(PS2PDF) $(PS_FILE)
-	@cp $(PDF_FILE) $(TARGET)
+	echo $(EPS_TO_PDF_FILES)
+	$(LATEX) $(MAIN_FILE)
+	$(BIBTEX) $(basename $(MAIN_FILE))
+	$(LATEX) $(MAIN_FILE)
+	$(LATEX) $(MAIN_FILE)
+	@cp $(PDF_FILE) $(TARGET)  
+
 
 clean-soft:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log

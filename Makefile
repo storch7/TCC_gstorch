@@ -1,4 +1,4 @@
-COMPOSE = sudo docker compose
+COMPOSE = docker compose
 
 .PHONY: docker-build build-pdf build-clean clean
 

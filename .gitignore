@@ -11,6 +11,8 @@
 
 #PDFs
 *.pdf
+!latex/figuras/*.pdf
+*-eps-converted-to.pdf
 
 *.lof
 *.lot
