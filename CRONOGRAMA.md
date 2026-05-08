@@ -13,19 +13,21 @@ gantt
     axisFormat  %m/%y
     
     section Fundamentação
-    Contextualização (Eng. Software)     :done, a1, 2026-03-01, 2026-05-31
-    Contextualização (Contínua)          :done, a2, 2026-04-01, 2026-05-31
-    Definição do Protocolo e Objetivos   :active, a3, 2026-05-01, 2026-06-05
+    Contextualização - Experimentação em Eng. Software     :done, a1, 2026-03-01, 2026-04-01
+    Contextualização - Revisão Sistemática em Eng. Software     :done, a2, 2026-04-01, 2026-04-30
+    Definição dos Procedimentos e elementos da pesquisa   :done, a3, 2026-04-15, 2026-04-30
     
     section Pesquisa e 1ª Versão
-    Busca e Seleção de Artigos           :b1, 2026-05-15, 2026-06-15
-    Escrita e Revisão da 1ª Versão       :b2, 2026-06-05, 2026-06-19
-    Envio da Primeira Versão             :milestone, m1, 2026-06-20, 0d
+    Busca e Seleção de Artigos           :b1, 2026-03-15, 2026-03-31
+    Definição do Problema e Objetivos    :active, b2, 2026-04-01, 2026-05-01
+    Escruturação do GQM                  :b3, 2026-04-15, 2026-05-01
     
-    section Conclusão TCC1
-    Leitura do Material Selecionado      :c1, 2026-06-15, 2026-07-10
-    Escrita Final da Monografia (TCC1)   :c2, 2026-06-20, 2026-07-15
-    Revisão do Material Escrito          :c3, 2026-07-10, 2026-07-20
+    section Desenvolvimento
+    Aplicação da String de busca e Seleção dos artigos          :c1, 2026-05-08, 2026-05-15
+    Leitura e Extração de dados                     :c2, 2026-05-15, 2026-05-25
+    Escrita da Monografia                :c3, 2026-05-25, 2026-06-15
+    Envio da Primeira Versão             :milestone, m1, 2026-06-20, 0d
+    Revisão da Monografia          :c4, 2026-07-10, 2026-07-20
     Apresentação do TCC1                 :milestone, m2, 2026-07-25, 0d
 ```
 
