@@ -35,28 +35,30 @@ Principais marcos para garantir a entrega da primeira versão.
 
 | Data | Atividade | Status |
 | :--- | :--- | :--- |
-| **Até 31/05** | Finalização: Contextualização em Exp. na Engenharia de Software | ⏳ Pendente |
-| **Até 31/05** | Finalização: Contextualização em Exp. na Contínua | ⏳ Pendente |
-| **01 a 05/06** | Definição do Protocolo e dos Objetivos de Pesquisa | ⏳ Pendente |
-| **05 a 15/06** | Busca e Seleção de Artigos | ⏳ Pendente |
-| **16 a 18/06** | Compilação e Escrita da Primeira Versão | ⏳ Pendente |
-| **19/06** | Revisão Final do Documento da Primeira Versão | ⏳ Pendente |
+| **Até 30/04** | Finalização das Contextualizações (Teóricas e Sistemática) | ✅ Concluído |
+| **Até 08/05** | Definição do Problema, Objetivos e Escruturação do GQM | ⏳ Em Andamento |
+| **08 a 15/05** | Aplicação da String de busca e Seleção dos artigos | ⏳ Pendente |
+| **15 a 25/05** | Leitura e Extração de dados | ⏳ Pendente |
+| **25/05 a 15/06** | Escrita da Monografia (Primeira Versão) | ⏳ Pendente |
+| **16 a 19/06** | Revisão Final do Documento da Primeira Versão | ⏳ Pendente |
 | **20/06** | **Envio da Primeira Versão** | 🚨 **DEADLINE** |
 
 ---
 
 ## 📅 Visão Geral de Prazos (Março - Julho)
 
-- [x] **Março / Abril:** Início das Contextualizações Teóricas
+- [x] **Março / Abril:** 
+  - Contextualizações Teóricas e Definição de Procedimentos
+  - Busca e Seleção de Artigos Iniciais
 - [ ] **Maio:**
-  - Finalização das Contextualizações (Eng. Software e Contínua)
-  - Início da Definição de Protocolo, Objetivos e Busca de Artigos
+  - Definição do Problema, Objetivos e GQM
+  - Aplicação da String de Busca e Seleção Final dos Artigos
+  - Leitura e Extração de dados
+  - Início da Escrita da Monografia
 - [ ] **Junho:**
-  - Conclusão da Busca de Artigos
-  - Escrita e Revisão do material base
+  - Conclusão da Escrita da Monografia
+  - Revisão Final do Documento
   - **Entrega da Primeira Versão (20/06)**
-  - Início da Leitura do Material Selecionado
 - [ ] **Julho:**
-  - Conclusão da Leitura e Escrita
-  - Revisão Final do Material
-  - **Apresentação do TCC1**
+  - Revisão da Monografia (Pós-entrega)
+  - **Apresentação do TCC1 (25/07)**
