@@ -1,5 +1,7 @@
 # Template TCC FGA-UnB
 
+> **Acesso Rápido:** [ 📅 Ver Cronograma do TCC ](CRONOGRAMA.md) | [ ⚙️ Dependências ](#dependências) | [ 🚀 Compilar PDF ](#compilando-o-template-de-tcc-e-gerando-o-pdf)
+
 Template para Trabalhos de Conclusão de Cursos (TCC) na Faculdade do
 Gama (FGA) em Latex.
 
