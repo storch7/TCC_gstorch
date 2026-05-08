@@ -7,6 +7,7 @@
 ## 📊 Gráfico de Gantt do TCC 1
 
 ```mermaid
+%%{init: {'theme': 'neutral'}}%%
 gantt
     title Cronograma de Atividades - TCC 1
     dateFormat  YYYY-MM-DD
