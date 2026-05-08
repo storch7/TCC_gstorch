@@ -7,7 +7,7 @@
 ## 📊 Gráfico de Gantt do TCC 1
 
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f2fe', 'primaryBorderColor': '#7dd3fc', 'primaryTextColor': '#000000', 'taskTextDarkColor': '#000000', 'taskTextLightColor': '#000000', 'taskTextOutsideColor': '#000000', 'titleColor': '#000000', 'textColor': '#000000', 'gridColor': '#94a3b8' } }}%%
+%%{init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f2fe', 'primaryBorderColor': '#7dd3fc', 'primaryTextColor': '#ffffff', 'taskTextDarkColor': '#000000', 'taskTextLightColor': '#000000', 'taskTextOutsideColor': '#ffffff', 'titleColor': '#ffffff', 'textColor': '#ffffff', 'gridColor': '#94a3b8' } }}%%
 gantt
     title Cronograma de Atividades - TCC 1
     dateFormat  YYYY-MM-DD
