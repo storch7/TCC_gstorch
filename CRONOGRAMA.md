@@ -20,8 +20,8 @@ gantt
 
     section Desenvolvimento
     Busca e Seleção de Artigos iniciais           :done, b1, 2026-03-15, 2026-03-31
-    Definição do Problema e Objetivos    :active, b2, 2026-04-01, 2026-05-01
-    Escruturação do GQM                  :active, b3, 2026-04-15, 2026-05-01
+    Definição do Problema e Objetivos    :active, b2, 2026-04-01, 2026-05-08
+    Escruturação do GQM                  :active, b3, 2026-04-15, 2026-05-08
     Aplicação da String de busca e Seleção dos artigos          :active, c1, 2026-05-08, 2026-05-15
     Leitura e Extração de dados                     :active, c2, 2026-05-15, 2026-05-25
     Escrita da Monografia                :active, c3, 2026-05-25, 2026-06-15
