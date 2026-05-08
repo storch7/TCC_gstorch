@@ -16,18 +16,16 @@ gantt
     Contextualização - Experimentação em Eng. Software     :done, a1, 2026-03-01, 2026-04-01
     Contextualização - Revisão Sistemática em Eng. Software     :done, a2, 2026-04-01, 2026-04-30
     Definição dos Procedimentos e elementos da pesquisa   :done, a3, 2026-04-15, 2026-04-30
-    
-    section Pesquisa e 1ª Versão
-    Busca e Seleção de Artigos           :b1, 2026-03-15, 2026-03-31
-    Definição do Problema e Objetivos    :active, b2, 2026-04-01, 2026-05-01
-    Escruturação do GQM                  :b3, 2026-04-15, 2026-05-01
-    
+
     section Desenvolvimento
-    Aplicação da String de busca e Seleção dos artigos          :c1, 2026-05-08, 2026-05-15
-    Leitura e Extração de dados                     :c2, 2026-05-15, 2026-05-25
-    Escrita da Monografia                :c3, 2026-05-25, 2026-06-15
+    Busca e Seleção de Artigos iniciais           :done, b1, 2026-03-15, 2026-03-31
+    Definição do Problema e Objetivos    :active, b2, 2026-04-01, 2026-05-01
+    Escruturação do GQM                  :active, b3, 2026-04-15, 2026-05-01
+    Aplicação da String de busca e Seleção dos artigos          :active, c1, 2026-05-08, 2026-05-15
+    Leitura e Extração de dados                     :active, c2, 2026-05-15, 2026-05-25
+    Escrita da Monografia                :active, c3, 2026-05-25, 2026-06-15
     Envio da Primeira Versão             :milestone, m1, 2026-06-20, 0d
-    Revisão da Monografia          :c4, 2026-07-10, 2026-07-20
+    Revisão da Monografia          :active, c4, 2026-07-10, 2026-07-20
     Apresentação do TCC1                 :milestone, m2, 2026-07-25, 0d
 ```
 
