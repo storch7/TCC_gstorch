@@ -35,6 +35,29 @@ embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes ent
 
 \section{Problema}
 
+Embora ferramentas de análise estática sejam amplamente utilizadas na avaliação da qualidade de software, sua atuação tende a se concentrar em regras formais, 
+métricas e padrões previamente definidos. Essa característica limita sua capacidade de avaliar aspectos que dependem de maior compreensão semântica e contextual do código, 
+como intenção de uso, comportamento esperado e adequação de determinadas estruturas ao contexto do sistema. Assim, ainda que essas ferramentas sejam úteis para identificar problemas recorrentes, 
+sua aplicação pode não capturar adequadamente dimensões mais interpretativas da qualidade do código \cite{LenarduzziEtAll}.
+
+Essa limitação torna-se particularmente relevante quando se consideram atributos de qualidade como a manutenibilidade. A avaliação da manutenibilidade 
+não depende apenas da presença ou ausência de violações sintáticas, mas também da clareza, compreensibilidade, organização e facilidade de evolução do código. 
+Nesse sentido, a baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise 
+ainda apresentam lacunas na representação de atributos de qualidade mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
+
+O surgimento dos LLMs acrescenta uma nova dimensão a esse problema. Por serem capazes de processar linguagem natural e código-fonte, 
+esses modelos podem oferecer contribuições para tarefas que exigem interpretação contextual. Entretanto, os resultados disponíveis ainda indicam um cenário heterogêneo: 
+enquanto LLMs apresentaram desempenho promissor em inferência de tipos, métodos tradicionais continuaram superiores em tarefas como análise de grafo de chamadas, 
+especialmente em termos de eficiência e precisão operacional \cite{VenkateshEtAll}. Portanto, ainda não está claro como essas capacidades devem ser relacionadas aos 
+modelos e ferramentas tradicionais de qualidade de software.
+
+Além disso, permanece em aberto a compreensão sobre como padrões de prompt influenciam atributos de qualidade do código.\citeonline{DellaPortaEtAll} investigaram a relação 
+entre padrões de prompt e qualidade do código gerado por ChatGPT, considerando manutenibilidade, segurança e confiabilidade, mas indicaram que essa relação ainda demanda investigação. 
+De forma complementar, \citeonline{KhojahEtAll} observaram que técnicas de prompt podem afetar correção e qualidade, mas que combinações de técnicas não necessariamente produzem melhores resultados. 
+Assim, o problema deste trabalho concentra-se na seguinte lacuna: ferramentas tradicionais de qualidade de software, baseadas em análise estática, apresentam limitações na avaliação de aspectos semânticos 
+e contextuais do código; com o surgimento dos LLMs, ainda não está claro como essas novas capacidades se relacionam com modelos de qualidade existentes nem como padrões de prompt influenciam atributos de qualidade, 
+como manutenibilidade, em específico \cite{DellaPortaEtAll, KhojahEtAll}..
+
 \section{Questão de Pesquisa}
 
 Para definir a questão de pesquisa que norteia este trabalho, foi utilizada a abordagem Goal Question Metric (GQM). 
