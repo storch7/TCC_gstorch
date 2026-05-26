@@ -14,20 +14,44 @@ coleta e análise dos dados, de modo a garantir coerência científica e alinham
 
 \section{Questão de Pesquisa}
 
-
 \begin{citacao}
     Para definir a questão de pesquisa que norteia este Trabalho de Conclusão de Curso, foi utilizada a abordagem Goal Question Metric (GQM). 
-    A abordagem Goal Question Metric (GQM) é um método utilizado para orientar medições em organizações e projetos; funciona a partir da definição de
+    A abordagem \acs{GQM} é um método utilizado para orientar medições em organizações e projetos; funciona a partir da definição de
     objetivos (Goals), da criação de perguntas (Questions) que ajudam a verificar se esses objetivos estão sendo alcançados,
-    e da definição de métricas (Metrics) para coletar e interpretar os dados necessários. Dessa forma, o GQM permite que as medições 
+    e da definição de métricas (Metrics) para coletar e interpretar os dados necessários. Dessa forma, o \acs{GQM} permite que as medições 
     realizadas estejam diretamente relacionadas aos objetivos definidos. 
 \cite{BasiliEtAll}.
 \end{citacao}
 
-Seguindo essa estrutura e a adaptando para o contexto desta pesquisa, definiram-se as seguintes características: propósito, foco, objeto de
+Seguindo essa estrutura proposta por \cite{BasiliEtAll}, o método foi adaptado para o contexto desta pesquisa acadêmica e definiu-se as seguintes 
+características para orientação da questão de pesquisa: propósito, foco, objeto de estudo e ponto de vista (vide Tabela~\ref{tab:gqm}).
 
-estudo e ponto de vista (vide Tabela 1). Com isso, foi formulada a questão de pesquisa
-norteadora deste trabalho:
+\begin{table}[htbp]
+    \centering
+    \caption{Definição do GQM para a Questão de Pesquisa}
+    \label{tab:gqm}
+    \begin{tabular}{p{3.5cm}p{11.5cm}}
+        \toprule
+        \textbf{Característica} & \textbf{Valor} \\
+        \midrule
+        \textbf{Analisar} & \textcolor{red}{a relação entre LLMs e modelos de qualidade de referência} \\
+        \midrule
+        \textbf{Propósito} & Controlar a influência de diferentes padrões de engenharia de prompt* \\
+        \midrule
+        \textbf{Foco} & Comparação dos diferentes modelos de qualidade e dos prompts em relação à característica de manutenibilidade \\
+        \midrule
+        \textbf{Objeto de Estudo} & Produto de software \\
+        \midrule
+        \textbf{Ponto de Vista} & Pesquisador \\
+        \midrule
+        \textbf{Contexto} & Projetos open source disponíveis em repositórios públicos de código-fonte, no domínio de aplicações web \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Com isso, foi formulada a questão de pesquisa que norteia este trabalho: \textit{Como diferentes padrões de engenharia de prompt influenciam a aferição 
+do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte 
+aberto para aplicações web?}
 
 \section{Objetivos}
 
