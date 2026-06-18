@@ -2,6 +2,7 @@
 
 \section{Planejamento e Protocolo}
 
+
 \section{Estruturação da String de Busca}
 
 Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular 
@@ -84,7 +85,109 @@ AND
 
 \section{Seleção Final dos Artigos}
 
+A execução da string de busca foi realizada em 05 de maio de 2026, na base de dados Scopus \cite{elsevier2024}, 
+resultando inicialmente na identificação de 417 estudos. Em seguida, foi conduzida uma etapa de triagem, na qual 
+foram analisados os títulos e resumos dos trabalhos recuperados, com o objetivo de verificar sua aderência ao tema investigado e 
+sua conformidade com os critérios de inclusão e exclusão previamente definidos no planejamento da pesquisa.
+
+Após essa triagem inicial, foram selecionados 35 artigos para leitura em maior profundidade. No entanto, dois desses estudos
+foram excluídos por indisponibilidade de acesso ao texto completo, impossibilitando sua análise integral. Dessa forma, a seleção resultante 
+da execução da string de busca foi composta por 33 artigos.
+
+Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, 
+os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o 
+conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir 
+da execução da string de busca. A representação visual desse processo de seleção é apresentada na Figura~X.
+
+/textbf{GERAR FIGURA PARA ILUSTRAÇÃO}
+
 \section{Extração de Dados}
+
+Após a definição dos estudos selecionados para leitura integral, foi elaborado um formulário de extração de dados 
+com o objetivo de sistematizar as informações relevantes de cada artigo analisado. Essa etapa foi conduzida com base nas diretrizes 
+propostas por \citeonline{kitchenhamCharters2007}, segundo as quais a extração de dados deve ser previamente planejada e estruturada 
+de forma a registrar as informações necessárias para responder às questões de pesquisa da revisão.
+
+Em revisões sistemáticas na área de Engenharia de Software, o formulário de extração tem papel central na organização das evidências, 
+pois permite padronizar os dados coletados, reduzir a subjetividade da análise e favorecer a rastreabilidade das informações 
+extraídas dos estudos selecionados. Além disso, a definição prévia dos campos de extração contribui para que os dados coletados 
+estejam alinhados ao protocolo da pesquisa, às questões de investigação e à estratégia de síntese dos resultados.
+
+Neste trabalho, o formulário foi organizado em cinco grupos principais: dados demográficos do estudo; LLM, código-fonte e contexto do projeto; 
+modelo de qualidade e manutenibilidade; engenharia de prompt; e alinhamento, limitações e resultados. 
+Essa organização buscou contemplar tanto informações descritivas sobre os artigos quanto dados diretamente relacionados 
+aos objetivos desta pesquisa, especialmente no que se refere à avaliação da manutenibilidade, ao uso de Modelos de Linguagem de Grande Escala 
+e à aplicação de padrões de engenharia de prompt.
+
+O primeiro grupo, denominado dados demográficos, reúne informações básicas de identificação e caracterização dos estudos analisados. 
+Foram coletados o título completo, o resumo, os autores, o ano de publicação, o veículo de publicação, o tipo de estudo realizado e o objetivo principal. 
+Esses dados permitem caracterizar o conjunto de publicações selecionadas e compreender o perfil geral da produção científica considerada na revisão.
+
+O segundo grupo contempla informações relacionadas aos Modelos de Linguagem de Grande Escala, ao código-fonte e ao contexto dos projetos avaliados.
+Nesse eixo, foram identificados os LLMs ou modelos generativos utilizados nos estudos, o contexto em que a análise de código-fonte foi conduzida, 
+os projetos avaliados, a natureza aberta ou não do código-fonte e as linguagens de programação consideradas. Essas questões são relevantes para 
+verificar a aderência dos estudos ao escopo desta pesquisa, voltado à análise de produtos de software, especialmente em projetos de código aberto e aplicações web.
+
+O terceiro grupo concentra-se nos modelos de qualidade de software e na característica de manutenibilidade. Foram extraídas informações sobre o modelo de qualidade 
+utilizado como referência, a definição de manutenibilidade adotada ou apresentada, as características ou subcaracterísticas avaliadas, as métricas, medidas ou indicadores 
+empregados e as ferramentas utilizadas. Esse conjunto de dados permite compreender como a literatura operacionaliza a manutenibilidade e quais critérios são empregados para 
+avaliá-la no contexto de estudos envolvendo LLMs e análise de código-fonte.
+
+O quarto grupo aborda especificamente a engenharia de prompt. Foram registrados os padrões, estratégias ou variações de prompt utilizados nos estudos, bem como suas descrições 
+e eventuais comparações entre diferentes formulações. Também foi observado o impacto relatado dessas estratégias nos resultados obtidos, especialmente quanto à avaliação de qualidade
+e manutenibilidade do código-fonte.
+
+Por fim, o quinto grupo reúne informações relacionadas ao alinhamento, às limitações e aos resultados dos estudos analisados. Foram registradas as limitações apontadas pelos próprios 
+autores e os principais resultados de cada estudo. Esses dados apoiam a síntese das evidências e permitem identificar convergências, lacunas e oportunidades de pesquisa relacionadas 
+ao uso de LLMs na avaliação da manutenibilidade.
+
+A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário de extração de dados utilizado nesta pesquisa.
+
+\begin{table}[h]
+\centering
+\caption{Formulário de extração de dados}
+\label{tab:formulario_extracao}
+\begin{tabular}{|p{3.5cm}|p{11cm}|}
+\hline
+\textbf{Grupo} & \textbf{Questões de extração} \\
+\hline
+Dados demográficos do estudo &
+Q01 -- Qual é o título completo do estudo? \newline
+Q02 -- Qual é o resumo do estudo? \newline
+Q03 -- Quais são os autores do estudo? \newline
+Q04 -- Qual é o ano de publicação do estudo? \newline
+Q05 -- Qual é o veículo de publicação? \newline
+Q06 -- Qual é o tipo de estudo realizado? \newline
+Q07 -- Qual é o objetivo principal do estudo? \\
+\hline
+LLM, código-fonte e contexto do projeto &
+Q08 -- Qual LLM ou modelo generativo foi utilizado no estudo? \newline
+Q09 -- Em qual contexto foi realizada a análise do código-fonte? \newline
+Q10 -- Quais projetos de código-fonte foram avaliados? Trata-se de software livre? \newline
+Q11 -- Quais linguagens de programação foram avaliadas no estudo? \\
+\hline
+Modelo de qualidade e manutenibilidade &
+Q12 -- Qual modelo de qualidade de software foi utilizado como referência no estudo? \newline
+Q13 -- Qual definição de manutenibilidade foi adotada ou apresentada pelo estudo? \newline
+Q14 -- Quais características ou subcaracterísticas de manutenibilidade foram avaliadas? \newline
+Q15 -- Quais métricas, medidas ou indicadores de manutenibilidade foram utilizados? \newline
+Q16 -- Quais ferramentas foram utilizadas? \\
+\hline
+Engenharia de prompt &
+Q17 -- Qual padrão ou estratégia de prompt foi utilizado no estudo e qual a sua descrição? \newline
+Q18 -- Houve comparação entre diferentes padrões ou variações de prompt? Qual foi o impacto do padrão de prompt na avaliação? \\
+\hline
+Alinhamento, limitações e resultados &
+Q19 -- Quais limitações foram apontadas no estudo? \newline
+Q20 -- Quais são os principais resultados do estudo? \\
+\hline
+\end{tabular}
+\end{table}
+
+A partir desse formulário, os dados extraídos foram organizados de maneira padronizada, possibilitando a comparação entre os estudos e
+a posterior síntese dos resultados. Essa estrutura também permitiu relacionar cada artigo às questões de pesquisa, especialmente quanto aos modelos de qualidade 
+utilizados, às métricas de manutenibilidade identificadas, aos padrões de prompt empregados e às limitações observadas na literatura analisada.
 
 \section{Síntese dos Resultados}
 
+\textit{COMPLETAR}
