@@ -4,7 +4,83 @@
 
 \section{Estruturação da String de Busca}
 
-\section{Busca e Triagem dos artigos}
+Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular 
+uma questão de pesquisa clara e focada, especialmente em revisões sistemáticas. 
+
+O acrônimo representa quatro componentes principais de uma pergunta 
+bem construída: Patient, Intervention, Comparison e Outcome; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente    
+proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. 
+
+A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
+
+\begin{figure}[H]
+    \centering
+    \caption{Protocolo PICO adaptado para Engenharia de Software}
+    \includegraphics[height=9cm]{figuras/picose_software.png}
+    \label{fig:picose_software}
+    \fonte{Adaptado de \citeonline{paiEtAll}.}
+\end{figure}
+
+Para adaptar a estrutura PICO ao escopo desta pesquisa, foi necessário reinterpretar seus elementos a partir 
+da realidade da Engenharia de Software. O componente originalmente associado à população ou aos pacientes foi 
+relacionado ao domínio de aplicação investigado. A intervenção, que no contexto médico 
+corresponde ao tratamento ou procedimento analisado, foi representada por termos vinculados ao fenômeno de interesse deste estudo e o resultado foi associado aos tipos de evidência esperados. A partir dessa consolidação, foi estruturado o conjunto final de termos empregado na pesquisa, conforme apresentado na Tabela \ref{tab:termos_busca}.
+
+\begin{table}[h]
+\centering
+\caption{Termos de busca}
+\label{tab:termos_busca}
+\begin{tabular}{|p{3cm}|p{4cm}|p{8cm}|}
+\hline
+\textbf{Camada} & \textbf{Palavra-chave} & \textbf{Sinônimos} \\
+\hline
+População & \textit{software engineering} &
+`software engineering'', `web application'', `web development'' \\
+        \hline
+        Intervenção & \textit{prompt engineering} & 
+        `prompt engineering'', `LLM prompt'', `prompt pattern'', `zero-shot prompting'', `few-shot prompting'', `chain-of-thought prompting'', `least-to-most prompting'' \\
+\hline
+Resultado & \textit{software quality} &
+`maintainability'', `software maintainability'', `maintainability index'', `modularity'', `reusability'', `analysability'', `modifiability'', `testability'', `cyclomatic complexity'', `coupling'', `cohesion'', `code smell'' \\
+\hline
+\end{tabular}
+\end{table}
+
+A definição dos termos de busca foi realizada a partir da combinação entre a string utilizada no estudo de controle e os principais 
+vocábulos identificados por esse mesmo estudo como recorrentes na literatura para representar a experimentação contínua e temas correlatos. 
+Na construção da string, os grupos conceituais derivados do protocolo foram conectados por meio do operador lógico \textit{AND}, 
+de modo a garantir a recuperação de estudos que contemplassem simultaneamente as dimensões definidas. 
+Dentro de cada grupo, utilizou-se o operador \textit{OR} para contemplar variações terminológicas, palavras-chave equivalentes e sinônimos. 
+Além disso, foram incorporados recursos próprios da base de dados consultada, como operadores de truncamento, com o objetivo de ampliar 
+a abrangência da busca e recuperar diferentes formas de escrita associadas aos mesmos termos.
+
+A partir disto, foi construída a string de busca final:
+
+\begin{quote}
+\small
+\ttfamily
+(
+`software engineering'' OR `web application*'' OR ``web development''
+)
+
+AND
+
+(
+`prompt engineering'' OR `LLM prompt*'' OR `prompt pattern*'' OR 
+`zero-shot prompting'' OR `few-shot prompting'' OR 
+`chain-of-thought prompting'' OR ``least-to-most prompting''
+)
+
+AND
+
+(
+`maintainability'' OR `software maintainability'' OR
+`maintainability index'' OR `modularity'' OR `reusability'' OR 
+`analysability'' OR `modifiability'' OR `testability'' OR
+`cyclomatic complexity'' OR `coupling'' OR `cohesion'' OR 
+`code smell*''
+)
+\end{quote}
 
 \section{Seleção Final dos Artigos}
 
