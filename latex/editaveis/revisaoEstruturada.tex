@@ -1,7 +1,48 @@
 \chapter[Revisão Estruturada da Literatura]{Revisão Estruturada da Literatura}
 
 \section{Planejamento e Protocolo}
+Inicialmente, foram realizadas leituras exploratórias de estudos relacionados à qualidade de software, 
+análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa teve como objetivo 
+contextualizar o problema de pesquisa, compreender os principais conceitos associados ao tema e apoiar a delimitação 
+da problemática investigada. Os estudos analisados nessa fase inicial também contribuíram para a formulação da questão 
+principal de pesquisa e para a identificação dos termos utilizados posteriormente na construção da string de busca.
 
+Após essa etapa exploratória, procedeu-se à formalização do protocolo de pesquisa. Embora este trabalho não se caracterize
+ como uma revisão sistemática da literatura em sentido estrito, optou-se por adotar uma estrutura metodológica inspirada nas 
+ diretrizes propostas por \citeonline{kitchenhamCharters2007} para revisões sistemáticas em Engenharia de Software. Essa escolha 
+ teve como finalidade conferir maior rigor, organização e transparência ao processo de busca, seleção e análise dos estudos, 
+ permitindo que as etapas adotadas fossem documentadas de forma clara e passível de verificação.
+
+As diretrizes de \citeonline{kitchenhamCharters2007} indicam que uma revisão estruturada deve ser orientada por questões de pesquisa 
+previamente definidas, critérios explícitos de inclusão e exclusão, estratégia de busca documentada, processo de seleção dos estudos e 
+definição dos dados a serem extraídos. Dessa forma, o protocolo deste trabalho foi elaborado com o objetivo de orientar a identificação 
+de estudos relacionados ao uso de LLMs e padrões de engenharia de prompt na avaliação de atributos de qualidade de software, com foco 
+específico na característica de manutenibilidade.
+
+A construção do protocolo partiu da questão principal de pesquisa definida neste trabalho: \textit{Como diferentes padrões de engenharia de prompt 
+influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos 
+de código-fonte aberto para aplicações web?} A partir dessa questão, foram delimitados o escopo da busca, os termos utilizados na string, os critérios de 
+elegibilidade e os dados a serem coletados dos estudos selecionados.
+
+Para apoiar a organização da estratégia de busca, foi utilizada uma adaptação da estrutura PICO, originalmente empregada na formulação de questões 
+de pesquisa em revisões sistemáticas. No contexto deste trabalho, a camada de população foi relacionada ao domínio da Engenharia de Software e ao 
+desenvolvimento de aplicações web. A camada de intervenção foi associada à engenharia de prompt e aos padrões de prompt aplicados a LLMs. A camada de 
+resultado foi vinculada à qualidade de software, especialmente à manutenibilidade e às métricas relacionadas a essa característica. A camada de comparação 
+não foi utilizada, pois o objetivo da busca não foi recuperar estudos que comparassem uma intervenção específica contra outra, mas identificar evidências sobre 
+a aplicação de diferentes estratégias de prompt e sua relação com a avaliação da manutenibilidade.
+
+A busca foi planejada para ser executada na base de dados Scopus, por se tratar de uma base ampla de resumos e citações de literatura científica. A escolha dessa 
+base também se justifica pela aderência ao escopo deste trabalho, que demanda a recuperação de publicações nas áreas de Engenharia de Software, qualidade de software, 
+inteligência artificial e modelos generativos. A string de busca foi construída a partir da combinação de três grupos conceituais: domínio da pesquisa, engenharia de prompt e 
+manutenibilidade. Os grupos foram conectados pelo operador lógico \textit{AND}, enquanto os termos internos de cada grupo foram conectados pelo operador \textit{OR}. 
+Também foram utilizados recursos de truncamento, como o caractere ``*'', para ampliar a recuperação de variações terminológicas.
+
+Além da definição da string, foram estabelecidos critérios de inclusão e exclusão para orientar a seleção dos estudos. Os critérios de inclusão contemplaram estudos 
+relacionados ao uso de LLMs em tarefas de geração, análise ou avaliação de código-fonte; estudos que abordassem atributos de qualidade de software, especialmente manutenibilidade; publicações em português ou inglês; trabalhos publicados a partir de 2022; e estudos com texto completo disponível. Os critérios de exclusão, por sua vez, contemplaram estudos sem relação direta com manutenibilidade, trabalhos que apenas mencionassem LLMs ou qualidade de software de forma superficial, estudos voltados exclusivamente a aplicações gerais de processamento de linguagem natural sem avaliação de código-fonte, publicações duplicadas e estudos sem documentação suficiente para análise.
+
+O protocolo também definiu os dados a serem extraídos dos estudos selecionados. Para isso, foi elaborado um formulário de extração contemplando informações demográficas, 
+características dos LLMs utilizados, contexto dos projetos avaliados, modelos de qualidade adotados, definições e métricas de manutenibilidade, estratégias de prompt empregadas, resultados 
+encontrados e limitações apontadas pelos autores. Essa estrutura foi planejada para garantir que os dados coletados estivessem alinhados às questões de pesquisa e permitissem a posterior síntese das evidências.
 
 \section{Estruturação da String de Busca}
 
@@ -27,7 +68,7 @@ da realidade da Engenharia de Software. O componente originalmente associado à 
 relacionado ao domínio de aplicação investigado. A intervenção, que no contexto médico 
 corresponde ao tratamento ou procedimento analisado, foi representada por termos vinculados ao fenômeno de interesse deste estudo e o resultado foi associado aos tipos de evidência esperados. A partir dessa consolidação, foi estruturado o conjunto final de termos empregado na pesquisa, conforme apresentado na Tabela \ref{tab:termos_busca}.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Termos de busca}
 \label{tab:termos_busca}
@@ -99,7 +140,7 @@ os quais contribuíram para a delimitação da problemática e para a formulaç�
 conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir 
 da execução da string de busca. A representação visual desse processo de seleção é apresentada na Figura~X.
 
-/textbf{GERAR FIGURA PARA ILUSTRAÇÃO}
+\textbf{GERAR FIGURA PARA ILUSTRAÇÃO}
 
 \section{Extração de Dados}
 
@@ -143,7 +184,7 @@ ao uso de LLMs na avaliação da manutenibilidade.
 
 A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário de extração de dados utilizado nesta pesquisa.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Formulário de extração de dados}
 \label{tab:formulario_extracao}
