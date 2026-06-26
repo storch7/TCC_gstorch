@@ -130,7 +130,7 @@ AND
 )
 \end{quote}
 
-\section{Seleção Final dos Artigos}
+\section{Seleção dos Artigos}
 
 A execução da string de busca foi realizada em 05 de maio de 2026, na base de dados Scopus \cite{elsevier2024}, 
 resultando inicialmente na identificação de 417 estudos. Em seguida, foi conduzida uma etapa de triagem, na qual 
@@ -144,7 +144,77 @@ da execução da string de busca foi composta por 33 artigos.
 Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, 
 os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o 
 conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir 
-da execução da string de busca. A representação visual desse processo de seleção é apresentada na Figura~X.
+da execução da string de busca. 
+
+Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
+
+\begin{longtable}{|p{3.5cm}|p{11cm}|}
+\caption{Protocolo de Busca} \label{tab:protocolo_busca} \\
+\hline
+\textbf{Componente} & \textbf{Detalhamento} \\ \hline
+\endfirsthead
+
+\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\ \hline
+\textbf{Componente} & \textbf{Detalhamento} \\ \hline
+\endhead
+
+\hline \multicolumn{2}{r}{{Continua na próxima página}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Questões de pesquisa & RQ1 -- Quais são os modelos de qualidade de referência que definem a operacionalização da característica de manutenibilidade em produtos de software? \\ \cline{2-2}
+ & RQ2 -- Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software? \\ \cline{2-2}
+ & RQ3 -- Quais atributos de manutenibilidade, presentes em modelos de referência de qualidade de software, são mais relevantes para a aferição de qualidade gerados por LLMs? \\ \cline{2-2}
+ & RQ4 -- Como modelos de referência de qualidade de produto de software podem ser aplicados na avaliação de código-fonte feito por LLMs? \\ \cline{2-2}
+ & RQ5 -- Quais são os principais padrões de engenharia de prompt aplicados à análise de código-fonte com respeito a manutenibilidade? \\ \cline{2-2}
+ & RQ6 -- Quais atributos de manutenibilidade são mais impactados pela variação dos padrões de prompt utilizados? \\ \cline{2-2}
+ & RQ7 -- Como a complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade, com foco em manutenibilidade, de código-fonte em projetos de código aberto para aplicações web? \\ \cline{2-2}
+ & RQ8 -- Qual padrão de prompt produz maior alinhamento com os modelos de qualidade de referência para a característica de manutenibilidade? \\ \cline{2-2}
+ & RQ9 -- Existem diferenças significativas entre os resultados de manutenibilidade obtidos por diferentes padrões de prompt ao utilizar métricas tradicionais de qualidade? \\ \cline{2-2}
+ & RQ10 -- Quais limitações dos modelos tradicionais de qualidade de software se tornam evidentes na avaliação de qualidade, com foco no atributo de manutenibilidade, feita por LLMs? \\ \cline{2-2}
+ & RQ11 -- Quais são os produtos de software de código-fonte aberto avaliados nos estudos? \\ \hline
+
+String de busca & Ver Tabela \ref{tab:termos_busca}. \\ \hline
+
+Critérios de Inclusão & CI1 -- Estudos que abordem o uso de LLMs ou modelos generativos aplicados à geração ou análise de código-fonte. \\ \cline{2-2}
+ & CI2 -- Estudos que avaliem atributos relacionados à qualidade de software. \\ \cline{2-2}
+ & CI3 -- Estudos publicados em língua inglesa ou portuguesa. \\ \cline{2-2}
+ & CI4 -- Estudos publicados a partir de 2022. \\ \cline{2-2}
+ & CI5 -- Estudos disponíveis integralmente para leitura e análise (acesso ao texto completo). \\ \cline{2-2}
+ & CI6 -- Estudos publicados em língua inglesa ou portuguesa. \\ \cline{2-2}
+ & CI7 -- Trata-se de domínio de aplicação web? \\ \hline
+
+Critérios de Exclusão & CE1 -- Estudos sem relação com atributos de qualidade associados à manutenibilidade de software. \\ \cline{2-2}
+ & CE2 -- Estudos que mencionem atributos de qualidade como questões motivadoras, sem avaliação aprofundada do tema. \\ \cline{2-2}
+ & CE3 -- Estudos focados exclusivamente em Processamento de linguagem geral, geração textual, sumarização, tradução automática, chatbots ou conteúdo não relacionado a avaliação de atributos de qualidade de código-fonte. \\ \cline{2-2}
+ & CE4 -- Artigos duplicados identificados entre as bases de dados pesquisadas (manter apenas a versão mais completa ou recente). \\ \cline{2-2}
+ & CE5 -- Estudos que utilizem exclusivamente LLMs proprietários sem qualquer documentação ou acesso público aos parâmetros de avaliação. \\ \hline
+
+Formulário de extração de dados & Q01 -- Qual é o título completo do estudo? \\ \cline{2-2}
+ & Q02 -- Qual o Resumo? \\ \cline{2-2}
+ & Q03 -- Quais são o(s) autor(es)? \\ \cline{2-2}
+ & Q04 -- Qual o ano de publicação do estudo? \\ \cline{2-2}
+ & Q05 -- Qual o veículo de publicação? \\ \cline{2-2}
+ & Q06 -- Qual é o tipo de estudo realizado? \\ \cline{2-2}
+ & Q07 -- Qual é o objetivo principal do estudo? \\ \cline{2-2}
+ & Q08 -- Qual LLM ou modelo generativo foi utilizado no estudo? \\ \cline{2-2}
+ & Q09 -- Qual o contexto de análise foi realizada com o código-fonte? \\ \cline{2-2}
+ & Q10 -- Qual(is) projeto(s) de código-fonte foram avaliados? Trata-se de software livre? \\ \cline{2-2}
+ & Q11 -- Qual(is) linguagem(ns) de programação foram avaliadas no estudo? \\ \cline{2-2}
+ & Q12 -- Qual modelo de qualidade de software foi utilizado como referência no estudo? \\ \cline{2-2}
+ & Q13 -- Qual definição de manutenibilidade foi adotada ou apresentada pelo estudo? \\ \cline{2-2}
+ & Q14 -- Quais características ou subcaracterísticas de manutenibilidade foram avaliadas? \\ \cline{2-2}
+ & Q15 -- Quais métricas/medidas de manutenibilidade foram utilizadas? \\ \cline{2-2}
+ & Q16 -- Quais ferramentas foram utilizadas? \\ \cline{2-2}
+ & Q17 -- Qual padrão ou estratégia de prompt foi utilizado no estudo e qual a sua descrição? \\ \cline{2-2}
+ & Q18 -- Houve comparação entre diferentes padrões ou variações de prompt e qual foi o impacto do padrão de prompt na avaliação? \\ \cline{2-2}
+ & Q19 -- Quais limitações foram apontadas no estudo? \\ \cline{2-2}
+ & Q20 -- Quais são os principais resultados do estudo? \\ \hline
+\end{longtable}
+
+A representação visual do processo de realização do protocolo de busca também pode ser encontrada na Figura~X.
 
 \textbf{GERAR FIGURA PARA ILUSTRAÇÃO}
 
@@ -190,46 +260,47 @@ ao uso de LLMs na avaliação da manutenibilidade.
 
 A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário de extração de dados utilizado nesta pesquisa.
 
-\begin{table}[H]
-\centering
-\caption{Formulário de extração de dados}
-\label{tab:formulario_extracao}
-\begin{tabular}{|p{3.5cm}|p{11cm}|}
+\begin{longtable}{|p{3.5cm}|p{11cm}|}
+\caption{Formulário de extração de dados} \label{tab:formulario_extracao} \\
 \hline
-\textbf{Grupo} & \textbf{Questões de extração} \\
+\textbf{Grupo} & \textbf{Questões de extração} \\ \hline
+\endfirsthead
+
+\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\ \hline
+\textbf{Grupo} & \textbf{Questões de extração} \\ \hline
+\endhead
+
+\hline \multicolumn{2}{r}{{Continua na próxima página}} \\
+\endfoot
+
 \hline
-Dados demográficos do estudo &
-Q01 -- Qual é o título completo do estudo? \newline
-Q02 -- Qual é o resumo do estudo? \newline
-Q03 -- Quais são os autores do estudo? \newline
-Q04 -- Qual é o ano de publicação do estudo? \newline
-Q05 -- Qual é o veículo de publicação? \newline
-Q06 -- Qual é o tipo de estudo realizado? \newline
-Q07 -- Qual é o objetivo principal do estudo? \\
-\hline
-LLM, código-fonte e contexto do projeto &
-Q08 -- Qual LLM ou modelo generativo foi utilizado no estudo? \newline
-Q09 -- Em qual contexto foi realizada a análise do código-fonte? \newline
-Q10 -- Quais projetos de código-fonte foram avaliados? Trata-se de software livre? \newline
-Q11 -- Quais linguagens de programação foram avaliadas no estudo? \\
-\hline
-Modelo de qualidade e manutenibilidade &
-Q12 -- Qual modelo de qualidade de software foi utilizado como referência no estudo? \newline
-Q13 -- Qual definição de manutenibilidade foi adotada ou apresentada pelo estudo? \newline
-Q14 -- Quais características ou subcaracterísticas de manutenibilidade foram avaliadas? \newline
-Q15 -- Quais métricas, medidas ou indicadores de manutenibilidade foram utilizados? \newline
-Q16 -- Quais ferramentas foram utilizadas? \\
-\hline
-Engenharia de prompt &
-Q17 -- Qual padrão ou estratégia de prompt foi utilizado no estudo e qual a sua descrição? \newline
-Q18 -- Houve comparação entre diferentes padrões ou variações de prompt? Qual foi o impacto do padrão de prompt na avaliação? \\
-\hline
-Alinhamento, limitações e resultados &
-Q19 -- Quais limitações foram apontadas no estudo? \newline
-Q20 -- Quais são os principais resultados do estudo? \\
-\hline
-\end{tabular}
-\end{table}
+\endlastfoot
+
+Dados demográficos do estudo & Q01 -- Qual é o título completo do estudo? \\ \cline{2-2}
+ & Q02 -- Qual é o resumo do estudo? \\ \cline{2-2}
+ & Q03 -- Quais são os autores do estudo? \\ \cline{2-2}
+ & Q04 -- Qual é o ano de publicação do estudo? \\ \cline{2-2}
+ & Q05 -- Qual é o veículo de publicação? \\ \cline{2-2}
+ & Q06 -- Qual é o tipo de estudo realizado? \\ \cline{2-2}
+ & Q07 -- Qual é o objetivo principal do estudo? \\ \hline
+
+LLM, código-fonte e contexto do projeto & Q08 -- Qual LLM ou modelo generativo foi utilizado no estudo? \\ \cline{2-2}
+ & Q09 -- Em qual contexto foi realizada a análise do código-fonte? \\ \cline{2-2}
+ & Q10 -- Quais projetos de código-fonte foram avaliados? Trata-se de software livre? \\ \cline{2-2}
+ & Q11 -- Quais linguagens de programação foram avaliadas no estudo? \\ \hline
+
+Modelo de qualidade e manutenibilidade & Q12 -- Qual modelo de qualidade de software foi utilizado como referência no estudo? \\ \cline{2-2}
+ & Q13 -- Qual definição de manutenibilidade foi adotada ou apresentada pelo estudo? \\ \cline{2-2}
+ & Q14 -- Quais características ou subcaracterísticas de manutenibilidade foram avaliadas? \\ \cline{2-2}
+ & Q15 -- Quais métricas, medidas ou indicadores de manutenibilidade foram utilizados? \\ \cline{2-2}
+ & Q16 -- Quais ferramentas foram utilizadas? \\ \hline
+
+Engenharia de prompt & Q17 -- Qual padrão ou estratégia de prompt foi utilizado no estudo e qual a sua descrição? \\ \cline{2-2}
+ & Q18 -- Houve comparação entre diferentes padrões ou variações de prompt? Qual foi o impacto do padrão de prompt na avaliação? \\ \hline
+
+Alinhamento, limitações e resultados & Q19 -- Quais limitações foram apontadas no estudo? \\ \cline{2-2}
+ & Q20 -- Quais são os principais resultados do estudo? \\ \hline
+\end{longtable}
 
 A partir desse formulário, os dados extraídos foram organizados de maneira padronizada, possibilitando a comparação entre os estudos e
 a posterior síntese dos resultados. Essa estrutura também permitiu relacionar cada artigo às questões de pesquisa, especialmente quanto aos modelos de qualidade 
@@ -237,4 +308,98 @@ utilizados, às métricas de manutenibilidade identificadas, aos padrões de pro
 
 \section{Síntese dos Resultados}
 
-\textit{COMPLETAR}
+\subsection{Quais são os modelos de qualidade de referência que definem a operacionalização da característica de manutenibilidade em produtos de software?}
+
+\subsection{Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software?}
+
+\subsection{Quais atributos de manutenibilidade, presentes em modelos de referência de qualidade de software, são mais relevantes para a aferição de qualidade gerados por LLMs?}
+
+Os atributos mais relevantes para aferir manutenibilidade em código gerado por LLMs são legibilidade, compreensibilidade, modularidade, testabilidade, complexidade, 
+ausência de code smells, documentação adequada e facilidade de modificação. 
+
+\citeonline[p.~1, tradução nossa]{NunesEtAll}, por exemplo, sintetizam a importância da manutenibilidade ao afirmar que “A manutenibilidade do código é importante porque afeta a facilidade com que o código pode ser compreendido, alterado e aprimorado.”. 
+Essa formulação se aproxima diretamente dos atributos tradicionalmente associados à manutenibilidade, como analisabilidade, modificabilidade e compreensibilidade.
+
+\citeonline[p.~1, tradução nossa]{SunEtAll} também mostram que, na percepção de profissionais, a manutenibilidade se conecta fortemente à legibilidade, ao afirmar que “Os profissionais priorizam a manutenibilidade e a legibilidade, alertando que o código gerado pode acelerar o acúmulo de dívida técnica.”. 
+Esse trecho é relevante porque indica que, no contexto de código gerado por LLMs, a manutenibilidade 
+não é tratada apenas como uma métrica técnica, mas como uma preocupação prática ligada à dívida técnica e à capacidade futura de evolução do software.
+
+\subsection{Como modelos de referência de qualidade de produto de software podem ser aplicados na avaliação de código-fonte feito por LLMs?}
+
+Os modelos de referência podem ser aplicados por meio do mapeamento entre características de qualidade e métricas observáveis em código-fonte, geralmente combinando normas, ferramentas de análise estática e validação empírica.
+
+\citeonline[p.~1, tradução nossa]{KrebsEtAll} mostram essa aplicação ao organizar métricas de ferramentas estáticas nas categorias da ISO/IEC 5055, afirmando que “As métricas foram organizadas nas quatro categorias da norma ISO 5055, e pontuações compostas foram calculadas para cada categoria.”. 
+Dessa forma, o modelo de qualidade funciona como uma estrutura classificatória para interpretar métricas heterogêneas.
+
+\citeonline[p.~2, tradução nossa]{SunEtAll} adotam estratégia semelhante com a ISO/IEC 25010, ao afirmar que utilizam esse modelo “como uma referência comum para estruturar e relacionar a investigação de NFQCs [características de qualidade não funcionais]”. 
+Os autores explicam que o estudo conecta definições conceituais, expectativas de profissionais e observações empíricas, oferecendo uma perspectiva integrada sobre características não funcionais do código gerado.
+
+Assim, a aplicação de modelos de qualidade em código produzido por LLMs pode ser feita por um fluxo que parte do modelo de referência, seleciona atributos relevantes, associa métricas e ferramentas, e depois interpreta os resultados em relação à qualidade esperada. 
+
+\subsection{Quais são os principais padrões de engenharia de prompt aplicados à análise de código-fonte com respeito a menutenibilidade?}
+
+Os principais padrões de engenharia de prompt identificados nos estudos são Zero-shot, One-shot, Few-shot, Chain-of-Thought, Tree-of-Thought, Guided Tree-of-Thought, Context-Specific, Output Constraints, Personas, prompts genéricos, prompts detalhados e prompts baseados em 
+feedback de ferramentas estáticas.
+
+\citeonline[p.~18, tradução nossa]{MartinezEtAll} sintetizam esse conjunto ao afirmar que as técnicas observadas incluem ``Zero-Shot, One-Shot, Few-Shot, Chain-of-Thought, Context-Specific, Output Constraints e Ranking''. Esse trecho sustenta que a literatura sobre refatoração e qualidade com LLMs já trabalha com uma variedade de padrões, muitas vezes combinados.
+
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} analisam especificamente os padrões Zero-shot, Few-shot, Chain-of-Thought e Personas, afirmando que ``quatro padrões de prompt foram analisados: Zero-shot, Few-shot, Chain-of-Thought e Personas''. Já \citeonline[p.~1, tradução nossa]{OuedraogoEtAll} ampliam esse conjunto no contexto de geração de testes, avaliando ``Aprendizado Zero-Shot (ZSL), Aprendizado Few-Shot (FSL), Chain-of-Thought (CoT), Tree-of-Thought (ToT) e Guided Tree-of-Thought (GToT)''.
+
+Os artigos apresentam uma variedade de padrões de prompt avaliados e comparados entre si. O que se observa é que não há um padrão de prompt específico utilizado para operacionalizar a característica de manutenibilidade em produtos de software; no entanto, grande parte dos artigos 
+apontam um melhor desempenho em padrões de prompt que tendem a trazer uma diminuição da janela de contexto de analise e uma divisão das solicitações em tarefas menores, mostrando um melhor desempenho das LLMs para realização destas atividades.
+
+\subsection{Quais atributos de manutenibilidade são mais impactados pela variação dos padrões de prompt utilizados?}
+
+Os atributos de manutenibilidade mais impactados pela variação dos prompts entre os estudos avaliados são complexidade, tamanho do código, legibilidade, estrutura, testabilidade, presença de test smells, aderência a padrões de codificação e esforço de compreensão. 
+
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} mostram que os padrões de prompt afetam diretamente métricas relacionadas à complexidade, afirmando que ``Os resultados mostraram diferenças significativas no LOC e nas submétricas relacionadas entre esses padrões de prompt''. 
+Os autores ainda destacam que o Chain-of-Thought produziu código mais conciso e eficiente, o que o torna relevante para melhorar legibilidade e manutenibilidade \cite{DellaPortaEtAll}.
+
+\citeonline[p.~1, tradução nossa]{OuedraogoEtAll} também evidenciam impacto dos padrões de prompt na qualidade estrutural, ao afirmar que ``O uso de prompts baseados em raciocínio — particularmente o GToT — melhora significativamente a confiabilidade dos testes, a compilabilidade e a aderência estrutural em LLMs de uso geral''. 
+Além disso, os autores indicam que testes gerados por LLMs podem ser mais legíveis, mas ainda apresentar problemas de design, como ``Testes com Números Mágicos e Assertion Roulette, que prejudicam a manutenibilidade'' \cite[p.~1, tradução nossa]{OuedraogoEtAll}. 
+
+Assim, os atributos mais sensíveis à variação de prompts são aqueles relacionados ao tamanho, estrutura, clareza e testabilidade do código.
+
+\subsection{Como a complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade, com foco em manutenibilidade, de código-fonte em projetos de código aberto para aplicações web?}
+
+A complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade ao alterar tanto a estrutura do código gerado quanto a capacidade do LLM de identificar ou corrigir problemas de manutenibilidade. 
+\citeonline[p.~2, tradução nossa]{KrebsEtAll} afirmam que “A extensão do prompt influenciou significativamente a confiabilidade do código e as taxas de erro”, mas também alertam que características específicas dos modelos afetam o desempenho, de modo que a otimização 
+do prompt, isoladamente, não garante qualidade consistente. 
+
+O mesmo artigo indica que prompts de tamanho médio, com especificação de estrutura, documentação e padrões de codificação, alcançaram melhor equilíbrio entre qualidade e manutenibilidade, enquanto prompts curtos podem reduzir a qualidade e prompts excessivamente detalhados podem aumentar a complexidade desnecessária \cite{KrebsEtAll}.
+
+\citeonline[p.~18, tradução nossa]{MartinezEtAll} reforçam que a qualidade do resultado depende da especificidade da orientação fornecida. Ao discutir desafios da refatoração com LLMs, os autores afirmam que “A confiabilidade dos LLMs para refatoração depende fortemente da complexidade da tarefa e da especificidade das orientações fornecidas.”.
+
+Assim, para projetos de código aberto e aplicações web, prompts mais detalhados e contextuais tendem a ser mais adequados quando a tarefa envolve análise semântica ou refatoração complexa, mas devem ser equilibrados para evitar aumento de verbosidade e complexidade.
+
+\subsection{Qual padrão de prompt produz maior alinhamento com os modelos de qualidade de referência para a característica de manutenibilidade?}
+
+Os artigos não permitem afirmar que exista um padrão universalmente superior para alinhar a avaliação de manutenibilidade aos modelos de qualidade de referência. A evidência mais consistente indica que padrões contextuais, com raciocínio estruturado e com restrições de saída tendem a produzir maior 
+alinhamento, sobretudo quando combinados com métricas tradicionais e ferramentas de validação. 
+
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} apontam o Chain-of-Thought como um padrão promissor, pois ``demonstrou sua eficácia na geração de código conciso e eficiente por meio de raciocínio passo a passo, tornando-a uma abordagem adequada para melhorar a legibilidade e a manutenibilidade do código''.
+
+Por outro lado, \cite{MartinezEtAll} indicam que diferentes combinações de técnicas têm resultados variados, citando combinações como Few-Shot com Context-Specific, Few-Shot com Chain-of-Thought e Chain-of-Thought com Output Constraints.
+
+Essa evidência sugere que o alinhamento com modelos de qualidade depende do tipo de tarefa, da linguagem, do modelo utilizado e do atributo avaliado. Portanto, a resposta mais segura é que Chain-of-Thought e prompts context-specific com restrições explícitas de qualidade tendem a oferecer maior alinhamento, 
+mas esse alinhamento precisa ser verificado por métricas e ferramentas de análise estática de código-fonte aderentes a modelos de qualidade de referência.
+
+\subsection{Existem diferenças significativas entre os resultados de manutenibilidade obtidos por diferentes padrões de prompt ao utilizar métricas tradicionais de qualidade?}
+
+Existem diferenças observadas entre resultados obtidos por diferentes padrões de prompt. Os artigos indicam diferenças significativas nos resultados de manutenibilidade quando diferentes padrões de prompt são avaliados por métricas tradicionais. 
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} mostram isso diretamente ao afirmar que os padrões de prompt produziram ``diferenças significativas no LOC e nas submétricas relacionadas''. O artigo também registra que as métricas avaliadas incluíram LOC, complexidade ciclomática e Halstead, o que confirma o uso de métricas tradicionais para comparar os efeitos dos prompts. 
+
+\citeonline[p.~669, tradução nossa]{NunesEtAll} também observam diferenças entre configurações de prompt ao avaliar correções de problemas de manutenibilidade. Os autores relatam que ``O Llama com few-shot prompting corrigiu com sucesso 44,9% dos métodos, enquanto o Copilot Chat e o Llama em modo zero-shot corrigiram 32,29% e 30%, respectivamente''. 
+Esse resultado mostra que a estratégia de prompt pode alterar significativamente a capacidade do modelo de corrigir problemas de manutenibilidade em projetos reais.
+
+\subsection{Quais limitações dos modelos tradicionais de qualidade de software se tornam evidentes na avaliação de qualidade, com foco no atributo de manutenibilidade, feita por LLMs?}
+
+As limitações mais evidentes dos modelos e ferramentas tradicionais são a dificuldade de capturar aspectos semânticos e contextuais, a dependência de regras estáticas, a possibilidade de falsos positivos ou falsos negativos e a incapacidade de garantir preservação comportamental em refatorações. 
+\citeonline[p.~669, tradução nossa]{NunesEtAll} destacam que corrigir problemas de manutenibilidade é desafiador porque ``uma análise especializada é cara e lenta, enquanto ferramentas automatizadas são imprecisas e exigem interpretação humana''. Em outras palavras, ferramentas tradicionais ajudam a identificar problemas, mas nem sempre oferecem diagnóstico suficiente ou solução adequada.
+
+\citeonline[p.~1, tradução nossa]{SunEtAll} também apontam uma limitação importante: benchmarks tradicionais de geração de código enfatizam correção funcional, mas dão suporte limitado à avaliação de características não funcionais. Os autores afirmam que ``Embora esses benchmarks forneçam uma boa base para avaliar a capacidade de LLMs de gerar código funcionalmente correto, eles oferecem suporte limitado para avaliar as características de qualidade não funcionais (NFQCs) do código gerado''. 
+Isto evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente. Além disso, o mesmo estudo mostra instabilidade na otimização de características não funcionais por prompts, ao afirmar que ``A avaliação empírica demonstra a instabilidade da otimização de NFQCs por meio de prompts em contextos práticos de engenharia de software'' \cite[p.~1, tradução nossa]{SunEtAll}.
+
+Portanto, a avaliação da manutenibilidade com LLMs evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente.
+
+\subsection{Quais são os produtos de software de código-fonte aberto avaliados nos estudos?}
