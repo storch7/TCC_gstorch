@@ -92,9 +92,88 @@ esperada entre avaliações equivalentes.
 
 \section{Seleção de Variáveis}
 
+A seleção de variáveis define quais elementos serão manipulados pelo pesquisador e quais resultados serão observados ao final da execução do experimento. 
+Segundo \citeonline{wohlin2024}, antes da definição do desenho experimental, é necessário selecionar as variáveis independentes e dependentes do estudo. 
+Os autores também afirmam que as variáveis independentes correspondem àquelas que podem ser controladas e modificadas durante o experimento, enquanto os 
+efeitos dos tratamentos são medidos por meio das variáveis dependentes.
+
+No contexto deste trabalho, serão consideradas duas variáveis independentes principais: o padrão de engenharia de prompt utilizado e a ferramenta de LLM 
+empregada na avaliação. A primeira variável independente corresponde à forma como a instrução será estruturada para orientar o modelo na análise de manutenibilidade do código-fonte. 
+A segunda variável independente corresponde ao modelo ou ferramenta de LLM utilizada para executar a avaliação.
+
+A variável independente referente ao padrão de prompt será composta por três tratamentos: \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}. 
+Esses tratamentos representam diferentes estratégias de formulação da instrução fornecida ao LLM. O objetivo é observar se a variação na estrutura do prompt influencia 
+os resultados produzidos na avaliação de manutenibilidade.
+
+A variável independente referente à ferramenta de LLM também será composta por três tratamentos: ChatGPT, Claude e DeepSeek. A inclusão dessa variável permite 
+observar se diferentes ferramentas de LLM apresentam variações nos resultados de avaliação quando submetidas aos mesmos objetos experimentais e aos mesmos padrões de prompt.
+
+A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos. Neste experimento, a variável dependente será o resultado da aferição do 
+indicador de manutenibilidade gerado pelo LLM, sob a ótica de três modelos de qualidade de referência: Q-Rapids, Q-Squale e MeasureSoftGram. Esse resultado não será 
+tratado apenas como uma resposta textual produzida pelo modelo, mas como uma medida observável a partir de critérios previamente definidos.
+
+Dessa forma, a variável dependente será operacionalizada por meio da avaliação da resposta gerada pelo LLM em relação aos modelos de qualidade de referência. 
+Essa avaliação permitirá verificar o grau de aderência das respostas aos atributos de manutenibilidade considerados no experimento, bem como comparar os resultados obtidos entre os diferentes tratamentos aplicados.
+
+Além das variáveis independentes e dependente, o experimento contará com variáveis de controle, necessárias para reduzir interferências externas na interpretação dos resultados. Entre essas variáveis, 
+destacam-se os mesmos objetos de análise, os mesmos trechos de código, os mesmos critérios de avaliação, os mesmos modelos de qualidade de referência e o mesmo procedimento de coleta dos resultados. 
+Essa estratégia está alinhada à orientação de \citeonline{wohlin2024}, segundo a qual, em um experimento, as demais variáveis independentes devem ser mantidas em nível fixo quando o objetivo é 
+observar o efeito de um fator específico sobre a variável dependente \cite[p.~77]{wohlin2024}.
+
+Assim, a seleção de variáveis deste experimento pode ser sintetizada da seguinte forma:
+
+\begin{itemize}
+    \item \textbf{Variáveis independentes}: padrão de engenharia de prompt e ferramenta de LLM.
+    \item \textbf{Tratamentos da variável padrão de prompt}: \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}.
+    \item \textbf{Tratamentos da variável ferramenta de LLM}: ChatGPT, Claude e DeepSeek.
+    \item \textbf{Variável dependente}: resultado da aferição do indicador de manutenibilidade gerado pelo LLM.
+    \item \textbf{Modelos de referência para avaliação}: Q-Rapids, Q-Squale e MeasureSoftGram.
+    \item \textbf{Variáveis de controle}: objetos de análise, trechos de código, critérios de avaliação, modelos de qualidade de referência e procedimento de coleta.
+\end{itemize}
+
+Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre diferentes combinações de padrões de prompt e 
+ferramentas de LLM, mantendo constantes os objetos e critérios de avaliação. Com isso, busca-se observar se as variações nos resultados de 
+manutenibilidade podem ser associadas aos tratamentos aplicados no experimento.
+
 \section{Seleção dos Sujeitos}
 
+A seleção dos sujeitos define quais unidades serão consideradas no experimento para aplicação dos tratamentos e posterior observação dos resultados. 
+Segundo \citeonline{wohlin2024}, a etapa de planejamento do experimento inclui a seleção dos sujeitos após a definição do contexto, das hipóteses e das variáveis, 
+compondo uma das decisões necessárias para estruturar a execução experimental. No contexto desta pesquisa, essa seleção será adaptada à natureza tecnológica do estudo, 
+uma vez que não haverá participantes humanos executando tarefas de avaliação.
+
+Neste experimento, os sujeitos serão repositórios abertos de código-fonte, selecionados a partir de projetos disponíveis publicamente e pertencentes ao 
+domínio de aplicações web. Essa escolha está alinhada ao escopo da pesquisa, que busca avaliar a manutenibilidade de produtos de software reais, 
+desenvolvidos em contexto aberto e acessíveis para análise. O uso de repositórios públicos também favorece a transparência do experimento, 
+uma vez que permite a identificação, documentação e eventual replicação dos objetos utilizados.
+
+A escolha dos repositórios como sujeitos do experimento justifica-se pelo fato de que eles representam as unidades principais a partir das 
+quais serão extraídos os artefatos avaliados. Embora, em experimentos tradicionais, os sujeitos frequentemente sejam pessoas, como estudantes ou profissionais, 
+\citeonline{wohlin2024} também tratam a experimentação em Engenharia de Software a partir da relação entre sujeitos, objetos e tratamentos, considerando 
+que os objetos avaliados podem ser artefatos de software, documentos, programas ou outros produtos relacionados ao processo de desenvolvimento. 
+Em exemplos apresentados pelos autores, os objetos experimentais incluem programas desenvolvidos ou documentos de requisitos utilizados na aplicação 
+dos tratamentos.
+
+Dessa forma, a definição dos sujeitos nesta pesquisa considera a especificidade do estudo: os repositórios abertos serão as unidades selecionadas para 
+representar o contexto de projetos reais de software, enquanto os arquivos extraídos desses repositórios serão os elementos diretamente submetidos à avaliação pelos LLMs. 
+Essa distinção permite organizar o experimento em dois níveis: o nível do projeto, representado pelo repositório, e o nível do artefato analisado, representado pelos 
+arquivos de código-fonte.
+
 \subsection{Definição dos Objetos}
+
+Os objetos do experimento correspondem aos artefatos de software que serão diretamente submetidos aos tratamentos definidos no estudo. Nesta pesquisa, os objetos serão os 
+arquivos de código-fonte extraídos dos repositórios abertos selecionados. O termo arquivo será utilizado de forma abrangente, contemplando diferentes formas de organização do código, 
+como classes, módulos, componentes, funções ou trechos de código, conforme a estrutura de cada projeto analisado.
+
+A adoção do termo arquivos tem como objetivo manter a definição dos objetos suficientemente geral para abranger diferentes linguagens, arquiteturas e padrões de organização presentes em 
+projetos de aplicações web. Dessa forma, evita-se restringir o experimento a uma estrutura específica, como classes ou métodos, que pode não estar presente de forma uniforme em todos os projetos selecionados.
+
+Os arquivos selecionados serão avaliados pelos LLMs a partir dos diferentes padrões de engenharia de prompt definidos como tratamentos. Para garantir maior controle experimental, os mesmos arquivos 
+serão submetidos às diferentes combinações de padrões de prompt e ferramentas de LLM. Essa estratégia permite comparar os resultados obtidos sob diferentes tratamentos, reduzindo a influência de variações 
+decorrentes da escolha de artefatos distintos.
+ 
+Portanto, neste experimento, os repositórios abertos de código-fonte serão considerados os sujeitos do estudo, enquanto os arquivos extraídos desses repositórios constituirão os objetos experimentais. 
+Essa organização permite manter o vínculo com projetos reais de software, ao mesmo tempo em que delimita unidades concretas de análise para aplicação dos tratamentos e mensuração dos resultados.
 
 \section{Design do Experimento}
 
