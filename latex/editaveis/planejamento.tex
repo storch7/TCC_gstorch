@@ -1,12 +1,47 @@
 \chapter[Planejamento do Experimento]{Planejamento do Experimento}
 
-Este capítulo apresenta a proposta de planejamento do experimento controlado que será realizado para avaliar 
-o impacto de diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade, considerando 
-modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web. 
-O planejamento foi elaborado com o objetivo de garantir que o experimento seja realizado de forma rigorosa, organizada e transparente, 
-permitindo que os resultados sejam confiáveis e generalizáveis.
+Este capítulo apresenta a proposta de planejamento do experimento controlado que será realizado para avaliar o impacto de 
+diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade, considerando modelos de 
+qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web. 
+
+Ao longo do capítulo, são descritos os principais elementos que compõem a estrutura experimental adotada. Inicialmente, 
+apresenta-se a definição do experimento, delimitando seu propósito, escopo e relação com o problema de pesquisa. Em seguida, 
+é realizada a seleção do contexto, com a caracterização do ambiente experimental, dos projetos avaliados e das condições sob as 
+quais a investigação será conduzida.
+
+Também são formuladas as hipóteses que orientarão a análise dos resultados, bem como as variáveis independentes, dependentes e 
+de controle consideradas no estudo. Na sequência, são apresentados a seleção dos sujeitos e a definição dos objetos experimentais, 
+compreendendo os artefatos de software que serão utilizados na avaliação.
+
+O capítulo ainda descreve o design do experimento, incluindo a organização dos tratamentos, a estratégia de execução e os procedimentos
+previstos para coleta dos dados. Posteriormente, são definidos os critérios de avaliação, com foco na forma como os resultados serão  
+analisados em relação à manutenibilidade e aos modelos de qualidade adotados como referência. Por fim, são apresentados os próximos passos do experimento, 
+indicando as atividades necessárias para sua execução, validação e posterior análise dos resultados.
 
 \section{Definição}
+
+A abordagem experimental proposta para esta pesquisa baseia-se em um experimento controlado em Engenharia de Software. A escolha por essa abordagem decorre da 
+à partir da estrutura da questão de pesquisa (verificar em \ref{sec:questao_de_pesquisa}). Nesse sentido, a pesquisa não se limita à descrição de um fenômeno, mas propõe a comparação entre diferentes 
+tratamentos aplicados a um mesmo tipo de objeto experimental, com o objetivo de observar seus efeitos sobre uma variável de resultado.
+
+Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, 
+especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para 
+tornar a Engenharia de Software uma disciplina mais científica, pois permite avaliar propostas de pesquisa a partir de hipóteses, evidências e observações sistemáticas. 
+Essa perspectiva está alinhada ao propósito deste trabalho, uma vez que se pretende avaliar, de forma controlada, se diferentes estratégias de prompt produzem resultados 
+distintos na avaliação da manutenibilidade.
+
+\citeonline[p.~73, tradução nossa]{wohlin2024} definem um experimento controlado em Engenharia de Software como uma investigação empírica que manipula "um fator ou variável do cenário estudado". Ainda segundo os autores, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto outras variáveis são mantidas constantes, permitindo 
+medir os efeitos produzidos sobre as variáveis de resultado \cite[p.~73]{wohlin2024}. Essa definição é diretamente aplicável ao desenho deste trabalho, pois os padrões de engenharia 
+de prompt representam o fator manipulado, enquanto os resultados de aferição da manutenibilidade representam a variável dependente observada.
+
+A escolha pelo experimento controlado também se justifica porque o estudo busca avaliar uma possível relação entre tratamento e resultado. De acordo com \citeonline{wohlin2024}, um experimento 
+parte de uma hipótese ou de uma relação esperada entre causa e efeito; a partir disso, os tratamentos são aplicados, os resultados são observados e, caso o experimento seja adequadamente planejado, 
+torna-se possível analisar a relação entre a causa manipulada e o efeito observado. No contexto desta pesquisa, a causa investigada é a variação dos padrões de prompt, enquanto o efeito observado 
+é a variação na aferição da manutenibilidade produzida pelos LLMs.
+
+Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular a variável de interesse, controlar fatores externos, comparar tratamentos e analisar 
+os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo 
+a validade da investigação e a confiabilidade dos resultados obtidos.
 
 \section{Seleção de Contexto}
 
