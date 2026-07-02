@@ -42,15 +42,46 @@ Assim, a ISO/IEC 25010 fornece a base conceitual para a análise de atributos es
 
 \subsection{Modelos de Qualidade de Produto de Software}
 
+Embora a qualidade de software possa ser definida como a capacidade de um produto satisfazer necessidades declaradas e implícitas em condições específicas de uso, essa definição, por si só, ainda é ampla. 
+Para que a qualidade possa ser analisada de forma sistemática, torna-se necessário decompor esse conceito em dimensões observáveis, avaliáveis e, quando possível, mensuráveis. As primeiras contribuições 
+relevantes para essa estruturação remontam aos trabalhos de McCall, Richards e Walters, especialmente com o modelo apresentado em seu artigo \textit{Factors in Software Quality}. Esse modelo foi um dos 
+primeiros a tratar a qualidade de software como um conjunto de fatores organizados de forma hierárquica, permitindo relacionar propriedades do produto a critérios de avaliação \cite{mccall1977}. 
+
+Pouco tempo depois, Boehm também propôs uma visão hierárquica da qualidade, buscando aproximar atributos técnicos do software de propriedades percebidas por usuários e mantenedores \cite{boehm1978}. 
+Esses modelos foram importantes porque deslocaram a discussão de qualidade de uma noção genérica de ``bom software'' para uma estrutura composta por dimensões avaliáveis. A partir dessas contribuições iniciais, 
+diferentes modelos passaram a propor formas de representar a qualidade de software. Ainda que esses modelos apresentem variações quanto à nomenclatura, ao número de atributos e à forma de organização, eles compartilham 
+uma mesma preocupação central: tornar explícitos os fatores que compõem a qualidade e permitir que esses fatores sejam analisados de maneira mais objetiva.
+
+Essa evolução contribuiu para a consolidação de normas internacionais voltadas à qualidade de produto de software. A \citeonline{isoiec9126} representou um marco nesse processo, ao propor um modelo padronizado de qualidade de produto baseado 
+em características e subcaracterísticas. Posteriormente, a série SQuaRE, organizada pela \citeonline{isoiec25000}, passou a integrar e ampliar essa discussão, reunindo normas relacionadas à especificação de requisitos, medição e avaliação 
+da qualidade de sistemas e produtos de software. Nesse conjunto, a ISO/IEC 25010 assume papel central por definir os modelos de qualidade de produto e de qualidade em uso, estabelecendo uma terminologia comum 
+para especificar, medir e avaliar a qualidade de sistemas e produtos de software \cite{isoiec25010}. A ISO/IEC 25010 deriva da ISO/IEC 9126, mas amplia seu escopo ao considerar sistemas computacionais de forma mais abrangente e ao reorganizar características de qualidade. 
+
+\subsubsection{Modelo Q-Squale}
+
+\subsubsection{Modelo Q-Rapids}
+
+\subsubsection{Modelo MeasureSoftGram}
+
 \subsection{Manutenibilidade de Software}
 
 \subsubsection{Subcaracterísticas da Manutenibilidade}
 
 \subsubsection{Métricas de Manutenibilidade}
 
-\subsection{Análise Estática de Código-Fonte}
-
 \subsection{Modelos de Linguagem de Grande Escala}
+
+Modelos de Linguagem de Grande Escala, ou LLMs, são modelos treinados sobre grandes volumes de código e documentação, capazes de compreender trechos de código e inferir intenções relacionadas ao seu comportamento. Na engenharia de software, esses modelos vêm sendo utilizados em tarefas como geração de código, 
+complementação de código, análise estática e inferência de tipos. Apesar desse potencial, sua aplicação ainda exige validação, uma vez que tais modelos podem apresentar limitações como alucinações, interpretação incorreta da intenção do código e geração de soluções incorretas \cite{wang2025boosting}.
+
+Na engenharia de software, a incorporação de LLMs representa uma mudança significativa nos processos de desenvolvimento. \citeonline{venkatesh2024emergence} destacam que esses modelos vêm sendo explorados em tarefas de análise estática, como inferência de tipos e análise de grafos de chamadas, indicando seu potencial para complementar ou aprimorar 
+técnicas tradicionais de inspeção de código. Os autores observam que os LLMs apresentam resultados promissores em algumas tarefas, como inferência de tipos, embora ainda demonstrem limitações em análises mais complexas, como a construção de grafos de chamadas.
+
+Além da análise estática, os LLMs têm sido amplamente utilizados em tarefas de geração e complementação de código. \citeonline{khojah2024promptprogramming} afirmam que esses modelos são cada vez mais empregados por engenheiros de software em tarefas relacionadas a código, com destaque para geração e autocompletar funções. No entanto, os autores também ressaltam 
+que essa adoção revelou limitações importantes, como alucinações, interpretação incorreta da intenção do código e geração de soluções incorretas ou irrelevantes. Assim, embora os LLMs ampliem as possibilidades de automação no desenvolvimento de software, seus resultados não devem ser assumidos como corretos sem validação posterior.
+
+Portanto, neste trabalho, os LLMs são entendidos como modelos de linguagem de grande escala treinados sobre grande volume de código e documentação, capazes de compreender trechos de código e inferir intenções associadas ao seu comportamento. Essa capacidade permite sua aplicação em tarefas de engenharia de software, como geração de código, 
+análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
 
 \subsection{Engenharia de Prompt}
 
@@ -134,9 +165,5 @@ No campo da qualidade de código, o Chain-of-Thought também tem sido associado 
 esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e 
 manutenibilidade. Portanto, para este trabalho, o Chain-of-Thought Prompting pode ser definido como o padrão de prompt que conduz o 
 LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
-
-\subsection{Avaliação de Código-Fonte com LLMs}
-
-\subsection{Projetos de Código-Fonte Aberto e Aplicações Web}
 
 \subsection{Experimentação em Engenharia de Software}
