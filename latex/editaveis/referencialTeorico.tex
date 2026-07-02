@@ -10,6 +10,36 @@ coleta e análise dos dados, de modo a garantir coerência científica e alinham
 
 \subsection{Qualidade de Software}
 
+A qualidade de software é definida pela ISO/IEC 25000:2014 como a capacidade de um produto de software satisfazer necessidades declaradas e 
+implícitas quando utilizado sob condições especificadas \cite{isoiec25000}. Essa definição também traz à tona a ideia de que a qualidade 
+não se limita à conformidade com requisitos funcionais previamente documentados, pois também considera expectativas não explicitadas 
+dos usuários e demais partes interessadas.
+
+A norma integra a série SQuaRE, \textit{Systems and software Quality Requirements and Evaluation}, que reúne padrões voltados à especificação de requisitos, 
+medição e avaliação da qualidade de sistemas e produtos de software. Essa série substitui normas anteriores, como a ISO/IEC 9126 e a ISO/IEC 14598, 
+propondo uma estrutura integrada para apoiar desenvolvedores, adquirentes e avaliadores na definição e verificação de atributos de qualidade \cite{isoiec25000}.
+
+No contexto da SQuaRE, a qualidade de software é compreendida como um conceito multidimensional, organizado em modelos, características, subcaracterísticas e medidas. 
+A ISO/IEC 25000:2014 distingue, ainda, diferentes perspectivas de avaliação: a qualidade interna, relacionada a atributos estáticos do produto, como código, arquitetura 
+e componentes; a qualidade externa, associada ao comportamento do sistema em execução; e a qualidade em uso, referente à capacidade do sistema de atender aos objetivos 
+dos usuários em contextos específicos \cite{isoiec25000}.
+
+A partir da definição geral de qualidade de software apresentada pela ISO/IEC 25000, torna-se necessário compreender como essa qualidade pode ser estruturada em atributos 
+observáveis e avaliáveis. Nesse sentido, a \citeonline{isoiec25010} aprofunda a série SQuaRE ao definir modelos de qualidade para sistemas e produtos de software, organizando 
+a qualidade em características e subcaracterísticas. 
+
+\begin{figure}[H]
+    \centering
+    \caption{Modelo de Qualidade de Produto}
+    \includegraphics[width=16cm]{figuras/caracteristicas25010.png}
+    \label{fig:caracteristicas25010}
+    \fonte{\cite{isoiec25010}}
+\end{figure}
+
+A norma apresenta, entre outros elementos, o modelo de qualidade do produto, composto por oito características: 
+adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}. 
+Assim, a ISO/IEC 25010 fornece a base conceitual para a análise de atributos específicos de qualidade, como a manutenibilidade, foco deste trabalho.
+
 \subsection{Modelos de Qualidade de Produto de Software}
 
 \subsection{Manutenibilidade de Software}
@@ -24,43 +54,86 @@ coleta e análise dos dados, de modo a garantir coerência científica e alinham
 
 \subsection{Engenharia de Prompt}
 
-A engenharia de prompt pode ser compreendida como o processo de elaboração, estruturação e ajuste de instruções fornecidas a modelos de linguagem de larga escala, com o objetivo de orientar sua resposta para uma tarefa específica. No contexto da Engenharia de Software, essa prática permite adaptar o comportamento dos LLMs sem alterar seus parâmetros internos, diferentemente de abordagens como o ajuste fino. Assim, o prompting consiste em formular a tarefa, o contexto, as restrições e o formato esperado da resposta diretamente na entrada fornecida ao modelo \cite{alomari2026}.
+A engenharia de prompt pode ser compreendida como o processo de elaboração, estruturação e ajuste de instruções fornecidas a modelos 
+de linguagem de larga escala, com o objetivo de orientar sua resposta para uma tarefa específica. No contexto da Engenharia de Software, 
+essa prática permite adaptar o comportamento dos LLMs sem alterar seus parâmetros internos, diferentemente de abordagens como o ajuste fino. 
+Assim, o prompting consiste em formular a tarefa, o contexto, as restrições e o formato esperado da resposta diretamente na entrada 
+fornecida ao modelo \cite{alomari2026}.
 
-A relevância da engenharia de prompt está associada à capacidade de produzir respostas mais precisas, estruturadas e aderentes ao objetivo da tarefa. Em tarefas de Engenharia de Software, como geração de testes, refatoração, detecção de code smells e avaliação de qualidade de código, a engenharia de prompt atua como mecanismo de direcionamento do modelo para considerar contexto, restrições técnicas e critérios de qualidade \cite{OuedraogoEtAll}. Dessa forma, a construção do prompt influencia não apenas o conteúdo da resposta, mas também a forma como o modelo interpreta o problema e organiza sua solução.
+A relevância da engenharia de prompt está associada à capacidade de produzir respostas mais precisas, estruturadas e aderentes ao objetivo 
+da tarefa. Em tarefas de Engenharia de Software, como geração de testes, refatoração, detecção de code smells e avaliação de qualidade de código, 
+a engenharia de prompt atua como mecanismo de direcionamento do modelo para considerar contexto, restrições técnicas e critérios de qualidade 
+\cite{OuedraogoEtAll}. Dessa forma, a construção do prompt influencia não apenas o conteúdo da resposta, mas também a forma como o modelo 
+interpreta o problema e organiza sua solução.
 
-Para este trabalho, a engenharia de prompt é entendida como o conjunto de estratégias utilizadas para estruturar a interação com LLMs, definindo como a tarefa será apresentada ao modelo e quais elementos serão fornecidos para orientar sua resposta. Essa definição é especialmente relevante em estudos que avaliam atributos de qualidade de código, pois diferentes formas de prompt podem impactar a manutenibilidade, a legibilidade, a complexidade e a confiabilidade dos artefatos gerados ou analisados por LLMs \cite{DellaPortaEtAll,OuedraogoEtAll}.
+Para este trabalho, a engenharia de prompt é entendida como o conjunto de estratégias utilizadas para estruturar a interação com LLMs, 
+definindo como a tarefa será apresentada ao modelo e quais elementos serão fornecidos para orientar sua resposta. Essa definição é especialmente 
+relevante em estudos que avaliam atributos de qualidade de código, pois diferentes formas de prompt podem impactar a manutenibilidade, 
+a legibilidade, a complexidade e a confiabilidade dos artefatos gerados ou analisados por LLMs \cite{DellaPortaEtAll,OuedraogoEtAll}.
 
 \subsubsection{Padrões de Prompt}
 
-Os padrões de prompt correspondem a formas recorrentes e sistemáticas de estruturar instruções para LLMs, com o objetivo de melhorar o desempenho do modelo em determinadas tarefas. Esses padrões funcionam como alternativas de formulação da entrada, variando em termos de quantidade de contexto, exemplos, orientação de raciocínio e papel atribuído ao modelo. Entre os padrões frequentemente discutidos na literatura estão Zero-shot, Few-shot, Chain-of-Thought e Personas \cite{DellaPortaEtAll}.
+Os padrões de prompt correspondem a formas recorrentes e sistemáticas de estruturar instruções para LLMs, com o objetivo de melhorar o 
+desempenho do modelo em determinadas tarefas. Esses padrões funcionam como alternativas de formulação da entrada, variando em termos de quantidade 
+de contexto, exemplos, orientação de raciocínio e papel atribuído ao modelo. Entre os padrões frequentemente discutidos na literatura estão 
+Zero-shot, Few-shot, Chain-of-Thought e Personas \cite{DellaPortaEtAll}.
 
-No contexto da qualidade de software, os padrões de prompt são relevantes porque a forma de instruir o modelo pode afetar diretamente propriedades internas do código gerado, como tamanho, complexidade ciclomática e métricas de Halstead. Estudos recentes indicam que diferentes padrões podem produzir variações em métricas relacionadas ao tamanho e à estrutura do código, o que reforça sua importância como variável experimental em pesquisas que analisam qualidade e manutenibilidade de software \cite{DellaPortaEtAll}.
+No contexto da qualidade de software, os padrões de prompt são relevantes porque a forma de instruir o modelo pode afetar diretamente 
+propriedades internas do código gerado, como tamanho, complexidade ciclomática e métricas de Halstead. Estudos recentes indicam que diferentes 
+padrões podem produzir variações em métricas relacionadas ao tamanho e à estrutura do código, o que reforça sua importância como variável 
+experimental em pesquisas que analisam qualidade e manutenibilidade de software \cite{DellaPortaEtAll}.
 
-Em estudos de refatoração e qualidade de código com LLMs, os padrões de prompt também são tratados como estratégias dependentes do contexto. A literatura identifica diferentes formas de engenharia de prompt aplicadas à refatoração, como Zero-shot, One-shot, Few-shot, Chain-of-Thought, prompts específicos de contexto e restrições de saída, indicando que a escolha da técnica depende do caso de uso, da linguagem de programação, da tarefa e do critério de avaliação adotado \cite{MartinezEtAll}.
+Em estudos de refatoração e qualidade de código com LLMs, os padrões de prompt também são tratados como estratégias dependentes do contexto. 
+A literatura identifica diferentes formas de engenharia de prompt aplicadas à refatoração, como Zero-shot, One-shot, Few-shot, Chain-of-Thought, 
+prompts específicos de contexto e restrições de saída, indicando que a escolha da técnica depende do caso de uso, da linguagem de programação, 
+da tarefa e do critério de avaliação adotado \cite{MartinezEtAll}.
 
 \subsubsection{Zero-shot Prompting}
 
-O Zero-shot Prompting é uma estratégia em que o modelo recebe apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa abordagem, o LLM deve realizar a tarefa com base no conhecimento aprendido durante seu treinamento e na formulação da instrução fornecida no prompt \cite{alomari2026}. Portanto, a efetividade do Zero-shot depende fortemente da clareza da solicitação, da delimitação da tarefa e da capacidade do modelo de generalizar a partir da instrução recebida.
+O Zero-shot Prompting é uma estratégia em que o modelo recebe apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa 
+abordagem, o LLM deve realizar a tarefa com base no conhecimento aprendido durante seu treinamento e na formulação da instrução fornecida no 
+prompt \cite{alomari2026}. Portanto, a efetividade do Zero-shot depende fortemente da clareza da solicitação, da delimitação da tarefa e da 
+capacidade do modelo de generalizar a partir da instrução recebida.
 
-Em tarefas de Engenharia de Software, o Zero-shot Prompting costuma ser utilizado como configuração inicial ou linha de base para avaliar a capacidade do modelo de compreender diretamente uma solicitação. Essa estratégia é útil para tarefas mais diretas, mas pode apresentar limitações em cenários que exigem maior compreensão contextual, raciocínio estruturado ou aderência rigorosa a formatos específicos de saída \cite{OuedraogoEtAll}.
+Em tarefas de Engenharia de Software, o Zero-shot Prompting costuma ser utilizado como configuração inicial ou linha de base para avaliar a 
+capacidade do modelo de compreender diretamente uma solicitação. Essa estratégia é útil para tarefas mais diretas, mas pode apresentar limitações 
+em cenários que exigem maior compreensão contextual, raciocínio estruturado ou aderência rigorosa a formatos específicos de saída \cite{OuedraogoEtAll}.
 
-No escopo deste trabalho, o Zero-shot Prompting pode ser definido como o padrão de prompt em que a avaliação de código é solicitada diretamente ao LLM, sem demonstrações adicionais. Por exemplo, ao pedir que o modelo avalie a manutenibilidade de um trecho de código apenas com a instrução da tarefa e o código-fonte, a interação caracteriza-se como Zero-shot.
+No escopo deste trabalho, o Zero-shot Prompting pode ser definido como o padrão de prompt em que a avaliação de código é solicitada diretamente 
+ao LLM, sem demonstrações adicionais. Por exemplo, ao pedir que o modelo avalie a manutenibilidade de um trecho de código apenas com a instrução 
+da tarefa e o código-fonte, a interação caracteriza-se como Zero-shot.
 
 \subsubsection{Few-shot Prompting}
 
-O Few-shot Prompting é uma estratégia em que o prompt inclui exemplos demonstrativos para orientar o modelo na execução de uma nova tarefa. Esses exemplos funcionam como referências de comportamento esperado, ajudando o LLM a inferir o formato da resposta, o critério de análise e o tipo de solução desejada \cite{alomari2026}.
+O Few-shot Prompting é uma estratégia em que o prompt inclui exemplos demonstrativos para orientar o modelo na execução de uma nova tarefa. 
+Esses exemplos funcionam como referências de comportamento esperado, ajudando o LLM a inferir o formato da resposta, o critério de análise e o 
+tipo de solução desejada \cite{alomari2026}.
 
-Na Engenharia de Software, essa técnica é relevante quando se deseja reduzir ambiguidades e padronizar a resposta do modelo. Em tarefas como geração de testes, refatoração e detecção de problemas de qualidade, exemplos de entrada e saída podem demonstrar ao LLM como identificar um problema, justificar uma resposta ou propor uma modificação no código \cite{OuedraogoEtAll}.
+Na Engenharia de Software, essa técnica é relevante quando se deseja reduzir ambiguidades e padronizar a resposta do modelo. Em tarefas como 
+geração de testes, refatoração e detecção de problemas de qualidade, exemplos de entrada e saída podem demonstrar ao LLM como identificar um 
+problema, justificar uma resposta ou propor uma modificação no código \cite{OuedraogoEtAll}.
 
-No contexto de refatoração, o Few-shot Prompting tem sido utilizado para orientar LLMs na aplicação de melhorias estruturais no código. A literatura aponta que essa estratégia pode ser eficaz em determinados cenários, especialmente quando os exemplos fornecidos ajudam o modelo a reconhecer o tipo de transformação esperada e a preservar o comportamento funcional do código \cite{MartinezEtAll}. Assim, neste TCC, o Few-shot Prompting é entendido como uma técnica em que exemplos de avaliação ou melhoria de código são fornecidos ao modelo para orientar a análise de manutenibilidade.
+No contexto de refatoração, o Few-shot Prompting tem sido utilizado para orientar LLMs na aplicação de melhorias estruturais no código. 
+A literatura aponta que essa estratégia pode ser eficaz em determinados cenários, especialmente quando os exemplos fornecidos ajudam o modelo 
+a reconhecer o tipo de transformação esperada e a preservar o comportamento funcional do código \cite{MartinezEtAll}. Assim, neste TCC, o Few-shot 
+Prompting é entendido como uma técnica em que exemplos de avaliação ou melhoria de código são fornecidos ao modelo para orientar a análise 
+de manutenibilidade.
 
 \subsubsection{Chain-of-Thought Prompting}
 
-O Chain-of-Thought Prompting é uma estratégia que orienta o modelo a realizar ou explicitar etapas intermediárias de raciocínio antes de produzir a resposta final. Ao invés de solicitar apenas uma conclusão direta, esse padrão induz o LLM a decompor a tarefa em passos lógicos, o que pode favorecer problemas que exigem análise, inferência ou tomada de decisão estruturada \cite{alomari2026}.
+O Chain-of-Thought Prompting é uma estratégia que orienta o modelo a realizar ou explicitar etapas intermediárias de raciocínio antes de 
+produzir a resposta final. Ao invés de solicitar apenas uma conclusão direta, esse padrão induz o LLM a decompor a tarefa em passos lógicos, 
+o que pode favorecer problemas que exigem análise, inferência ou tomada de decisão estruturada \cite{alomari2026}.
 
-Em tarefas de Engenharia de Software, abordagens baseadas em raciocínio, como Chain-of-Thought, têm sido investigadas em cenários nos quais o modelo precisa lidar com dependências, estrutura de código, critérios de compilação, legibilidade e manutenção. Embora possam melhorar a organização da resposta e a aderência estrutural do resultado, essas técnicas também exigem validação, pois modelos podem produzir respostas plausíveis, mas tecnicamente incorretas, como chamadas de API inexistentes, dependências fabricadas ou referências inválidas \cite{OuedraogoEtAll}.
+Em tarefas de Engenharia de Software, abordagens baseadas em raciocínio, como Chain-of-Thought, têm sido investigadas em cenários nos quais o 
+modelo precisa lidar com dependências, estrutura de código, critérios de compilação, legibilidade e manutenção. Embora possam melhorar a 
+organização da resposta e a aderência estrutural do resultado, essas técnicas também exigem validação, pois modelos podem produzir respostas 
+plausíveis, mas tecnicamente incorretas, como chamadas de API inexistentes, dependências fabricadas ou referências inválidas \cite{OuedraogoEtAll}.
 
-No campo da qualidade de código, o Chain-of-Thought também tem sido associado à geração de código mais conciso e eficiente. Della Porta et al. observam que esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e manutenibilidade \cite{dellaporta2025}. Portanto, para este trabalho, o Chain-of-Thought Prompting pode ser definido como o padrão de prompt que conduz o LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
+No campo da qualidade de código, o Chain-of-Thought também tem sido associado à geração de código mais conciso e eficiente. \cite{dellaporta2025} observam que 
+esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e 
+manutenibilidade. Portanto, para este trabalho, o Chain-of-Thought Prompting pode ser definido como o padrão de prompt que conduz o 
+LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
 
 \subsection{Avaliação de Código-Fonte com LLMs}
 
