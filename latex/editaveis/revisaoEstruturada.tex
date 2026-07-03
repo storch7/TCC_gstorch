@@ -312,7 +312,7 @@ utilizados, às métricas de manutenibilidade identificadas, aos padrões de pro
 
 \subsection{Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software?}
 
-\textcolor[rgb]{255,0,0}{
+{\color{red}
     A análise dos artigos indica que a manutenibilidade é operacionalizada,
 majoritariamente, por meio de medidas relacionadas às propriedades internas do
 código-fonte. Essa interpretação é sustentada por estudos que avaliam diretamente
@@ -449,3 +449,12 @@ Isto evidencia que métricas tradicionais são necessárias, mas insuficientes q
 Portanto, a avaliação da manutenibilidade com LLMs evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente.
 
 \subsection{Quais são os produtos de software de código-fonte aberto avaliados nos estudos?}
+
+{
+    \color{red}
+    Em relação aos produtos de software de código-fonte aberto avaliados nos estudos analisados, observou-se uma predominância de bibliotecas, frameworks, ferramentas de desenvolvimento e aplicações web utilizadas como objeto de avaliação empírica. Os projetos identificados contemplam diferentes linguagens de programação, com maior recorrência de ecossistemas associados a Java, Python, JavaScript e C/C++.
+
+    Entre os produtos explicitamente mencionados nos estudos, destacam-se projetos como Django, Flask, React, pandas, SciPy, scikit-learn, SymPy, seaborn, xarray, MariaDB, cURL, libpng, Apache Lucene, Apache Solr, Checkstyle, JGit, JavaParser, Google Guava, Guice, jsoup, ZXing, ArgoUML, OrangeHRM e Cypress. Esses produtos foram utilizados em diferentes contextos de avaliação, incluindo análise de manutenibilidade, refatoração, geração de testes, detecção de code smells, compreensão de código e avaliação de qualidade de software com apoio de modelos de linguagem.
+
+    Além dos produtos diretamente nomeados, parte dos estudos recorreu a benchmarks e datasets compostos por múltiplos repositórios de código aberto, como SWE-bench, Defects4J, DevGPT, CoderEval, SF110 e SmellyCodeDataset. Nesses casos, os artigos nem sempre apresentam individualmente todos os produtos avaliados, mas indicam o uso de bases públicas formadas por projetos open source. Assim, os resultados evidenciam que a literatura recente tem utilizado tanto produtos open source específicos quanto conjuntos de dados amplos para investigar a aplicação de LLMs em tarefas relacionadas à qualidade e manutenção de software.
+}
