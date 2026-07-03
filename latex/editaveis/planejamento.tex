@@ -1,55 +1,36 @@
 \chapter[Planejamento do Experimento]{Planejamento do Experimento}
 
-Este capítulo apresenta a proposta de planejamento do experimento controlado que será realizado para avaliar o impacto de 
-diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade, considerando modelos de 
-qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web. 
+Este capítulo apresenta a proposta de planejamento do experimento controlado que será realizado para avaliar o impacto de diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web. 
 
-Ao longo do capítulo, são descritos os principais elementos que compõem a estrutura experimental adotada. Inicialmente, 
-apresenta-se a definição do experimento, delimitando seu propósito, escopo e relação com o problema de pesquisa. Em seguida, 
-é realizada a seleção do contexto, com a caracterização do ambiente experimental, dos projetos avaliados e das condições sob as 
-quais a investigação será conduzida.
+Ao longo do capítulo, são descritos os principais elementos que compõem a estrutura experimental adotada. Inicialmente, apresenta-se a definição do experimento, delimitando seu propósito, escopo e relação com o problema de pesquisa. Em seguida, é realizada a seleção do contexto, com a caracterização do ambiente experimental, dos projetos avaliados e das condições sob as quais a investigação será conduzida.
 
-Também são formuladas as hipóteses que orientarão a análise dos resultados, bem como as variáveis independentes, dependentes e 
-de controle consideradas no estudo. Na sequência, são apresentados a seleção dos sujeitos e a definição dos objetos experimentais, 
-compreendendo os artefatos de software que serão utilizados na avaliação.
+Também são formuladas as hipóteses que orientarão a análise dos resultados, bem como as variáveis independentes, dependentes e de controle consideradas no estudo. Na sequência, são apresentados a seleção dos sujeitos e a definição dos objetos experimentais, compreendendo os artefatos de software que serão utilizados na avaliação.
 
-O capítulo ainda descreve o design do experimento, incluindo a organização dos tratamentos, a estratégia de execução e os procedimentos
-previstos para coleta dos dados. Posteriormente, são definidos os critérios de avaliação, com foco na forma como os resultados serão  
-analisados em relação à manutenibilidade e aos modelos de qualidade adotados como referência. Por fim, são apresentados os próximos passos do experimento, 
-indicando as atividades necessárias para sua execução, validação e posterior análise dos resultados.
+O capítulo ainda descreve o design do experimento, incluindo a organização dos tratamentos, a estratégia de execução e os procedimentos previstos para coleta dos dados. Posteriormente, são definidos os critérios de avaliação, com foco na forma como os resultados serão analisados em relação à manutenibilidade e aos modelos de qualidade adotados como referência. Por fim, são apresentados os próximos passos do experimento, indicando as atividades necessárias para sua execução, validação e posterior análise dos resultados.
 
 \section{Definição}
 
-A abordagem experimental proposta para esta pesquisa baseia-se em um experimento controlado em Engenharia de Software. A escolha por essa abordagem decorre da 
-à partir da estrutura da questão de pesquisa (verificar em \ref{sec:questao_de_pesquisa}). Nesse sentido, a pesquisa não se limita à descrição de um fenômeno, mas propõe a comparação entre diferentes 
+A abordagem experimental proposta para esta pesquisa baseia-se em um experimento controlado em Engenharia de Software. A escolha por essa abordagem decorre da estrutura da questão de pesquisa (verificar em \ref{sec:questao_de_pesquisa}). Nesse sentido, a pesquisa não se limita à descrição de um fenômeno, mas propõe a comparação entre diferentes 
 tratamentos aplicados a um mesmo tipo de objeto experimental, com o objetivo de observar seus efeitos sobre uma variável de resultado.
 
 Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, 
 especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para 
-tornar a Engenharia de Software uma disciplina mais científica, pois permite avaliar propostas de pesquisa a partir de hipóteses, evidências e observações sistemáticas. 
-Essa perspectiva está alinhada ao propósito deste trabalho, uma vez que se pretende avaliar, de forma controlada, se diferentes estratégias de prompt produzem resultados 
-distintos na avaliação da manutenibilidade.
+tornar a Engenharia de Software uma disciplina mais científica, pois permite avaliar propostas de pesquisa a partir de hipóteses, evidências e observações sistemáticas. Essa perspectiva está alinhada ao propósito deste trabalho, uma vez que se pretende avaliar, de forma controlada, se diferentes estratégias de prompt produzem resultados distintos na avaliação da manutenibilidade.
 
-\citeonline[p.~73, tradução nossa]{wohlin2024} definem um experimento controlado em Engenharia de Software como uma investigação empírica que manipula "um fator ou variável do cenário estudado". Ainda segundo os autores, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto outras variáveis são mantidas constantes, permitindo 
-medir os efeitos produzidos sobre as variáveis de resultado \cite[p.~73]{wohlin2024}. Essa definição é diretamente aplicável ao desenho deste trabalho, pois os padrões de engenharia 
+\citeonline[p.~73, tradução nossa]{wohlin2024} definem um experimento controlado em Engenharia de Software como uma investigação empírica que manipula "um fator ou variável do cenário estudado". Ainda segundo os autores, com base na randomização, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto as demais variáveis são mantidas constantes, permitindo medir os efeitos produzidos sobre as variáveis de resultado \cite[p.~73]{wohlin2024}. Essa definição é diretamente aplicável ao desenho deste trabalho, pois os padrões de engenharia 
 de prompt representam o fator manipulado, enquanto os resultados de aferição da manutenibilidade representam a variável dependente observada.
 
-A escolha pelo experimento controlado também se justifica porque o estudo busca avaliar uma possível relação entre tratamento e resultado. De acordo com \citeonline{wohlin2024}, um experimento 
-parte de uma hipótese ou de uma relação esperada entre causa e efeito; a partir disso, os tratamentos são aplicados, os resultados são observados e, caso o experimento seja adequadamente planejado, 
-torna-se possível analisar a relação entre a causa manipulada e o efeito observado. No contexto desta pesquisa, a causa investigada é a variação dos padrões de prompt, enquanto o efeito observado 
-é a variação na aferição da manutenibilidade produzida pelos LLMs.
+A escolha pelo experimento controlado também se justifica porque o estudo busca avaliar uma possível relação entre tratamento e resultado. De acordo com \citeonline{wohlin2024}, um experimento parte de uma hipótese ou de uma relação esperada entre causa e efeito; a partir disso, os tratamentos são aplicados, os resultados são observados e, caso o experimento seja adequadamente planejado, torna-se possível analisar a relação entre a causa manipulada e o efeito observado. No contexto desta pesquisa, a causa investigada é a variação dos padrões de prompt e das ferramentas de LLM, enquanto o efeito observado é a variação na aferição da manutenibilidade.
 
-Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular a variável de interesse, controlar fatores externos, comparar tratamentos e analisar 
-os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo 
-a validade da investigação e a confiabilidade dos resultados obtidos.
+Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo a validade da investigação e a confiabilidade dos resultados obtidos.
 
 \section{Seleção de Contexto}
 
-A seleção do contexto define o ambiente no qual o experimento será conduzido e delimita as condições sob as quais os resultados deverão ser interpretados. De acordo com \citeonline[p.~110, tradução nossa]{wohlin2024}, 
-o contexto corresponde ao "ambiente no qual o experimento é executado", contemplando tanto os sujeitos envolvidos quanto os artefatos de software utilizados como objetos do experimento.
+A seleção do contexto define o ambiente no qual o experimento será conduzido e delimita as condições sob as quais os resultados deverão ser interpretados. De acordo com \citeonline[p.~110, tradução nossa]{wohlin2024}, o contexto corresponde ao "ambiente no qual o experimento é executado", contemplando tanto os sujeitos envolvidos quanto os artefatos de software utilizados como objetos do experimento.
 
-No presente trabalho, o estudo será conduzido no contexto da avaliação de qualidade de produto de software com apoio de Modelos de Linguagem de Grande Escala, com foco específico na característica de manutenibilidade. 
-A escolha desse contexto, portanto, está alinhada à questão de pesquisa (verificar em \ref{sec:questao_de_pesquisa}).
+Acho que poderiamos substituir "no contexto da avaliação de qualidade de produto de software" para "aferição do índice de manutenibilidade de produtos de software" com apoio de Modelos de Linguagem de Grande Escala. A escolha desse contexto está alinhada à questão de pesquisa apresentada na seção \ref{sec:questao_de_pesquisa}.
+
+\citeonline[p.~116]{wohlin2024} caracterizam o contexto de um experimento a partir de quatro dimensões: offline versus online (em ambiente real), estudante versus profissional, problemas de brinquedo (toy) versus problemas reais e específico versus geral. Em relação a essas dimensões, este experimento se caracteriza como offline, por ser conduzido em ambiente controlado e não em produção; orientado à tecnologia, uma vez que os tratamentos não são aplicados por sujeitos humanos, mas por Modelos de Linguagem de Grande Escala; baseado em problemas reais, pois utiliza repositórios de código-fonte aberto reais como objetos de análise; e mais próximo do polo específico no que se refere ao equilíbrio entre especificidade e generalidade dos resultados. A opção por um ambiente offline e controlado justifica-se, conforme discutido pelos próprios autores, por reduzir os riscos e os custos associados à execução do experimento e por proporcionar maior controle sobre as variáveis envolvidas (WOHLIN et al., 2024).
 
 Dessa forma, o experimento será realizado em um ambiente controlado, utilizando os mesmos objetos de análise para diferentes variações de prompt, de modo a permitir comparação entre os resultados produzidos 
 com modelos de referência de avaliação de qualidade de software.
@@ -92,90 +73,66 @@ esperada entre avaliações equivalentes.
 
 \section{Seleção de Variáveis}
 
-A seleção de variáveis define quais elementos serão manipulados pelo pesquisador e quais resultados serão observados ao final da execução do experimento. 
-Segundo \citeonline{wohlin2024}, antes da definição do desenho experimental, é necessário selecionar as variáveis independentes e dependentes do estudo. 
-Os autores também afirmam que as variáveis independentes correspondem àquelas que podem ser controladas e modificadas durante o experimento, enquanto os 
-efeitos dos tratamentos são medidos por meio das variáveis dependentes.
+A seleção de variáveis define quais elementos serão manipulados pelo pesquisador e quais resultados serão observados ao final da execução do experimento. Segundo \citeonline{wohlin2024}, antes da definição do desenho experimental, é necessário selecionar as variáveis independentes e dependentes do estudo. Os autores explicam que as variáveis independentes correspondem àquelas que podem ser controladas e modificadas durante o experimento, sendo denominadas fatores aquelas que são deliberadamente variadas para observar seu efeito, enquanto os efeitos dos tratamentos são medidos por meio da variável dependente \cite[p.~77]{wohlin2024}.
 
-No contexto deste trabalho, serão consideradas duas variáveis independentes principais: o padrão de engenharia de prompt utilizado e a ferramenta de LLM 
-empregada na avaliação. A primeira variável independente corresponde à forma como a instrução será estruturada para orientar o modelo na análise de manutenibilidade do código-fonte. 
-A segunda variável independente corresponde ao modelo ou ferramenta de LLM utilizada para executar a avaliação.
+No contexto deste trabalho, considera-se um único fator: o padrão de engenharia de prompt. Esse fator corresponde à forma como a instrução é estruturada para orientar o modelo na análise de manutenibilidade do código-fonte, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: zero-shot, few-shot e chain-of-thought, que representam diferentes estratégias de formulação da instrução fornecida ao LLM. O objetivo é observar se a variação na estrutura do prompt influencia os resultados produzidos na avaliação de manutenibilidade.
 
-A variável independente referente ao padrão de prompt será composta por três tratamentos: \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}. 
-Esses tratamentos representam diferentes estratégias de formulação da instrução fornecida ao LLM. O objetivo é observar se a variação na estrutura do prompt influencia 
-os resultados produzidos na avaliação de manutenibilidade.
+A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos, sendo definida, neste experimento, como o resultado da aferição do indicador de manutenibilidade produzido na avaliação. Esse resultado não é tratado como uma simples resposta textual do modelo, mas como uma medida observável a partir de critérios previamente definidos. Por não ser diretamente mensurável, trata-se de uma medida indireta, que deverá ser cuidadosamente validada, conforme recomenda \citeonline[p.~118]{wohlin2024}.
 
-A variável independente referente à ferramenta de LLM também será composta por três tratamentos: ChatGPT, Claude e DeepSeek. A inclusão dessa variável permite 
-observar se diferentes ferramentas de LLM apresentam variações nos resultados de avaliação quando submetidas aos mesmos objetos experimentais e aos mesmos padrões de prompt.
+Além do fator e da variável dependente, o experimento adota duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é utilizado quando existe ``um fator que provavelmente tem efeito sobre a resposta, mas que não é de interesse do estudo'', permitindo eliminar sistematicamente esse efeito indesejado da comparação entre os tratamentos e, com isso, aumentar a precisão do experimento. A primeira variável de bloqueio, o modelo de referência, assumirá três níveis --- Q-Rapids, Q-Squale e MeasureSoftGram. Cada modelo opera com critérios e escalas próprios, de modo que o valor de manutenibilidade varia conforme o modelo adotado; como o objetivo da pesquisa não é comparar os modelos entre si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a ferramenta de LLM, assumirá igualmente três níveis --- ChatGPT, Claude e DeepSeek. A inclusão das três ferramentas não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta no processo de medição, de modo que o efeito observado dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo. A operacionalização do bloqueio é detalhada na Seção~\ref{sec:design}.
 
-A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos. Neste experimento, a variável dependente será o resultado da aferição do 
-indicador de manutenibilidade gerado pelo LLM, sob a ótica de três modelos de qualidade de referência: Q-Rapids, Q-Squale e MeasureSoftGram. Esse resultado não será 
-tratado apenas como uma resposta textual produzida pelo modelo, mas como uma medida observável a partir de critérios previamente definidos.
-
-Dessa forma, a variável dependente será operacionalizada por meio da avaliação da resposta gerada pelo LLM em relação aos modelos de qualidade de referência. 
-Essa avaliação permitirá verificar o grau de aderência das respostas aos atributos de manutenibilidade considerados no experimento, bem como comparar os resultados obtidos entre os diferentes tratamentos aplicados.
-
-Além das variáveis independentes e dependente, o experimento contará com variáveis de controle, necessárias para reduzir interferências externas na interpretação dos resultados. Entre essas variáveis, 
-destacam-se os mesmos objetos de análise, os mesmos trechos de código, os mesmos critérios de avaliação, os mesmos modelos de qualidade de referência e o mesmo procedimento de coleta dos resultados. 
-Essa estratégia está alinhada à orientação de \citeonline{wohlin2024}, segundo a qual, em um experimento, as demais variáveis independentes devem ser mantidas em nível fixo quando o objetivo é 
-observar o efeito de um fator específico sobre a variável dependente \cite[p.~77]{wohlin2024}.
+O experimento contará ainda com variáveis de controle, mantidas fixas para reduzir interferências externas na interpretação dos resultados. Sua definição detalhada será consolidada na etapa de instrumentação; a título de exemplo, incluem-se o procedimento de coleta dos resultados e os parâmetros de configuração dos modelos de LLM.
 
 Assim, a seleção de variáveis deste experimento pode ser sintetizada da seguinte forma:
 
 \begin{itemize}
-    \item \textbf{Variáveis independentes}: padrão de engenharia de prompt e ferramenta de LLM.
-    \item \textbf{Tratamentos da variável padrão de prompt}: \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}.
-    \item \textbf{Tratamentos da variável ferramenta de LLM}: ChatGPT, Claude e DeepSeek.
-    \item \textbf{Variável dependente}: resultado da aferição do indicador de manutenibilidade gerado pelo LLM.
-    \item \textbf{Modelos de referência para avaliação}: Q-Rapids, Q-Squale e MeasureSoftGram.
-    \item \textbf{Variáveis de controle}: objetos de análise, trechos de código, critérios de avaliação, modelos de qualidade de referência e procedimento de coleta.
+    \item \textbf{Fator:} padrão de engenharia de prompt.
+    \item \textbf{Tratamentos do fator:} zero-shot, few-shot e chain-of-thought.
+    \item \textbf{Variável dependente:} resultado da aferição do indicador de manutenibilidade produzido na avaliação.
+    \item \textbf{Variáveis de bloqueio:} modelo de qualidade de referência (Q-Rapids, Q-Squale e MeasureSoftGram) e ferramenta de LLM (ChatGPT, Claude e DeepSeek).
+    \item \textbf{Variáveis de controle:} definidas na etapa de instrumentação (por exemplo, procedimento de coleta e parâmetros de configuração dos LLMs).
 \end{itemize}
 
-Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre diferentes combinações de padrões de prompt e 
-ferramentas de LLM, mantendo constantes os objetos e critérios de avaliação. Com isso, busca-se observar se as variações nos resultados de 
-manutenibilidade podem ser associadas aos tratamentos aplicados no experimento.
+Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre os diferentes padrões de prompt, mantendo o modelo de referência e a ferramenta de LLM como blocos e as demais condições constantes. Com isso, busca-se observar se as variações nos resultados de manutenibilidade podem ser associadas ao fator manipulado no experimento.
 
 \section{Seleção dos Sujeitos}
+\label{sec:sujeitos}
 
-A seleção dos sujeitos define quais unidades serão consideradas no experimento para aplicação dos tratamentos e posterior observação dos resultados. 
-Segundo \citeonline{wohlin2024}, a etapa de planejamento do experimento inclui a seleção dos sujeitos após a definição do contexto, das hipóteses e das variáveis, 
-compondo uma das decisões necessárias para estruturar a execução experimental. No contexto desta pesquisa, essa seleção será adaptada à natureza tecnológica do estudo, 
-uma vez que não haverá participantes humanos executando tarefas de avaliação.
+A seleção dos sujeitos corresponde à definição das unidades a partir das quais os tratamentos serão aplicados e os resultados observados. Segundo \citeonline{wohlin2024}, essa etapa está diretamente associada à generalização dos resultados: para que as conclusões sejam válidas para a população de interesse, a seleção deve ser representativa dessa população, razão pela qual a seleção dos sujeitos é também descrita como uma amostra retirada de uma população \cite[p.~118]{wohlin2024}.
 
-Neste experimento, os sujeitos serão repositórios abertos de código-fonte, selecionados a partir de projetos disponíveis publicamente e pertencentes ao 
-domínio de aplicações web. Essa escolha está alinhada ao escopo da pesquisa, que busca avaliar a manutenibilidade de produtos de software reais, 
-desenvolvidos em contexto aberto e acessíveis para análise. O uso de repositórios públicos também favorece a transparência do experimento, 
-uma vez que permite a identificação, documentação e eventual replicação dos objetos utilizados.
+No contexto desta pesquisa, essa etapa é adaptada à natureza tecnológica do estudo. Diferentemente de experimentos orientados a seres humanos, nos quais os sujeitos são as pessoas que aplicam os tratamentos, este é um experimento orientado à tecnologia: os tratamentos são aplicados pelos LLMs sobre artefatos de software, não havendo participantes humanos executando tarefas de avaliação. Assim, adota-se uma organização em dois níveis, coerente com a distinção entre sujeitos, objetos e tratamentos apresentada por \citeonline[p.~77]{wohlin2024}: no nível do projeto, os repositórios de código-fonte aberto constituem as unidades amostrais; no nível do artefato, os arquivos extraídos desses repositórios constituem os objetos submetidos aos tratamentos, conforme detalhado na Subseção~\ref{sec:objetos}.
 
-A escolha dos repositórios como sujeitos do experimento justifica-se pelo fato de que eles representam as unidades principais a partir das 
-quais serão extraídos os artefatos avaliados. Embora, em experimentos tradicionais, os sujeitos frequentemente sejam pessoas, como estudantes ou profissionais, 
-\citeonline{wohlin2024} também tratam a experimentação em Engenharia de Software a partir da relação entre sujeitos, objetos e tratamentos, considerando 
-que os objetos avaliados podem ser artefatos de software, documentos, programas ou outros produtos relacionados ao processo de desenvolvimento. 
-Em exemplos apresentados pelos autores, os objetos experimentais incluem programas desenvolvidos ou documentos de requisitos utilizados na aplicação 
-dos tratamentos.
+A seleção dos repositórios é feita por amostragem não probabilística, do tipo por conveniência \cite[p.~118]{wohlin2024}, tomando como base os projetos de código-fonte aberto previamente identificados na revisão estruturada da literatura conduzida neste trabalho. Essa escolha mantém a continuidade metodológica entre o levantamento bibliográfico e o experimento: os mesmos produtos de software que sustentaram a caracterização do problema passam a compor o objeto de avaliação empírica, favorecendo a rastreabilidade e a transparência do estudo.
 
-Dessa forma, a definição dos sujeitos nesta pesquisa considera a especificidade do estudo: os repositórios abertos serão as unidades selecionadas para 
-representar o contexto de projetos reais de software, enquanto os arquivos extraídos desses repositórios serão os elementos diretamente submetidos à avaliação pelos LLMs. 
-Essa distinção permite organizar o experimento em dois níveis: o nível do projeto, representado pelo repositório, e o nível do artefato analisado, representado pelos 
-arquivos de código-fonte.
+Sobre esse conjunto, contudo, aplica-se um critério de inclusão adicional, decorrente da própria questão de pesquisa. A revisão estruturada, ao responder quais são os produtos de código-fonte aberto avaliados nos estudos, recuperou projetos de domínios diversos, incluindo bibliotecas científicas e ferramentas de infraestrutura. A questão principal desta pesquisa, porém, delimita o escopo a projetos de código-fonte aberto \textit{do domínio de aplicações web}. Estabelece-se, portanto, uma distinção entre o conjunto amplo (projetos de código aberto, qualquer domínio) e o subconjunto de interesse (projetos de código aberto \textit{e} de aplicações web): apenas os projetos pertencentes ao domínio web integram o experimento, enquanto os demais, ainda que levantados na revisão, são excluídos da avaliação empírica por não atenderem ao recorte da questão de pesquisa.
+
+Cabe registrar que a amostragem por conveniência tem implicações sobre a generalização dos resultados: as conclusões não se estendem à totalidade dos projetos de aplicações web de código aberto, mas ao conjunto representado pela amostra, isto é, os projetos web consolidados na literatura recente sobre LLMs e qualidade de software. Além disso, conforme apontam \citeonline{wohlin2024}, o tamanho da amostra relaciona-se ao poder do teste estatístico e à variabilidade dos objetos, de modo que essa variabilidade deverá ser considerada na análise. Essas limitações são retomadas na avaliação de validade (Seção~\ref{sec:avaliacao}).
 
 \subsection{Definição dos Objetos}
+\label{sec:objetos}
 
-Os objetos do experimento correspondem aos artefatos de software que serão diretamente submetidos aos tratamentos definidos no estudo. Nesta pesquisa, os objetos serão os 
-arquivos de código-fonte extraídos dos repositórios abertos selecionados. O termo arquivo será utilizado de forma abrangente, contemplando diferentes formas de organização do código, 
-como classes, módulos, componentes, funções ou trechos de código, conforme a estrutura de cada projeto analisado.
+Os objetos do experimento correspondem aos artefatos de software diretamente submetidos aos tratamentos. Nesta pesquisa, os objetos são os arquivos de código-fonte extraídos dos repositórios selecionados. O termo arquivo é empregado de forma abrangente, contemplando diferentes formas de organização do código --- como classes, módulos, componentes, funções ou trechos --- conforme a estrutura de cada projeto analisado. A adoção desse termo mantém a definição dos objetos suficientemente geral para abranger as distintas linguagens, arquiteturas e convenções de organização presentes em projetos de aplicações web, evitando restringir o experimento a uma estrutura específica que possa não estar presente de maneira uniforme em todos os projetos.
 
-A adoção do termo arquivos tem como objetivo manter a definição dos objetos suficientemente geral para abranger diferentes linguagens, arquiteturas e padrões de organização presentes em 
-projetos de aplicações web. Dessa forma, evita-se restringir o experimento a uma estrutura específica, como classes ou métodos, que pode não estar presente de forma uniforme em todos os projetos selecionados.
+Para garantir maior controle experimental, os mesmos arquivos são submetidos a todas as combinações de tratamento e blocos, característica própria do desenho pareado adotado e detalhada na Seção~\ref{sec:design}. Essa estratégia permite comparar os resultados obtidos entre os diferentes tratamentos reduzindo a influência de variações decorrentes da escolha de artefatos distintos, uma vez que cada arquivo funciona como sua própria referência de comparação.
 
-Os arquivos selecionados serão avaliados pelos LLMs a partir dos diferentes padrões de engenharia de prompt definidos como tratamentos. Para garantir maior controle experimental, os mesmos arquivos 
-serão submetidos às diferentes combinações de padrões de prompt e ferramentas de LLM. Essa estratégia permite comparar os resultados obtidos sob diferentes tratamentos, reduzindo a influência de variações 
-decorrentes da escolha de artefatos distintos.
- 
-Portanto, neste experimento, os repositórios abertos de código-fonte serão considerados os sujeitos do estudo, enquanto os arquivos extraídos desses repositórios constituirão os objetos experimentais. 
-Essa organização permite manter o vínculo com projetos reais de software, ao mesmo tempo em que delimita unidades concretas de análise para aplicação dos tratamentos e mensuração dos resultados.
+O critério de seleção dos arquivos dentro de cada projeto será consolidado na etapa de instrumentação, avaliando-se, por exemplo, a adoção de seleção aleatória ou de critérios de relevância estrutural, como tamanho ou complexidade dos arquivos. Dessa forma, os repositórios de código-fonte aberto do domínio web atuam como unidades amostrais no nível do projeto, enquanto os arquivos deles extraídos constituem os objetos concretos de análise, sobre os quais os tratamentos são aplicados e os resultados aferidos.
 
 \section{Design do Experimento}
+\label{sec:design}
+
+O design de um experimento descreve como os testes são organizados e executados, definindo a estrutura sobre a qual os dados serão coletados e posteriormente analisados. Segundo \citeonline{wohlin2024}, o design e a análise estatística estão intimamente relacionados: a escolha do desenho condiciona os métodos de análise aplicáveis e, portanto, deve ser orientada pelas hipóteses formuladas e pelas escalas de medição adotadas \cite[p.~119]{wohlin2024}.
+
+O desenho adotado neste trabalho é o \textit{Randomized Complete Block Design} (RCBD). A escolha decorre da estrutura do experimento: há um único fator de tratamento --- o padrão de engenharia de prompt, com três tratamentos (zero-shot, few-shot e chain-of-thought) --- cujos efeitos se deseja comparar, enquanto outras fontes de variação, que influenciam o resultado mas não são objeto de estudo, são tratadas por blocagem. Conforme \citeonline{wohlin2024}, o RCBD é indicado quando a variabilidade entre as unidades experimentais é relevante, sendo caracterizado pela aplicação de todos os tratamentos a uma mesma unidade e pela aleatorização da ordem em que esses tratamentos são aplicados \cite[p.~123]{wohlin2024}.
+
+O desenho apoia-se nos três princípios gerais de design descritos por \citeonline[p.~120]{wohlin2024}: randomização, blocagem e balanceamento.
+
+A \textbf{blocagem} é aplicada às duas fontes de variação não estudadas: o modelo de qualidade de referência e a ferramenta de LLM, cada um com três níveis. Como discutido na Seção~\ref{sec:sujeitos}, esses elementos afetam o resultado da aferição, mas não constituem o objeto da investigação; ao tratá-los como blocos, seu efeito é controlado e a comparação entre os padrões de prompt ganha precisão, sem que o efeito entre blocos seja estudado.
+
+A \textbf{randomização} incide sobre a ordem de aplicação dos tratamentos. Para cada arquivo submetido à avaliação, a sequência em que os três padrões de prompt são aplicados é definida aleatoriamente, de modo a evitar que a ordem introduza um efeito sistemático nos resultados. Esse procedimento atende ao requisito de independência das observações exigido pelos métodos de análise estatística \cite[p.~120]{wohlin2024}.
+
+O \textbf{balanceamento} é assegurado pela aplicação uniforme dos tratamentos em relação aos blocos: cada padrão de prompt é avaliado sob cada modelo de referência e cada ferramenta de LLM. Da combinação entre os três padrões de prompt, os três modelos de referência e as três ferramentas de LLM resulta o conjunto de 27 combinações de avaliação, sobre as quais o indicador de manutenibilidade é aferido para cada arquivo. O balanceamento simplifica e fortalece a análise estatística dos dados \cite[p.~121]{wohlin2024}.
+
+Cabe destacar que os mesmos arquivos são submetidos a todos os tratamentos, caracterizando um desenho pareado. Essa estratégia reduz a influência da variabilidade entre artefatos distintos, uma vez que cada arquivo funciona como sua própria referência de comparação, e é coerente com a natureza do RCBD, no qual cada unidade experimental recebe todos os tratamentos \cite[p.~123]{wohlin2024}. Por fim, um design adequadamente estruturado constitui a base para a replicação do experimento \cite[p.~120]{wohlin2024}, objetivo reforçado pelo uso de repositórios de código-fonte aberto e pela documentação dos procedimentos adotados.
 
 \section{Avaliação}
 
