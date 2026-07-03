@@ -312,6 +312,52 @@ utilizados, às métricas de manutenibilidade identificadas, aos padrões de pro
 
 \subsection{Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software?}
 
+\textcolor[rgb]{255,0,0}{
+    A análise dos artigos indica que a manutenibilidade é operacionalizada,
+majoritariamente, por meio de medidas relacionadas às propriedades internas do
+código-fonte. Essa interpretação é sustentada por estudos que avaliam diretamente
+atributos internos do código. \citeonline[p.~1, tradução nossa]{santamolison2025}
+afirmam que seu estudo ``compara os atributos internos de qualidade do código
+gerado por LLMs e do código escrito por humanos''. De forma convergente, o modelo
+Q-Rapids, por exemplo, associa a manutenibilidade ao fator \textit{Code Quality},
+que ``mede o impacto das mudanças de código na qualidade do código-fonte''
+\cite[p.~10, tradução nossa]{qrapids2019}. Nesse modelo, a manutenibilidade é
+avaliada por métricas como complexidade, comentários e duplicação, além de
+violações críticas ou bloqueadoras de regras de qualidade no fator
+\textit{Blocking Code} \cite[p.~5]{qrapids2019}.
+
+A centralidade da complexidade também aparece de forma recorrente nos artigos.
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} indicam que as ``métricas de
+complexidade avaliadas incluem LOC, complexidade ciclomática e métricas de
+Halstead''. De modo semelhante, \citeonline[p.~4, tradução nossa]{NunesEtAll}
+tratam a complexidade como um problema de manutenibilidade ao incluir, entre os
+127 problemas analisados, a regra segundo a qual ``a complexidade cognitiva dos
+métodos não deve ser muito alta''. Esses achados reforçam que medidas como
+complexidade ciclomática, complexidade cognitiva, LOC e métricas de Halstead são
+utilizadas como indicadores do esforço necessário para compreender, modificar e
+evoluir o software.
+
+Além da complexidade, os artigos destacam \textit{code smells} e problemas de
+projeto como medidas relevantes para a análise da manutenibilidade.
+\citeonline[p.~1, tradução nossa]{amorim2025} afirmam que ``a detecção de
+\textit{code smells} é uma tarefa crítica'', pois permite identificar
+``problemas de design que podem comprometer a qualidade do código e a
+manutenibilidade''. Na mesma direção, \citeonline[p.~1, tradução nossa]{alomari2026}
+definem \textit{code smells} como ``decisões pobres de projeto'' que podem ser
+resolvidas pela alteração da ``estrutura interna do código'' sem afetar seu
+comportamento externo. Essa evidência justifica o uso de \textit{code smells}
+como medidas associadas à degradação da manutenibilidade.
+
+Conclui-se, portanto, que as medidas mais utilizadas para análise da
+manutenibilidade são aquelas capazes de indicar esforço futuro de compreensão,
+modificação e correção do software. Nesse sentido, destacam-se complexidade,
+\textit{code smells}, duplicação e dívida técnica. Essas medidas evidenciam que a
+literatura recente sobre LLMs e qualidade de software tende a tratar a
+manutenibilidade não apenas como um atributo técnico mensurável por métricas
+tradicionais, mas também como uma propriedade associada à interpretação semântica
+do código e à identificação de problemas de projeto que impactam sua evolução.
+}
+
 \subsection{Quais atributos de manutenibilidade, presentes em modelos de referência de qualidade de software, são mais relevantes para a aferição de qualidade gerados por LLMs?}
 
 Os atributos mais relevantes para aferir manutenibilidade em código gerado por LLMs são legibilidade, compreensibilidade, modularidade, testabilidade, complexidade, 

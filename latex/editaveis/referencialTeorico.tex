@@ -65,7 +65,85 @@ para especificar, medir e avaliar a qualidade de sistemas e produtos de software
 
 \subsection{Manutenibilidade de Software}
 
+A manutenibilidade é uma das características do modelo de qualidade de produto definido pela ISO/IEC 25010, no contexto da série SQuaRE \textit{Systems and Software Quality Requirements and Evaluation}. Esse modelo organiza a qualidade de sistemas e 
+produtos de software em características e subcaracterísticas, com o objetivo de apoiar a especificação, a medição e a avaliação da qualidade de software \cite{isoiec25010}.
+
+De acordo com a ISO/IEC 25010, a qualidade de produto contempla características relacionadas tanto às propriedades estáticas do software quanto às propriedades dinâmicas do sistema computacional. Entre essas características estão 
+adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}.
+
+No contexto deste trabalho, a manutenibilidade pode ser compreendida como o grau em que um produto ou sistema de software pode ser modificado de forma efetiva e eficiente, seja para corrigir defeitos, melhorar funcionalidades, 
+adaptar-se a mudanças de ambiente ou incorporar novos requisitos. Assim, essa característica está diretamente relacionada à capacidade de evolução do software ao longo de seu ciclo de vida.
+
+A manutenibilidade assume papel central em estudos sobre qualidade de código-fonte, pois permite avaliar não apenas se o software executa corretamente suas funções, mas também se sua estrutura favorece compreensão, alteração, 
+reuso e validação. Essa perspectiva é especialmente relevante na análise de código gerado ou avaliado por Modelos de Linguagem de Grande Escala, uma vez que uma solução pode parecer funcionalmente correta, mas ainda apresentar limitações estruturais, 
+como alto acoplamento, baixa coesão, duplicação de código, baixa testabilidade ou dificuldade de modificação.
+
 \subsubsection{Subcaracterísticas da Manutenibilidade}
+
+Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, 
+facilitando sua operacionalização em avaliações de qualidade de software.
+
+\begin{description}
+
+\item[Modularidade:] refere-se ao grau em que um sistema ou programa é composto por componentes separados, de modo que alterações em uma parte tenham impacto mínimo sobre as demais. Na avaliação de código-fonte, essa subcaracterística pode ser observada por meio da separação de responsabilidades, baixo acoplamento, alta coesão e organização adequada de módulos, classes e funções.
+
+\item[Reusabilidade:] representa o grau em que um componente, módulo ou artefato de software pode ser utilizado em mais de um sistema ou na construção de outros artefatos. Em termos práticos, relaciona-se à criação de funções, classes e componentes genéricos, parametrizáveis e pouco dependentes de contextos específicos.
+
+\item[Analisabilidade:] diz respeito à facilidade de avaliar o impacto de uma mudança, diagnosticar causas de falhas ou identificar partes do software que precisam ser modificadas. Essa subcaracterística está associada à legibilidade, clareza de nomes, documentação, simplicidade estrutural, rastreabilidade e baixa complexidade do código.
+
+\item[Modificabilidade:] refere-se ao grau em que um produto ou sistema pode ser alterado de forma efetiva e eficiente, sem introduzir defeitos ou degradar sua qualidade existente. Na avaliação de código, pode ser observada pela facilidade de refatoração, baixo acoplamento, ausência de efeitos colaterais e capacidade de realizar mudanças localizadas.
+
+\item[Testabilidade:] representa o grau em que critérios de teste podem ser definidos e testes podem ser executados para verificar se o software atende a esses critérios. Relaciona-se à existência de unidades testáveis, previsibilidade do comportamento, baixo entrelaçamento de dependências e facilidade de automação de testes.
+
+\end{description}
+
+A ISO/IEC 25010 não determina uma única métrica para mensurar a manutenibilidade. Em vez disso, a estrutura da série SQuaRE prevê que características e subcaracterísticas sejam associadas a propriedades de qualidade e medidas adequadas ao contexto de avaliação \cite{isoiec25000}. A esta altura, cabe, portanto, realizar definição dos conceitos de medida, medição, indicador e métrica de acordo com a ISO/IEC 25000.
+
+\begin{table}[htbp]
+\centering
+\caption{Diferença entre medida, medição, indicador e métrica segundo a terminologia da ISO/IEC 25000}
+\label{tab:diferenca-medida-indicador-metrica}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{
+    >{\raggedright\arraybackslash}p{2.8cm}
+    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}X
+}
+\toprule
+\textbf{Termo} & \textbf{Sentido conforme a ISO/SQuaRE} & \textbf{Exemplo aplicado à manutenibilidade} \\
+\midrule
+
+\textbf{Medida} &
+Variável à qual um valor é atribuído como resultado de uma medição. A ISO/IEC 25000 indica que o termo ``medidas'' pode abranger medidas-base, medidas derivadas e indicadores. &
+Complexidade ciclomática igual a 12; número de classes igual a 20; percentual de cobertura de testes igual a 75\%. \\
+
+\midrule
+
+\textbf{Medição} &
+Processo ou conjunto de operações utilizado para determinar o valor de uma medida. &
+Executar uma ferramenta de análise estática para calcular a complexidade ciclomática de um método. \\
+
+\midrule
+
+\textbf{Indicador} &
+Medida que fornece uma estimativa ou avaliação de atributos especificados, derivada de um modelo e relacionada a uma necessidade de informação. &
+Classificar a manutenibilidade como alta, média ou baixa com base em complexidade, acoplamento, duplicação e cobertura de testes. \\
+
+\midrule
+
+\textbf{Métrica} &
+Termo comum na literatura e na prática da Engenharia de Software, mas não é o termo central adotado pela ISO/IEC 25000. No contexto deste trabalho, pode ser tratado como sinônimo operacional de medida, desde que se preserve a terminologia normativa. &
+``Métrica de complexidade ciclomática'', embora, na linguagem da ISO, seja mais preciso utilizar ``medida de complexidade ciclomática''. \\
+
+\bottomrule
+\end{tabularx}
+\fonte{Elaborado pelo autor com base na \citeonline{isoiec25000}.}
+\end{table}
+
+Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser operacionalizada por métricas como complexidade ciclomática, acoplamento, coesão, duplicação, \textit{code smells}, índice de manutenibilidade e cobertura de testes, desde que tais medidas estejam alinhadas às subcaracterísticas avaliadas. Cabe mencionar também que 
+as medidas em questão variam de acordo com o modelo de qualidade de referência que se utiliza para realizar a avaliação.
+
+Dessa forma, neste trabalho, a manutenibilidade é adotada como característica de qualidade de referência para analisar em que medida diferentes padrões de engenharia de \textit{prompt} influenciam a avaliação de código-fonte por Modelos de Linguagem de Grande Escala. As subcaracterísticas definidas pela ISO/IEC 25010 fornecem a base conceitual para mapear atributos observáveis do código, como modularidade, reuso, facilidade de análise, facilidade de modificação e testabilidade, permitindo relacionar os resultados dos estudos selecionados a um modelo normativo reconhecido de qualidade de software.
 
 \subsubsection{Métricas de Manutenibilidade}
 
