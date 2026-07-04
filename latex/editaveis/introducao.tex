@@ -1,37 +1,17 @@
 \chapter[Introdução]{Introdução}
 
-Este capítulo apresenta os conceitos fundamentais que sustentam o desenvolvimento desta pesquisa, 
-oferecendo ao(à) leitor(a) uma contextualização teórica acerca dos principais temas abordados ao longo do trabalho. 
-Inicialmente, são discutidos aspectos relacionados à experimentação em Engenharia de Software e qualidade de produto.
-
-A partir dessa fundamentação, são apresentados o delineamento do problema investigado e a questão de pesquisa que orienta este estudo.
-Por fim, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, 
-coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
+Este capítulo apresta os elementos intridutórios que norteiam o presente trabalho, a saber: a apresentação do tema e contextualização, o delineamento do problema investigado e a questão de pesquisa que orienta este estudo, bem como seus objetivos. A partir dessa fundamentação, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
 
 \section{Contexto}
 
-A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, 
-a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido 
-amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. 
-Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, 
-sendo frequentemente incorporadas a práticas de desenvolvimento e integração contínua \cite{LenarduzziEtAll}.
+A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, 
+sendo frequentemente incorporadas a práticas de Integração Contínua (CI) e Desenvolvimento Contínuo (CD) \cite{LenarduzziEtAll}.
 
-Apesar de sua relevância, as ferramentas tradicionais de análise estática operam, em geral, com base em regras previamente definidas, 
-padrões sintáticos e métricas estruturais do código. Estudos empíricos indicam que diferentes ferramentas podem apresentar baixa concordância entre si, 
-além de variações consideráveis em termos de precisão. \citeonline{LenarduzziEtAll}, ao compararem seis ferramentas populares de análise estática, 
-identificaram pouca ou nenhuma concordância entre os problemas detectados e observaram que a precisão prática dessas ferramentas pode ser afetada 
-pela ocorrência de falsos positivos.
+Apesar de sua relevância, as ferramentas tradicionais de análise estática operam, em geral, com base em regras previamente definidas, padrões sintáticos e métricas estruturais do código. Estudos empíricos indicam que diferentes ferramentas podem apresentar baixa concordância entre si, além de variações consideráveis em termos de precisão. \citeonline{LenarduzziEtAll}, ao compararem seis ferramentas populares de análise estática, identificaram pouca ou nenhuma concordância entre os problemas detectados e observaram que a precisão prática dessas ferramentas pode ser afetada pela ocorrência de falsos positivos.
 
-Com o avanço dos Modelos de Linguagem de Grande Escala, novas possibilidades passaram a ser investigadas na Engenharia de Software, especialmente 
-em tarefas relacionadas à geração, compreensão e análise de código. Esses modelos têm demonstrado potencial para interpretar elementos do código a 
-partir de informações contextuais e semânticas, aproximando-se de tarefas tradicionalmente associadas à análise estática. \citeonline{VenkateshEtAll} 
-investigaram o uso de LLMs em tarefas como inferência de tipos e análise de grafo de chamadas, apontando resultados promissores em alguns cenários, 
-mas também limitações relevantes em outros.
+Com o avanço dos Modelos de Linguagem de Grande Escala, ou \textit{Large Language Models} (LLM), novas possibilidades passaram a ser investigadas na Engenharia de Software, especialmente em tarefas relacionadas à geração, compreensão e análise de código. Esses modelos têm demonstrado potencial para interpretar elementos do código a partir de informações contextuais e semânticas, aproximando-se de tarefas tradicionalmente associadas à análise estática. \citeonline{VenkateshEtAll} investigaram o uso de LLMs em tarefas como inferência de tipos e análise de grafo de chamadas, apontando resultados promissores em alguns cenários, mas também limitações relevantes em outros.
 
-Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. 
-A engenharia de prompts e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. 
-Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, 
-embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
+Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. A engenharia de prompts e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
 
 \section{Problema}
 
