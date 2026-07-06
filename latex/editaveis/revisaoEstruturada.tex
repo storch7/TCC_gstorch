@@ -218,9 +218,15 @@ Formulário de extração de dados & Q01 -- Qual é o título completo do estudo
  & Q20 -- Quais são os principais resultados do estudo? \\ \hline
 \end{longtable}
 
-A representação visual do processo de realização do protocolo de busca também pode ser encontrada na Figura~X.
+A representação visual do processo de realização do protocolo de busca também pode ser encontrada na Figura \ref{fig:fluxo_selecao}.
 
-\textbf{GERAR FIGURA PARA ILUSTRAÇÃO}
+\begin{figure}[H]
+    \centering
+    \caption{Fluxo da realização do protocolo de busca}
+    \includegraphics[width=16cm]{figuras/fluxo_selecao_artigos.png}
+    \label{fig:fluxo_selecao}
+    \fonte{O Autor}
+\end{figure}
 
 \section{Extração de Dados}
 
@@ -313,6 +319,10 @@ utilizados, às métricas de manutenibilidade identificadas, aos padrões de pro
 \section{Síntese dos Resultados}
 
 \subsection{Quais são os modelos de qualidade de referência que definem a operacionalização da característica de manutenibilidade em produtos de software?}
+
+{\color{red}
+    
+}
 
 \subsection{Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software?}
 
@@ -439,8 +449,7 @@ mas esse alinhamento precisa ser verificado por métricas e ferramentas de anál
 Existem diferenças observadas entre resultados obtidos por diferentes padrões de prompt. Os artigos indicam diferenças significativas nos resultados de manutenibilidade quando diferentes padrões de prompt são avaliados por métricas tradicionais. 
 \citeonline[p.~1, tradução nossa]{DellaPortaEtAll} mostram isso diretamente ao afirmar que os padrões de prompt produziram ``diferenças significativas no LOC e nas submétricas relacionadas''. O artigo também registra que as métricas avaliadas incluíram LOC, complexidade ciclomática e Halstead, o que confirma o uso de métricas tradicionais para comparar os efeitos dos prompts. 
 
-\citeonline[p.~669, tradução nossa]{NunesEtAll} também observam diferenças entre configurações de prompt ao avaliar correções de problemas de manutenibilidade. Os autores relatam que ``O Llama com few-shot prompting corrigiu com sucesso 44,9% dos métodos, enquanto o Copilot Chat e o Llama em modo zero-shot corrigiram 32,29% e 30%, respectivamente''. 
-Esse resultado mostra que a estratégia de prompt pode alterar significativamente a capacidade do modelo de corrigir problemas de manutenibilidade em projetos reais.
+\citeonline[p.~669, tradução nossa]{NunesEtAll} também observam diferenças entre configurações de prompt ao avaliar correções de problemas de manutenibilidade. Os autores relatam que ``O Llama com few-shot prompting corrigiu com sucesso 44,9\% dos métodos, enquanto o Copilot Chat e o Llama em modo zero-shot corrigiram 32,29\% e 30\%, respectivamente''. Esse resultado mostra que a estratégia de prompt pode alterar significativamente a capacidade do modelo de corrigir problemas de manutenibilidade em projetos reais.
 
 \subsection{Quais limitações dos modelos tradicionais de qualidade de software se tornam evidentes na avaliação de qualidade, com foco no atributo de manutenibilidade, feita por LLMs?}
 
