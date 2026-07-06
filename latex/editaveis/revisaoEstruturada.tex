@@ -1,38 +1,20 @@
 \chapter[Revisão Estruturada da Literatura]{Revisão Estruturada da Literatura}
 Este capítulo apresenta o procedimento adotado para identificação, seleção e organização 
 do material bibliográfico utilizado neste trabalho. A busca foi conduzida na base Scopus, 
-escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências 
-relevantes para a comunidade acadêmica \cite{elsevier2024}.
+escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências relevantes para a comunidade acadêmica \cite{elsevier2024}.
 
 
 \section{Planejamento e Protocolo}
-Inicialmente, foram realizadas leituras exploratórias de estudos relacionados à qualidade de software, 
-análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa teve como objetivo 
-contextualizar o problema de pesquisa, compreender os principais conceitos associados ao tema e apoiar a delimitação 
-da problemática investigada. Os estudos analisados nessa fase inicial também contribuíram para a formulação da questão 
-principal de pesquisa e para a identificação dos termos utilizados posteriormente na construção da string de busca.
+Inicialmente, foram realizadas leituras exploratórias de estudos relacionados à qualidade de software, análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa teve como objetivo contextualizar o problema de pesquisa, compreender os principais conceitos associados ao tema e apoiar a delimitação 
+da problemática investigada. Os estudos analisados nessa fase inicial também contribuíram para a formulação da questão principal de pesquisa e para a identificação dos termos utilizados posteriormente na construção da string de busca.
 
-Após essa etapa exploratória, procedeu-se à formalização do protocolo de pesquisa. Embora este trabalho não se caracterize
- como uma revisão sistemática da literatura em sentido estrito, optou-se por adotar uma estrutura metodológica inspirada nas 
- diretrizes propostas por \citeonline{kitchenhamCharters2007} para revisões sistemáticas em Engenharia de Software. Essa escolha 
- teve como finalidade conferir maior rigor, organização e transparência ao processo de busca, seleção e análise dos estudos, 
- permitindo que as etapas adotadas fossem documentadas de forma clara e passível de verificação.
+Após essa etapa exploratória, procedeu-se à formalização do protocolo de pesquisa. Embora este trabalho não se caracterize  como uma revisão sistemática da literatura em sentido estrito, optou-se por adotar uma estrutura metodológica inspirada nas diretrizes propostas por \citeonline{kitchenhamCharters2007} para revisões sistemáticas em Engenharia de Software. Essa escolha teve como finalidade conferir maior rigor, organização e transparência ao processo de busca, seleção e análise dos estudos,  permitindo que as etapas adotadas fossem documentadas de forma clara e passível de verificação.
 
-As diretrizes de \citeonline{kitchenhamCharters2007} indicam que uma revisão estruturada deve ser orientada por questões de pesquisa 
-previamente definidas, critérios explícitos de inclusão e exclusão, estratégia de busca documentada, processo de seleção dos estudos e 
-definição dos dados a serem extraídos. Dessa forma, o protocolo deste trabalho foi elaborado com o objetivo de orientar a identificação 
-de estudos relacionados ao uso de LLMs e padrões de engenharia de prompt na avaliação de atributos de qualidade de software, com foco 
-específico na característica de manutenibilidade.
+As diretrizes de \citeonline{kitchenhamCharters2007} indicam que uma revisão estruturada deve ser orientada por questões de pesquisa previamente definidas, critérios explícitos de inclusão e exclusão, estratégia de busca documentada, processo de seleção dos estudos e definição dos dados a serem extraídos. Dessa forma, o protocolo deste trabalho foi elaborado com o objetivo de orientar a identificação de estudos relacionados ao uso de LLMs e padrões de engenharia de prompt na avaliação de atributos de qualidade de software, com foco específico na característica de manutenibilidade.
 
-A construção do protocolo partiu da questão principal de pesquisa definida neste trabalho: \textit{Como diferentes padrões de engenharia de prompt 
-influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos 
-de código-fonte aberto para aplicações web?} A partir dessa questão, foram delimitados o escopo da busca, os termos utilizados na string, os critérios de 
-elegibilidade e os dados a serem coletados dos estudos selecionados.
+A construção do protocolo partiu da questão principal de pesquisa definida neste trabalho: \textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?} A partir dessa questão, foram delimitados o escopo da busca, os termos utilizados na string, os critérios de elegibilidade e os dados a serem coletados dos estudos selecionados.
 
-Para apoiar a organização da estratégia de busca, foi utilizada uma adaptação da estrutura PICO, originalmente empregada na formulação de questões 
-de pesquisa em revisões sistemáticas. No contexto deste trabalho, a camada de população foi relacionada ao domínio da Engenharia de Software e ao 
-desenvolvimento de aplicações web. A camada de intervenção foi associada à engenharia de prompt e aos padrões de prompt aplicados a LLMs. A camada de 
-resultado foi vinculada à qualidade de software, especialmente à manutenibilidade e às métricas relacionadas a essa característica. A camada de comparação 
+Para apoiar a organização da estratégia de busca, foi utilizada uma adaptação da estrutura PICO, originalmente empregada na formulação de questões de pesquisa em revisões sistemáticas. No contexto deste trabalho, a camada de população foi relacionada ao domínio da Engenharia de Software e ao desenvolvimento de aplicações web. A camada de intervenção foi associada à engenharia de prompt e aos padrões de prompt aplicados a LLMs. A camada de resultado foi vinculada à qualidade de software, especialmente à manutenibilidade e às métricas relacionadas a essa característica. A camada de comparação 
 não foi utilizada, pois o objetivo da busca não foi recuperar estudos que comparassem uma intervenção específica contra outra, mas identificar evidências sobre 
 a aplicação de diferentes estratégias de prompt e sua relação com a avaliação da manutenibilidade.
 
@@ -46,18 +28,13 @@ Além da definição da string, foram estabelecidos critérios de inclusão e ex
 relacionados ao uso de LLMs em tarefas de geração, análise ou avaliação de código-fonte; estudos que abordassem atributos de qualidade de software, especialmente manutenibilidade; publicações em português ou inglês; trabalhos publicados a partir de 2022; e estudos com texto completo disponível. Os critérios de exclusão, por sua vez, contemplaram estudos sem relação direta com manutenibilidade, trabalhos que apenas mencionassem LLMs ou qualidade de software de forma superficial, estudos voltados exclusivamente a aplicações gerais de processamento de linguagem natural sem avaliação de código-fonte, publicações duplicadas e estudos sem documentação suficiente para análise.
 
 O protocolo também definiu os dados a serem extraídos dos estudos selecionados. Para isso, foi elaborado um formulário de extração contemplando informações demográficas, 
-características dos LLMs utilizados, contexto dos projetos avaliados, modelos de qualidade adotados, definições e métricas de manutenibilidade, estratégias de prompt empregadas, resultados 
-encontrados e limitações apontadas pelos autores. Essa estrutura foi planejada para garantir que os dados coletados estivessem alinhados às questões de pesquisa e permitissem a posterior síntese das evidências.
-Uma descrição mais detalhada de cada uma destas etapas pode ser vista nas subsessões a seguir.
+características dos LLMs utilizados, contexto dos projetos avaliados, modelos de qualidade adotados, definições e métricas de manutenibilidade, estratégias de prompt empregadas, resultados encontrados e limitações apontadas pelos autores. Essa estrutura foi planejada para garantir que os dados coletados estivessem alinhados às questões de pesquisa e permitissem a posterior síntese das evidências. Uma descrição mais detalhada de cada uma destas etapas pode ser vista nas subsessões a seguir.
 
 \section{Estruturação da String de Busca}
 
-Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular 
-uma questão de pesquisa clara e focada, especialmente em revisões sistemáticas. 
+Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular uma questão de pesquisa clara e focada, especialmente em revisões sistemáticas. 
 
-O acrônimo representa quatro componentes principais de uma pergunta 
-bem construída: Patient, Intervention, Comparison e Outcome; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente    
-proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. 
+O acrônimo representa quatro componentes principais de uma pergunta bem construída: \textit{Patient}, \textit{Intervention}, \textit{Comparison} e \textit{Outcome}; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. 
 
 A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
 
@@ -69,10 +46,7 @@ A repesentação visual do protocolo proposto pode ser observada na Figura \ref{
     \fonte{Adaptado de \citeonline{paiEtAll}.}
 \end{figure}
 
-Para adaptar a estrutura PICO ao escopo desta pesquisa, foi necessário reinterpretar seus elementos a partir 
-da realidade da Engenharia de Software. O componente originalmente associado à população ou aos pacientes foi 
-relacionado ao domínio de aplicação investigado. A intervenção, que no contexto médico 
-corresponde ao tratamento ou procedimento analisado, foi representada por termos vinculados ao fenômeno de interesse deste estudo e o resultado foi associado aos tipos de evidência esperados. A partir dessa consolidação, foi estruturado o conjunto final de termos empregado na pesquisa, conforme apresentado na Tabela \ref{tab:termos_busca}.
+Para adaptar a estrutura PICO ao escopo desta pesquisa, foi necessário reinterpretar seus elementos a partir da realidade da Engenharia de Software, uma vez que o protocolo original proposto pelos autores é utilizado para o desenvolvimento de pesquisas na área médica. O componente originalmente associado à população ou aos pacientes foi relacionado ao domínio de aplicação investigado. A intervenção, que no contexto médico corresponde ao tratamento ou procedimento analisado, foi representada por termos vinculados ao fenômeno de interesse deste estudo e o resultado foi associado aos tipos de evidência esperados. A partir dessa consolidação, foi estruturado o conjunto final de termos empregado na pesquisa, conforme apresentado na Tabela \ref{tab:termos_busca}.
 
 \begin{longtable}{|p{3cm}|p{4cm}|p{8cm}|}
 \caption{Termos de busca} \label{tab:termos_busca} \\
@@ -98,13 +72,7 @@ Resultado & \textit{software quality} &
 `maintainability'', `software maintainability'', `maintainability index'', `modularity'', `reusability'', `analysability'', `modifiability'', `testability'', `cyclomatic complexity'', `coupling'', `cohesion'', `code smell'' \\
 \end{longtable}
 
-A definição dos termos de busca foi realizada a partir da combinação entre a string utilizada no estudo de controle e os principais 
-vocábulos identificados por esse mesmo estudo como recorrentes na literatura para representar a experimentação contínua e temas correlatos. 
-Na construção da string, os grupos conceituais derivados do protocolo foram conectados por meio do operador lógico \textit{AND}, 
-de modo a garantir a recuperação de estudos que contemplassem simultaneamente as dimensões definidas. 
-Dentro de cada grupo, utilizou-se o operador \textit{OR} para contemplar variações terminológicas, palavras-chave equivalentes e sinônimos. 
-Além disso, foram incorporados recursos próprios da base de dados consultada, como operadores de truncamento, com o objetivo de ampliar 
-a abrangência da busca e recuperar diferentes formas de escrita associadas aos mesmos termos.
+A definição dos termos de busca foi realizada a partir da combinação entre a string utilizada no estudo de controle e os principais vocábulos identificados por esse mesmo estudo como recorrentes na literatura para representar a experimentação contínua e temas correlatos. Na construção da string, os grupos conceituais derivados do protocolo foram conectados por meio do operador lógico \textit{AND}, de modo a garantir a recuperação de estudos que contemplassem simultaneamente as dimensões definidas. Dentro de cada grupo, utilizou-se o operador \textit{OR} para contemplar variações terminológicas, palavras-chave equivalentes e sinônimos. Além disso, foram incorporados recursos próprios da base de dados consultada, como operadores de truncamento, com o objetivo de ampliar a abrangência da busca e recuperar diferentes formas de escrita associadas aos mesmos termos.
 
 A partir disto, foi construída a string de busca final:
 
@@ -136,19 +104,11 @@ AND
 
 \section{Seleção dos Artigos}
 
-A execução da string de busca foi realizada em 05 de maio de 2026, na base de dados Scopus \cite{elsevier2024}, 
-resultando inicialmente na identificação de 417 estudos. Em seguida, foi conduzida uma etapa de triagem, na qual 
-foram analisados os títulos e resumos dos trabalhos recuperados, com o objetivo de verificar sua aderência ao tema investigado e 
-sua conformidade com os critérios de inclusão e exclusão previamente definidos no planejamento da pesquisa.
+A execução da string de busca foi realizada em 05 de maio de 2026, na base de dados Scopus \cite{elsevier2024}, resultando inicialmente na identificação de 417 estudos. Em seguida, foi conduzida uma etapa de triagem, na qual foram analisados os títulos e resumos dos trabalhos recuperados, com o objetivo de verificar sua aderência ao tema investigado e sua conformidade com os critérios de inclusão e exclusão previamente definidos no planejamento da pesquisa.
 
-Após essa triagem inicial, foram selecionados 35 artigos para leitura em maior profundidade. No entanto, dois desses estudos
-foram excluídos por indisponibilidade de acesso ao texto completo, impossibilitando sua análise integral. Dessa forma, a seleção resultante 
-da execução da string de busca foi composta por 33 artigos.
+Após essa triagem inicial, foram selecionados 35 artigos para leitura em maior profundidade. No entanto, dois desses estudos foram excluídos por indisponibilidade de acesso ao texto completo, impossibilitando sua análise integral. Dessa forma, a seleção resultante da execução da string de busca foi composta por 33 artigos.
 
-Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, 
-os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o 
-conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir 
-da execução da string de busca. 
+Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir da execução da string de busca. 
 
 Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
 
@@ -230,43 +190,23 @@ A representação visual do processo de realização do protocolo de busca tamb�
 
 \section{Extração de Dados}
 
-Após a definição dos estudos selecionados para leitura integral, foi elaborado um formulário de extração de dados 
-com o objetivo de sistematizar as informações relevantes de cada artigo analisado. Essa etapa foi conduzida com base nas diretrizes 
-propostas por \citeonline{kitchenhamCharters2007}, segundo as quais a extração de dados deve ser previamente planejada e estruturada 
-de forma a registrar as informações necessárias para responder às questões de pesquisa da revisão.
+Após a definição dos estudos selecionados para leitura integral, foi elaborado um formulário de extração de dados com o objetivo de sistematizar as informações relevantes de cada artigo analisado. Essa etapa foi conduzida com base nas diretrizes propostas por \citeonline{kitchenhamCharters2007}, segundo as quais a extração de dados deve ser previamente planejada e estruturada de forma a registrar as informações necessárias para responder às questões de pesquisa da revisão.
 
-Em revisões sistemáticas na área de Engenharia de Software, o formulário de extração tem papel central na organização das evidências, 
-pois permite padronizar os dados coletados, reduzir a subjetividade da análise e favorecer a rastreabilidade das informações 
-extraídas dos estudos selecionados. Além disso, a definição prévia dos campos de extração contribui para que os dados coletados 
-estejam alinhados ao protocolo da pesquisa, às questões de investigação e à estratégia de síntese dos resultados.
+Em revisões sistemáticas na área de Engenharia de Software, o formulário de extração tem papel central na organização das evidências, pois permite padronizar os dados coletados, reduzir a subjetividade da análise e favorecer a rastreabilidade das informações 
+extraídas dos estudos selecionados. Além disso, a definição prévia dos campos de extração contribui para que os dados coletados estejam alinhados ao protocolo da pesquisa, às questões de investigação e à estratégia de síntese dos resultados \cite{kitchenhamCharters2007}.
 
-Neste trabalho, o formulário foi organizado em cinco grupos principais: dados demográficos do estudo; LLM, código-fonte e contexto do projeto; 
-modelo de qualidade e manutenibilidade; engenharia de prompt; e alinhamento, limitações e resultados. 
-Essa organização buscou contemplar tanto informações descritivas sobre os artigos quanto dados diretamente relacionados 
-aos objetivos desta pesquisa, especialmente no que se refere à avaliação da manutenibilidade, ao uso de Modelos de Linguagem de Grande Escala 
-e à aplicação de padrões de engenharia de prompt.
+Neste trabalho, o formulário foi organizado em cinco grupos principais: dados demográficos do estudo; LLM, código-fonte e contexto do projeto; modelo de qualidade e manutenibilidade; engenharia de prompt; e alinhamento, limitações e resultados. Essa organização buscou contemplar tanto informações descritivas sobre os artigos quanto dados diretamente relacionados aos objetivos desta pesquisa, especialmente no que se refere à avaliação da manutenibilidade, ao uso de Modelos de Linguagem de Grande Escala e à aplicação de padrões de engenharia de prompt.
 
-O primeiro grupo, denominado dados demográficos, reúne informações básicas de identificação e caracterização dos estudos analisados. 
-Foram coletados o título completo, o resumo, os autores, o ano de publicação, o veículo de publicação, o tipo de estudo realizado e o objetivo principal. 
-Esses dados permitem caracterizar o conjunto de publicações selecionadas e compreender o perfil geral da produção científica considerada na revisão.
+O primeiro grupo, denominado dados demográficos, reúne informações básicas de identificação e caracterização dos estudos analisados. Foram coletados o título completo, o resumo, os autores, o ano de publicação, o veículo de publicação, o tipo de estudo realizado e o objetivo principal. Esses dados permitem caracterizar o conjunto de publicações selecionadas e compreender o perfil geral da produção científica considerada na revisão.
 
-O segundo grupo contempla informações relacionadas aos Modelos de Linguagem de Grande Escala, ao código-fonte e ao contexto dos projetos avaliados.
-Nesse eixo, foram identificados os LLMs ou modelos generativos utilizados nos estudos, o contexto em que a análise de código-fonte foi conduzida, 
-os projetos avaliados, a natureza aberta ou não do código-fonte e as linguagens de programação consideradas. Essas questões são relevantes para 
-verificar a aderência dos estudos ao escopo desta pesquisa, voltado à análise de produtos de software, especialmente em projetos de código aberto e aplicações web.
+O segundo grupo contempla informações relacionadas aos Modelos de Linguagem de Grande Escala, ao código-fonte e ao contexto dos projetos avaliados. Nesse eixo, foram identificados os LLMs ou modelos generativos utilizados nos estudos, o contexto em que a análise de código-fonte foi conduzida, os projetos avaliados, a natureza aberta ou não do código-fonte e as linguagens de programação consideradas. Essas questões são relevantes para verificar a aderência dos estudos ao escopo desta pesquisa, voltado à análise de produtos de software, especialmente em projetos de código aberto e aplicações web.
 
-O terceiro grupo concentra-se nos modelos de qualidade de software e na característica de manutenibilidade. Foram extraídas informações sobre o modelo de qualidade 
-utilizado como referência, a definição de manutenibilidade adotada ou apresentada, as características ou subcaracterísticas avaliadas, as métricas, medidas ou indicadores 
-empregados e as ferramentas utilizadas. Esse conjunto de dados permite compreender como a literatura operacionaliza a manutenibilidade e quais critérios são empregados para 
+O terceiro grupo concentra-se nos modelos de qualidade de software e na característica de manutenibilidade. Foram extraídas informações sobre o modelo de qualidade utilizado como referência, a definição de manutenibilidade adotada ou apresentada, as características ou subcaracterísticas avaliadas, as métricas, medidas ou indicadores empregados e as ferramentas utilizadas. Esse conjunto de dados permite compreender como a literatura operacionaliza a manutenibilidade e quais critérios são empregados para 
 avaliá-la no contexto de estudos envolvendo LLMs e análise de código-fonte.
 
-O quarto grupo aborda especificamente a engenharia de prompt. Foram registrados os padrões, estratégias ou variações de prompt utilizados nos estudos, bem como suas descrições 
-e eventuais comparações entre diferentes formulações. Também foi observado o impacto relatado dessas estratégias nos resultados obtidos, especialmente quanto à avaliação de qualidade
-e manutenibilidade do código-fonte.
+O quarto grupo aborda especificamente a engenharia de prompt. Foram registrados os padrões, estratégias ou variações de prompt utilizados nos estudos, bem como suas descrições e eventuais comparações entre diferentes formulações. Também foi observado o impacto relatado dessas estratégias nos resultados obtidos, especialmente quanto à avaliação de qualidade e manutenibilidade do código-fonte.
 
-Por fim, o quinto grupo reúne informações relacionadas ao alinhamento, às limitações e aos resultados dos estudos analisados. Foram registradas as limitações apontadas pelos próprios 
-autores e os principais resultados de cada estudo. Esses dados apoiam a síntese das evidências e permitem identificar convergências, lacunas e oportunidades de pesquisa relacionadas 
-ao uso de LLMs na avaliação da manutenibilidade.
+Por fim, o quinto grupo reúne informações relacionadas ao alinhamento, às limitações e aos resultados dos estudos analisados. Foram registradas as limitações apontadas pelos próprios autores e os principais resultados de cada estudo. Esses dados apoiam a síntese das evidências e permitem identificar convergências, lacunas e oportunidades de pesquisa relacionadas ao uso de LLMs na avaliação da manutenibilidade.
 
 A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário de extração de dados utilizado nesta pesquisa.
 
@@ -312,9 +252,7 @@ Alinhamento, limitações e resultados & Q19 -- Quais limitações foram apontad
  & Q20 -- Quais são os principais resultados do estudo? \\ \hline
 \end{longtable}
 
-A partir desse formulário, os dados extraídos foram organizados de maneira padronizada, possibilitando a comparação entre os estudos e
-a posterior síntese dos resultados. Essa estrutura também permitiu relacionar cada artigo às questões de pesquisa, especialmente quanto aos modelos de qualidade 
-utilizados, às métricas de manutenibilidade identificadas, aos padrões de prompt empregados e às limitações observadas na literatura analisada.
+A partir desse formulário, os dados extraídos foram organizados de maneira padronizada, possibilitando a comparação entre os estudos e a posterior síntese dos resultados. Essa estrutura também permitiu relacionar cada artigo às questões de pesquisa, especialmente quanto aos modelos de qualidade utilizados, às métricas de manutenibilidade identificadas, aos padrões de prompt empregados e às limitações observadas na literatura analisada.
 
 \section{Síntese dos Resultados}
 
