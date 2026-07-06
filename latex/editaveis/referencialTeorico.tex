@@ -83,6 +83,31 @@ A soma de todos os índices de remediação de um componente resulta no \textbf{
 Como as demais características dependem da camada de Testabilidade, o método recomenda priorizar a remediação de baixo para cima na pirâmide, evitando retrabalho em correções feitas fora dessa ordem \cite{letouzey2012sqale}.
 
 \subsubsection{Modelo Q-Rapids}
+\label{sec:qrapids}
+
+O Q-Rapids é um modelo de qualidade desenvolvido no âmbito do projeto europeu homônimo, utilizado por uma ferramenta de software analytics para monitorar continuamente a qualidade de produtos e processos de software \cite{martinezfernandez2019qrapids}. Diferentemente de modelos focados apenas no código-fonte, o Q-Rapids combina dados de múltiplas fontes (como Jira, SonarQube, Jenkins e GitLab) para compor indicadores de alto nível voltados à tomada de decisão.
+
+O modelo é estruturado em uma cadeia hierárquica de cinco níveis: \textbf{Indicador Estratégico}, \textbf{Fator} (de produto ou de processo), \textbf{Métrica Avaliada}, \textbf{Dado Bruto} e \textbf{Fonte de Dados}, conforme ilustrado na Figura \ref{fig:qrapidsHierarquia}. Cada indicador estratégico é decomposto em fatores, que por sua vez são mensurados por métricas calculadas a partir de dados brutos extraídos diretamente das ferramentas utilizadas pela equipe de desenvolvimento \cite{martinezfernandez2019qrapids}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Cadeia hierárquica do modelo de qualidade Q-Rapids}
+    \includegraphics[width=16cm]{figuras/qrapids_hierarquia_modelo.png}
+    \label{fig:qrapidsHierarquia}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+\end{figure}
+
+O modelo padrão define quatro indicadores estratégicos: \textbf{Product Quality} (manutenibilidade, confiabilidade e adequação funcional do produto), \textbf{Product Readiness} (prontidão do produto para uma próxima release), \textbf{Process Performance} (eficiência e qualidade dos processos do ciclo de vida) e \textbf{Blocking} (condições que travam o andamento do projeto, como issues mal especificadas ou código bloqueante). Cada um desses indicadores agrega um conjunto de fatores de produto ou de processo, como mostra a Figura \ref{fig:qrapidsIndicadores} \cite{martinezfernandez2019qrapids}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Indicadores estratégicos e seus fatores no modelo Q-Rapids}
+    \includegraphics[width=14cm]{figuras/qrapids_indicadores_estrategicos.png}
+    \label{fig:qrapidsIndicadores}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+\end{figure}
+
+Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
 
 \subsubsection{Modelo MeasureSoftGram}
 
@@ -120,11 +145,11 @@ facilitando sua operacionalização em avaliações de qualidade de software.
 
 \end{description}
 
-A ISO/IEC 25010 não determina uma única métrica para mensurar a manutenibilidade. Em vez disso, a estrutura da série SQuaRE prevê que características e subcaracterísticas sejam associadas a propriedades de qualidade e medidas adequadas ao contexto de avaliação \cite{isoiec25000}. A esta altura, cabe, portanto, realizar definição dos conceitos de medida, medição, indicador e métrica de acordo com a ISO/IEC 25000.
+A ISO/IEC 25010 não determina uma única métrica para mensurar a manutenibilidade. Em vez disso, a estrutura da série SQuaRE prevê que características e subcaracterísticas sejam associadas a propriedades de qualidade e medidas adequadas ao contexto de avaliação \cite{isoiec25000}. A esta altura, cabe, também, realizar definição dos conceitos de medida, indicador e métrica de acordo com a ISO/IEC 25000.
 
 \begin{table}[htbp]
 \centering
-\caption{Diferença entre medida, medição, indicador e métrica segundo a terminologia da ISO/IEC 25000}
+\caption{Diferença entre medida, indicador e métrica segundo a terminologia da ISO/IEC 25000}
 \label{tab:diferenca-medida-indicador-metrica}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabularx}{\textwidth}{
@@ -142,12 +167,6 @@ Complexidade ciclomática igual a 12; número de classes igual a 20; percentual 
 
 \midrule
 
-\textbf{Medição} &
-Processo ou conjunto de operações utilizado para determinar o valor de uma medida. &
-Executar uma ferramenta de análise estática para calcular a complexidade ciclomática de um método. \\
-
-\midrule
-
 \textbf{Indicador} &
 Medida que fornece uma estimativa ou avaliação de atributos especificados, derivada de um modelo e relacionada a uma necessidade de informação. &
 Classificar a manutenibilidade como alta, média ou baixa com base em complexidade, acoplamento, duplicação e cobertura de testes. \\
@@ -155,20 +174,34 @@ Classificar a manutenibilidade como alta, média ou baixa com base em complexida
 \midrule
 
 \textbf{Métrica} &
-Termo comum na literatura e na prática da Engenharia de Software, mas não é o termo central adotado pela ISO/IEC 25000. No contexto deste trabalho, pode ser tratado como sinônimo operacional de medida, desde que se preserve a terminologia normativa. &
-``Métrica de complexidade ciclomática'', embora, na linguagem da ISO, seja mais preciso utilizar ``medida de complexidade ciclomática''. \\
+Medida de qualidade cuja fórmula de cálculo (função de medição) é definida pelo modelo de qualidade adotado, combinando duas ou mais medidas de base ou derivadas estabelecidas; é a forma de cálculo fixada pelo modelo para atribuir significado de qualidade a essas medidas. &
+No SQALE, cada requisito tem uma função de remediação própria (ex.: 2 min por bloco de código comentado). No Q-Rapids, cada métrica avaliada (ex.: \textit{Complexity}) tem uma fórmula de cálculo específica sobre os dados brutos, podendo variar entre modelos mesmo com o mesmo nome. \\
 
 \bottomrule
 \end{tabularx}
 \fonte{Elaborado pelo autor com base na \citeonline{isoiec25000}.}
 \end{table}
 
-Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser operacionalizada por métricas como complexidade ciclomática, acoplamento, coesão, duplicação, \textit{code smells}, índice de manutenibilidade e cobertura de testes, desde que tais medidas estejam alinhadas às subcaracterísticas avaliadas. Cabe mencionar também que 
-as medidas em questão variam de acordo com o modelo de qualidade de referência que se utiliza para realizar a avaliação.
+Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser operacionalizada por métricas como complexidade ciclomática, acoplamento, coesão, duplicação, \textit{code smells}, índice de manutenibilidade e cobertura de testes, desde que tais medidas estejam alinhadas às subcaracterísticas avaliadas. Cabe mencionar também que as métricas em questão variam de acordo com o modelo de qualidade de referência que se utiliza para realizar a avaliação.
 
 Dessa forma, neste trabalho, a manutenibilidade é adotada como característica de qualidade de referência para analisar em que medida diferentes padrões de engenharia de \textit{prompt} influenciam a avaliação de código-fonte por Modelos de Linguagem de Grande Escala. As subcaracterísticas definidas pela ISO/IEC 25010 fornecem a base conceitual para mapear atributos observáveis do código, como modularidade, reuso, facilidade de análise, facilidade de modificação e testabilidade, permitindo relacionar os resultados dos estudos selecionados a um modelo normativo reconhecido de qualidade de software.
 
 \subsubsection{Métricas de Manutenibilidade}
+\label{sec:metricas-manutenibilidade}
+
+A Manutenibilidade é definida pela ISO/IEC 25010 como o grau de eficácia e eficiência com que um sistema ou componente pode ser modificado por seus mantenedores pretendidos, seja para corrigir defeitos, atender a novos requisitos ou se adaptar a mudanças de ambiente. A norma decompõe essa característica em cinco subcaracterísticas: \textbf{Modularidade}, \textbf{Reusabilidade}, \textbf{Analisabilidade}, \textbf{Modificabilidade} e \textbf{Testabilidade} \cite{isoiec25000}. Cada uma delas está associada, na prática, a um conjunto de métricas de código que buscam quantificar o esforço necessário para compreender, alterar e validar o software.
+
+Na literatura e nas ferramentas de análise estática, as métricas mais comumente associadas à manutenibilidade incluem:
+
+\begin{itemize}
+    \item \textbf{Complexidade ciclomática}, que estima o número de caminhos independentes em um método ou função, relacionada à Analisabilidade e à Testabilidade;
+    \item \textbf{Duplicação de código}, que mede a proporção de linhas ou blocos duplicados, associada à Modificabilidade (alterações precisam ser replicadas em todos os trechos duplicados);
+    \item \textbf{Densidade de comentários}, relacionada à Analisabilidade, embora o excesso ou a ausência de comentários também possa ser um indício de baixa qualidade;
+    \item \textbf{Acoplamento e coesão}, associados à Modularidade;
+    \item \textbf{Cobertura de testes}, associada à Testabilidade, mesmo sendo tecnicamente uma propriedade da suíte de testes e não do código em si.
+\end{itemize}
+
+Conforme discutido nas Seções \ref{sec:sqale} e \ref{sec:qrapids}, essas medidas de base são operacionalizadas de forma distinta por diferentes modelos de qualidade. O SQALE, por exemplo, trata Testabilidade, Confiabilidade e Modificabilidade como características de primeiro nível, consolidando-as posteriormente em um Índice de Manutenibilidade (SMI) por meio de funções de remediação calibráveis pela organização. Já o Q-Rapids concentra parte dessas medidas no fator \textit{Code Quality}, com métricas avaliadas de \textit{Complexity}, \textit{Comments} e \textit{Duplication} calculadas diretamente a partir de dados extraídos do SonarQube. Em ambos os casos, confirma-se a distinção estabelecida na Tabela \ref{tab:diferenca-medida-indicador-metrica}: as medidas de base (linhas de código, linhas duplicadas, complexidade por função) são as mesmas, mas cada modelo fixa sua própria métrica -- isto é, sua própria fórmula de cálculo -- para transformar essas medidas em um indício de qualidade.
 
 \subsection{Modelos de Linguagem de Grande Escala}
 
