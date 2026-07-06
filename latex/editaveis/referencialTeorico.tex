@@ -295,9 +295,69 @@ modelo precisa lidar com dependências, estrutura de código, critérios de comp
 organização da resposta e a aderência estrutural do resultado, essas técnicas também exigem validação, pois modelos podem produzir respostas 
 plausíveis, mas tecnicamente incorretas, como chamadas de API inexistentes, dependências fabricadas ou referências inválidas \cite{OuedraogoEtAll}.
 
-No campo da qualidade de código, o Chain-of-Thought também tem sido associado à geração de código mais conciso e eficiente. \cite{dellaporta2025} observam que 
+No campo da qualidade de código, o Chain-of-Thought também tem sido associado à geração de código mais conciso e eficiente. \cite{DellaPortaEtAll} observam que 
 esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e 
 manutenibilidade. Portanto, para este trabalho, o Chain-of-Thought Prompting pode ser definido como o padrão de prompt que conduz o 
 LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
 
 \subsection{Experimentação em Engenharia de Software}
+
+A pesquisa empírica em Engenharia de Software busca produzir conhecimento a partir da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software, em vez de se apoiar apenas em argumentação teórica ou opinião de especialistas \cite{wohlin2024}. Entre as estratégias empíricas disponíveis, destacam-se o levantamento (\textit{survey}), o estudo de caso e o experimento, que se diferenciam principalmente pelo grau de controle exercido sobre as variáveis do estudo e pelo nível de realismo do ambiente investigado, conforme ilustrado na Figura \ref{fig:estrategiasPesquisa}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Estratégias de pesquisa empírica em Engenharia de Software}
+    \includegraphics[width=16cm]{figuras/estrategias_pesquisa_empirica.png}
+    \label{fig:estrategiasPesquisa}
+    \fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
+\end{figure}
+
+O levantamento é conduzido, em geral, após a ocorrência do fenômeno de interesse, com o objetivo de caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador sobre as condições observadas. O estudo de caso, por sua vez, investiga um fenômeno em seu contexto real, com controle limitado sobre as variáveis envolvidas, sendo indicado quando não é viável ou desejável isolar o objeto de estudo de seu ambiente. Já o experimento se caracteriza pelo controle deliberado sobre um ou mais fatores, manipulados pelo pesquisador para observar seu efeito sobre uma variável de resultado, enquanto as demais condições são mantidas constantes ou controladas \cite{wohlin2024}.
+
+Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para tornar a Engenharia de Software uma disciplina mais científica, na medida em que permite avaliar proposições de pesquisa a partir de hipóteses, evidências e observações sistemáticas, em vez de apenas relatos de experiência ou avaliações qualitativas isoladas.
+
+Para que essa comparação seja válida, contudo, o experimento não pode ser conduzido de forma ad hoc: sua condução depende de um processo estruturado, que orienta desde a definição do problema até a apresentação dos resultados. As etapas desse processo, bem como os principais elementos que compõem o planejamento de um experimento controlado, são apresentados nas subseções seguintes.
+
+\subsubsection{O Processo de Experimentação}
+
+Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de Software segue um processo estruturado em cinco fases: \textbf{Definição}, \textbf{Planejamento}, \textbf{Operação}, \textbf{Análise e Interpretação} e \textbf{Apresentação e Empacotamento}, ilustradas na Figura \ref{fig:processoExperimentacao}. Na Definição, estabelecem-se o propósito e o escopo da investigação; no Planejamento, são detalhados o desenho, as variáveis e os procedimentos que viabilizam a execução; na Operação, os tratamentos são efetivamente aplicados e os dados, coletados; na Análise e Interpretação, os dados coletados são examinados à luz das hipóteses formuladas; e, por fim, na Apresentação e Empacotamento, os resultados são documentados e comunicados de forma a permitir sua avaliação e eventual replicação.
+
+\begin{figure}[H]
+    \centering
+    \caption{Processo de experimentação em Engenharia de Software}
+    \includegraphics[width=16cm]{figuras/processo_experimentacao.png}
+    \label{fig:processoExperimentacao}
+    \fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
+\end{figure}
+
+O capítulo de planejamento apresentado neste trabalho concentra-se na segunda fase desse processo, detalhando os elementos que a compõem: definição do experimento, seleção de contexto, formulação de hipóteses, seleção de variáveis, seleção de sujeitos e objetos, e desenho experimental.
+
+\subsubsection{Definição do Experimento}
+
+A definição de um experimento delimita seu propósito e o problema de pesquisa que ele busca responder, funcionando como ponto de partida para as demais decisões de planejamento. Para estruturar essa definição de forma sistemática, \citeonline{wohlin2024} recomendam um template baseado no paradigma \textit{Goal Question Metric} (GQM), que descreve o experimento a partir de seis dimensões: o \textbf{objeto de estudo}, o \textbf{propósito} da investigação, o \textbf{foco de qualidade} analisado, a \textbf{perspectiva} sob a qual os resultados serão interpretados, o \textbf{contexto} em que o experimento é conduzido e os \textbf{sujeitos} envolvidos.
+
+\subsubsection{Seleção de Contexto}
+
+A seleção de contexto delimita o ambiente experimental e as condições sob as quais os resultados podem ser interpretados e generalizados. De acordo com \citeonline[p.~116]{wohlin2024}, o contexto de um experimento pode ser caracterizado a partir de quatro dimensões: \textit{offline} versus \textit{online} (execução em ambiente controlado ou em produção), estudante versus profissional (nível de experiência dos sujeitos), problema de \textit{brinquedo} (\textit{toy}) versus problema real (grau de realismo dos objetos avaliados), e específico versus geral (amplitude pretendida para os resultados). Essas dimensões orientam decisões que impactam diretamente o equilíbrio entre controle experimental e validade externa dos achados.
+
+\subsubsection{Formulação de Hipóteses}
+
+A análise estatística de um experimento é fundamentada no teste de hipóteses \cite{wohlin2024}. Uma hipótese deve ser formalmente estabelecida antes da coleta de dados, de modo que estes sejam utilizados para verificar se há evidências suficientes para rejeitá-la. Formulam-se tipicamente duas hipóteses complementares: a \textbf{hipótese nula} ($H_0$), que assume a ausência de diferença ou relação real entre os tratamentos investigados -- de modo que eventuais diferenças observadas seriam atribuídas ao acaso --, e a \textbf{hipótese alternativa} ($H_1$), que assume a existência dessa diferença. O experimento é então conduzido com o propósito de reunir evidências que permitam decidir pela rejeição ou não rejeição de $H_0$.
+
+\subsubsection{Seleção de Variáveis}
+
+O planejamento de um experimento requer a definição explícita das variáveis envolvidas. Segundo \citeonline[p.~77]{wohlin2024}, as \textbf{variáveis independentes} são aquelas controladas e deliberadamente manipuladas pelo pesquisador -- quando esse é o propósito da manipulação, são chamadas de \textbf{fatores}, e seus diferentes níveis, de \textbf{tratamentos} --, enquanto a \textbf{variável dependente} corresponde ao efeito observado como resultado da aplicação dos tratamentos. Além dessas, \citeonline[p.~120]{wohlin2024} descrevem a \textbf{variável de bloqueio} como um fator que provavelmente tem efeito sobre a resposta, mas que não é de interesse do estudo, sendo controlado por meio de blocagem para não se confundir com o efeito do fator estudado. Por fim, as \textbf{variáveis de controle} são mantidas fixas ao longo do experimento, de modo a reduzir fontes externas de variação nos resultados.
+
+\subsubsection{Seleção de Sujeitos e Objetos}
+
+A seleção de sujeitos define as unidades experimentais a partir das quais os tratamentos são aplicados e os resultados, observados, sendo descrita por \citeonline[p.~118]{wohlin2024} como uma amostra retirada de uma população de interesse. A representatividade dessa amostra está diretamente relacionada à capacidade de generalização dos resultados obtidos. Os autores distinguem ainda entre amostragem probabilística, na qual cada elemento da população possui probabilidade conhecida de seleção, e amostragem não probabilística, como a amostragem por conveniência, em que os elementos são selecionados por acessibilidade \cite[p.~118]{wohlin2024}. Complementarmente, \citeonline[p.~77]{wohlin2024} distinguem os sujeitos -- que aplicam os tratamentos -- dos objetos experimentais, os artefatos sobre os quais os tratamentos são efetivamente aplicados e avaliados.
+
+\subsubsection{Desenho Experimental}
+
+O desenho experimental define a forma como os tratamentos são organizados e aplicados aos sujeitos e objetos, condicionando os métodos de análise estatística aplicáveis aos dados coletados \cite[p.~119]{wohlin2024}. Sua definição apoia-se em três princípios gerais descritos por \citeonline[p.~120]{wohlin2024}: \textbf{randomização}, que consiste em aleatorizar a alocação de tratamentos ou sua ordem de aplicação, de modo a evitar efeitos sistemáticos não controlados; \textbf{blocagem}, que isola o efeito de variáveis conhecidas, mas não estudadas, sobre o resultado; e \textbf{balanceamento}, que busca uma distribuição uniforme dos tratamentos entre os sujeitos ou objetos, simplificando a análise estatística subsequente.
+
+A partir desses princípios, a literatura descreve diferentes tipos de desenho, como os desenhos padrão de um único fator, os desenhos fatoriais, os desenhos pareados -- nos quais a mesma unidade experimental recebe todos os tratamentos -- e o \textbf{\textit{Randomized Complete Block Design} (RCBD)}, indicado quando há variabilidade relevante entre as unidades experimentais e se deseja controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada unidade de forma aleatorizada \cite[p.~123]{wohlin2024}.
+
+\subsubsection{Ameaças à Validade}
+
+A validade de um experimento refere-se ao grau de confiança que pode ser depositado em seus resultados e conclusões. \citeonline{wohlin2024} organizam as ameaças à validade em quatro categorias. A \textbf{validade de conclusão} diz respeito à correção da relação estatística identificada entre o tratamento e o resultado. A \textbf{validade interna} refere-se à possibilidade de que a relação observada entre tratamento e resultado seja, de fato, causal, e não decorrente de fatores não controlados. A \textbf{validade de constructo} avalia se as medidas e os tratamentos utilizados representam adequadamente os conceitos teóricos que pretendem operacionalizar. Por fim, a \textbf{validade externa} trata da possibilidade de generalização dos resultados para além do contexto específico em que o experimento foi conduzido. Essas categorias orientam a identificação e a discussão das limitações do experimento proposto neste trabalho.
