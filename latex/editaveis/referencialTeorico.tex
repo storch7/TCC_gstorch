@@ -25,19 +25,16 @@ a qualidade em características e subcaracterísticas.
     \fonte{O Autor, adaptado da \citeonline{isoiec25010}.}
 \end{figure}
 
-A norma apresenta, entre outros elementos, o modelo de qualidade do produto, composto por oito características: 
-adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}. 
-Assim, a ISO/IEC 25010 fornece a base conceitual para a análise de atributos específicos de qualidade, como a manutenibilidade, foco deste trabalho.
+A norma apresenta, entre outros elementos, o modelo de qualidade do produto, composto por oito características: adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}. Assim, a ISO/IEC 25010 fornece a base conceitual para a análise de atributos específicos de qualidade, como a manutenibilidade, foco deste trabalho.
 
 \subsection{Modelos de Qualidade de Produto de Software}
 
 Embora a qualidade de software possa ser definida como a capacidade de um produto satisfazer necessidades declaradas e implícitas em condições específicas de uso, essa definição, por si só, ainda é ampla. Para que a qualidade possa ser analisada de forma sistemática, torna-se necessário decompor esse conceito em dimensões observáveis, avaliáveis e, quando possível, mensuráveis. As primeiras contribuições 
 relevantes para essa estruturação remontam aos trabalhos de McCall, Richards e Walters, especialmente com o modelo apresentado em seu artigo \textit{Factors in Software Quality}. Esse modelo foi um dos primeiros a tratar a qualidade de software como um conjunto de fatores organizados de forma hierárquica, permitindo relacionar propriedades do produto a critérios de avaliação \cite{mccall1977}. 
 
-Pouco tempo depois, Boehm também propôs uma visão hierárquica da qualidade, buscando aproximar atributos técnicos do software de propriedades percebidas por usuários e mantenedores \cite{boehm1978}. Esses modelos foram importantes porque deslocaram a discussão de qualidade de uma noção genérica de ``bom software'' para uma estrutura composta por dimensões avaliáveis. A partir dessas contribuições iniciais, 
-diferentes modelos passaram a propor formas de representar a qualidade de software. Ainda que esses modelos apresentem variações quanto à nomenclatura, ao número de atributos e à forma de organização, eles compartilham uma mesma preocupação central: tornar explícitos os fatores que compõem a qualidade e permitir que esses fatores sejam analisados de maneira mais objetiva.
+Pouco tempo depois, Boehm também propôs uma visão hierárquica da qualidade, buscando aproximar atributos técnicos do software de propriedades percebidas por usuários e mantenedores. Esses modelos foram importantes porque deslocaram a discussão de qualidade de uma noção genérica de ``bom software'' para uma estrutura composta por dimensões avaliáveis. A partir dessas contribuições iniciais, diferentes modelos passaram a propor formas de representar a qualidade de software. Ainda que esses modelos apresentem variações quanto à nomenclatura, ao número de atributos e à forma de organização, eles compartilham uma mesma preocupação central: tornar explícitos os fatores que compõem a qualidade e permitir que esses fatores sejam analisados de maneira mais objetiva \cite{boehm1978}.
 
-Essa evolução contribuiu para a consolidação de normas internacionais voltadas à qualidade de produto de software. A \citeonline{isoiec9126} representou um marco nesse processo, ao propor um modelo padronizado de qualidade de produto baseado em características e subcaracterísticas. Posteriormente, a série SQuaRE, organizada pela \citeonline{isoiec25000}, passou a integrar e ampliar essa discussão, reunindo normas relacionadas à especificação de requisitos, medição e avaliação da qualidade de sistemas e produtos de software. Nesse conjunto, a ISO/IEC 25010 assume papel central por definir os modelos de qualidade de produto e de qualidade em uso, estabelecendo uma terminologia comum para especificar e avaliar a qualidade de sistemas e produtos de software \cite{isoiec25010}. A ISO/IEC 25010 deriva da ISO/IEC 9126, mas amplia seu escopo ao considerar sistemas computacionais de forma mais abrangente e ao reorganizar características de qualidade.
+Essa evolução contribuiu para a consolidação de normas internacionais voltadas à qualidade de produto de software. A \citeonline{isoiec9126} representou um marco nesse processo, ao propor um modelo padronizado de qualidade de produto baseado em características e subcaracterísticas. Posteriormente, a série SQuaRE, organizada pela \citeonline{isoiec25000}, passou a integrar e ampliar essa discussão, reunindo normas relacionadas à especificação de requisitos, medição e avaliação da qualidade de sistemas e produtos de software. Nesse conjunto, a ISO/IEC 25010 assume papel central por definir os modelos de qualidade de produto e de qualidade em uso, estabelecendo uma terminologia comum para especificar e avaliar a qualidade de sistemas e produtos de software \cite{isoiec25010}. A \citeonline{isoiec25010} deriva da \citeonline{isoiec9126}, mas amplia seu escopo ao considerar sistemas computacionais de forma mais abrangente e ao reorganizar características de qualidade.
 
 Apesar da relevância da padronização trazida pela norma, há uma lacuna deixada em aberto em relação à aferição da qualidade de produto de software: a norma não estabelece uma especificação para mensuração das características por ela padronizada. Isso leva os pesquisadores a desenvolverem modelos particulares e métodos próprios de avaliação de qualidade de produto de software. Desta lacuna, surge o modelo proposto por \citeonline{dromey1995model}, que passou a associar propriedades de qualidade diretamente aos componentes de software, permitindo avaliações mais granulares e detalhadas.
 
@@ -48,9 +45,7 @@ No entanto, ainda permanecia em aberto a necessidade de uma avaliação global d
 
 O SQALE (\textit{Software Quality Assessment Based on Lifecycle Expectations}) é um método para avaliação da qualidade e da Dívida Técnica de código-fonte, desenvolvido pela inspearit \cite{letouzey2012sqale}. Sua premissa central é que medir a qualidade de uma aplicação equivale a medir sua Dívida Técnica: quanto mais o código se afasta de um conjunto de requisitos definidos como "código correto", maior o esforço de remediação necessário. O método restringe-se à dívida interna do código-fonte, não contemplando questões de processo \cite{letouzey2012sqale}.
 
-O SQALE organiza-se em quatro elementos: o \textbf{Modelo de Qualidade}, que define os requisitos de "código correto"; o \textbf{Modelo de Análise}, que estabelece como as violações são custeadas; os \textbf{Índices}, que agregam esses custos; e os \textbf{Indicadores}, usados para visualização e priorização.
-
-O Modelo de Qualidade organiza os requisitos em três níveis (características, subcaracterísticas e requisitos), estruturados a partir do ciclo de vida do código-fonte. Por isso, características como Testabilidade e Modificabilidade -- tratadas como subcaracterísticas de Manutenibilidade em modelos como o ISO/IEC 9126 -- passam a ocupar o primeiro nível, como mostra a Figura \ref{fig:sqalePiramideQualidade} \cite{letouzey2012sqale}.
+O SQALE organiza-se em quatro elementos: o \textbf{Modelo de Qualidade}, que define os requisitos de "código correto"; o \textbf{Modelo de Análise}, que estabelece como as violações são custeadas; os \textbf{Índices}, que agregam esses custos; e os \textbf{Indicadores}, usados para visualização e priorização. O Modelo de Qualidade organiza os requisitos em três níveis (características, subcaracterísticas e requisitos), estruturados a partir do ciclo de vida do código-fonte. Por isso, características como Testabilidade e Modificabilidade -- tratadas como subcaracterísticas de Manutenibilidade em modelos como o ISO/IEC 9126 -- passam a ocupar o primeiro nível, como mostra a Figura \ref{fig:sqalePiramideQualidade} \cite{letouzey2012sqale}.
 
 \begin{figure}[H]
     \centering
@@ -109,8 +104,6 @@ O modelo padrão define quatro indicadores estratégicos: \textbf{Product Qualit
 
 Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
 
-\subsubsection{Modelo MeasureSoftGram}
-
 \subsection{Manutenibilidade de Software}
 
 A manutenibilidade é uma das características do modelo de qualidade de produto definido pela ISO/IEC 25010, no contexto da série SQuaRE \textit{Systems and Software Quality Requirements and Evaluation}. Esse modelo organiza a qualidade de sistemas e 
@@ -119,12 +112,9 @@ produtos de software em características e subcaracterísticas, com o objetivo d
 De acordo com a ISO/IEC 25010, a qualidade de produto contempla características relacionadas tanto às propriedades estáticas do software quanto às propriedades dinâmicas do sistema computacional. Entre essas características estão 
 adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}.
 
-No contexto deste trabalho, a manutenibilidade pode ser compreendida como o grau em que um produto ou sistema de software pode ser modificado de forma efetiva e eficiente, seja para corrigir defeitos, melhorar funcionalidades, 
-adaptar-se a mudanças de ambiente ou incorporar novos requisitos. Assim, essa característica está diretamente relacionada à capacidade de evolução do software ao longo de seu ciclo de vida.
+No contexto deste trabalho, a manutenibilidade pode ser compreendida como o grau em que um produto ou sistema de software pode ser modificado de forma efetiva e eficiente, seja para corrigir defeitos, melhorar funcionalidades, adaptar-se a mudanças de ambiente ou incorporar novos requisitos. Assim, essa característica está diretamente relacionada à capacidade de evolução do software ao longo de seu ciclo de vida \cite{isoiec25010}.
 
-A manutenibilidade assume papel central em estudos sobre qualidade de código-fonte, pois permite avaliar não apenas se o software executa corretamente suas funções, mas também se sua estrutura favorece compreensão, alteração, 
-reuso e validação. Essa perspectiva é especialmente relevante na análise de código gerado ou avaliado por Modelos de Linguagem de Grande Escala, uma vez que uma solução pode parecer funcionalmente correta, mas ainda apresentar limitações estruturais, 
-como alto acoplamento, baixa coesão, duplicação de código, baixa testabilidade ou dificuldade de modificação.
+A manutenibilidade assume papel central em estudos sobre qualidade de código-fonte, pois permite avaliar não apenas se o software executa corretamente suas funções, mas também se sua estrutura favorece compreensão, alteração, reuso e validação. Essa perspectiva é especialmente relevante na análise de código gerado ou avaliado por Modelos de Linguagem de Grande Escala, uma vez que uma solução pode parecer funcionalmente correta, mas ainda apresentar limitações estruturais, como alto acoplamento, baixa coesão, duplicação de código, baixa testabilidade ou dificuldade de modificação \cite{LenarduzziEtAll}.
 
 \subsubsection{Subcaracterísticas da Manutenibilidade}
 

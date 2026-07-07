@@ -6,9 +6,9 @@ COMPOSE = docker compose
 build-clean: build-pdf clean
 
 build-pdf: latex
-	rm -f TCC_FGA.pdf
+	rm -f TCC_Guilherme_Storch.pdf
 	$(COMPOSE) up
-	cp latex/TCC_FGA.pdf TCC_FGA.pdf 
+	cp latex/TCC_Guilherme_Storch.pdf TCC_Guilherme_Storch.pdf 
 
 clean:
 		$(COMPOSE) run latex bash -c 'make clean'

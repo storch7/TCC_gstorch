@@ -1,4 +1,4 @@
-TARGET = TCC_FGA.pdf
+TARGET = TCC_Guilherme_Storch.pdf
 
 LATEX = pdflatex
 BIBTEX = bibtex
