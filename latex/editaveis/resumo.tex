@@ -1,17 +1,8 @@
 \begin{resumo}
- O resumo deve ressaltar o objetivo, o método, os resultados e as conclusões 
- do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto. O texto pode conter no mínimo 150 e 
- no máximo 500 palavras, é aconselhável que sejam utilizadas 200 palavras. 
- E não se separa o texto do resumo em parágrafos.
+  Este trabalho apresenta o planejamento e a fundamentação de um experimento controlado projetado para investigar a influência de padrões de engenharia de prompt na avaliação do indicador de manutenibilidade de código-fonte por Modelos de Linguagem de Grande Escala (LLMs). Ferramentas tradicionais de análise estática de código são consagradas para detecção de violações sintáticas, mas apresentam limitações ao analisar aspectos semânticos e contextuais mais amplos, como a manutenibilidade, além de exibirem baixa concordância mútua. Com o avanço das LLMs e das técnicas de engenharia de prompt, surge a oportunidade de aplicar estes modelos na análise qualitativa do código, embora falte clareza sobre como suas avaliações se alinham aos modelos de qualidade tradicionais e em que medida as formulações das instruções influenciam os resultados. Para tratar essa lacuna, realizou-se inicialmente uma revisão estruturada da literatura para mapear o estado da arte das LLMs na garantia de qualidade de software, identificando modelos de referência (SQALE, Q-Rapids e MeasureSoftGram) e padrões de prompt (zero-shot, few-shot e chain-of-thought). Em seguida, elaborou-se o planejamento detalhado de um experimento controlado orientado à tecnologia, estruturado a partir do delineamento de blocos completos casualizados (RCBD) com blocos compostos. O fator de tratamento avaliado corresponde aos três padrões de prompt citados, tendo como variável dependente o indicador de manutenibilidade aferido, e como variáveis de bloqueio a ferramenta de LLM utilizada (ChatGPT, Claude e DeepSeek) e o modelo de qualidade de referência adotado. Como instrumentos de referência para validação do alinhamento das medições, previu-se a utilização das ferramentas SonarQube e MeasureSoftGram aplicadas a um conjunto de objetos formados por arquivos de código-fonte de repositórios de aplicações web de código aberto. A primeira etapa do trabalho, documentada nesta monografia, consolida a revisão bibliográfica e a modelagem estatística e operacional do experimento, fornecendo as bases metodológicas necessárias para sua execução sistemática e replicação no TCC2.
 
- \vspace{\onelineskip}
-    
- \noindent
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+  \vspace{\onelineskip}
+     
+  \noindent
+  \textbf{Palavras-chave}: Modelos de Linguagem de Grande Escala. Manutenibilidade de Software. Engenharia de Prompt. Experimento Controlado. Qualidade de Software.
 \end{resumo}
