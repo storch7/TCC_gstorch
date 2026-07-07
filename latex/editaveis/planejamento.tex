@@ -17,6 +17,7 @@ adequadamente planejado, torna-se possível analisar a relação entre a causa m
 Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo a validade da investigação e a confiabilidade dos resultados obtidos.
 
 \section{Seleção de Contexto}
+\label{sec:contexto_do_estudo}
 
 A seleção do contexto define o ambiente no qual o experimento será
 conduzido e delimita as condições sob as quais os resultados deverão ser
@@ -112,7 +113,7 @@ mesmo quando, de fato, não existe tal diferença, isto é,
 $P(\text{erro Tipo I}) = P(\text{rejeitar } H_0\ |\ H_0 \text{ verdadeira})$.
 O erro Tipo II, por sua sua vez, ocorre quando o teste não indica diferença significativa mesmo quando ela de fato existe, isto é, $P(\text{erro Tipo II}) = P(\text{não rejeitar } H_0\ |\ H_0 \text{ falsa})$. A capacidade do teste de revelar uma diferença real quando ela existe é
 chamada de poder do teste, definido como $\text{Poder} = 1 - P(\text{erro Tipo II})$. Esses conceitos orientam, respectivamente, a escolha do nível de significância adotado e o
-dimensionamento da amostra de objetos experimentais (Seção \ref{sec:objetos_experimentais}), de modo a equilibrar o risco de conclusões falso-positivas com a capacidade do teste
+dimensionamento da amostra de objetos experimentais (Seção \ref{sec:objetos}), de modo a equilibrar o risco de conclusões falso-positivas com a capacidade do teste
 de detectar diferenças reais entre os tratamentos.
 
 A avaliação dessas hipóteses será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt. Dessa forma, busca-se verificar se as variações observadas nos resultados podem ser associadas aos tratamentos aplicados ou se permanecem dentro de uma variação esperada entre avaliações
@@ -172,7 +173,7 @@ avalia melhor a manutenibilidade, mas controlar a variação introduzida pela
 escolha da ferramenta no processo de medição, de modo que o efeito
 observado dos padrões de prompt não seja confundido com particularidades de
 um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de
-estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design}.
+estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design_do_experimento}.
 
 O experimento contará ainda com variáveis mantidas em nível fixo ao longo
 de sua execução, de modo a reduzir interferências externas na interpretação
@@ -207,27 +208,105 @@ manutenibilidade podem ser associadas ao fator manipulado no experimento.
 \section{Seleção dos Sujeitos}
 \label{sec:sujeitos}
 
-A seleção dos sujeitos corresponde à definição das unidades a partir das quais os tratamentos serão aplicados e os resultados observados. Segundo \citeonline{wohlin2024}, essa etapa está diretamente associada à generalização dos resultados: para que as conclusões sejam válidas para a população de interesse, a seleção deve ser representativa dessa população, razão pela qual a seleção dos sujeitos é também descrita como uma amostra retirada de uma população \cite[p.~118]{wohlin2024}.
+A seleção dos sujeitos corresponde à definição das unidades a partir das
+quais os tratamentos são aplicados e os resultados observados. A escolha
+dos sujeitos impacta diretamente a capacidade de generalização dos achados
+do experimento, uma vez que só é possível estender os resultados a uma
+população mais ampla quando a amostra selecionada a representa
+adequadamente; por isso, \citeonline{wohlin2024} descrevem essa escolha
+como um processo de amostragem sobre uma população de interesse.
 
-No contexto desta pesquisa, essa etapa é adaptada à natureza tecnológica do estudo. Diferentemente de experimentos orientados a seres humanos, nos quais os sujeitos são as pessoas que aplicam os tratamentos, este é um experimento orientado à tecnologia: os tratamentos são aplicados pelos LLMs sobre artefatos de software, não havendo participantes humanos executando tarefas de avaliação. Assim, adota-se uma organização em dois níveis, coerente com a distinção entre sujeitos, objetos e tratamentos apresentada por \citeonline[p.~77]{wohlin2024}: no nível do projeto, os repositórios de código-fonte aberto constituem as unidades amostrais; no nível do artefato, os arquivos extraídos desses repositórios constituem os objetos submetidos aos tratamentos, conforme detalhado na Subseção~\ref{sec:objetos}.
+No contexto desta pesquisa, essa etapa exige uma adaptação à natureza
+tecnológica do experimento. Como discutido na Seção \ref{sec:variaveis},
+\citeonline{wohlin2024} distinguem estudos em que pessoas executam os
+tratamentos daqueles em que essa execução cabe a uma tecnologia; nesse
+segundo caso, o controle experimental tende a ser maior, já que o
+comportamento da tecnologia pode ser reproduzido de forma consistente entre
+execuções. Por essa razão, a ferramenta de LLM utilizada neste experimento
+é tratada como variável de bloqueio (Seção \ref{sec:variaveis}), e não como sujeito a ser
+amostrado de uma população. Em contrapartida, \citeonline[p.~78, tradução
+nossa]{wohlin2024} apontam que, nesse tipo de experimento, a variável fora
+de controle costuma ser justamente a seleção dos objetos: "é fundamental
+para o resultado a forma como os objetos são selecionados". Assim, a
+decisão mais crítica de amostragem neste estudo recai sobre os objetos
+experimentais --- os repositórios de código-fonte aberto e os arquivos
+neles contidos --- e é a essa decisão que esta seção se dedica, ainda que
+mantenha o nome "Seleção dos Sujeitos" por coerência com a estrutura de
+planejamento proposta por \citeonline{wohlin2024}.
 
-A seleção dos repositórios é feita por amostragem não probabilística, do tipo por conveniência \cite[p.~118]{wohlin2024}, tomando como base os projetos de código-fonte aberto previamente identificados na revisão estruturada da literatura conduzida neste trabalho. Essa escolha mantém a continuidade metodológica entre o levantamento bibliográfico e o experimento: os mesmos produtos de software que sustentaram a caracterização do problema passam a compor o objeto de avaliação empírica, favorecendo a rastreabilidade e a transparência do estudo.
+Adota-se, portanto, uma organização em dois níveis: no nível do projeto, os
+repositórios de código-fonte aberto constituem as unidades amostrais; no
+nível do artefato, os arquivos extraídos desses repositórios constituem os
+objetos submetidos aos tratamentos, conforme detalhado na Subseção \ref{sec:objetos}.
 
-Sobre esse conjunto, contudo, aplica-se um critério de inclusão adicional, decorrente da própria questão de pesquisa. A revisão estruturada, ao responder quais são os produtos de código-fonte aberto avaliados nos estudos, recuperou projetos de domínios diversos, incluindo bibliotecas científicas e ferramentas de infraestrutura. A questão principal desta pesquisa, porém, delimita o escopo a projetos de código-fonte aberto \textit{do domínio de aplicações web}. Estabelece-se, portanto, uma distinção entre o conjunto amplo (projetos de código aberto, qualquer domínio) e o subconjunto de interesse (projetos de código aberto \textit{e} de aplicações web): apenas os projetos pertencentes ao domínio web integram o experimento, enquanto os demais, ainda que levantados na revisão, são excluídos da avaliação empírica por não atenderem ao recorte da questão de pesquisa.
+A seleção dos repositórios é feita por amostragem não probabilística, do
+tipo por conveniência, conforme descrito por \citeonline{wohlin2024},
+tomando como base os projetos de código-fonte aberto previamente
+identificados na revisão estruturada da literatura conduzida neste
+trabalho. Essa escolha mantém a continuidade metodológica entre o
+levantamento bibliográfico e o experimento: os mesmos produtos de software
+que sustentaram a caracterização do problema passam a compor o objeto de
+avaliação empírica, favorecendo a rastreabilidade e a transparência do
+estudo.
 
-Cabe registrar que a amostragem por conveniência tem implicações sobre a generalização dos resultados: as conclusões não se estendem à totalidade dos projetos de aplicações web de código aberto, mas ao conjunto representado pela amostra, isto é, os projetos web consolidados na literatura recente sobre LLMs e qualidade de software. Além disso, conforme apontam \citeonline{wohlin2024}, o tamanho da amostra relaciona-se ao poder do teste estatístico e à variabilidade dos objetos, de modo que essa variabilidade deverá ser considerada na análise. Essas limitações são retomadas na avaliação de validade (Seção~\ref{sec:avaliacao}).
+Sobre esse conjunto, contudo, aplica-se um critério de inclusão adicional,
+decorrente da própria questão de pesquisa. A revisão estruturada, ao
+responder quais são os produtos de código-fonte aberto avaliados nos
+estudos, recuperou projetos de domínios diversos, incluindo bibliotecas
+científicas e ferramentas de infraestrutura. A questão principal desta
+pesquisa, porém, delimita o escopo a projetos de código-fonte aberto do
+domínio de aplicações web. Estabelece-se, portanto, uma distinção entre o
+conjunto amplo (projetos de código aberto, qualquer domínio) e o
+subconjunto de interesse (projetos de código aberto e de aplicações web):
+apenas os projetos pertencentes ao domínio web integram o experimento,
+enquanto os demais, ainda que levantados na revisão, são excluídos da
+avaliação empírica por não atenderem ao recorte da questão de pesquisa.
+
+Cabe registrar que a amostragem por conveniência tem implicações sobre a
+generalização dos resultados: as conclusões não se estendem à totalidade
+dos projetos de aplicações web de código aberto, mas ao conjunto
+representado pela amostra, isto é, os projetos web consolidados na
+literatura recente sobre LLMs e qualidade de software. Além disso, quanto
+maior a variabilidade existente entre os objetos avaliados, maior deve ser
+o tamanho da amostra utilizada, já que o tamanho amostral influencia
+diretamente a capacidade do teste estatístico de detectar diferenças reais,
+conforme discutido por \citeonline{wohlin2024}. Essas limitações são
+retomadas na avaliação de validade (Seção \ref{sec:avaliacao}).
 
 \subsection{Definição dos Objetos}
 \label{sec:objetos}
 
-Os objetos do experimento correspondem aos artefatos de software diretamente submetidos aos tratamentos. Nesta pesquisa, os objetos são os arquivos de código-fonte extraídos dos repositórios selecionados. O termo arquivo é empregado de forma abrangente, contemplando diferentes formas de organização do código --- como classes, módulos, componentes, funções ou trechos --- conforme a estrutura de cada projeto analisado. A adoção desse termo mantém a definição dos objetos suficientemente geral para abranger as distintas linguagens, arquiteturas e convenções de organização presentes em projetos de aplicações web, evitando restringir o experimento a uma estrutura específica que possa não estar presente de maneira uniforme em todos os projetos.
+Os objetos do experimento correspondem aos artefatos de software
+diretamente submetidos aos tratamentos. Nesta pesquisa, os objetos são os
+arquivos de código-fonte extraídos dos repositórios selecionados. O termo
+arquivo é empregado de forma abrangente, contemplando diferentes formas de
+organização do código --- como classes, módulos, componentes, funções ou
+trechos --- conforme a estrutura de cada projeto analisado. A adoção desse
+termo mantém a definição dos objetos suficientemente geral para abranger as
+distintas linguagens, arquiteturas e convenções de organização presentes em
+projetos de aplicações web, evitando restringir o experimento a uma
+estrutura específica que possa não estar presente de maneira uniforme em
+todos os projetos.
 
-Para garantir maior controle experimental, os mesmos arquivos são submetidos a todas as combinações de tratamento e blocos, característica própria do desenho pareado adotado e detalhada na Seção~\ref{sec:design}. Essa estratégia permite comparar os resultados obtidos entre os diferentes tratamentos reduzindo a influência de variações decorrentes da escolha de artefatos distintos, uma vez que cada arquivo funciona como sua própria referência de comparação.
+Para garantir maior controle experimental, os mesmos arquivos são
+submetidos a todas as combinações de tratamento e blocos, característica
+própria do desenho pareado adotado e detalhada na Seção \ref{sec:design_do_experimento}. Essa
+estratégia permite comparar os resultados obtidos entre os diferentes
+tratamentos reduzindo a influência de variações decorrentes da escolha de
+artefatos distintos, uma vez que cada arquivo funciona como sua própria
+referência de comparação.
 
-O critério de seleção dos arquivos dentro de cada projeto será consolidado na etapa de instrumentação, avaliando-se, por exemplo, a adoção de seleção aleatória ou de critérios de relevância estrutural, como tamanho ou complexidade dos arquivos. Dessa forma, os repositórios de código-fonte aberto do domínio web atuam como unidades amostrais no nível do projeto, enquanto os arquivos deles extraídos constituem os objetos concretos de análise, sobre os quais os tratamentos são aplicados e os resultados aferidos.
+O critério de seleção dos arquivos dentro de cada projeto será consolidado
+na etapa de instrumentação, avaliando-se, por exemplo, a adoção de seleção
+aleatória ou de critérios de relevância estrutural, como tamanho ou
+complexidade dos arquivos. Dessa forma, os repositórios de código-fonte
+aberto do domínio web atuam como unidades amostrais no nível do projeto,
+enquanto os arquivos deles extraídos constituem os objetos concretos de
+análise, sobre os quais os tratamentos são aplicados e os resultados
+aferidos.
 
 \section{Design do Experimento}
-\label{sec:design}
+\label{sec:design_do_experimento}
 
 O design de um experimento descreve como os testes são organizados e executados, definindo a estrutura sobre a qual os dados serão coletados e posteriormente analisados. Segundo \citeonline{wohlin2024}, o design e a análise estatística estão intimamente relacionados: a escolha do desenho condiciona os métodos de análise aplicáveis e, portanto, deve ser orientada pelas hipóteses formuladas e pelas escalas de medição adotadas \cite[p.~119]{wohlin2024}.
 
@@ -244,5 +323,6 @@ O \textbf{balanceamento} é assegurado pela aplicação uniforme dos tratamentos
 Cabe destacar que os mesmos arquivos são submetidos a todos os tratamentos, caracterizando um desenho pareado. Essa estratégia reduz a influência da variabilidade entre artefatos distintos, uma vez que cada arquivo funciona como sua própria referência de comparação, e é coerente com a natureza do RCBD, no qual cada unidade experimental recebe todos os tratamentos \cite[p.~123]{wohlin2024}. Por fim, um design adequadamente estruturado constitui a base para a replicação do experimento \cite[p.~120]{wohlin2024}, objetivo reforçado pelo uso de repositórios de código-fonte aberto e pela documentação dos procedimentos adotados.
 
 \section{Avaliação}
+\label{sec:avaliacao}
 
 \section{Próximos passos do Experimento}
