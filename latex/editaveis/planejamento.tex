@@ -121,31 +121,88 @@ equivalentes.
 \section{Seleção de Variáveis}
 \label{sec:selecao_de_variaveis}
 
-A seleção de variáveis define quais elementos serão manipulados pelo pesquisador e quais resultados serão observados ao final da execução do experimento. Segundo \citeonline{wohlin2024}, antes da definição do desenho experimental, é necessário selecionar as variáveis independentes e dependentes do estudo. 
+O planejamento de um experimento requer a definição explícita das
+variáveis envolvidas. Todas as variáveis de um processo que são manipuladas
+e controladas pelo pesquisador são chamadas de variáveis independentes;
+quando o propósito da manipulação é justamente estudar o efeito de sua
+variação, essas variáveis são chamadas de fatores, e cada um de seus
+níveis, de tratamentos. A variável dependente, por sua vez, corresponde ao
+efeito observado como resultado da aplicação dos tratamentos
+\citeonline{wohlin2024}.
 
-Os autores explicam que: \begin{citacao}
-"as variáveis independentes correspondem àquelas que podem ser controladas e modificadas durante o experimento, sendo denominadas fatores aquelas que são deliberadamente variadas para observar seu efeito, enquanto os efeitos dos tratamentos são medidos por meio da variável dependente" \cite[p.~77]{wohlin2024}.
-\end{citacao}
+Cabe ainda uma distinção relevante para este trabalho: \citeonline{wohlin2024}
+diferenciam experimentos em que sujeitos humanos aplicam os tratamentos a
+objetos daqueles em que essa aplicação é feita por meio de tecnologia. Este
+experimento se enquadra na segunda categoria, uma vez que os tratamentos
+(os padrões de engenharia de prompt) são aplicados por LLMs, e não por
+sujeitos humanos --- o que também fundamenta a caracterização do contexto
+apresentada na Seção \ref{sec:contexto_do_estudo}.
 
-No contexto deste trabalho, considera-se um único fator: o padrão de engenharia de prompt. Esse fator corresponde à forma como a instrução é estruturada para orientar o modelo na análise de manutenibilidade do código-fonte, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: zero-shot, few-shot e chain-of-thought, que representam diferentes estratégias de formulação da instrução fornecida ao LLM. O objetivo é observar se a variação na estrutura do prompt influencia os resultados produzidos na avaliação de manutenibilidade.
+No contexto deste trabalho, considera-se um único fator: o padrão de
+engenharia de prompt. Esse fator corresponde à forma como a instrução é
+estruturada para orientar o modelo na análise do indicador de manutenibilidade, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: zero-shot, few-shot e chain-of-thought, que representam diferentes estratégias de formulação da
+instrução fornecida ao LLM. O objetivo é observar se a variação na
+estrutura do prompt influencia os resultados produzidos na avaliação de
+manutenibilidade.
 
-A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos, sendo definida, neste experimento, como o resultado da aferição do indicador de manutenibilidade produzido na avaliação. Esse resultado não é tratado como uma simples resposta textual do modelo, mas como uma medida observável a partir de critérios previamente definidos. Por não ser diretamente mensurável, trata-se de uma medida indireta, que deverá ser cuidadosamente validada, conforme recomenda \citeonline[p.~118]{wohlin2024}.
+A variável dependente corresponde ao resultado observado após a aplicação
+dos tratamentos, sendo definida, neste experimento, como o resultado da
+aferição do indicador de manutenibilidade produzido na avaliação. Esse
+resultado não é tratado como uma simples resposta textual do modelo, mas
+como uma medida observável a partir de critérios previamente definidos. Por
+não ser diretamente mensurável, trata-se de uma medida indireta, cuja
+validação cuidadosa é essencial, já que sua adequação afeta diretamente o
+resultado do experimento \citeonline{wohlin2024}.
 
-Além do fator e da variável dependente, o experimento adota duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é utilizado quando existe ``um fator que provavelmente tem efeito sobre a resposta, mas que não é de interesse do estudo'', permitindo eliminar sistematicamente esse efeito indesejado da comparação entre os tratamentos e, com isso, aumentar a precisão do experimento. A primeira variável de bloqueio, o modelo de referência, assumirá três níveis --- Q-Rapids, Q-Squale e MeasureSoftGram. Cada modelo opera com critérios e escalas próprios, de modo que o valor de manutenibilidade varia conforme o modelo adotado; como o objetivo da pesquisa não é comparar os modelos entre si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a ferramenta de LLM, assumirá igualmente três níveis --- ChatGPT, Claude e DeepSeek. A inclusão das três ferramentas não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta no processo de medição, de modo que o efeito observado dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo. A operacionalização do bloqueio é detalhada na Seção~\ref{sec:design}.
+Além do fator e da variável dependente, o experimento adota duas variáveis
+de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM.
+Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é
+utilizado "às vezes [quando] temos um fator que provavelmente tem um efeito
+sobre a resposta, mas não estamos interessados nesse efeito", permitindo
+eliminar sistematicamente esse efeito indesejado da comparação entre os
+tratamentos e, com isso, aumentar a precisão do experimento. A primeira
+variável de bloqueio, o modelo de referência, assumirá três níveis ---
+Q-Rapids, Q-Squale e MeasureSoftGram. Cada modelo opera com critérios e
+escalas próprios, de modo que o valor de manutenibilidade varia conforme o
+modelo adotado; como o objetivo da pesquisa não é comparar os modelos entre
+si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a
+ferramenta de LLM, assumirá igualmente três níveis --- ChatGPT, Claude e
+DeepSeek. A inclusão das três ferramentas não visa determinar qual delas
+avalia melhor a manutenibilidade, mas controlar a variação introduzida pela
+escolha da ferramenta no processo de medição, de modo que o efeito
+observado dos padrões de prompt não seja confundido com particularidades de
+um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de
+estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design}.
 
-O experimento contará ainda com variáveis de controle, mantidas fixas para reduzir interferências externas na interpretação dos resultados. Sua definição detalhada será consolidada na etapa de instrumentação; a título de exemplo, incluem-se o procedimento de coleta dos resultados e os parâmetros de configuração dos modelos de LLM.
+O experimento contará ainda com variáveis mantidas em nível fixo ao longo
+de sua execução, de modo a reduzir interferências externas na interpretação
+dos resultados \citeonline{wohlin2024}. Sua definição detalhada será
+consolidada na etapa de instrumentação; a título de exemplo, incluem-se o
+procedimento de coleta dos resultados e os parâmetros de configuração dos
+modelos de LLM.
 
-Assim, a seleção de variáveis deste experimento pode ser sintetizada da seguinte forma:
+Assim, a seleção de variáveis deste experimento pode ser sintetizada da
+seguinte forma:
 
 \begin{itemize}
-    \item \textbf{Fator:} padrão de engenharia de prompt.
-    \item \textbf{Tratamentos do fator:} zero-shot, few-shot e chain-of-thought.
-    \item \textbf{Variável dependente:} resultado da aferição do indicador de manutenibilidade produzido na avaliação.
-    \item \textbf{Variáveis de bloqueio:} modelo de qualidade de referência (Q-Rapids, Q-Squale e MeasureSoftGram) e ferramenta de LLM (ChatGPT, Claude e DeepSeek).
-    \item \textbf{Variáveis de controle:} definidas na etapa de instrumentação (por exemplo, procedimento de coleta e parâmetros de configuração dos LLMs).
+    \item \textbf{Fator}: padrão de engenharia de prompt.
+    \item \textbf{Tratamentos do fator}: zero-shot, few-shot e
+    chain-of-thought.
+    \item \textbf{Variável dependente}: resultado da aferição do
+    indicador de manutenibilidade produzido na avaliação.
+    \item \textbf{Variáveis de bloqueio}: modelo de qualidade de
+    referência (Q-Rapids, Q-Squale e MeasureSoftGram) e ferramenta de
+    LLM (ChatGPT, Claude e DeepSeek).
+    \item \textbf{Variáveis mantidas em nível fixo}: definidas na etapa
+    de instrumentação (por exemplo, procedimento de coleta e parâmetros
+    de configuração dos LLMs).
 \end{itemize}
 
-Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre os diferentes padrões de prompt, mantendo o modelo de referência e a ferramenta de LLM como blocos e as demais condições constantes. Com isso, busca-se observar se as variações nos resultados de manutenibilidade podem ser associadas ao fator manipulado no experimento.
+Portanto, a seleção das variáveis foi definida de modo a permitir a
+comparação entre os diferentes padrões de prompt, mantendo o modelo de
+referência e a ferramenta de LLM como blocos e as demais condições
+constantes. Com isso, busca-se observar se as variações nos resultados de
+manutenibilidade podem ser associadas ao fator manipulado no experimento.
 
 \section{Seleção dos Sujeitos}
 \label{sec:sujeitos}

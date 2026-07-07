@@ -324,9 +324,26 @@ O capítulo de planejamento apresentado neste trabalho concentra-se na segunda f
 
 \subsubsection{Definição do Experimento}
 
+A definição de um experimento delimita seu propósito e o problema de
+pesquisa que ele busca responder, funcionando como ponto de partida para as
+demais decisões de planejamento. Para estruturar essa definição de forma
+sistemática, \citeonline{wohlin2024} recomendam um template de definição de
+metas, por eles denominado \textit{GQM template} e inspirado no trabalho de
+Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do
+paradigma \textit{Goal Question Metric} apresentado na Seção 1.3, ainda que
+compartilhe a lógica de partir de uma meta para derivar os demais elementos
+da investigação. O template organiza a definição do experimento em cinco
+elementos: o que é investigado (produtos, processos, modelos, métricas ou
+teorias); a intenção por trás da investigação, como caracterizar, avaliar
+ou controlar algo; o efeito ou propriedade de interesse a ser observado; o
+ponto de vista sob o qual os resultados serão interpretados, que pode
+pertencer a diferentes papéis dentro de um projeto de software; e o
+ambiente em que o experimento é conduzido, o qual engloba, entre outros
+aspectos, as pessoas ou tecnologias envolvidas e os artefatos utilizados
+como objeto de análise.
+
 A definição de um experimento delimita seu propósito e o problema de pesquisa que ele busca responder, funcionando como ponto de partida para as demais decisões de planejamento. Para estruturar essa definição de forma sistemática, \citeonline{wohlin2024} recomendam um template de definição de metas, por eles denominado \textit{GQM template} e inspirado no trabalho de
-Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do paradigma \textit{Goal Question Metric} apresentado na Seção 1.3, ainda que compartilhe a lógica de partir de uma meta para derivar os demais elementos da investigação. O template descreve o experimento a partir de cinco dimensões: o \textbf{objeto de estudo}, que corresponde ao que é investigado (produtos, processos, modelos, métricas ou teorias); o \textbf{propósito}, que expressa a intenção da investigação (por exemplo, caracterizar, avaliar ou controlar); o \textbf{foco de qualidade}, que representa o efeito estudado; a \textbf{perspectiva}, que define o ponto de vista sob o qual os resultados serão interpretados; e o \textbf{contexto}, que delimita o ambiente em que o experimento é conduzido e engloba, entre outros elementos,
-os sujeitos e os objetos experimentais envolvidos.
+Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do paradigma \textit{Goal Question Metric} apresentado na Seção \ref{sec:questao_de_pesquisa}, ainda que compartilhe a lógica de partir de uma meta para derivar os demais elementos da investigação. O template descreve o experimento a partir de cinco dimensões: o \textbf{objeto de estudo}, que corresponde ao que é investigado (produtos, processos, modelos, métricas ou teorias); o \textbf{propósito}, que expressa a intenção da investigação (por exemplo, caracterizar, avaliar ou controlar); o \textbf{foco de qualidade}, que representa o efeito estudado; a \textbf{perspectiva}, que define o ponto de vista sob o qual os resultados serão interpretados; e o \textbf{contexto}, que delimita o ambiente em que o experimento é conduzido e engloba, entre outros elementos, os sujeitos e os objetos experimentais envolvidos.
 
 \subsubsection{Seleção de Contexto}
 
@@ -334,28 +351,25 @@ A seleção de contexto delimita o ambiente experimental e as condições sob as
 
 \subsubsection{Formulação de Hipóteses}
 
-A análise estatística de um experimento é fundamentada no teste de hipóteses \cite{wohlin2024}. Uma hipótese deve ser formalmente estabelecida antes da coleta de dados, de modo que estes sejam utilizados para verificar se há evidências suficientes para rejeitá-la. Formulam-se tipicamente duas hipóteses complementares: a \textbf{hipótese nula} ($H_0$), que assume a ausência de diferença ou relação real entre os tratamentos investigados -- de modo que eventuais diferenças observadas seriam atribuídas ao acaso --, e a \textbf{hipótese alternativa} ($H_1$), que assume a existência dessa diferença. O experimento é então conduzido com o propósito de reunir evidências que permitam decidir pela rejeição ou não rejeição de $H_0$.
-
+A análise estatística de um experimento é fundamentada no teste de hipóteses \citeonline{wohlin2024}. Uma hipótese deve ser formalmente estabelecida antes da coleta de dados, de modo que estes sejam utilizados para verificar se há evidências suficientes para rejeitá-la. Formulam-se tipicamente duas hipóteses complementares: a \textbf{hipótese nula} ($H_0$), que assume a ausência de diferença ou relação real entre os tratamentos investigados -- de modo que eventuais diferenças observadas seriam atribuídas ao acaso --, e a \textbf{hipótese alternativa} ($H_1$), que assume a existência dessa diferença. O experimento é então conduzido com o propósito de reunir evidências que permitam decidir pela rejeição ou não rejeição de $H_0$.
+ 
 Ao testar uma hipótese, dois tipos de erro podem ocorrer, conforme descrito
 por \citeonline{wohlin2024}. O erro Tipo I ocorre quando o teste estatístico
-indica uma diferença ou padrão real ainda que ele não exista de fato, ou
-seja, quando $H_0$ é rejeitada mesmo sendo verdadeira. Formalmente, a
-probabilidade de incorrer nesse erro é expressa por
-$P(\text{erro Tipo I}) = P(\text{rejeitar } H_0\ |\ H_0 \text{ verdadeira})$.
-O erro Tipo II, por sua vez, ocorre quando o teste não indica uma diferença
-real mesmo quando ela de fato existe, ou seja, quando $H_0$ não é rejeitada
-mesmo sendo falsa, expresso por
-$P(\text{erro Tipo II}) = P(\text{não rejeitar } H_0\ |\ H_0 \text{ falsa})$.
-A capacidade de um teste estatístico de revelar corretamente uma diferença
-real, quando ela existe, é chamada de poder do teste (\textit{power}),
-definido como $\text{Poder} = 1 - P(\text{erro Tipo II})$, e depende de
-fatores como o tamanho da amostra e a variabilidade dos dados coletados.
-Esses conceitos orientam decisões relacionadas ao nível de significância
-adotado e ao dimensionamento da amostra em um experimento controlado.
+aponta um padrão ou diferença que, na realidade, não existe --- ou seja,
+quando a hipótese nula é rejeitada mesmo sendo verdadeira. O erro Tipo II
+ocorre na situação inversa: o teste deixa de detectar um padrão ou
+diferença que de fato existe, isto é, a hipótese nula não é rejeitada
+mesmo sendo falsa. A capacidade de um teste estatístico de detectar
+corretamente uma diferença real, quando ela existe, é chamada de poder do
+teste, e está diretamente relacionada ao tamanho da amostra utilizada e à
+variabilidade presente nos dados coletados. Esses dois tipos de erro
+orientam decisões práticas do planejamento de um experimento, como a
+escolha do nível de significância estatística e o dimensionamento da
+amostra necessária para que o teste tenha poder suficiente.
 
 \subsubsection{Seleção de Variáveis}
 
-O planejamento de um experimento requer a definição explícita das variáveis envolvidas. Segundo \citeonline[p.~77]{wohlin2024}, as \textbf{variáveis independentes} são aquelas controladas e deliberadamente manipuladas pelo pesquisador -- quando esse é o propósito da manipulação, são chamadas de \textbf{fatores}, e seus diferentes níveis, de \textbf{tratamentos} --, enquanto a \textbf{variável dependente} corresponde ao efeito observado como resultado da aplicação dos tratamentos. Além dessas, \citeonline[p.~120]{wohlin2024} descrevem a \textbf{variável de bloqueio} como um fator que provavelmente tem efeito sobre a resposta, mas que não é de interesse do estudo, sendo controlado por meio de blocagem para não se confundir com o efeito do fator estudado. Por fim, as \textbf{variáveis de controle} são mantidas fixas ao longo do experimento, de modo a reduzir fontes externas de variação nos resultados.
+O planejamento de um experimento requer a definição explícita das variáveis envolvidas. Segundo \citeonline{wohlin2024}, as \textbf{variáveis independentes} são aquelas controladas e deliberadamente manipuladas pelo pesquisador -- quando esse é o propósito da manipulação, são chamadas de \textbf{fatores}, e seus diferentes níveis, de \textbf{tratamentos} --, enquanto a \textbf{variável dependente} corresponde ao efeito observado como resultado da aplicação dos tratamentos. Além dessas, \citeonline{wohlin2024} descrevem a \textbf{variável de bloqueio} como um fator que provavelmente tem efeito sobre a resposta, mas que não é de interesse do estudo, sendo controlado por meio de blocagem para não se confundir com o efeito do fator estudado. Por fim, as \textbf{variáveis de controle} são mantidas fixas ao longo do experimento, de modo a reduzir fontes externas de variação nos resultados.
 
 \subsubsection{Seleção de Sujeitos e Objetos}
 
