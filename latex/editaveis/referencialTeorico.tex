@@ -118,8 +118,7 @@ A manutenibilidade assume papel central em estudos sobre qualidade de código-fo
 
 \subsubsection{Subcaracterísticas da Manutenibilidade}
 
-Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, 
-facilitando sua operacionalização em avaliações de qualidade de software.
+Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, facilitando sua operacionalização em avaliações de qualidade de software.
 
 \begin{description}
 
@@ -309,6 +308,7 @@ Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para 
 Para que essa comparação seja válida, contudo, o experimento não pode ser conduzido de forma ad hoc: sua condução depende de um processo estruturado, que orienta desde a definição do problema até a apresentação dos resultados. As etapas desse processo, bem como os principais elementos que compõem o planejamento de um experimento controlado, são apresentados nas subseções seguintes.
 
 \subsubsection{O Processo de Experimentação}
+\label{sec:experimentacao}
 
 Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de Software segue um processo estruturado em cinco fases: \textbf{Definição}, \textbf{Planejamento}, \textbf{Operação}, \textbf{Análise e Interpretação} e \textbf{Apresentação e Empacotamento}, ilustradas na Figura \ref{fig:processoExperimentacao}. Na Definição, estabelecem-se o propósito e o escopo da investigação; no Planejamento, são detalhados o desenho, as variáveis e os procedimentos que viabilizam a execução; na Operação, os tratamentos são efetivamente aplicados e os dados, coletados; na Análise e Interpretação, os dados coletados são examinados à luz das hipóteses formuladas; e, por fim, na Apresentação e Empacotamento, os resultados são documentados e comunicados de forma a permitir sua avaliação e eventual replicação.
 
@@ -411,13 +411,44 @@ blocagem, e quais serão simplesmente mantidas constantes.
 
 \subsubsection{Seleção de Sujeitos e Objetos}
 
-A seleção de sujeitos define as unidades experimentais a partir das quais os tratamentos são aplicados e os resultados, observados, sendo descrita por \citeonline[p.~118]{wohlin2024} como uma amostra retirada de uma população de interesse. A representatividade dessa amostra está diretamente relacionada à capacidade de generalização dos resultados obtidos. Os autores distinguem ainda entre amostragem probabilística, na qual cada elemento da população possui probabilidade conhecida de seleção, e amostragem não probabilística, como a amostragem por conveniência, em que os elementos são selecionados por acessibilidade \cite[p.~118]{wohlin2024}. Complementarmente, \citeonline[p.~77]{wohlin2024} distinguem os sujeitos -- que aplicam os tratamentos -- dos objetos experimentais, os artefatos sobre os quais os tratamentos são efetivamente aplicados e avaliados.
+A seleção de sujeitos define as unidades experimentais a partir das quais
+os tratamentos são aplicados e os resultados são observados. Essa escolha
+é entendida como um processo de amostragem: uma seleção de elementos
+retirada de uma população mais ampla, cuja representatividade determina o
+quanto os resultados do experimento podem ser generalizados
+\citeonline{wohlin2024}. Os autores distinguem ainda duas formas de
+amostragem: a probabilística, em que a chance de cada elemento da
+população ser selecionado é conhecida, e a não probabilística, como a
+amostragem por conveniência, em que os elementos são escolhidos por
+estarem prontamente disponíveis ao pesquisador. Complementarmente,
+\citeonline{wohlin2024} diferenciam os sujeitos --- responsáveis por
+aplicar os tratamentos --- dos objetos experimentais, que são os artefatos
+sobre os quais esses tratamentos incidem e cujo resultado é avaliado.
 
 \subsubsection{Desenho Experimental}
 
-O desenho experimental define a forma como os tratamentos são organizados e aplicados aos sujeitos e objetos, condicionando os métodos de análise estatística aplicáveis aos dados coletados \cite[p.~119]{wohlin2024}. Sua definição apoia-se em três princípios gerais descritos por \citeonline[p.~120]{wohlin2024}: \textbf{randomização}, que consiste em aleatorizar a alocação de tratamentos ou sua ordem de aplicação, de modo a evitar efeitos sistemáticos não controlados; \textbf{blocagem}, que isola o efeito de variáveis conhecidas, mas não estudadas, sobre o resultado; e \textbf{balanceamento}, que busca uma distribuição uniforme dos tratamentos entre os sujeitos ou objetos, simplificando a análise estatística subsequente.
+O desenho experimental define a forma como os tratamentos são organizados
+e aplicados aos sujeitos e objetos de um estudo, e essa escolha determina
+diretamente quais métodos de análise estatística poderão ser aplicados aos
+dados coletados \citeonline{wohlin2024}. Sua definição apoia-se em três
+princípios gerais: a randomização, que consiste em distribuir
+aleatoriamente os tratamentos ou definir aleatoriamente sua ordem de
+aplicação, de modo a evitar que fatores não controlados influenciem
+sistematicamente o resultado; a blocagem, técnica empregada para isolar o
+efeito de uma variável que provavelmente afeta o resultado, mas que não é
+de interesse do estudo; e o balanceamento, que distribui os tratamentos de
+forma equilibrada entre os sujeitos ou objetos disponíveis, tornando a
+análise estatística subsequente mais simples de conduzir
+\citeonline{wohlin2024}.
 
-A partir desses princípios, a literatura descreve diferentes tipos de desenho, como os desenhos padrão de um único fator, os desenhos fatoriais, os desenhos pareados -- nos quais a mesma unidade experimental recebe todos os tratamentos -- e o \textbf{\textit{Randomized Complete Block Design} (RCBD)}, indicado quando há variabilidade relevante entre as unidades experimentais e se deseja controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada unidade de forma aleatorizada \cite[p.~123]{wohlin2024}.
+A partir desses princípios, a literatura descreve diferentes tipos de
+desenho experimental, como os desenhos de um único fator com dois ou mais
+tratamentos, os desenhos fatoriais com múltiplos fatores, os desenhos
+pareados --- nos quais um mesmo sujeito é submetido a todos os tratamentos
+--- e o Randomized Complete Block Design (RCBD), indicado quando existe
+variabilidade relevante entre as unidades experimentais e se deseja
+controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada
+bloco de forma aleatorizada \citeonline{wohlin2024}.
 
 \subsubsection{Ameaças à Validade}
 
