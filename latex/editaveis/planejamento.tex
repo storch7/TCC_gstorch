@@ -18,49 +18,108 @@ Portanto, a adoção de um experimento controlado é coerente com o desenho dest
 
 \section{Seleção de Contexto}
 
-A seleção do contexto define o ambiente no qual o experimento será conduzido e delimita as condições sob as quais os resultados deverão ser interpretados. De acordo com \citeonline[p.~110, tradução nossa]{wohlin2024}, o contexto corresponde ao "ambiente no qual o experimento é executado", contemplando tanto os sujeitos envolvidos quanto os artefatos de software utilizados como objetos do experimento.
+A seleção do contexto define o ambiente no qual o experimento será
+conduzido e delimita as condições sob as quais os resultados deverão ser
+interpretados, contemplando tanto os sujeitos envolvidos quanto os artefatos de
+software utilizados como objetos do experimento \cite{wohlin2024}.
 
-\citeonline[p.~116]{wohlin2024} caracterizam o contexto de um experimento a partir de quatro dimensões: offline versus online (em ambiente real), estudante versus profissional, problemas de brinquedo (toy) versus problemas reais e específico versus geral. Em relação a essas dimensões, este experimento se caracteriza como offline, por ser conduzido em ambiente controlado e não em produção; orientado à tecnologia, uma vez que os tratamentos não são aplicados por sujeitos humanos, mas por Modelos de Linguagem de Grande Escala; baseado em problemas reais, pois utiliza repositórios de código-fonte aberto reais como objetos de análise; e mais próximo do polo específico no que se refere ao equilíbrio entre especificidade e generalidade dos resultados. 
+\citeonline{wohlin2024} caracterizam o contexto de um experimento a
+partir de quatro dimensões: offline versus online, estudante versus
+profissional, problemas de brinquedo (\textit{toy}) versus problemas reais,
+e específico versus geral. Em relação à primeira dimensão, este experimento
+se caracteriza como offline, por ser conduzido em ambiente controlado e não
+em produção. Quanto à segunda dimensão, cabe a observação: sua formulação
+original pressupõe que o tratamento é aplicado por sujeitos humanos com
+diferentes níveis de experiência (estudantes ou profissionais); neste
+experimento, contudo, os tratamentos são aplicados por Modelos de Linguagem
+de Grande Escala, não havendo sujeitos humanos executando a tarefa
+analisada. Essa dimensão, portanto, não se aplica da mesma forma ao desenho
+deste estudo, e é substituída, como fonte equivalente de variação
+controlada, pela ferramenta de LLM utilizada --- tratada como variável de
+bloqueio, conforme detalhado na Seção \ref{sec:selecao_de_variaveis}. Quanto à terceira dimensão, o experimento se baseia em problemas reais, pois utiliza repositórios de
+código-fonte aberto de projetos reais como objetos de análise, em vez de
+exemplos sintéticos ou simplificados. Por fim, quanto à quarta dimensão, o
+experimento se posiciona mais próximo do polo específico: os resultados são
+válidos para o domínio delimitado de projetos de código-fonte aberto
+voltados a aplicações web, não sendo pretendida generalização imediata para
+outros domínios da Engenharia de Software.
 
-A opção por um ambiente offline e controlado justifica-se, conforme discutido pelos próprios autores, por reduzir os riscos e os custos associados à execução do experimento e por proporcionar maior controle sobre as variáveis envolvidas \cite{wohlin2024}.
+A opção por um ambiente offline e controlado justifica-se, conforme
+discutido pelos próprios autores, por reduzir os riscos e os custos
+associados à execução do experimento e por proporcionar maior controle
+sobre as variáveis envolvidas \citeonline{wohlin2024}.
 
-Dessa forma, o experimento será realizado em um ambiente controlado, utilizando os mesmos objetos de análise para diferentes variações de prompt, de modo a permitir comparação entre os resultados produzidos com modelos de referência de avaliação de qualidade de software.
+Dessa forma, o experimento será realizado em um ambiente controlado,
+utilizando os mesmos objetos de análise para os diferentes tratamentos de
+padrão de prompt, de modo a permitir a comparação entre os resultados
+produzidos com os modelos de qualidade de referência adotados como blocos.
 
 \section{Formulação de Hipóteses}
 
-A formulação das hipóteses parte da premissa de que diferentes padrões de engenharia de prompt podem influenciar a forma como um Modelo de Linguagem de Grande Escala avalia a manutenibilidade de trechos de código-fonte. 
-Como o experimento busca comparar resultados obtidos a partir de diferentes tratamentos, as hipóteses foram definidas de modo a verificar se a variação dos padrões de prompt produz diferenças significativas nos resultados de avaliação.
+A formulação das hipóteses parte da premissa de que diferentes padrões de
+engenharia de prompt podem influenciar a forma como um Modelo de Linguagem
+de Grande Escala avalia o indicador de manutenibilidade de trechos de código-fonte. Como
+o experimento busca comparar resultados obtidos a partir de diferentes
+tratamentos, as hipóteses foram definidas de modo a verificar se a variação
+dos padrões de prompt produz diferenças significativas nos resultados de
+avaliação.
 
-Segundo \citeonline{wohlin2024}, a análise estatística de um experimento é fundamentada no teste de hipóteses. Os autores explicam que uma hipótese deve ser formalmente estabelecida e que os dados coletados durante o experimento 
-são utilizados para verificar se há evidências suficientes para rejeitá-la. Ainda segundo os autores, a hipótese nula representa a ausência de tendências ou padrões reais no ambiente experimental, de modo que eventuais diferenças 
-observadas seriam atribuídas ao acaso \cite{wohlin2024}.
+Segundo \citeonline{wohlin2024}, a análise estatística de um experimento é
+fundamentada no teste de hipóteses. Os autores explicam que uma hipótese
+deve ser formalmente estabelecida e que os dados coletados durante o
+experimento são utilizados para verificar se há evidências suficientes para
+rejeitá-la. Ainda segundo os autores, a hipótese nula representa a ausência
+de tendências ou padrões reais no ambiente experimental, de modo que
+eventuais diferenças observadas seriam atribuídas ao acaso. É importante
+destacar que a não rejeição da hipótese nula não implica sua aceitação: ela
+pode simplesmente não ter sido rejeitada com os dados disponíveis, sendo
+passível de rejeição com uma amostra maior \citeonline{wohlin2024}.
 
-Neste trabalho, seja $M$ a medida utilizada para representar o resultado da avaliação de manutenibilidade produzida pelo LLM, e sejam $P_1, P_2, \ldots, P_n$ os diferentes padrões de engenharia de prompt avaliados. A hipótese nula considera que os padrões de prompt apresentam desempenho equivalente na avaliação de manutenibilidade, isto é, não há diferença significativa entre os resultados produzidos pelos diferentes padrões. A hipótese alternativa considera que existe diferença significativa entre os resultados produzidos por pelo menos dois padrões de prompt.
+Neste trabalho, seja $IM$ o indicador de manutenibilidade produzido pela
+avaliação do LLM, conforme definido na Seção 4.4, e sejam $P_1, P_2,
+\ldots, P_n$ os diferentes padrões de engenharia de prompt avaliados. A
+hipótese nula considera que os padrões de prompt apresentam desempenho
+equivalente na avaliação de manutenibilidade, isto é, não há diferença
+significativa entre os resultados produzidos pelos diferentes padrões. A
+hipótese alternativa considera que existe diferença significativa entre os
+resultados produzidos por pelo menos dois padrões de prompt.
 
-Dessa forma, as hipóteses do experimento são formuladas da seguinte maneira:
+Dessa forma, as hipóteses do experimento são formuladas da seguinte
+maneira:
 
 \begin{itemize}
-    \item \textbf{H0}: diferentes padrões de engenharia de prompt não produzem diferenças significativas na avaliação de manutenibilidade realizada por LLMs.
-    
-    \[
-    H_0: \mu_M(P_1) = \mu_M(P_2) = \ldots = \mu_M(P_n)
-    \]
+    \item[] $H_0$: diferentes padrões de engenharia de prompt não produzem
+    diferenças significativas na avaliação de manutenibilidade realizada
+    por LLMs.
+    $$H_0 : \mu_{IM}(P_1) = \mu_{IM}(P_2) = \ldots = \mu_{IM}(P_n)$$
 
-    \item \textbf{H1}: diferentes padrões de engenharia de prompt produzem diferenças significativas na avaliação de manutenibilidade realizada por LLMs.
-    
-    \[
-    H_1: \exists\, P_i, P_j \mid \mu_M(P_i) \neq \mu_M(P_j)
-    \]
+    \item[] $H_1$: diferentes padrões de engenharia de prompt produzem
+    diferenças significativas na avaliação de manutenibilidade realizada
+    por LLMs.
+    $$H_1 : \exists\ P_i, P_j\ |\ \mu_{IM}(P_i) \neq \mu_{IM}(P_j)$$
 \end{itemize}
 
-Assim, a hipótese nula afirma que a média dos resultados de manutenibilidade é equivalente entre os padrões de prompt avaliados. Já a hipótese alternativa afirma 
-que ao menos um par de padrões de prompt apresenta diferença significativa em relação à medida de manutenibilidade observada.
+Assim, a hipótese nula afirma que a média dos resultados do indicador de
+manutenibilidade é equivalente entre os padrões de prompt avaliados. Já a
+hipótese alternativa afirma que ao menos um par de padrões de prompt
+apresenta diferença significativa em relação ao indicador de
+manutenibilidade observado
 
-A avaliação dessas hipóteses será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos a diferentes padrões de prompt. 
-Dessa forma, busca-se verificar se as variações observadas nos resultados podem ser associadas aos tratamentos aplicados ou se permanecem dentro de uma variação 
-esperada entre avaliações equivalentes.
+O teste dessas hipóteses está sujeito a dois tipos de erro, conforme
+descrito por \citeonline{wohlin2024}. O erro Tipo I ocorre quando o teste
+estatístico indica uma diferença significativa entre os padrões de prompt
+mesmo quando, de fato, não existe tal diferença, isto é,
+$P(\text{erro Tipo I}) = P(\text{rejeitar } H_0\ |\ H_0 \text{ verdadeira})$.
+O erro Tipo II, por sua sua vez, ocorre quando o teste não indica diferença significativa mesmo quando ela de fato existe, isto é, $P(\text{erro Tipo II}) = P(\text{não rejeitar } H_0\ |\ H_0 \text{ falsa})$. A capacidade do teste de revelar uma diferença real quando ela existe é
+chamada de poder do teste, definido como $\text{Poder} = 1 - P(\text{erro Tipo II})$. Esses conceitos orientam, respectivamente, a escolha do nível de significância adotado e o
+dimensionamento da amostra de objetos experimentais (Seção \ref{sec:objetos_experimentais}), de modo a equilibrar o risco de conclusões falso-positivas com a capacidade do teste
+de detectar diferenças reais entre os tratamentos.
+
+A avaliação dessas hipóteses será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt. Dessa forma, busca-se verificar se as variações observadas nos resultados podem ser associadas aos tratamentos aplicados ou se permanecem dentro de uma variação esperada entre avaliações
+equivalentes.
 
 \section{Seleção de Variáveis}
+\label{sec:selecao_de_variaveis}
 
 A seleção de variáveis define quais elementos serão manipulados pelo pesquisador e quais resultados serão observados ao final da execução do experimento. Segundo \citeonline{wohlin2024}, antes da definição do desenho experimental, é necessário selecionar as variáveis independentes e dependentes do estudo. 
 
