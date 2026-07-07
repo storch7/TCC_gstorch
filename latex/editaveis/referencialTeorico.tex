@@ -118,37 +118,64 @@ A manutenibilidade assume papel central em estudos sobre qualidade de código-fo
 
 \subsubsection{Subcaracterísticas da Manutenibilidade}
 
-Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, facilitando sua operacionalização em avaliações de qualidade de software.
+Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, facilitando sua operacionalização em avaliações de qualidade de software. A Tabela \ref{tab:subcaracteristicas_manutenibilidade} apresenta a descrição de cada uma delas.
 
-\begin{description}
-
-\item[Modularidade:] refere-se ao grau em que um sistema ou programa é composto por componentes separados, de modo que alterações em uma parte tenham impacto mínimo sobre as demais. Na avaliação de código-fonte, essa subcaracterística pode ser observada por meio da separação de responsabilidades, baixo acoplamento, alta coesão e organização adequada de módulos, classes e funções.
-
-\item[Reusabilidade:] representa o grau em que um componente, módulo ou artefato de software pode ser utilizado em mais de um sistema ou na construção de outros artefatos. Em termos práticos, relaciona-se à criação de funções, classes e componentes genéricos, parametrizáveis e pouco dependentes de contextos específicos.
-
-\item[Analisabilidade:] diz respeito à facilidade de avaliar o impacto de uma mudança, diagnosticar causas de falhas ou identificar partes do software que precisam ser modificadas. Essa subcaracterística está associada à legibilidade, clareza de nomes, documentação, simplicidade estrutural, rastreabilidade e baixa complexidade do código.
-
-\item[Modificabilidade:] refere-se ao grau em que um produto ou sistema pode ser alterado de forma efetiva e eficiente, sem introduzir defeitos ou degradar sua qualidade existente. Na avaliação de código, pode ser observada pela facilidade de refatoração, baixo acoplamento, ausência de efeitos colaterais e capacidade de realizar mudanças localizadas.
-
-\item[Testabilidade:] representa o grau em que critérios de teste podem ser definidos e testes podem ser executados para verificar se o software atende a esses critérios. Relaciona-se à existência de unidades testáveis, previsibilidade do comportamento, baixo entrelaçamento de dependências e facilidade de automação de testes.
-
-\end{description}
+\begin{longtable}{p{3.5cm}p{11.5cm}}
+\caption{Subcaracterísticas de manutenibilidade segundo a ISO/IEC 25010.} \label{tab:subcaracteristicas_manutenibilidade} \\
+\toprule
+\textbf{Subcaracterística} & \textbf{Descrição} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\
+\toprule
+\textbf{Subcaracterística} & \textbf{Descrição} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
+Modularidade &
+Grau em que um sistema ou programa é composto por componentes separados, de modo que alterações em uma parte tenham impacto mínimo sobre as demais. Na avaliação de código-fonte, pode ser observada por meio da separação de responsabilidades, baixo acoplamento, alta coesão e organização adequada de módulos, classes e funções. \\
+\addlinespace
+Reusabilidade &
+Grau em que um componente, módulo ou artefato de software pode ser utilizado em mais de um sistema ou na construção de outros artefatos. Relaciona-se à criação de funções, classes e componentes genéricos, parametrizáveis e pouco dependentes de contextos específicos. \\
+\addlinespace
+Analisabilidade &
+Facilidade de avaliar o impacto de uma mudança, diagnosticar causas de falhas ou identificar partes do software que precisam ser modificadas. Está associada à legibilidade, clareza de nomes, documentação, simplicidade estrutural, rastreabilidade e baixa complexidade do código. \\
+\addlinespace
+Modificabilidade &
+Grau em que um produto ou sistema pode ser alterado de forma efetiva e eficiente, sem introduzir defeitos ou degradar sua qualidade existente. Pode ser observada pela facilidade de refatoração, baixo acoplamento, ausência de efeitos colaterais e capacidade de realizar mudanças localizadas. \\
+\addlinespace
+Testabilidade &
+Grau em que critérios de teste podem ser definidos e testes podem ser executados para verificar se o software atende a esses critérios. Relaciona-se à existência de unidades testáveis, previsibilidade do comportamento, baixo entrelaçamento de dependências e facilidade de automação de testes. \\
+\bottomrule
+\end{longtable}
+\fonte{\cite{isoiec25010}.}
 
 A ISO/IEC 25010 não determina uma única métrica para mensurar a manutenibilidade. Em vez disso, a estrutura da série SQuaRE prevê que características e subcaracterísticas sejam associadas a propriedades de qualidade e medidas adequadas ao contexto de avaliação \cite{isoiec25000}. A esta altura, cabe, também, realizar definição dos conceitos de medida, indicador e métrica de acordo com a ISO/IEC 25000.
 
-\begin{table}[htbp]
-\centering
-\caption{Diferença entre medida, indicador e métrica segundo a terminologia da ISO/IEC 25000}
-\label{tab:diferenca-medida-indicador-metrica}
+{
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{
+\begin{longtable}{
     >{\raggedright\arraybackslash}p{2.8cm}
-    >{\raggedright\arraybackslash}X
-    >{\raggedright\arraybackslash}X
+    >{\raggedright\arraybackslash}p{6.1cm}
+    >{\raggedright\arraybackslash}p{6.1cm}
 }
+\caption{Diferença entre medida, indicador e métrica segundo a terminologia da ISO/IEC 25000} \label{tab:diferenca-medida-indicador-metrica} \\
 \toprule
 \textbf{Termo} & \textbf{Sentido conforme a ISO/SQuaRE} & \textbf{Exemplo aplicado à manutenibilidade} \\
 \midrule
+\endfirsthead
+\multicolumn{3}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\
+\toprule
+\textbf{Termo} & \textbf{Sentido conforme a ISO/SQuaRE} & \textbf{Exemplo aplicado à manutenibilidade} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\endlastfoot
 
 \textbf{Medida} &
 Variável à qual um valor é atribuído como resultado de uma medição. A ISO/IEC 25000 indica que o termo ``medidas'' pode abranger medidas-base, medidas derivadas e indicadores. &
@@ -165,13 +192,9 @@ Classificar a manutenibilidade como alta, média ou baixa com base em complexida
 \textbf{Métrica} &
 Medida de qualidade cuja fórmula de cálculo (função de medição) é definida pelo modelo de qualidade adotado, combinando duas ou mais medidas de base ou derivadas estabelecidas; é a forma de cálculo fixada pelo modelo para atribuir significado de qualidade a essas medidas. &
 No SQALE, cada requisito tem uma função de remediação própria (ex.: 2 min por bloco de código comentado). No Q-Rapids, cada métrica avaliada (ex.: \textit{Complexity}) tem uma fórmula de cálculo específica sobre os dados brutos, podendo variar entre modelos mesmo com o mesmo nome. \\
-
-\bottomrule
-\end{tabularx}
+\end{longtable}
+}
 \fonte{Elaborado pelo autor com base na \citeonline{isoiec25000}.}
-\end{table}
-
-Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser operacionalizada por métricas como complexidade ciclomática, acoplamento, coesão, duplicação, \textit{code smells}, índice de manutenibilidade e cobertura de testes, desde que tais medidas estejam alinhadas às subcaracterísticas avaliadas. Cabe mencionar também que as métricas em questão variam de acordo com o modelo de qualidade de referência que se utiliza para realizar a avaliação.
 
 Dessa forma, neste trabalho, a manutenibilidade é adotada como característica de qualidade de referência para analisar em que medida diferentes padrões de engenharia de \textit{prompt} influenciam a avaliação de código-fonte por Modelos de Linguagem de Grande Escala. As subcaracterísticas definidas pela ISO/IEC 25010 fornecem a base conceitual para mapear atributos observáveis do código, como modularidade, reuso, facilidade de análise, facilidade de modificação e testabilidade, permitindo relacionar os resultados dos estudos selecionados a um modelo normativo reconhecido de qualidade de software.
 
@@ -189,6 +212,8 @@ Na literatura e nas ferramentas de análise estática, as métricas mais comumen
     \item \textbf{Acoplamento e coesão}, associados à Modularidade;
     \item \textbf{Cobertura de testes}, associada à Testabilidade, mesmo sendo tecnicamente uma propriedade da suíte de testes e não do código em si.
 \end{itemize}
+
+Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser operacionalizada por métricas como complexidade ciclomática, acoplamento, coesão, duplicação, \textit{code smells}, índice de manutenibilidade e cobertura de testes, desde que tais medidas estejam alinhadas às subcaracterísticas avaliadas. Cabe mencionar também que as métricas em questão variam de acordo com o modelo de qualidade de referência que se utiliza para realizar a avaliação.
 
 Conforme discutido nas Seções \ref{sec:sqale} e \ref{sec:qrapids}, essas medidas de base são operacionalizadas de forma distinta por diferentes modelos de qualidade. O SQALE, por exemplo, trata Testabilidade, Confiabilidade e Modificabilidade como características de primeiro nível, consolidando-as posteriormente em um Índice de Manutenibilidade (SMI) por meio de funções de remediação calibráveis pela organização. Já o Q-Rapids concentra parte dessas medidas no fator \textit{Code Quality}, com métricas avaliadas de \textit{Complexity}, \textit{Comments} e \textit{Duplication} calculadas diretamente a partir de dados extraídos do SonarQube. Em ambos os casos, confirma-se a distinção estabelecida na Tabela \ref{tab:diferenca-medida-indicador-metrica}: as medidas de base (linhas de código, linhas duplicadas, complexidade por função) são as mesmas, mas cada modelo fixa sua própria métrica -- isto é, sua própria fórmula de cálculo -- para transformar essas medidas em um indício de qualidade.
 
