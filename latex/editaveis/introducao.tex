@@ -119,6 +119,7 @@ Esta sessão esclarece as atividades desenvolvidas durante a primeira etapa do t
     \fonte{O Autor.}
 \end{figure}
 
+
 \begin{itemize}
 
   \item \textbf{Contextualização: Experimentação na Engenharia de Software} --
@@ -176,6 +177,37 @@ Esta sessão esclarece as atividades desenvolvidas durante a primeira etapa do t
 
 \subsection{Atividades da Segunda Etapa}
 
-Esta sessão esclarece as atividades que serão desenvolvidas durante a segunda etapa do trabalho. 
+Esta seção esclarece as atividades que serão desenvolvidas durante a segunda etapa do trabalho, com foco na execução prática, análise e documentação do experimento planejado. O Fluxograma da Figura \ref{fig:fluxograma_segunda_etapa} discrimina as atividades e o Cronograma da Figura \ref{tab:cronograma_segunda_etapa} apresenta a visão cronológica das atividades da segunda etapa do trabalho.
 
-\textit{A COMPLEMENTAR}.
+\begin{figure}[H]
+    \centering
+    \caption{Fluxograma das atividades realizadas na segunda etapa}
+    \includegraphics[width=14cm]{figuras/fluxograma_segunda_etapa.png}
+    \label{fig:fluxograma_segunda_etapa}
+    \fonte{O Autor.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Cronograma das atividades realizadas na segunda etapa}
+    \includegraphics[width=16.5cm]{figuras/cronograma_segunda_etapa.png}
+    \label{tab:cronograma_segunda_etapa}
+    \fonte{O Autor.}
+\end{figure}
+
+
+\begin{itemize}
+  \item \textbf{Instrumentação e setup do ambiente} -- Preparação do ambiente prático do experimento, incluindo a configuração de scripts para submissão padronizada e automatizada das 27 combinações de tratamento e blocagem às ferramentas de LLM, bem como o setup das ferramentas de análise estática de referência (SonarQube e MeasureSoftGram).
+
+  \item \textbf{Execução do experimento e coleta de dados} -- Submissão sistemática dos códigos-fonte selecionados aos modelos de linguagem (ChatGPT, Claude e DeepSeek) sob os três padrões de prompt (zero-shot, few-shot e chain-of-thought) e execução paralela das ferramentas de análise estática nos mesmos objetos para gerar os dados comparativos.
+
+  \item \textbf{Consolidação e tratamento dos resultados} -- Agrupamento e tabulação das avaliações de manutenibilidade coletadas nas etapas de execução, organizando as métricas obtidas em bases de dados estruturadas e realizando a limpeza de eventuais respostas inconsistentes.
+
+  \item \textbf{Análise estatística e teste de hipóteses} -- Aplicação de testes estatísticos de hipóteses apropriados ao desenho de blocos completos casualizados (RCBD) adotado, permitindo avaliar formalmente se a variação dos padrões de prompt causa diferenças significativas na aferição de manutenibilidade.
+
+  \item \textbf{Análise de ameaças e limitações} -- Avaliação crítica de ameaças adicionais ocorridas durante a execução (como taxas de falhas nas chamadas das APIs dos LLMs) e verificação de limitações associadas à validade interna, de conclusão, de constructo e externa.
+
+  \item \textbf{Escrita dos resultados e conclusão} -- Redação dos capítulos finais da monografia contendo a apresentação dos dados empíricos, a discussão teórica do alinhamento entre LLMs e modelos tradicionais, e propostas de trabalhos futuros.
+
+  \item \textbf{Revisão final e defesa pública} -- Revisão ortográfica, textual e de formatação de todo o trabalho acadêmico consolidado e preparação para a defesa pública perante a banca examinadora.
+\end{itemize}
