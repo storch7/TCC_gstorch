@@ -228,7 +228,7 @@ técnicas tradicionais de inspeção de código. Os autores observam que os LLMs
 Além da análise estática, os LLMs têm sido amplamente utilizados em tarefas de geração e complementação de código. \citeonline{khojah2024promptprogramming} afirmam que esses modelos são cada vez mais empregados por engenheiros de software em tarefas relacionadas a código, com destaque para geração e autocompletar funções. No entanto, os autores também ressaltam 
 que essa adoção revelou limitações importantes, como alucinações, interpretação incorreta da intenção do código e geração de soluções incorretas ou irrelevantes. Assim, embora os LLMs ampliem as possibilidades de automação no desenvolvimento de software, seus resultados não devem ser assumidos como corretos sem validação posterior.
 
-Portanto, neste trabalho, os LLMs são entendidos como modelos de linguagem de grande escala treinados sobre grande volume de código e documentação, capazes de compreender trechos de código e inferir intenções associadas ao seu comportamento. Essa capacidade permite sua aplicação em tarefas de engenharia de software, como geração de código, 
+Portanto, neste trabalho, os LLMs são entendidos como modelos de linguagem de grande escala treinados sobre grande volume de código e documentação, capazes de compreender trechos de código ou elementos semânticos e inferir intenções associadas ao seu comportamento. Essa capacidade permite sua aplicação em tarefas de engenharia de software, como geração de código, 
 análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
 
 \subsection{Engenharia de Prompt}
@@ -263,74 +263,181 @@ padrões podem produzir variações em métricas relacionadas ao tamanho e à es
 experimental em pesquisas que analisam qualidade e manutenibilidade de software \cite{DellaPortaEtAll}.
 
 Em estudos de refatoração e qualidade de código com LLMs, os padrões de prompt também são tratados como estratégias dependentes do contexto. 
-A literatura identifica diferentes formas de engenharia de prompt aplicadas à refatoração, como Zero-shot, One-shot, Few-shot, Chain-of-Thought, 
+A literatura identifica diferentes formas de engenharia de prompt aplicadas à refatoração, como \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, 
 prompts específicos de contexto e restrições de saída, indicando que a escolha da técnica depende do caso de uso, da linguagem de programação, 
 da tarefa e do critério de avaliação adotado \cite{MartinezEtAll}.
 
-\subsubsection{Zero-shot Prompting}
+\subsubsection{\textit{Zero-shot Prompting}}
 
-O Zero-shot Prompting é uma estratégia em que o modelo recebe apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa 
+O \textit{Zero-shot Prompting} é uma estratégia em que o modelo recebe apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa 
 abordagem, o LLM deve realizar a tarefa com base no conhecimento aprendido durante seu treinamento e na formulação da instrução fornecida no 
-prompt \cite{alomari2026}. Portanto, a efetividade do Zero-shot depende fortemente da clareza da solicitação, da delimitação da tarefa e da 
+prompt \cite{alomari2026}. Portanto, a efetividade do \textit{Zero-shot} depende fortemente da clareza da solicitação, da delimitação da tarefa e da 
 capacidade do modelo de generalizar a partir da instrução recebida.
 
-Em tarefas de Engenharia de Software, o Zero-shot Prompting costuma ser utilizado como configuração inicial ou linha de base para avaliar a 
+Em tarefas de Engenharia de Software, o \textit{Zero-shot Prompting} costuma ser utilizado como configuração inicial ou linha de base para avaliar a 
 capacidade do modelo de compreender diretamente uma solicitação. Essa estratégia é útil para tarefas mais diretas, mas pode apresentar limitações 
 em cenários que exigem maior compreensão contextual, raciocínio estruturado ou aderência rigorosa a formatos específicos de saída \cite{OuedraogoEtAll}.
 
-No escopo deste trabalho, o Zero-shot Prompting pode ser definido como o padrão de prompt em que a avaliação de código é solicitada diretamente 
-ao LLM, sem demonstrações adicionais. Por exemplo, ao pedir que o modelo avalie a manutenibilidade de um trecho de código apenas com a instrução 
-da tarefa e o código-fonte, a interação caracteriza-se como Zero-shot.
+No escopo deste trabalho, o Zero-shot Prompting pode ser definido como o padrão de prompt em que a avaliação de código é solicitada diretamente ao LLM, sem demonstrações adicionais. Por exemplo, ao pedir que o modelo avalie a manutenibilidade de um trecho de código apenas com a instrução da tarefa e o código-fonte, a interação caracteriza-se como \textit{Zero-shot}.
 
-\subsubsection{Few-shot Prompting}
+O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Zero-shot}, no qual o modelo recebe apenas a instrução da tarefa e o trecho de código a ser avaliado, sem qualquer demonstração adicional de entrada e saída.
+ 
+\begin{promptbox}
+\small
+\ttfamily
+Avalie a manutenibilidade do trecho de código abaixo, atribuindo uma pontuação de 0 a 100 e
+justificando sua resposta com base nos atributos de modularidade,
+legibilidade, complexidade e acoplamento.
+ 
+Código-fonte:
+ 
+\begin{verbatim}
+def calculate_total(items):
+    total = 0
+    for item in items:
+        total += item['price'] * item['quantity']
+    return total
+\end{verbatim}
+\end{promptbox}
+ 
+Nesse exemplo, o modelo é solicitado a avaliar diretamente a manutenibilidade
+do código apresentado, sem receber previamente nenhum exemplo de avaliação
+já realizada. A qualidade da resposta produzida depende, portanto, da
+clareza da instrução fornecida e da capacidade do LLM de generalizar os
+critérios de manutenibilidade a partir do conhecimento adquirido durante seu
+treinamento.
 
-O Few-shot Prompting é uma estratégia em que o prompt inclui exemplos demonstrativos para orientar o modelo na execução de uma nova tarefa. 
-Esses exemplos funcionam como referências de comportamento esperado, ajudando o LLM a inferir o formato da resposta, o critério de análise e o 
-tipo de solução desejada \cite{alomari2026}.
 
-Na Engenharia de Software, essa técnica é relevante quando se deseja reduzir ambiguidades e padronizar a resposta do modelo. Em tarefas como 
-geração de testes, refatoração e detecção de problemas de qualidade, exemplos de entrada e saída podem demonstrar ao LLM como identificar um 
+\subsubsection{\textit{Few-shot Prompting}}
+
+O \textit{Few-shot Prompting} é uma estratégia em que o prompt inclui exemplos demonstrativos para orientar o modelo na execução de uma nova tarefa. Esses exemplos funcionam como referências de comportamento esperado, ajudando o LLM a inferir o formato da resposta, o critério de análise e o tipo de solução desejada \cite{alomari2026}.
+
+Na Engenharia de Software, essa técnica é relevante quando se deseja reduzir ambiguidades e padronizar a resposta do modelo. Em tarefas como geração de testes, refatoração e detecção de problemas de qualidade, exemplos de entrada e saída podem demonstrar ao LLM como identificar um 
 problema, justificar uma resposta ou propor uma modificação no código \cite{OuedraogoEtAll}.
 
-No contexto de refatoração, o Few-shot Prompting tem sido utilizado para orientar LLMs na aplicação de melhorias estruturais no código. 
-A literatura aponta que essa estratégia pode ser eficaz em determinados cenários, especialmente quando os exemplos fornecidos ajudam o modelo 
-a reconhecer o tipo de transformação esperada e a preservar o comportamento funcional do código \cite{MartinezEtAll}. Assim, neste TCC, o Few-shot 
-Prompting é entendido como uma técnica em que exemplos de avaliação ou melhoria de código são fornecidos ao modelo para orientar a análise 
-de manutenibilidade.
+No contexto de refatoração, o Few-shot Prompting tem sido utilizado para orientar LLMs na aplicação de melhorias estruturais no código. A literatura aponta que essa estratégia pode ser eficaz em determinados cenários, especialmente quando os exemplos fornecidos ajudam o modelo a reconhecer o tipo de transformação esperada e a preservar o comportamento funcional do código \cite{MartinezEtAll}. Assim, neste TCC, o \textit{Few-shot Prompting} é entendido como uma técnica em que exemplos de avaliação ou melhoria de código são fornecidos ao modelo para orientar a análise de manutenibilidade.
 
-\subsubsection{Chain-of-Thought Prompting}
+O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Few-shot} no qual o modelo recebe, além da instrução da tarefa, exemplos demonstrativos de avaliações já realizadas antes de ser solicitado a avaliar o código de interesse.
+ 
+\begin{promptbox}
+\small
+\ttfamily
+Avalie a manutenibilidade de trechos de código-fonte, atribuindo uma
+pontuação de 0 a 100 e justificando sua resposta com base nos atributos de
+modularidade, legibilidade, complexidade e acoplamento. Utilize os exemplos
+abaixo como referência de formato e critério de avaliação.
+ 
+Exemplo 1:
+ 
+\begin{verbatim}
+def calc(a,b,c,d,e):
+    x = a+b
+    if c == 1:
+        x = x*d
+    else:
+        x = x-e
+    return x
+\end{verbatim}
+ 
+Avaliação: 42/100. Justificativa: nomes de variáveis pouco descritivos,
+múltiplas responsabilidades condensadas em poucas linhas e ausência de
+comentários dificultam a compreensão e a manutenção futura do trecho.
+ 
+Exemplo 2:
+ 
+\begin{verbatim}
+def calculate_discounted_price(price, discount_rate):
+    if discount_rate < 0 or discount_rate > 1:
+        raise ValueError("Taxa de desconto invalida")
+    return price * (1 - discount_rate)
+\end{verbatim}
+ 
+Avaliação: 88/100. Justificativa: função com responsabilidade única, nomes
+descritivos, validação explícita de entrada e baixa complexidade ciclomática,
+o que favorece a legibilidade e a manutenibilidade.
+ 
+Agora avalie o código abaixo seguindo o mesmo formato:
+ 
+\begin{verbatim}
+def calculate_total(items):
+    total = 0
+    for item in items:
+        total += item['price'] * item['quantity']
+    return total
+\end{verbatim}
+\end{promptbox}
+ 
+Nesse exemplo, os dois casos apresentados previamente demonstram ao modelo
+não apenas o formato esperado da resposta, mas também o padrão de raciocínio
+a ser seguido na justificativa, antes que o LLM seja solicitado a avaliar o
+código de interesse. Dessa forma, o Few-shot Prompting busca reduzir a
+ambiguidade da tarefa e padronizar o critério de análise aplicado pelo
+modelo.
 
-O Chain-of-Thought Prompting é uma estratégia que orienta o modelo a realizar ou explicitar etapas intermediárias de raciocínio antes de 
+\subsubsection{\textit{Chain-of-Thought Prompting}}
+
+O \textit{Chain-of-Thought Prompting} é uma estratégia que orienta o modelo a realizar ou explicitar etapas intermediárias de raciocínio antes de 
 produzir a resposta final. Ao invés de solicitar apenas uma conclusão direta, esse padrão induz o LLM a decompor a tarefa em passos lógicos, 
 o que pode favorecer problemas que exigem análise, inferência ou tomada de decisão estruturada \cite{alomari2026}.
 
-Em tarefas de Engenharia de Software, abordagens baseadas em raciocínio, como Chain-of-Thought, têm sido investigadas em cenários nos quais o 
+Em tarefas de Engenharia de Software, abordagens baseadas em raciocínio, como \textit{Chain-of-Thought}, têm sido investigadas em cenários nos quais o 
 modelo precisa lidar com dependências, estrutura de código, critérios de compilação, legibilidade e manutenção. Embora possam melhorar a 
 organização da resposta e a aderência estrutural do resultado, essas técnicas também exigem validação, pois modelos podem produzir respostas 
 plausíveis, mas tecnicamente incorretas, como chamadas de API inexistentes, dependências fabricadas ou referências inválidas \cite{OuedraogoEtAll}.
 
-No campo da qualidade de código, o Chain-of-Thought também tem sido associado à geração de código mais conciso e eficiente. \cite{DellaPortaEtAll} observam que 
+No campo da qualidade de código, o \textit{Chain-of-Thought} também tem sido associado à geração de código mais conciso e eficiente. \cite{DellaPortaEtAll} observam que 
 esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e 
-manutenibilidade. Portanto, para este trabalho, o Chain-of-Thought Prompting pode ser definido como o padrão de prompt que conduz o 
-LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
+manutenibilidade. Portanto, para este trabalho, o \textit{Chain-of-Thought Prompting} pode ser definido como o padrão de prompt que conduz o LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
+
+O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Chain-of-Thought} no qual o modelo é instruído a explicitar as etapas intermediárias de raciocínio antes de produzir a avaliação final de manutenibilidade.
+ 
+\begin{promptbox}
+\small
+\ttfamily
+Avalie a manutenibilidade do trecho de código abaixo. Antes de emitir a
+pontuação final, pense passo a passo, seguindo a sequência abaixo:
+ 
+1. Identifique a responsabilidade da função e avalie sua modularidade.
+ 
+2. Analise a legibilidade, considerando nomes de variáveis e clareza da
+lógica implementada.
+ 
+3. Avalie a complexidade estrutural do trecho, incluindo laços,
+condicionais e nível de aninhamento.
+ 
+4. Verifique o acoplamento com estruturas externas, como dicionários ou
+parâmetros de entrada.
+ 
+5. Com base nas etapas anteriores, atribua uma pontuação de 0 a 100 e
+justifique a nota considerando os pontos analisados.
+ 
+Código-fonte:
+ 
+\begin{verbatim}
+def calculate_total(items):
+    total = 0
+    for item in items:
+        total += item['price'] * item['quantity']
+    return total
+\end{verbatim}
+\end{promptbox}
+ 
+Nesse exemplo, o modelo é conduzido a decompor a tarefa de avaliação em
+etapas lógicas sucessivas, explicitando o raciocínio empregado em cada
+atributo de manutenibilidade antes de consolidar a pontuação final. Espera-se
+que essa explicitação favoreça a rastreabilidade da justificativa produzida
+pelo LLM, ainda que a resposta final dependa da coerência entre as etapas
+intermediárias de raciocínio e a conclusão apresentada.
 
 \subsection{Experimentação em Engenharia de Software}
 
-A pesquisa empírica em Engenharia de Software busca produzir conhecimento a partir da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software, em vez de se apoiar apenas em argumentação teórica ou opinião de especialistas \cite{wohlin2024}. Entre as estratégias empíricas disponíveis, destacam-se o levantamento (\textit{survey}), o estudo de caso e o experimento, que se diferenciam principalmente pelo grau de controle exercido sobre as variáveis do estudo e pelo nível de realismo do ambiente investigado, conforme ilustrado na Figura \ref{fig:estrategiasPesquisa}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Estratégias de pesquisa empírica em Engenharia de Software}
-    \includegraphics[width=16cm]{figuras/estrategias_pesquisa_empirica.png}
-    \label{fig:estrategiasPesquisa}
-    \fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
-\end{figure}
+A pesquisa empírica em Engenharia de Software busca produzir conhecimento a partir da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software, em vez de se apoiar apenas em argumentação teórica ou opinião de especialistas \cite{wohlin2024}. Entre as estratégias empíricas disponíveis, destacam-se o levantamento (\textit{survey}), o estudo de caso e o experimento, que se diferenciam principalmente pelo grau de controle exercido sobre as variáveis do estudo e pelo nível de realismo do ambiente investigado.
 
 O levantamento é conduzido, em geral, após a ocorrência do fenômeno de interesse, com o objetivo de caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador sobre as condições observadas. O estudo de caso, por sua vez, investiga um fenômeno em seu contexto real, com controle limitado sobre as variáveis envolvidas, sendo indicado quando não é viável ou desejável isolar o objeto de estudo de seu ambiente. Já o experimento se caracteriza pelo controle deliberado sobre um ou mais fatores, manipulados pelo pesquisador para observar seu efeito sobre uma variável de resultado, enquanto as demais condições são mantidas constantes ou controladas \cite{wohlin2024}.
 
 Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para tornar a Engenharia de Software uma disciplina mais científica, na medida em que permite avaliar proposições de pesquisa a partir de hipóteses, evidências e observações sistemáticas, em vez de apenas relatos de experiência ou avaliações qualitativas isoladas.
 
-Para que essa comparação seja válida, contudo, o experimento não pode ser conduzido de forma ad hoc: sua condução depende de um processo estruturado, que orienta desde a definição do problema até a apresentação dos resultados. As etapas desse processo, bem como os principais elementos que compõem o planejamento de um experimento controlado, são apresentados nas subseções seguintes.
+Para que essa comparação seja válida, contudo, o experimento não pode ser conduzido de forma ad hoc: sua condução depende de um processo estruturado, que orienta desde a definição do problema até a apresentação dos resultados. As etapas desse processo, bem como os principais elementos que compõem o planejamento de um experimento controlado, são apresentados nas subseções seguintes \cite{wohlin2024}.
 
 \subsubsection{O Processo de Experimentação}
 \label{sec:experimentacao}
@@ -345,27 +452,9 @@ Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de
     \fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
 \end{figure}
 
-O capítulo de planejamento apresentado neste trabalho concentra-se na segunda fase desse processo, detalhando os elementos que a compõem: definição do experimento, seleção de contexto, formulação de hipóteses, seleção de variáveis, seleção de sujeitos e objetos, e desenho experimental.
+O Capítulo \ref{cap:planejamento}, de Planejamento, concentra-se na segunda fase desse processo, detalhando os elementos que a compõem: definição do experimento, seleção de contexto, formulação de hipóteses, seleção de variáveis, seleção de sujeitos e objetos, e desenho experimental.
 
 \subsubsection{Definição do Experimento}
-
-A definição de um experimento delimita seu propósito e o problema de
-pesquisa que ele busca responder, funcionando como ponto de partida para as
-demais decisões de planejamento. Para estruturar essa definição de forma
-sistemática, \citeonline{wohlin2024} recomendam um template de definição de
-metas, por eles denominado \textit{GQM template} e inspirado no trabalho de
-Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do
-paradigma \textit{Goal Question Metric} apresentado na Seção 1.3, ainda que
-compartilhe a lógica de partir de uma meta para derivar os demais elementos
-da investigação. O template organiza a definição do experimento em cinco
-elementos: o que é investigado (produtos, processos, modelos, métricas ou
-teorias); a intenção por trás da investigação, como caracterizar, avaliar
-ou controlar algo; o efeito ou propriedade de interesse a ser observado; o
-ponto de vista sob o qual os resultados serão interpretados, que pode
-pertencer a diferentes papéis dentro de um projeto de software; e o
-ambiente em que o experimento é conduzido, o qual engloba, entre outros
-aspectos, as pessoas ou tecnologias envolvidas e os artefatos utilizados
-como objeto de análise.
 
 A definição de um experimento delimita seu propósito e o problema de pesquisa que ele busca responder, funcionando como ponto de partida para as demais decisões de planejamento. Para estruturar essa definição de forma sistemática, \citeonline{wohlin2024} recomendam um template de definição de metas, por eles denominado \textit{GQM template} e inspirado no trabalho de
 Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do paradigma \textit{Goal Question Metric} apresentado na Seção \ref{sec:questao_de_pesquisa}, ainda que compartilhe a lógica de partir de uma meta para derivar os demais elementos da investigação. O template descreve o experimento a partir de cinco dimensões: o \textbf{objeto de estudo}, que corresponde ao que é investigado (produtos, processos, modelos, métricas ou teorias); o \textbf{propósito}, que expressa a intenção da investigação (por exemplo, caracterizar, avaliar ou controlar); o \textbf{foco de qualidade}, que representa o efeito estudado; a \textbf{perspectiva}, que define o ponto de vista sob o qual os resultados serão interpretados; e o \textbf{contexto}, que delimita o ambiente em que o experimento é conduzido e engloba, entre outros elementos, os sujeitos e os objetos experimentais envolvidos.
@@ -394,45 +483,65 @@ amostra necessária para que o teste tenha poder suficiente.
 
 \subsubsection{Seleção de Variáveis}
 
-\subsubsection{Seleção de Variáveis}
-
 O planejamento de um experimento requer a definição explícita das
-variáveis envolvidas \citeonline{wohlin2024}. Essas variáveis podem ser
-organizadas nas seguintes categorias:
+variáveis envolvidas \citeonline{wohlin2024}. A Tabela~\ref{tab:categorias_variaveis}
+organiza essas variáveis nas categorias utilizadas neste trabalho.
 
-\begin{description}
-    \item[Variável independente] é toda variável de um processo que pode
-    ser manipulada e controlada pelo pesquisador ao longo do experimento.
+\begin{longtable}{|p{3.5cm}|p{11cm}|}
+\caption{Categorias de variáveis do planejamento experimental} \label{tab:categorias_variaveis} \\
+\hline
+\textbf{Categoria} & \textbf{Definição} \\
+\hline
+\endfirsthead
 
-    \item[Fator] é a variável independente cuja variação constitui o
-    próprio objeto de interesse do experimento --- ou seja, aquela que o
-    pesquisador manipula deliberadamente para observar seu efeito sobre o
-    resultado.
+\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\ \hline
+\textbf{Categoria} & \textbf{Definição} \\ \hline
+\endhead
 
-    \item[Tratamento] é cada um dos valores ou níveis específicos que um
-    fator pode assumir durante o experimento.
+\hline \multicolumn{2}{r}{{Continua na próxima página}} \\
+\endfoot
 
-    \item[Variável dependente] é o efeito observado como resultado da
-    aplicação dos tratamentos, sendo geralmente derivada diretamente da
-    hipótese formulada para o experimento.
+\hline
+\endlastfoot
 
-    \item[Variável de bloqueio] é uma variável independente que
-    provavelmente exerce efeito sobre o resultado, mas cujo efeito não é
-    de interesse do estudo; por meio de uma técnica de desenho
-    experimental chamada blocagem, esse efeito é isolado e removido da
-    comparação entre os tratamentos, sem que a relação entre blocos seja
-    ela própria analisada.
+Variável independente & É toda variável de um processo que pode ser
+manipulada e controlada pelo pesquisador ao longo do experimento. \\
+\hline
 
-    \item[Variáveis mantidas em nível fixo] são as demais variáveis
-    independentes que não constituem fator nem bloco, mas que são
-    controladas em um valor constante ao longo de todo o experimento, de
-    modo a evitar que interfiram na comparação entre os tratamentos.
-\end{description}
+Fator & É a variável independente cuja variação constitui o próprio objeto
+de interesse do experimento --- ou seja, aquela que o pesquisador manipula
+deliberadamente para observar seu efeito sobre o resultado. \\
+\hline
+
+Tratamento & É cada um dos valores ou níveis específicos que um fator pode
+assumir durante o experimento. \\
+\hline
+
+Variável dependente & É o efeito observado como resultado da aplicação dos
+tratamentos, sendo geralmente derivada diretamente da hipótese formulada
+para o experimento. \\
+\hline
+
+Variável de bloqueio & É uma variável independente que provavelmente
+exerce efeito sobre o resultado, mas cujo efeito não é de interesse do
+estudo; por meio de uma técnica de desenho experimental chamada blocagem,
+esse efeito é isolado e removido da comparação entre os tratamentos, sem
+que a relação entre blocos seja ela própria analisada. \\
+\hline
+
+Variáveis mantidas em nível fixo & São as demais variáveis independentes
+que não constituem fator nem bloco, mas que são controladas em um valor
+constante ao longo de todo o experimento, de modo a evitar que interfiram
+na comparação entre os tratamentos. \\
+\hline
+
+\end{longtable}
+\fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
 
 Essa distinção entre fator, bloco e variáveis mantidas em nível fixo é
 central para o planejamento de um experimento, pois orienta quais fontes de
 variação serão estudadas, quais serão controladas e neutralizadas por
-blocagem, e quais serão simplesmente mantidas constantes.
+blocagem, e quais serão simplesmente mantidas constantes \citeonline{wohlin2024}.
 
 \subsubsection{Seleção de Sujeitos e Objetos}
 
@@ -445,8 +554,9 @@ quanto os resultados do experimento podem ser generalizados
 amostragem: a probabilística, em que a chance de cada elemento da
 população ser selecionado é conhecida, e a não probabilística, como a
 amostragem por conveniência, em que os elementos são escolhidos por
-estarem prontamente disponíveis ao pesquisador. Complementarmente,
-\citeonline{wohlin2024} diferenciam os sujeitos --- responsáveis por
+estarem prontamente disponíveis ao pesquisador. 
+
+Complementarmente, \citeonline{wohlin2024} diferenciam os sujeitos --- responsáveis por
 aplicar os tratamentos --- dos objetos experimentais, que são os artefatos
 sobre os quais esses tratamentos incidem e cujo resultado é avaliado.
 
@@ -455,8 +565,9 @@ sobre os quais esses tratamentos incidem e cujo resultado é avaliado.
 O desenho experimental define a forma como os tratamentos são organizados
 e aplicados aos sujeitos e objetos de um estudo, e essa escolha determina
 diretamente quais métodos de análise estatística poderão ser aplicados aos
-dados coletados \citeonline{wohlin2024}. Sua definição apoia-se em três
-princípios gerais: a randomização, que consiste em distribuir
+dados coletados \citeonline{wohlin2024}. 
+
+Sua definição apoia-se em três princípios gerais: a randomização, que consiste em distribuir
 aleatoriamente os tratamentos ou definir aleatoriamente sua ordem de
 aplicação, de modo a evitar que fatores não controlados influenciem
 sistematicamente o resultado; a blocagem, técnica empregada para isolar o
@@ -469,11 +580,60 @@ análise estatística subsequente mais simples de conduzir
 A partir desses princípios, a literatura descreve diferentes tipos de
 desenho experimental, como os desenhos de um único fator com dois ou mais
 tratamentos, os desenhos fatoriais com múltiplos fatores, os desenhos
-pareados --- nos quais um mesmo sujeito é submetido a todos os tratamentos
---- e o Randomized Complete Block Design (RCBD), indicado quando existe
-variabilidade relevante entre as unidades experimentais e se deseja
-controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada
-bloco de forma aleatorizada \citeonline{wohlin2024}.
+pareados --- nos quais um mesmo sujeito é submetido a todos os tratamentos \citeonline{wohlin2024}.
+
+\subsubsection{\textit{Randomized Complete Block Design}}
+
+O \textit{Randomized Complete Block Design} (RCBD) é um dos desenhos
+experimentais mais utilizados em Engenharia de Software \citeonline{wohlin2024}.
+Segundo os autores, esse desenho é indicado quando há variabilidade
+relevante entre as unidades experimentais, a qual pode ser minimizada por
+meio da blocagem, tornando os grupos comparados mais homogêneos entre si.
+No RCBD, cada bloco é submetido a todos os tratamentos do fator estudado, e
+a ordem de aplicação desses tratamentos dentro de cada bloco é definida por
+randomização --- daí o bloco representar uma restrição controlada sobre o
+processo de aleatorização, e não sua ausência \citeonline{wohlin2024}. Esse
+desenho generaliza o \textit{paired comparison design} para situações com
+mais de dois tratamentos, sendo indicado quando se deseja isolar o efeito
+de uma ou mais fontes de variação já conhecidas, sem que essas fontes
+sejam, elas próprias, objeto de investigação do experimento.
+
+A Tabela~\ref{tab:exemplo_rcbd} apresenta um exemplo de atribuição dos
+tratamentos aos sujeitos em um \textit{Randomized Complete Block Design},
+adaptado de \citeonline[p.~124]{wohlin2024}. Cada sujeito corresponde a um
+bloco e recebe todos os tratamentos do experimento; os valores da tabela
+indicam a ordem em que cada tratamento é aplicado dentro do bloco, definida
+por randomização.
+ 
+\begin{table}[H]
+\centering
+\caption{Exemplo de atribuição dos tratamentos aos sujeitos em um RCBD}
+\label{tab:exemplo_rcbd}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Sujeitos} & \textbf{Tratamento 1} & \textbf{Tratamento 2} & \textbf{Tratamento 3} \\
+\hline
+1 & 1 & 3 & 2 \\
+\hline
+2 & 3 & 1 & 2 \\
+\hline
+3 & 2 & 3 & 1 \\
+\hline
+4 & 2 & 1 & 3 \\
+\hline
+5 & 3 & 2 & 1 \\
+\hline
+6 & 1 & 2 & 3 \\
+\hline
+\end{tabular}
+\fonte{Adaptado de \citeonline[p.~124]{wohlin2024}.}
+\end{table}
+ 
+Os números na tabela não representam o tratamento em si, mas a posição em
+que cada tratamento é aplicado para aquele sujeito --- por exemplo, o
+sujeito 1 aplica primeiro o Tratamento 1, em seguida o Tratamento 3 e, por
+último, o Tratamento 2. Essa randomização da ordem dentro de cada bloco é o
+que caracteriza o desenho como \textit{Randomized Complete Block Design} \cite{wohlin2024}.
 
 \subsubsection{Ameaças à Validade}
 
