@@ -218,13 +218,12 @@ adequadamente; por isso, \citeonline{wohlin2024} descrevem essa escolha
 como um processo de amostragem sobre uma população de interesse.
 
 No contexto desta pesquisa, essa etapa exige uma adaptação à natureza
-tecnológica do experimento. Como discutido na Seção \ref{sec:variaveis},
-\citeonline{wohlin2024} distinguem estudos em que pessoas executam os
+tecnológica do experimento. \citeonline{wohlin2024} distinguem estudos em que pessoas executam os
 tratamentos daqueles em que essa execução cabe a uma tecnologia; nesse
 segundo caso, o controle experimental tende a ser maior, já que o
 comportamento da tecnologia pode ser reproduzido de forma consistente entre
 execuções. Por essa razão, a ferramenta de LLM utilizada neste experimento
-é tratada como variável de bloqueio (Seção \ref{sec:variaveis}), e não como sujeito a ser
+é tratada como variável de bloqueio, e não como sujeito a ser
 amostrado de uma população. Em contrapartida, \citeonline[p.~78, tradução
 nossa]{wohlin2024} apontam que, nesse tipo de experimento, a variável fora
 de controle costuma ser justamente a seleção dos objetos: "é fundamental
@@ -409,7 +408,7 @@ qualidade de software.
 Serão tratadas como ferramentas de referência para a aferição do indicador de manutenibilidade: o \textit{SonarQube} e o \textit{MeasureSoftGram}.
 
 \subsection{Ferramenta 1}
-
+Solicitar o artigo para o Hilmer.
 
 \subsection{SonarQube}
 
@@ -475,8 +474,7 @@ depositado em seus resultados e conclusões. \citeonline{wohlin2024}
 organizam as ameaças à validade em quatro categorias --- conclusão,
 interna, constructo e externa --- que orientam a identificação e a
 discussão das limitações deste experimento. Antes de detalhá-las, cabe uma
-ressalva: por se tratar de um experimento orientado a tecnologia (Seção
-\ref{sec:instrumentos}), diversas ameaças descritas pelos autores pressupõem
+ressalva: por se tratar de um experimento orientado a tecnologia, diversas ameaças descritas pelos autores pressupõem
 a presença de sujeitos humanos reagindo ao próprio fato de estarem sendo
 avaliados --- como adivinhação de hipótese, apreensão avaliativa e
 rivalidade compensatória --- e, portanto, não se aplicam a este estudo. As
@@ -496,8 +494,7 @@ confiabilidade do indicador de manutenibilidade coletado. Some-se a isso o
 risco de "fishing and the error rate": como o desenho envolve múltiplas
 comparações entre tratamentos e blocos, a taxa de erro Tipo I acumulada ao
 longo das análises deve ser ajustada, sob pena de aumentar a probabilidade
-de conclusões falso-positivas. Por fim, o poder do teste estatístico (Seção
-\ref{sec:estatistica}) depende diretamente do tamanho da amostra de objetos
+de conclusões falso-positivas. Por fim, o poder do teste estatístico depende diretamente do tamanho da amostra de objetos
 definida na instrumentação, o que só poderá ser plenamente avaliado na fase de
 execução do experimento.
 
@@ -530,7 +527,7 @@ indicador de manutenibilidade é obtido por um único tipo de medida --- a
 resposta do LLM interpretada segundo critérios previamente definidos --- o
 que impede o cruzamento com outras formas de observação do mesmo
 constructo. Some-se a isso o risco de explicação pré-operacional
-inadequada dos constructos: como discutido na Seção \ref{sec:instrumentos}, o indicador de
+inadequada dos constructos: o indicador de
 manutenibilidade é uma medida indireta, e sua tradução em um valor
 comparável exige uma definição operacional clara o suficiente para que o
 que está de fato sendo medido corresponda ao conceito teórico de
@@ -541,8 +538,7 @@ do formato de resposta do modelo.
 
 A validade externa trata da possibilidade de generalização dos resultados
 para além do contexto específico em que o experimento foi conduzido. A
-amostragem por conveniência utilizada na seleção dos repositórios (Seção
-\ref{sec:amostra}) já implica uma ameaça de interação entre seleção e tratamento: os
+amostragem por conveniência utilizada na seleção dos repositórios já implica uma ameaça de interação entre seleção e tratamento: os
 resultados são válidos para o conjunto de projetos de código aberto do
 domínio de aplicações web efetivamente selecionados, não podendo ser
 generalizados de forma imediata à totalidade desse domínio, tampouco a
@@ -558,45 +554,40 @@ achados a um recorte temporal específico das ferramentas avaliadas.
 Este capítulo apresentou o planejamento completo do experimento controlado
 proposto para investigar a influência de diferentes padrões de engenharia
 de prompt na aferição do indicador de manutenibilidade de software. Foram
-definidos o objeto de estudo e a meta do experimento segundo o template GQM
-(Seção \ref{sec:gqm}), o contexto experimental (Seção \ref{sec:contexto}), as hipóteses a serem
-testadas (Seção \ref{sec:hipoteses}), as variáveis envolvidas e seus papéis --- fator,
-variáveis de bloqueio e variáveis mantidas em nível fixo (Seção \ref{sec:variaveis}) ---,
-os sujeitos e objetos da amostra (Seção \ref{sec:amostra}), o desenho experimental do
-tipo RCBD com bloco composto (Seção \ref{sec:desenho}), os instrumentos de medição a
-serem utilizados (Seção \ref{sec:instrumentos}) e as principais ameaças à validade já
-antecipadas nesta fase de planejamento (Seção \ref{sec:avaliacao}).
+definidos o objeto de estudo e a meta do experimento segundo o template GQM, o contexto experimental, as hipóteses a serem testadas, as variáveis envolvidas e seus papéis --- fator, variáveis de bloqueio e variáveis mantidas em nível fixo ---
+os sujeitos e objetos da amostra, o desenho experimental do
+tipo RCBD com bloco composto, os instrumentos de medição a
+serem utilizados e as principais ameaças à validade já
+antecipadas nesta fase de planejamento.
 
 A etapa de planejamento aqui descrita constitui o insumo necessário para a
 condução da fase de operação do experimento, prevista para a segunda etapa
-deste trabalho (TCC2). Essa etapa seguinte compreenderá, principalmente:
+deste trabalho. Essa etapa seguinte compreenderá, principalmente:
 
 \begin{itemize}
-    \item a aplicação prática das 27 combinações definidas na Seção \ref{sec:desenho},
+    \item a aplicação prática das 27 combinações definidas,
     submetendo cada arquivo selecionado a cada um dos três padrões de
     prompt, por meio de cada uma das três ferramentas de LLM, orientadas
     a avaliar a manutenibilidade segundo cada um dos três modelos de
     qualidade de referência;
 
-    \item a execução dos instrumentos de medição definidos na Seção \ref{sec:instrumentos},
-    gerando os indicadores de referência por meio do SonarQube e do
+    \item a execução dos instrumentos de medição definidos, gerando os indicadores de referência por meio do SonarQube e do
     MeasureSoftGram sobre os mesmos arquivos avaliados pelos LLMs;
 
     \item a coleta e a organização dos dados obtidos em ambas as etapas
     anteriores, de modo a viabilizar sua análise estatística;
 
-    \item o teste das hipóteses formuladas na Seção \ref{sec:hipoteses}, a partir dos
+    \item o teste das hipóteses formuladas, a partir dos
     dados coletados, incluindo a verificação dos pressupostos
     estatísticos aplicáveis ao desenho RCBD adotado;
 
-    \item o aprofundamento da avaliação de validade antecipada na Seção
-    \ref{sec:avaliacao}, com a identificação de ameaças adicionais que só poderão ser
+    \item o aprofundamento da avaliação de validade antecipada, com a identificação de ameaças adicionais que só poderão ser
     plenamente observadas durante a execução --- por exemplo, taxas de
     falha ou de resposta inválida dos LLMs --- e a discussão de como
     tais ameaças foram tratadas ou mitigadas ao longo do experimento;
 
     \item a apresentação e o empacotamento dos resultados obtidos,
-    encerrando o processo de experimentação descrito na Seção \ref{sec:experimentacao}.
+    encerrando o processo de experimentação descrito.
 \end{itemize}
 
 Dessa forma, o planejamento apresentado neste capítulo delimita com
