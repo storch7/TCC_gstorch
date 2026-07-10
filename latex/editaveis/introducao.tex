@@ -1,6 +1,6 @@
 \chapter[Introdução]{Introdução}
 
-Este capítulo apresta os elementos intridutórios que norteiam o presente trabalho, a saber: a apresentação do tema e contextualização, o delineamento do problema investigado e a questão de pesquisa que orienta este estudo, bem como seus objetivos. A partir dessa fundamentação, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
+Este capítulo apresenta os elementos introdutórios que norteiam o presente trabalho, a saber: a apresentação do tema e contextualização, o delineamento do problema investigado e a questão de pesquisa que orienta este estudo, bem como seus objetivos. A partir dessa fundamentação, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
 
 \section{Contexto}
 
@@ -11,7 +11,7 @@ Apesar de sua relevância, as ferramentas tradicionais de análise estática ope
 
 Com o avanço dos Modelos de Linguagem de Grande Escala, ou \textit{Large Language Models} (LLM), novas possibilidades passaram a ser investigadas na Engenharia de Software, especialmente em tarefas relacionadas à geração, compreensão e análise de código. Esses modelos têm demonstrado potencial para interpretar elementos do código a partir de informações contextuais e semânticas, aproximando-se de tarefas tradicionalmente associadas à análise estática. \citeonline{VenkateshEtAll} investigaram o uso de LLMs em tarefas como inferência de tipos e análise de grafo de chamadas, apontando resultados promissores em alguns cenários, mas também limitações relevantes em outros.
 
-Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. A engenharia de prompts e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
+Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. A engenharia de \textit{prompts} e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
 
 \section{Problema}
 
@@ -53,7 +53,7 @@ Seguindo essa estrutura proposta por \citeonline{BasiliEtAll}, o método foi ada
     \midrule
     \textbf{Propósito} & Controlar a influência de diferentes padrões de engenharia de prompt \\
     \midrule
-    \textbf{Foco} & Comparação dos diferentes modelos de qualidade e dos prompts em relação à característica de manutenibilidade \\
+    \textbf{Foco} & avaliar a influência dos padrões de prompt sobre o indicador de manutenibilidade, controlando o modelo de qualidade e a ferramenta de LLM como fatores de bloqueio, com triangulação complementar via instrumento independente \\
     \midrule
     \textbf{Objeto de Estudo} & Produto de software \\
     \midrule
@@ -64,7 +64,9 @@ Seguindo essa estrutura proposta por \citeonline{BasiliEtAll}, o método foi ada
 
 Com isso, foi formulada a questão de pesquisa que norteia este trabalho: 
 
-\textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?}
+\textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade por LLMs, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?}
+
+
 
 \section{Objetivos}
 
@@ -191,7 +193,7 @@ Esta seção esclarece as atividades que serão desenvolvidas durante a segunda 
 
 
 \begin{itemize}
-  \item \textbf{Instrumentação e setup do ambiente} -- Preparação do ambiente prático do experimento, incluindo a configuração de scripts para submissão das 27 combinações de tratamento e blocagem às ferramentas de LLM, bem como o setup das ferramentas de análise estática de referência (SonarQube e MeasureSoftGram).
+  \item \textbf{Instrumentação e setup do ambiente} -- Preparação do ambiente prático do experimento, incluindo a configuração de scripts para submissão das 18 combinações de tratamento e blocagem às ferramentas de LLM, bem como o setup das ferramentas de análise estática de referência (SonarQube e MeasureSoftGram).
 
   \item \textbf{Execução do experimento e coleta de dados} -- Submissão sistemática dos códigos-fonte selecionados aos modelos de linguagem (ChatGPT, Claude e DeepSeek) sob os três padrões de prompt (zero-shot, few-shot e chain-of-thought) e execução paralela das ferramentas de análise estática de código-fonte nos mesmos objetos para gerar os dados comparativos.
 
