@@ -2,20 +2,15 @@
 
 O referencial teórico apresenta os conceitos fundamentais que sustentam o desenvolvimento desta pesquisa, oferecendo ao(à) leitor(a) uma contextualização teórica acerca dos principais temas abordados ao longo do trabalho. Inicialmente, são discutidos aspectos relacionados à qualidade de software, aos modelos de qualidade de produto de software e à característica de manutenibilidade. Em seguida, são apresentados os conceitos sobre Modelos de Linguagem de Grande Escala (LLMs) e engenharia de prompt. Por fim, são descritos os fundamentos sobre a experimentação no contexto da Engenharia de Software.
 
-\subsection{Qualidade de Software}
+\section{Qualidade de Software}
 
 A qualidade de software é definida pela ISO/IEC 25000:2014 como a ``capacidade de um produto de software satisfazer necessidades declaradas e implícitas quando utilizado sob condições especificadas'' \citeonline[p.6, tradução nossa]{isoiec25000}. Essa definição também traz à tona a ideia de que a qualidade não se limita à conformidade com requisitos funcionais previamente documentados, pois também considera expectativas não explicitadas dos usuários e demais partes interessadas.
 
 A norma integra a série SQuaRE, \textit{Systems and software Quality Requirements and Evaluation}, que reúne padrões voltados à especificação de requisitos, medição e avaliação da qualidade de sistemas e produtos de software. Essa série substitui normas anteriores, como a ISO/IEC 9126 e a ISO/IEC 14598, propondo uma estrutura integrada para apoiar desenvolvedores, adquirentes e avaliadores na definição e verificação de atributos de qualidade \cite{isoiec25000}.
 
-No contexto da SQuaRE, a qualidade de software é compreendida como um conceito multidimensional, organizado em modelos, características, subcaracterísticas e medidas. 
-A ISO/IEC 25000:2014 distingue, ainda, diferentes perspectivas de avaliação: a qualidade interna, relacionada a atributos estáticos do produto, como código, arquitetura 
-e componentes; a qualidade externa, associada ao comportamento do sistema em execução; e a qualidade em uso, referente à capacidade do sistema de atender aos objetivos 
-dos usuários em contextos específicos \cite{isoiec25000}.
+No contexto da SQuaRE, a qualidade de software é compreendida como um conceito multidimensional, organizado em modelos, características, subcaracterísticas e medidas. A ISO/IEC 25000:2014 distingue, ainda, diferentes perspectivas de avaliação: a qualidade interna, relacionada a atributos estáticos do produto, como código, arquitetura e componentes; a qualidade externa, associada ao comportamento do sistema em execução; e a qualidade em uso, referente à capacidade do sistema de atender aos objetivos dos usuários em contextos específicos \cite{isoiec25000}.
 
-A partir da definição geral de qualidade de software apresentada pela ISO/IEC 25000, torna-se necessário compreender como essa qualidade pode ser estruturada em atributos 
-observáveis e avaliáveis. Nesse sentido, a \citeonline{isoiec25010} aprofunda a série SQuaRE ao definir modelos de qualidade para sistemas e produtos de software, organizando 
-a qualidade em características e subcaracterísticas. 
+A partir da definição geral de qualidade de software apresentada pela ISO/IEC 25000, torna-se necessário compreender como essa qualidade pode ser estruturada em atributos observáveis e avaliáveis. Nesse sentido, a \citeonline{isoiec25010} aprofunda a série SQuaRE ao definir modelos de qualidade para sistemas e produtos de software, organizando a qualidade em características e subcaracterísticas. 
 
 \begin{figure}[H]
     \centering
@@ -27,84 +22,7 @@ a qualidade em características e subcaracterísticas.
 
 A norma apresenta, entre outros elementos, o modelo de qualidade do produto, composto por oito características: adequação funcional, eficiência de desempenho, compatibilidade, usabilidade, confiabilidade, segurança, manutenibilidade e portabilidade \cite{isoiec25010}. Assim, a ISO/IEC 25010 fornece a base conceitual para a análise de atributos específicos de qualidade, como a manutenibilidade, foco deste trabalho.
 
-\subsection{Modelos de Qualidade de Produto de Software}
-
-Embora a qualidade de software possa ser definida como a capacidade de um produto satisfazer necessidades declaradas e implícitas em condições específicas de uso, essa definição, por si só, ainda é ampla. Para que a qualidade possa ser analisada de forma sistemática, torna-se necessário decompor esse conceito em dimensões observáveis, avaliáveis e, quando possível, mensuráveis. As primeiras contribuições 
-relevantes para essa estruturação remontam aos trabalhos de McCall, Richards e Walters, especialmente com o modelo apresentado em seu artigo \textit{Factors in Software Quality}. Esse modelo foi um dos primeiros a tratar a qualidade de software como um conjunto de fatores organizados de forma hierárquica, permitindo relacionar propriedades do produto a critérios de avaliação \cite{mccall1977}. 
-
-Pouco tempo depois, Boehm também propôs uma visão hierárquica da qualidade, buscando aproximar atributos técnicos do software de propriedades percebidas por usuários e mantenedores. Esses modelos foram importantes porque deslocaram a discussão de qualidade de uma noção genérica de ``bom software'' para uma estrutura composta por dimensões avaliáveis. A partir dessas contribuições iniciais, diferentes modelos passaram a propor formas de representar a qualidade de software. Ainda que esses modelos apresentem variações quanto à nomenclatura, ao número de atributos e à forma de organização, eles compartilham uma mesma preocupação central: tornar explícitos os fatores que compõem a qualidade e permitir que esses fatores sejam analisados de maneira mais objetiva \cite{boehm1978}.
-
-Essa evolução contribuiu para a consolidação de normas internacionais voltadas à qualidade de produto de software. A \citeonline{isoiec9126} representou um marco nesse processo, ao propor um modelo padronizado de qualidade de produto baseado em características e subcaracterísticas. Posteriormente, a série SQuaRE, organizada pela \citeonline{isoiec25000}, passou a integrar e ampliar essa discussão, reunindo normas relacionadas à especificação de requisitos, medição e avaliação da qualidade de sistemas e produtos de software. Nesse conjunto, a ISO/IEC 25010 assume papel central por definir os modelos de qualidade de produto e de qualidade em uso, estabelecendo uma terminologia comum para especificar e avaliar a qualidade de sistemas e produtos de software \cite{isoiec25010}. A \citeonline{isoiec25010} deriva da \citeonline{isoiec9126}, mas amplia seu escopo ao considerar sistemas computacionais de forma mais abrangente e ao reorganizar características de qualidade.
-
-Apesar da relevância da padronização trazida pela norma, há uma lacuna deixada em aberto em relação à aferição da qualidade de produto de software: a norma não estabelece uma especificação para mensuração das características por ela padronizada. Isso leva os pesquisadores a desenvolverem modelos particulares e métodos próprios de avaliação de qualidade de produto de software. Desta lacuna, surge o modelo proposto por \citeonline{dromey1995model}, que passou a associar propriedades de qualidade diretamente aos componentes de software, permitindo avaliações mais granulares e detalhadas.
-
-No entanto, ainda permanecia em aberto a necessidade de uma avaliação global de qualidade de sofware; ou seja, uma avaliação que permitisse relacionar as propriedades de qualidade aos componentes de software, mas também avaliar a qualidade global do produto. Desta necessidade surge o desenvolvimento de abordagens como o SQALE, o Quamoco e o Q-Rapids. Esses abordagens buscam superar as limitações dos modelos tradicionais de qualidade de software, oferecendo uma abordagem mais completa e integrada para a avaliação da qualidade de produto de software \cite{wagner2012quamoco, letouzey2012sqale, martinezfernandez2019qrapids}.
-
-\subsubsection{Modelo Q-Squale}
-\label{sec:sqale}
-
-O SQALE (\textit{Software Quality Assessment Based on Lifecycle Expectations}) é um método para avaliação da qualidade e da Dívida Técnica de código-fonte, desenvolvido pela inspearit \cite{letouzey2012sqale}. Sua premissa central é que medir a qualidade de uma aplicação equivale a medir sua Dívida Técnica: quanto mais o código se afasta de um conjunto de requisitos definidos como "código correto", maior o esforço de remediação necessário. O método restringe-se à dívida interna do código-fonte, não contemplando questões de processo \cite{letouzey2012sqale}.
-
-O SQALE organiza-se em quatro elementos: o \textbf{Modelo de Qualidade}, que define os requisitos de "código correto"; o \textbf{Modelo de Análise}, que estabelece como as violações são custeadas; os \textbf{Índices}, que agregam esses custos; e os \textbf{Indicadores}, usados para visualização e priorização. O Modelo de Qualidade organiza os requisitos em três níveis (características, subcaracterísticas e requisitos), estruturados a partir do ciclo de vida do código-fonte. Por isso, características como Testabilidade e Modificabilidade -- tratadas como subcaracterísticas de Manutenibilidade em modelos como o ISO/IEC 9126 -- passam a ocupar o primeiro nível, como mostra a Figura \ref{fig:sqalePiramideQualidade} \cite{letouzey2012sqale}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Primeiro nível do Modelo de Qualidade do SQALE}
-    \includegraphics[width=12cm]{figuras/sqale_piramide_qualidade.png}
-    \label{fig:sqalePiramideQualidade}
-    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
-\end{figure}
-
-No Modelo de Análise, cada requisito recebe uma \textbf{função de remediação}, que estima o esforço necessário para corrigir suas violações (ex.: 2 minutos por bloco de código comentado removido). A soma dessas correções gera o \textbf{índice de remediação} de um componente, que pode ser consolidado ao longo da hierarquia do código por simples adição, conforme ilustrado na Figura \ref{fig:sqaleCalculoIndice} \cite{letouzey2012sqale}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Cálculo do índice de remediação no Modelo de Análise SQALE}
-    \includegraphics[width=15cm]{figuras/sqale_calculo_indice_remediacao.png}
-    \label{fig:sqaleCalculoIndice}
-    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
-\end{figure}
-
-A soma de todos os índices de remediação de um componente resulta no \textbf{Índice de Qualidade SQALE (SQI)}, que representa sua Dívida Técnica total. O método também define índices por característica (ex.: STI para Testabilidade, SRI para Confiabilidade) e indicadores visuais para análise, como o \textbf{Rating} (razão entre dívida e custo de desenvolvimento) e a \textbf{Pirâmide SQALE}, que mostra como a dívida se distribui entre as características, conforme a Figura \ref{fig:sqaleIndicadorPiramide} \cite{letouzey2012sqale}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Exemplo de leitura do indicador Pirâmide SQALE}
-    \includegraphics[width=15cm]{figuras/sqale_indicador_piramide.png}
-    \label{fig:sqaleIndicadorPiramide}
-    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
-\end{figure}
-
-Como as demais características dependem da camada de Testabilidade, o método recomenda priorizar a remediação de baixo para cima na pirâmide, evitando retrabalho em correções feitas fora dessa ordem \cite{letouzey2012sqale}.
-
-\subsubsection{Modelo Q-Rapids}
-\label{sec:qrapids}
-
-O Q-Rapids é um modelo de qualidade desenvolvido no âmbito do projeto europeu homônimo, utilizado por uma ferramenta de software analytics para monitorar continuamente a qualidade de produtos e processos de software \cite{martinezfernandez2019qrapids}. Diferentemente de modelos focados apenas no código-fonte, o Q-Rapids combina dados de múltiplas fontes (como Jira, SonarQube, Jenkins e GitLab) para compor indicadores de alto nível voltados à tomada de decisão.
-
-O modelo é estruturado em uma cadeia hierárquica de cinco níveis: \textbf{Indicador Estratégico}, \textbf{Fator} (de produto ou de processo), \textbf{Métrica Avaliada}, \textbf{Dado Bruto} e \textbf{Fonte de Dados}, conforme ilustrado na Figura \ref{fig:qrapidsHierarquia}. Cada indicador estratégico é decomposto em fatores, que por sua vez são mensurados por métricas calculadas a partir de dados brutos extraídos diretamente das ferramentas utilizadas pela equipe de desenvolvimento \cite{martinezfernandez2019qrapids}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Cadeia hierárquica do modelo de qualidade Q-Rapids}
-    \includegraphics[width=16cm]{figuras/qrapids_hierarquia_modelo.png}
-    \label{fig:qrapidsHierarquia}
-    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
-\end{figure}
-
-O modelo padrão define quatro indicadores estratégicos: \textbf{Product Quality} (manutenibilidade, confiabilidade e adequação funcional do produto), \textbf{Product Readiness} (prontidão do produto para uma próxima release), \textbf{Process Performance} (eficiência e qualidade dos processos do ciclo de vida) e \textbf{Blocking} (condições que travam o andamento do projeto, como issues mal especificadas ou código bloqueante). Cada um desses indicadores agrega um conjunto de fatores de produto ou de processo, como mostra a Figura \ref{fig:qrapidsIndicadores} \cite{martinezfernandez2019qrapids}.
-
-\begin{figure}[H]
-    \centering
-    \caption{Indicadores estratégicos e seus fatores no modelo Q-Rapids}
-    \includegraphics[width=14cm]{figuras/qrapids_indicadores_estrategicos.png}
-    \label{fig:qrapidsIndicadores}
-    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
-\end{figure}
-
-Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
-
-\subsection{Manutenibilidade de Software}
+\section{Manutenibilidade de Software}
 
 A manutenibilidade é uma das características do modelo de qualidade de produto definido pela ISO/IEC 25010, no contexto da série SQuaRE \textit{Systems and Software Quality Requirements and Evaluation}. Esse modelo organiza a qualidade de sistemas e 
 produtos de software em características e subcaracterísticas, com o objetivo de apoiar a especificação, a medição e a avaliação da qualidade de software \cite{isoiec25010}.
@@ -116,7 +34,7 @@ No contexto deste trabalho, a manutenibilidade pode ser compreendida como o grau
 
 A manutenibilidade assume papel central em estudos sobre qualidade de código-fonte, pois permite avaliar não apenas se o software executa corretamente suas funções, mas também se sua estrutura favorece compreensão, alteração, reuso e validação. Essa perspectiva é especialmente relevante na análise de código gerado ou avaliado por Modelos de Linguagem de Grande Escala, uma vez que uma solução pode parecer funcionalmente correta, mas ainda apresentar limitações estruturais, como alto acoplamento, baixa coesão, duplicação de código, baixa testabilidade ou dificuldade de modificação \cite{LenarduzziEtAll}.
 
-\subsubsection{Subcaracterísticas da Manutenibilidade}
+\subsection{Subcaracterísticas da Manutenibilidade}
 
 Segundo a ISO/IEC 25010, a manutenibilidade é composta por cinco subcaracterísticas: modularidade, reusabilidade, analisabilidade, modificabilidade e testabilidade \cite{isoiec25010}. Essas subcaracterísticas permitem decompor a manutenibilidade em dimensões mais específicas, facilitando sua operacionalização em avaliações de qualidade de software. A Tabela \ref{tab:subcaracteristicas_manutenibilidade} apresenta a descrição de cada uma delas.
 
@@ -198,7 +116,7 @@ No SQALE, cada requisito tem uma função de remediação própria (ex.: 2 min p
 
 Dessa forma, neste trabalho, a manutenibilidade é adotada como característica de qualidade de referência para analisar em que medida diferentes padrões de engenharia de \textit{prompt} influenciam a avaliação de código-fonte por Modelos de Linguagem de Grande Escala. As subcaracterísticas definidas pela ISO/IEC 25010 fornecem a base conceitual para mapear atributos observáveis do código, como modularidade, reuso, facilidade de análise, facilidade de modificação e testabilidade, permitindo relacionar os resultados dos estudos selecionados a um modelo normativo reconhecido de qualidade de software.
 
-\subsubsection{Métricas de Manutenibilidade}
+\subsection{Métricas de Manutenibilidade}
 \label{sec:metricas-manutenibilidade}
 
 A Manutenibilidade é definida pela ISO/IEC 25010 como o grau de eficácia e eficiência com que um sistema ou componente pode ser modificado por seus mantenedores pretendidos, seja para corrigir defeitos, atender a novos requisitos ou se adaptar a mudanças de ambiente. A norma decompõe essa característica em cinco subcaracterísticas: \textbf{Modularidade}, \textbf{Reusabilidade}, \textbf{Analisabilidade}, \textbf{Modificabilidade} e \textbf{Testabilidade} \cite{isoiec25000}. Cada uma delas está associada, na prática, a um conjunto de métricas de código que buscam quantificar o esforço necessário para compreender, alterar e validar o software.
@@ -217,229 +135,147 @@ Nesse sentido, em estudos sobre código-fonte, a manutenibilidade pode ser opera
 
 Conforme discutido nas Seções \ref{sec:sqale} e \ref{sec:qrapids}, essas medidas de base são operacionalizadas de forma distinta por diferentes modelos de qualidade. O SQALE, por exemplo, trata Testabilidade, Confiabilidade e Modificabilidade como características de primeiro nível, consolidando-as posteriormente em um Índice de Manutenibilidade (SMI) por meio de funções de remediação calibráveis pela organização. Já o Q-Rapids concentra parte dessas medidas no fator \textit{Code Quality}, com métricas avaliadas de \textit{Complexity}, \textit{Comments} e \textit{Duplication} calculadas diretamente a partir de dados extraídos do SonarQube. Em ambos os casos, confirma-se a distinção estabelecida na Tabela \ref{tab:diferenca-medida-indicador-metrica}: as medidas de base (linhas de código, linhas duplicadas, complexidade por função) são as mesmas, mas cada modelo fixa sua própria métrica -- isto é, sua própria fórmula de cálculo -- para transformar essas medidas em um indício de qualidade.
 
-\subsection{Modelos de Linguagem de Grande Escala}
+\section{Modelos de Qualidade de Produto de Software}
 
-Modelos de Linguagem de Grande Escala, ou LLMs, são modelos treinados sobre grandes volumes de código e documentação, capazes de compreender trechos de código e inferir intenções relacionadas ao seu comportamento. Na engenharia de software, esses modelos vêm sendo utilizados em tarefas como geração de código, 
-complementação de código, análise estática e inferência de tipos. Apesar desse potencial, sua aplicação ainda exige validação, uma vez que tais modelos podem apresentar limitações como alucinações, interpretação incorreta da intenção do código e geração de soluções incorretas \cite{wang2025boosting}.
+Embora a qualidade de software possa ser definida como a capacidade de um produto satisfazer necessidades declaradas e implícitas em condições específicas de uso, essa definição, por si só, ainda é ampla. Para que a qualidade possa ser analisada de forma sistemática, torna-se necessário decompor esse conceito em dimensões observáveis, avaliáveis e, quando possível, mensuráveis. As primeiras contribuições relevantes para essa estruturação remontam aos trabalhos de McCall, Richards e Walters, especialmente com o modelo apresentado em seu artigo \textit{Factors in Software Quality}. Esse modelo foi um dos primeiros a tratar a qualidade de software como um conjunto de fatores organizados de forma hierárquica, permitindo relacionar propriedades do produto a critérios de avaliação \cite{mccall1977}. 
 
-Na engenharia de software, a incorporação de LLMs representa uma mudança significativa nos processos de desenvolvimento. \citeonline{venkatesh2024emergence} destacam que esses modelos vêm sendo explorados em tarefas de análise estática, como inferência de tipos e análise de grafos de chamadas, indicando seu potencial para complementar ou aprimorar 
-técnicas tradicionais de inspeção de código. Os autores observam que os LLMs apresentam resultados promissores em algumas tarefas, como inferência de tipos, embora ainda demonstrem limitações em análises mais complexas, como a construção de grafos de chamadas.
+Pouco tempo depois, Boehm também propôs uma visão hierárquica da qualidade, buscando aproximar atributos técnicos do software de propriedades percebidas por usuários e mantenedores. Esses modelos foram importantes porque deslocaram a discussão de qualidade de uma noção genérica de ``bom software'' para uma estrutura composta por dimensões avaliáveis. A partir dessas contribuições iniciais, diferentes modelos passaram a propor formas de representar a qualidade de software. Ainda que esses modelos apresentem variações quanto à nomenclatura, ao número de atributos e à forma de organização, eles compartilham uma mesma preocupação central: tornar explícitos os fatores que compõem a qualidade e permitir que esses fatores sejam analisados de maneira mais objetiva \cite{boehm1978}.
 
-Além da análise estática, os LLMs têm sido amplamente utilizados em tarefas de geração e complementação de código. \citeonline{khojah2024promptprogramming} afirmam que esses modelos são cada vez mais empregados por engenheiros de software em tarefas relacionadas a código, com destaque para geração e autocompletar funções. No entanto, os autores também ressaltam 
-que essa adoção revelou limitações importantes, como alucinações, interpretação incorreta da intenção do código e geração de soluções incorretas ou irrelevantes. Assim, embora os LLMs ampliem as possibilidades de automação no desenvolvimento de software, seus resultados não devem ser assumidos como corretos sem validação posterior.
+Essa evolução contribuiu para a consolidação de normas internacionais voltadas à qualidade de produto de software. A \citeonline{isoiec9126} representou um marco nesse processo, ao propor um modelo padronizado de qualidade de produto baseado em características e subcaracterísticas. Posteriormente, a série SQuaRE, organizada pela \citeonline{isoiec25000}, passou a integrar e ampliar essa discussão, reunindo normas relacionadas à especificação de requisitos, medição e avaliação da qualidade de sistemas e produtos de software. Nesse conjunto, a ISO/IEC 25010 assume papel central por definir os modelos de qualidade de produto e de qualidade em uso, estabelecendo uma terminologia comum para especificar e avaliar a qualidade de sistemas e produtos de software \cite{isoiec25010}. A \citeonline{isoiec25010} deriva da \citeonline{isoiec9126}, mas amplia seu escopo ao considerar sistemas computacionais de forma mais abrangente e ao reorganizar características de qualidade.
 
-Portanto, neste trabalho, os LLMs são entendidos como modelos de linguagem de grande escala treinados sobre grande volume de código e documentação, capazes de compreender trechos de código ou elementos semânticos e inferir intenções associadas ao seu comportamento. Essa capacidade permite sua aplicação em tarefas de engenharia de software, como geração de código, 
-análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
+Apesar da relevância da padronização trazida pela norma, há uma lacuna deixada em aberto em relação à aferição da qualidade de produto de software: a norma não estabelece uma especificação para mensuração das características por ela padronizada. Isso leva os pesquisadores a desenvolverem modelos particulares e métodos próprios de avaliação de qualidade de produto de software. Desta lacuna, surge o modelo proposto por \citeonline{dromey1995model}, que passou a associar propriedades de qualidade diretamente aos componentes de software, permitindo avaliações mais granulares e detalhadas.
+
+No entanto, ainda permanecia em aberto a necessidade de uma avaliação global de qualidade de sofware; ou seja, uma avaliação que permitisse relacionar as propriedades de qualidade aos componentes de software, mas também avaliar a qualidade global do produto. Desta necessidade surge o desenvolvimento de abordagens como o SQALE, o Quamoco e o Q-Rapids. Esses abordagens buscam superar as limitações dos modelos tradicionais de qualidade de software, oferecendo uma abordagem mais completa e integrada para a avaliação da qualidade de produto de software \cite{wagner2012quamoco, letouzey2012sqale, martinezfernandez2019qrapids}.
+
+\subsection{Modelo Q-Rapids}
+\label{sec:qrapids}
+
+O Q-Rapids é um modelo de qualidade desenvolvido no âmbito do projeto europeu homônimo, utilizado por uma ferramenta de software analytics para monitorar continuamente a qualidade de produtos e processos de software \cite{martinezfernandez2019qrapids}. Diferentemente de modelos focados apenas no código-fonte, o Q-Rapids combina dados de múltiplas fontes (como Jira, SonarQube, Jenkins e GitLab) para compor indicadores de alto nível voltados à tomada de decisão.
+
+O modelo é estruturado em uma cadeia hierárquica de cinco níveis: \textbf{Indicador Estratégico}, \textbf{Fator} (de produto ou de processo), \textbf{Métrica Avaliada}, \textbf{Dado Bruto} e \textbf{Fonte de Dados}, conforme ilustrado na Figura \ref{fig:qrapidsHierarquia}. Cada indicador estratégico é decomposto em fatores, que por sua vez são mensurados por métricas calculadas a partir de dados brutos extraídos diretamente das ferramentas utilizadas pela equipe de desenvolvimento \cite{martinezfernandez2019qrapids}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Cadeia hierárquica do modelo de qualidade Q-Rapids}
+    \includegraphics[width=16cm]{figuras/qrapids_hierarquia_modelo.png}
+    \label{fig:qrapidsHierarquia}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+\end{figure}
+
+O modelo padrão define quatro indicadores estratégicos: \textbf{Product Quality} (manutenibilidade, confiabilidade e adequação funcional do produto), \textbf{Product Readiness} (prontidão do produto para uma próxima release), \textbf{Process Performance} (eficiência e qualidade dos processos do ciclo de vida) e \textbf{Blocking} (condições que travam o andamento do projeto, como issues mal especificadas ou código bloqueante). Cada um desses indicadores agrega um conjunto de fatores de produto ou de processo, como mostra a Figura \ref{fig:qrapidsIndicadores} \cite{martinezfernandez2019qrapids}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Indicadores estratégicos e seus fatores no modelo Q-Rapids}
+    \includegraphics[width=14cm]{figuras/qrapids_indicadores_estrategicos.png}
+    \label{fig:qrapidsIndicadores}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+\end{figure}
+
+Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
+
+\subsection{Modelo Q-Squale}
+\label{sec:sqale}
+
+O SQALE (\textit{Software Quality Assessment Based on Lifecycle Expectations}) é um método para avaliação da qualidade e da Dívida Técnica de código-fonte, desenvolvido pela inspearit \cite{letouzey2012sqale}. Sua premissa central é que medir a qualidade de uma aplicação equivale a medir sua Dívida Técnica: quanto mais o código se afasta de um conjunto de requisitos definidos como "código correto", maior o esforço de remediação necessário. O método restringe-se à dívida interna do código-fonte, não contemplando questões de processo \cite{letouzey2012sqale}.
+
+O SQALE organiza-se em quatro elementos: o \textbf{Modelo de Qualidade}, que define os requisitos de "código correto"; o \textbf{Modelo de Análise}, que estabelece como as violações são custeadas; os \textbf{Índices}, que agregam esses custos; e os \textbf{Indicadores}, usados para visualização e priorização. O Modelo de Qualidade organiza os requisitos em três níveis (características, subcaracterísticas e requisitos), estruturados a partir do ciclo de vida do código-fonte. Por isso, características como Testabilidade e Modificabilidade -- tratadas como subcaracterísticas de Manutenibilidade em modelos como o ISO/IEC 9126 -- passam a ocupar o primeiro nível, como mostra a Figura \ref{fig:sqalePiramideQualidade} \cite{letouzey2012sqale}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Primeiro nível do Modelo de Qualidade do SQALE}
+    \includegraphics[width=12cm]{figuras/sqale_piramide_qualidade.png}
+    \label{fig:sqalePiramideQualidade}
+    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
+\end{figure}
+
+No Modelo de Análise, cada requisito recebe uma \textbf{função de remediação}, que estima o esforço necessário para corrigir suas violações (ex.: 2 minutos por bloco de código comentado removido). A soma dessas correções gera o \textbf{índice de remediação} de um componente, que pode ser consolidado ao longo da hierarquia do código por simples adição, conforme ilustrado na Figura \ref{fig:sqaleCalculoIndice} \cite{letouzey2012sqale}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Cálculo do índice de remediação no Modelo de Análise SQALE}
+    \includegraphics[width=15cm]{figuras/sqale_calculo_indice_remediacao.png}
+    \label{fig:sqaleCalculoIndice}
+    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
+\end{figure}
+
+A soma de todos os índices de remediação de um componente resulta no \textbf{Índice de Qualidade SQALE (SQI)}, que representa sua Dívida Técnica total. O método também define índices por característica (ex.: STI para Testabilidade, SRI para Confiabilidade) e indicadores visuais para análise, como o \textbf{Rating} (razão entre dívida e custo de desenvolvimento) e a \textbf{Pirâmide SQALE}, que mostra como a dívida se distribui entre as características, conforme a Figura \ref{fig:sqaleIndicadorPiramide} \cite{letouzey2012sqale}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de leitura do indicador Pirâmide SQALE}
+    \includegraphics[width=15cm]{figuras/sqale_indicador_piramide.png}
+    \label{fig:sqaleIndicadorPiramide}
+    \fonte{O Autor, adaptado da \citeonline{letouzey2012sqale}.}
+\end{figure}
+
+Como as demais características dependem da camada de Testabilidade, o método recomenda priorizar a remediação de baixo para cima na pirâmide, evitando retrabalho em correções feitas fora dessa ordem \cite{letouzey2012sqale}.
+
+\subsection{Modelo MeasureSoftGram}
+\label{sec:measure_softgram}
+
+
+\section{Ferramentas de Análise Estática de Código-Fonte}
+
+Uma ferramenta de análise estática de código-fonte pode ser compreendida como um instrumento automatizado, interno ou externo, capaz de identificar violações de regras de codificação em um conjunto de código-fonte, associando cada violação encontrada à sua localização específica (arquivo, classe, método ou linha). Ferramentas desse tipo constituem o elo entre os modelos teóricos de qualidade, que por definição são amplos e não diretamente mensuráveis, e sua operacionalização prática, uma vez que fornecem os dados brutos, a partir dos quais métricas e medidas associadas aos atributos e subatributos definidos nos modelos de referência de qualidade de software podem ser calculadas \citeonline{griffith2017industry}.
+
+No presente trabalho, serão utilizadas três ferramentas de análise estática de código-fonte: Q-Rapids, SonarQube e MeasureSoftGram. A justificativa para a escolha dessas ferramentas de análise estpatica de código fonte no contexto do deste trabalho é trazida na Seção \ref{sec:instrumentacao} do Capítulo \ref{cap:planejamento} - Planejamento.
+
+\subsection{Relação entre os Modelos de Qualidade de Referência e Ferramentas de Análise Estática de Código-Fonte}
+
+Cada ferramenta de análise estática utilizada neste trabalho constitui a
+operacionalização de um modelo de qualidade de referência específico,
+sendo responsável por traduzir suas características e subcaracterísticas
+teóricas em métricas calculáveis a partir do código-fonte. Nesse sentido,
+o SonarQube opera como a ferramenta de referência para o \textbf{SQALE},
+enquanto o Q-Rapids e o MeasureSoftGram referenciam, respectivamente, os
+modelos homônimos \textbf{Q-Rapids} e \textbf{MeasureSoftGram}.
+
+\section{Modelos de Linguagem de Grande Escala}
+
+Modelos de Linguagem de Grande Escala, ou LLMs, são treinados com grandes volumes de código e documentação, o que lhes permite compreender trechos de código e inferir aspectos relacionados ao seu comportamento. Na Engenharia de Software, esses modelos têm sido aplicados em tarefas como geração e complementação de código, análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
+
+Embora apresentem resultados promissores e possam complementar técnicas tradicionais de desenvolvimento e inspeção de código, os LLMs ainda possuem limitações. Entre elas, destacam-se a ocorrência de alucinações, a interpretação incorreta da intenção do código e a geração de soluções incorretas ou irrelevantes, especialmente em tarefas de maior complexidade. Dessa forma, os resultados produzidos por esses modelos devem ser submetidos a procedimentos de validação antes de serem considerados confiáveis \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
 
 \subsection{Engenharia de Prompt}
 
-A engenharia de prompt pode ser compreendida como o processo de elaboração, estruturação e ajuste de instruções fornecidas a modelos 
-de linguagem de larga escala, com o objetivo de orientar sua resposta para uma tarefa específica. No contexto da Engenharia de Software, 
-essa prática permite adaptar o comportamento dos LLMs sem alterar seus parâmetros internos, diferentemente de abordagens como o ajuste fino. 
-Assim, o prompting consiste em formular a tarefa, o contexto, as restrições e o formato esperado da resposta diretamente na entrada 
-fornecida ao modelo \cite{alomari2026}.
+A engenharia de prompt consiste na elaboração e no ajuste das instruções fornecidas aos Modelos de Linguagem de Grande Escala, com o objetivo de orientar suas respostas para uma tarefa específica. Diferentemente do ajuste fino, essa abordagem permite modificar o comportamento do modelo sem alterar seus parâmetros internos, por meio da definição da tarefa, do contexto, das restrições e do formato esperado da resposta \cite{alomari2026}.
 
-A relevância da engenharia de prompt está associada à capacidade de produzir respostas mais precisas, estruturadas e aderentes ao objetivo 
-da tarefa. Em tarefas de Engenharia de Software, como geração de testes, refatoração, detecção de code smells e avaliação de qualidade de código, 
-a engenharia de prompt atua como mecanismo de direcionamento do modelo para considerar contexto, restrições técnicas e critérios de qualidade 
-\cite{OuedraogoEtAll}. Dessa forma, a construção do prompt influencia não apenas o conteúdo da resposta, mas também a forma como o modelo 
-interpreta o problema e organiza sua solução.
-
-Para este trabalho, a engenharia de prompt é entendida como o conjunto de estratégias utilizadas para estruturar a interação com LLMs, 
-definindo como a tarefa será apresentada ao modelo e quais elementos serão fornecidos para orientar sua resposta. Essa definição é especialmente 
-relevante em estudos que avaliam atributos de qualidade de código, pois diferentes formas de prompt podem impactar a manutenibilidade, 
-a legibilidade, a complexidade e a confiabilidade dos artefatos gerados ou analisados por LLMs \cite{DellaPortaEtAll,OuedraogoEtAll}.
+Na Engenharia de Software, a estrutura do prompt pode influenciar a interpretação do problema e a qualidade dos resultados produzidos em tarefas como geração de testes, refatoração, detecção de \textit{code smells} e avaliação de código. Assim, diferentes estratégias de prompt podem afetar atributos como manutenibilidade, legibilidade, complexidade e confiabilidade dos artefatos gerados ou analisados por LLMs \cite{DellaPortaEtAll,OuedraogoEtAll}.
 
 \subsubsection{Padrões de Prompt}
 
-Os padrões de prompt correspondem a formas recorrentes e sistemáticas de estruturar instruções para LLMs, com o objetivo de melhorar o 
-desempenho do modelo em determinadas tarefas. Esses padrões funcionam como alternativas de formulação da entrada, variando em termos de quantidade 
-de contexto, exemplos, orientação de raciocínio e papel atribuído ao modelo. Entre os padrões frequentemente discutidos na literatura estão 
-Zero-shot, Few-shot, Chain-of-Thought e Personas \cite{DellaPortaEtAll}.
+Os padrões de prompt são formas recorrentes e sistemáticas de estruturar instruções para LLMs, variando quanto ao contexto fornecido, à presença de exemplos, à orientação do raciocínio e ao papel atribuído ao modelo. Entre os padrões mais discutidos estão \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e Personas \cite{DellaPortaEtAll}.
 
-No contexto da qualidade de software, os padrões de prompt são relevantes porque a forma de instruir o modelo pode afetar diretamente 
-propriedades internas do código gerado, como tamanho, complexidade ciclomática e métricas de Halstead. Estudos recentes indicam que diferentes 
-padrões podem produzir variações em métricas relacionadas ao tamanho e à estrutura do código, o que reforça sua importância como variável 
-experimental em pesquisas que analisam qualidade e manutenibilidade de software \cite{DellaPortaEtAll}.
-
-Em estudos de refatoração e qualidade de código com LLMs, os padrões de prompt também são tratados como estratégias dependentes do contexto. 
-A literatura identifica diferentes formas de engenharia de prompt aplicadas à refatoração, como \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, 
-prompts específicos de contexto e restrições de saída, indicando que a escolha da técnica depende do caso de uso, da linguagem de programação, 
-da tarefa e do critério de avaliação adotado \cite{MartinezEtAll}.
+Na Engenharia de Software, a escolha do padrão depende da tarefa, da linguagem de programação, do contexto e dos critérios de avaliação. Diferentes estratégias podem influenciar propriedades do código gerado ou analisado, como tamanho, complexidade ciclomática e métricas de Halstead, justificando sua utilização como variável experimental em estudos sobre qualidade e manutenibilidade \cite{DellaPortaEtAll,MartinezEtAll}.
 
 \subsubsection{\textit{Zero-shot Prompting}}
 
-O \textit{Zero-shot Prompting} é uma estratégia em que o modelo recebe apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa 
-abordagem, o LLM deve realizar a tarefa com base no conhecimento aprendido durante seu treinamento e na formulação da instrução fornecida no 
-prompt \cite{alomari2026}. Portanto, a efetividade do \textit{Zero-shot} depende fortemente da clareza da solicitação, da delimitação da tarefa e da 
-capacidade do modelo de generalizar a partir da instrução recebida.
+O \textit{Zero-shot Prompting} consiste em fornecer ao modelo apenas a descrição da tarefa, sem exemplos prévios de entrada e saída. Nessa estratégia, o LLM executa a solicitação com base no conhecimento adquirido durante seu treinamento e nas informações apresentadas na própria instrução \cite{alomari2026}.
 
-Em tarefas de Engenharia de Software, o \textit{Zero-shot Prompting} costuma ser utilizado como configuração inicial ou linha de base para avaliar a 
-capacidade do modelo de compreender diretamente uma solicitação. Essa estratégia é útil para tarefas mais diretas, mas pode apresentar limitações 
-em cenários que exigem maior compreensão contextual, raciocínio estruturado ou aderência rigorosa a formatos específicos de saída \cite{OuedraogoEtAll}.
-
-No escopo deste trabalho, o Zero-shot Prompting pode ser definido como o padrão de prompt em que a avaliação de código é solicitada diretamente ao LLM, sem demonstrações adicionais. Por exemplo, ao pedir que o modelo avalie a manutenibilidade de um trecho de código apenas com a instrução da tarefa e o código-fonte, a interação caracteriza-se como \textit{Zero-shot}.
-
-O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Zero-shot}, no qual o modelo recebe apenas a instrução da tarefa e o trecho de código a ser avaliado, sem qualquer demonstração adicional de entrada e saída.
- 
-\begin{promptbox}
-\small
-\ttfamily
-Avalie a manutenibilidade do trecho de código abaixo, atribuindo uma pontuação de 0 a 100 e
-justificando sua resposta com base nos atributos de modularidade,
-legibilidade, complexidade e acoplamento.
- 
-Código-fonte:
- 
-\begin{verbatim}
-def calculate_total(items):
-    total = 0
-    for item in items:
-        total += item['price'] * item['quantity']
-    return total
-\end{verbatim}
-\end{promptbox}
- 
-Nesse exemplo, o modelo é solicitado a avaliar diretamente a manutenibilidade
-do código apresentado, sem receber previamente nenhum exemplo de avaliação
-já realizada. A qualidade da resposta produzida depende, portanto, da
-clareza da instrução fornecida e da capacidade do LLM de generalizar os
-critérios de manutenibilidade a partir do conhecimento adquirido durante seu
-treinamento.
-
+Na Engenharia de Software, esse padrão é frequentemente utilizado como linha de base para avaliar a capacidade do modelo de compreender diretamente uma tarefa. Embora seja adequado para solicitações mais simples, pode apresentar limitações em atividades que exigem maior contextualização, raciocínio estruturado ou formatos rígidos de resposta \cite{OuedraogoEtAll}. Neste trabalho, corresponde à avaliação de manutenibilidade realizada apenas com a instrução e o código-fonte, sem demonstrações adicionais.
 
 \subsubsection{\textit{Few-shot Prompting}}
 
-O \textit{Few-shot Prompting} é uma estratégia em que o prompt inclui exemplos demonstrativos para orientar o modelo na execução de uma nova tarefa. Esses exemplos funcionam como referências de comportamento esperado, ajudando o LLM a inferir o formato da resposta, o critério de análise e o tipo de solução desejada \cite{alomari2026}.
+O \textit{Few-shot Prompting} inclui exemplos demonstrativos no prompt para orientar o modelo quanto ao comportamento, ao formato de resposta e aos critérios esperados para a execução da tarefa \cite{alomari2026}.
 
-Na Engenharia de Software, essa técnica é relevante quando se deseja reduzir ambiguidades e padronizar a resposta do modelo. Em tarefas como geração de testes, refatoração e detecção de problemas de qualidade, exemplos de entrada e saída podem demonstrar ao LLM como identificar um 
-problema, justificar uma resposta ou propor uma modificação no código \cite{OuedraogoEtAll}.
-
-No contexto de refatoração, o Few-shot Prompting tem sido utilizado para orientar LLMs na aplicação de melhorias estruturais no código. A literatura aponta que essa estratégia pode ser eficaz em determinados cenários, especialmente quando os exemplos fornecidos ajudam o modelo a reconhecer o tipo de transformação esperada e a preservar o comportamento funcional do código \cite{MartinezEtAll}. Assim, neste TCC, o \textit{Few-shot Prompting} é entendido como uma técnica em que exemplos de avaliação ou melhoria de código são fornecidos ao modelo para orientar a análise de manutenibilidade.
-
-O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Few-shot} no qual o modelo recebe, além da instrução da tarefa, exemplos demonstrativos de avaliações já realizadas antes de ser solicitado a avaliar o código de interesse.
- 
-\begin{promptbox}
-\small
-\ttfamily
-Avalie a manutenibilidade de trechos de código-fonte, atribuindo uma
-pontuação de 0 a 100 e justificando sua resposta com base nos atributos de
-modularidade, legibilidade, complexidade e acoplamento. Utilize os exemplos
-abaixo como referência de formato e critério de avaliação.
- 
-Exemplo 1:
- 
-\begin{verbatim}
-def calc(a,b,c,d,e):
-    x = a+b
-    if c == 1:
-        x = x*d
-    else:
-        x = x-e
-    return x
-\end{verbatim}
- 
-Avaliação: 42/100. Justificativa: nomes de variáveis pouco descritivos,
-múltiplas responsabilidades condensadas em poucas linhas e ausência de
-comentários dificultam a compreensão e a manutenção futura do trecho.
- 
-Exemplo 2:
- 
-\begin{verbatim}
-def calculate_discounted_price(price, discount_rate):
-    if discount_rate < 0 or discount_rate > 1:
-        raise ValueError("Taxa de desconto invalida")
-    return price * (1 - discount_rate)
-\end{verbatim}
- 
-Avaliação: 88/100. Justificativa: função com responsabilidade única, nomes
-descritivos, validação explícita de entrada e baixa complexidade ciclomática,
-o que favorece a legibilidade e a manutenibilidade.
- 
-Agora avalie o código abaixo seguindo o mesmo formato:
- 
-\begin{verbatim}
-def calculate_total(items):
-    total = 0
-    for item in items:
-        total += item['price'] * item['quantity']
-    return total
-\end{verbatim}
-\end{promptbox}
- 
-Nesse exemplo, os dois casos apresentados previamente demonstram ao modelo
-não apenas o formato esperado da resposta, mas também o padrão de raciocínio
-a ser seguido na justificativa, antes que o LLM seja solicitado a avaliar o
-código de interesse. Dessa forma, o Few-shot Prompting busca reduzir a
-ambiguidade da tarefa e padronizar o critério de análise aplicado pelo
-modelo.
+Na Engenharia de Software, esses exemplos podem reduzir ambiguidades e aumentar a padronização das respostas em tarefas como geração de testes, refatoração e identificação de problemas de qualidade. Na avaliação de manutenibilidade, essa estratégia utiliza exemplos de análise de código para orientar o LLM na identificação e na justificativa dos aspectos avaliados \cite{OuedraogoEtAll,MartinezEtAll}.
 
 \subsubsection{\textit{Chain-of-Thought Prompting}}
 
-O \textit{Chain-of-Thought Prompting} é uma estratégia que orienta o modelo a realizar ou explicitar etapas intermediárias de raciocínio antes de 
-produzir a resposta final. Ao invés de solicitar apenas uma conclusão direta, esse padrão induz o LLM a decompor a tarefa em passos lógicos, 
-o que pode favorecer problemas que exigem análise, inferência ou tomada de decisão estruturada \cite{alomari2026}.
+O \textit{Chain-of-Thought Prompting} orienta o modelo a decompor a tarefa em etapas intermediárias de raciocínio antes de apresentar a resposta final. Essa estratégia é especialmente aplicável a problemas que envolvem análise, inferência e tomada de decisão estruturada \cite{alomari2026}.
 
-Em tarefas de Engenharia de Software, abordagens baseadas em raciocínio, como \textit{Chain-of-Thought}, têm sido investigadas em cenários nos quais o 
-modelo precisa lidar com dependências, estrutura de código, critérios de compilação, legibilidade e manutenção. Embora possam melhorar a 
-organização da resposta e a aderência estrutural do resultado, essas técnicas também exigem validação, pois modelos podem produzir respostas 
-plausíveis, mas tecnicamente incorretas, como chamadas de API inexistentes, dependências fabricadas ou referências inválidas \cite{OuedraogoEtAll}.
+Em tarefas de Engenharia de Software, esse padrão pode favorecer a organização da análise e a explicitação dos critérios utilizados, embora seus resultados ainda exijam validação, pois o modelo pode produzir justificativas plausíveis, mas tecnicamente incorretas \cite{OuedraogoEtAll}. Estudos também indicam que o \textit{Chain-of-Thought} pode favorecer a geração de código mais simples e conciso, com possíveis efeitos sobre a legibilidade e a manutenibilidade \cite{DellaPortaEtAll}. Neste trabalho, o padrão será utilizado para conduzir o LLM a avaliar a qualidade do código de forma estruturada e passo a passo.
 
-No campo da qualidade de código, o \textit{Chain-of-Thought} também tem sido associado à geração de código mais conciso e eficiente. \cite{DellaPortaEtAll} observam que 
-esse padrão apresentou tendência de produzir códigos mais simples em comparação a outros padrões de prompt, o que pode favorecer atributos como legibilidade e 
-manutenibilidade. Portanto, para este trabalho, o \textit{Chain-of-Thought Prompting} pode ser definido como o padrão de prompt que conduz o LLM a realizar uma análise passo a passo da qualidade do código, favorecendo a explicitação de critérios e justificativas na avaliação de manutenibilidade.
+\section{Experimentação em Engenharia de Software}
 
-O exemplo a seguir, elaborado pelo autor, apresenta um prompt no padrão \textit{Chain-of-Thought} no qual o modelo é instruído a explicitar as etapas intermediárias de raciocínio antes de produzir a avaliação final de manutenibilidade.
- 
-\begin{promptbox}
-\small
-\ttfamily
-Avalie a manutenibilidade do trecho de código abaixo. Antes de emitir a
-pontuação final, pense passo a passo, seguindo a sequência abaixo:
- 
-1. Identifique a responsabilidade da função e avalie sua modularidade.
- 
-2. Analise a legibilidade, considerando nomes de variáveis e clareza da
-lógica implementada.
- 
-3. Avalie a complexidade estrutural do trecho, incluindo laços,
-condicionais e nível de aninhamento.
- 
-4. Verifique o acoplamento com estruturas externas, como dicionários ou
-parâmetros de entrada.
- 
-5. Com base nas etapas anteriores, atribua uma pontuação de 0 a 100 e
-justifique a nota considerando os pontos analisados.
- 
-Código-fonte:
- 
-\begin{verbatim}
-def calculate_total(items):
-    total = 0
-    for item in items:
-        total += item['price'] * item['quantity']
-    return total
-\end{verbatim}
-\end{promptbox}
- 
-Nesse exemplo, o modelo é conduzido a decompor a tarefa de avaliação em
-etapas lógicas sucessivas, explicitando o raciocínio empregado em cada
-atributo de manutenibilidade antes de consolidar a pontuação final. Espera-se
-que essa explicitação favoreça a rastreabilidade da justificativa produzida
-pelo LLM, ainda que a resposta final dependa da coerência entre as etapas
-intermediárias de raciocínio e a conclusão apresentada.
+A pesquisa empírica em Engenharia de Software produz conhecimento por meio da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software. Entre suas principais estratégias estão o levantamento, o estudo de caso e o experimento, que se diferenciam pelo grau de controle sobre as variáveis e pelo realismo do ambiente investigado \cite{wohlin2024}.
 
-\subsection{Experimentação em Engenharia de Software}
+O levantamento busca caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador. O estudo de caso analisa um fenômeno em seu contexto real, com controle limitado sobre as variáveis. O experimento, por sua vez, envolve a manipulação deliberada de um ou mais fatores para observar seus efeitos sobre uma variável de resultado, mantendo as demais condições controladas \cite{wohlin2024}.
 
-A pesquisa empírica em Engenharia de Software busca produzir conhecimento a partir da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software, em vez de se apoiar apenas em argumentação teórica ou opinião de especialistas \cite{wohlin2024}. Entre as estratégias empíricas disponíveis, destacam-se o levantamento (\textit{survey}), o estudo de caso e o experimento, que se diferenciam principalmente pelo grau de controle exercido sobre as variáveis do estudo e pelo nível de realismo do ambiente investigado.
+Segundo \citeonline{wohlin2024}, os experimentos são adequados para comparar métodos, técnicas, ferramentas e soluções em Engenharia de Software, produzindo evidências quantitativas para a avaliação de hipóteses. Para garantir a validade dos resultados, sua execução deve seguir um processo estruturado, desde a definição do problema até a análise e a apresentação dos resultados, conforme detalhado nas subseções seguintes.
 
-O levantamento é conduzido, em geral, após a ocorrência do fenômeno de interesse, com o objetivo de caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador sobre as condições observadas. O estudo de caso, por sua vez, investiga um fenômeno em seu contexto real, com controle limitado sobre as variáveis envolvidas, sendo indicado quando não é viável ou desejável isolar o objeto de estudo de seu ambiente. Já o experimento se caracteriza pelo controle deliberado sobre um ou mais fatores, manipulados pelo pesquisador para observar seu efeito sobre uma variável de resultado, enquanto as demais condições são mantidas constantes ou controladas \cite{wohlin2024}.
-
-Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para tornar a Engenharia de Software uma disciplina mais científica, na medida em que permite avaliar proposições de pesquisa a partir de hipóteses, evidências e observações sistemáticas, em vez de apenas relatos de experiência ou avaliações qualitativas isoladas.
-
-Para que essa comparação seja válida, contudo, o experimento não pode ser conduzido de forma ad hoc: sua condução depende de um processo estruturado, que orienta desde a definição do problema até a apresentação dos resultados. As etapas desse processo, bem como os principais elementos que compõem o planejamento de um experimento controlado, são apresentados nas subseções seguintes \cite{wohlin2024}.
-
-\subsubsection{O Processo de Experimentação}
+\subsection{O Processo de Experimentação}
 \label{sec:experimentacao}
 
 Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de Software segue um processo estruturado em cinco fases: \textbf{Definição}, \textbf{Planejamento}, \textbf{Operação}, \textbf{Análise e Interpretação} e \textbf{Apresentação e Empacotamento}, ilustradas na Figura \ref{fig:processoExperimentacao}. Na Definição, estabelecem-se o propósito e o escopo da investigação; no Planejamento, são detalhados o desenho, as variáveis e os procedimentos que viabilizam a execução; na Operação, os tratamentos são efetivamente aplicados e os dados, coletados; na Análise e Interpretação, os dados coletados são examinados à luz das hipóteses formuladas; e, por fim, na Apresentação e Empacotamento, os resultados são documentados e comunicados de forma a permitir sua avaliação e eventual replicação.
@@ -454,149 +290,97 @@ Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de
 
 O Capítulo \ref{cap:planejamento}, de Planejamento, concentra-se na segunda fase desse processo, detalhando os elementos que a compõem: definição do experimento, seleção de contexto, formulação de hipóteses, seleção de variáveis, seleção de sujeitos e objetos, e desenho experimental.
 
-\subsubsection{Definição do Experimento}
+\subsection{Definição do Experimento}
 
-A definição de um experimento delimita seu propósito e o problema de pesquisa que ele busca responder, funcionando como ponto de partida para as demais decisões de planejamento. Para estruturar essa definição de forma sistemática, \citeonline{wohlin2024} recomendam um template de definição de metas, por eles denominado \textit{GQM template} e inspirado no trabalho de
-Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do paradigma \textit{Goal Question Metric} apresentado na Seção \ref{sec:questao_de_pesquisa}, ainda que compartilhe a lógica de partir de uma meta para derivar os demais elementos da investigação. O template descreve o experimento a partir de cinco dimensões: o \textbf{objeto de estudo}, que corresponde ao que é investigado (produtos, processos, modelos, métricas ou teorias); o \textbf{propósito}, que expressa a intenção da investigação (por exemplo, caracterizar, avaliar ou controlar); o \textbf{foco de qualidade}, que representa o efeito estudado; a \textbf{perspectiva}, que define o ponto de vista sob o qual os resultados serão interpretados; e o \textbf{contexto}, que delimita o ambiente em que o experimento é conduzido e engloba, entre outros elementos, os sujeitos e os objetos experimentais envolvidos.
+A definição de um experimento delimita seu propósito e o problema de pesquisa que ele busca responder, funcionando como ponto de partida para as demais decisões de planejamento. Para estruturar essa definição de forma sistemática, \citeonline{wohlin2024} recomendam um template de definição de metas, por eles denominado \textit{GQM template} e inspirado no trabalho de Basili e Rombach sobre o projeto TAME (1988) --- distinto, portanto, do paradigma \textit{Goal Question Metric} apresentado na Seção \ref{sec:questao_de_pesquisa}, ainda que compartilhe a lógica de partir de uma meta para derivar os demais elementos da investigação. O template descreve o experimento a partir de cinco dimensões: o \textbf{objeto de estudo}, que corresponde ao que é investigado (produtos, processos, modelos, métricas ou teorias); o \textbf{propósito}, que expressa a intenção da investigação (por exemplo, caracterizar, avaliar ou controlar); o \textbf{foco de qualidade}, que representa o efeito estudado; a \textbf{perspectiva}, que define o ponto de vista sob o qual os resultados serão interpretados; e o \textbf{contexto}, que delimita o ambiente em que o experimento é conduzido e engloba, entre outros elementos, os sujeitos e os objetos experimentais envolvidos.
 
-\subsubsection{Seleção de Contexto}
+\subsubsection{Experimento Controlado}
+\label{sec:experimento_controlado}
+
+Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para tornar a Engenharia de Software uma disciplina mais científica, pois permite avaliar propostas de pesquisa a partir de hipóteses, evidências e observações sistemáticas.
+
+A definição de um experimento controlado em no contexto da Engenharia de Software pode ser entendida como uma investigação empírica que manipula um fator ou variável do cenário estudado. Com base na randomização, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto as demais variáveis são mantidas constantes, permitindo medir os efeitos produzidos sobre as variáveis de resultado \cite{wohlin2024}.
+
+\subsection{Seleção de Contexto}
 
 A seleção de contexto delimita o ambiente experimental e as condições sob as quais os resultados podem ser interpretados e generalizados. De acordo com \citeonline[p.~116]{wohlin2024}, o contexto de um experimento pode ser caracterizado a partir de quatro dimensões: \textit{offline} versus \textit{online} (execução em ambiente controlado ou em produção), estudante versus profissional (nível de experiência dos sujeitos), problema de \textit{brinquedo} (\textit{toy}) versus problema real (grau de realismo dos objetos avaliados), e específico versus geral (amplitude pretendida para os resultados). Essas dimensões orientam decisões que impactam diretamente o equilíbrio entre controle experimental e validade externa dos achados.
 
-\subsubsection{Formulação de Hipóteses}
+\subsection{Formulação de Hipóteses}
 
 A análise estatística de um experimento é fundamentada no teste de hipóteses \citeonline{wohlin2024}. Uma hipótese deve ser formalmente estabelecida antes da coleta de dados, de modo que estes sejam utilizados para verificar se há evidências suficientes para rejeitá-la. Formulam-se tipicamente duas hipóteses complementares: a \textbf{hipótese nula} ($H_0$), que assume a ausência de diferença ou relação real entre os tratamentos investigados -- de modo que eventuais diferenças observadas seriam atribuídas ao acaso --, e a \textbf{hipótese alternativa} ($H_1$), que assume a existência dessa diferença. O experimento é então conduzido com o propósito de reunir evidências que permitam decidir pela rejeição ou não rejeição de $H_0$.
  
-Ao testar uma hipótese, dois tipos de erro podem ocorrer, conforme descrito
-por \citeonline{wohlin2024}. O erro Tipo I ocorre quando o teste estatístico
-aponta um padrão ou diferença que, na realidade, não existe --- ou seja,
-quando a hipótese nula é rejeitada mesmo sendo verdadeira. O erro Tipo II
-ocorre na situação inversa: o teste deixa de detectar um padrão ou
-diferença que de fato existe, isto é, a hipótese nula não é rejeitada
-mesmo sendo falsa. A capacidade de um teste estatístico de detectar
-corretamente uma diferença real, quando ela existe, é chamada de poder do
-teste, e está diretamente relacionada ao tamanho da amostra utilizada e à
-variabilidade presente nos dados coletados. Esses dois tipos de erro
-orientam decisões práticas do planejamento de um experimento, como a
-escolha do nível de significância estatística e o dimensionamento da
-amostra necessária para que o teste tenha poder suficiente.
+Ao testar uma hipótese, dois tipos de erro podem ocorrer, conforme descrito por \citeonline{wohlin2024}. O erro Tipo I ocorre quando o teste estatístico aponta um padrão ou diferença que, na realidade, não existe --- ou seja, quando a hipótese nula é rejeitada mesmo sendo verdadeira. O erro Tipo II ocorre na situação inversa: o teste deixa de detectar um padrão ou diferença que de fato existe, isto é, a hipótese nula não é rejeitada mesmo sendo falsa. A capacidade de um teste estatístico de detectar corretamente uma diferença real, quando ela existe, é chamada de poder do teste, e está diretamente relacionada ao tamanho da amostra utilizada e à variabilidade presente nos dados coletados. Esses dois tipos de erro orientam decisões práticas do planejamento de um experimento, como a escolha do nível de significância estatística e o dimensionamento da amostra necessária para que o teste tenha poder suficiente.
 
-\subsubsection{Seleção de Variáveis}
+\subsection{Seleção de Variáveis}
 
-O planejamento de um experimento requer a definição explícita das
-variáveis envolvidas \citeonline{wohlin2024}. A Tabela~\ref{tab:categorias_variaveis}
-organiza essas variáveis nas categorias utilizadas neste trabalho.
+O planejamento de um experimento requer a identificação das variáveis que podem influenciar seus resultados e a definição da forma como cada uma será tratada no desenho experimental \citeonline{wohlin2024}. Neste trabalho, essas variáveis são organizadas nas categorias apresentadas na Tabela~\ref{tab:categorias_variaveis}.
 
 \begin{longtable}{|p{3.5cm}|p{11cm}|}
-\caption{Categorias de variáveis do planejamento experimental} \label{tab:categorias_variaveis} \\
+\caption{Categorias de variáveis do planejamento experimental}
+\label{tab:categorias_variaveis} \\
 \hline
 \textbf{Categoria} & \textbf{Definição} \\
 \hline
 \endfirsthead
 
-\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\ \hline
-\textbf{Categoria} & \textbf{Definição} \\ \hline
+\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\
+\hline
+\textbf{Categoria} & \textbf{Definição} \\
+\hline
 \endhead
 
-\hline \multicolumn{2}{r}{{Continua na próxima página}} \\
+\hline
+\multicolumn{2}{r}{{Continua na próxima página}} \\
 \endfoot
 
 \hline
 \endlastfoot
 
-Variável independente & É toda variável de um processo que pode ser
-manipulada e controlada pelo pesquisador ao longo do experimento. \\
+Variável independente &
+Variável cujos valores são manipulados, controlados ou considerados no desenho experimental por poderem influenciar a variável de resposta. \\
 \hline
 
-Fator & É a variável independente cuja variação constitui o próprio objeto
-de interesse do experimento --- ou seja, aquela que o pesquisador manipula
-deliberadamente para observar seu efeito sobre o resultado. \\
+Fator &
+Variável independente cuja influência sobre o resultado constitui o objeto de interesse do experimento. Seus valores são deliberadamente modificados para que seus efeitos possam ser observados. \\
 \hline
 
-Tratamento & É cada um dos valores ou níveis específicos que um fator pode
-assumir durante o experimento. \\
+Tratamento &
+Cada valor ou nível específico assumido por um fator durante o experimento. \\
 \hline
 
-Variável dependente & É o efeito observado como resultado da aplicação dos
-tratamentos, sendo geralmente derivada diretamente da hipótese formulada
-para o experimento. \\
+Variável dependente &
+Resultado observado após a aplicação dos tratamentos e utilizado para avaliar seus possíveis efeitos. Sua definição está diretamente relacionada às hipóteses do experimento. \\
 \hline
 
-Variável de bloqueio & É uma variável independente que provavelmente
-exerce efeito sobre o resultado, mas cujo efeito não é de interesse do
-estudo; por meio de uma técnica de desenho experimental chamada blocagem,
-esse efeito é isolado e removido da comparação entre os tratamentos, sem
-que a relação entre blocos seja ela própria analisada. \\
+Variável de bloqueio &
+Variável independente que pode influenciar o resultado, mas cujo efeito não constitui o objeto principal da investigação. Por meio da blocagem, sua influência é controlada no desenho e na análise do experimento, reduzindo sua interferência na comparação entre os tratamentos. \\
 \hline
 
-Variáveis mantidas em nível fixo & São as demais variáveis independentes
-que não constituem fator nem bloco, mas que são controladas em um valor
-constante ao longo de todo o experimento, de modo a evitar que interfiram
-na comparação entre os tratamentos. \\
+Variáveis mantidas em nível fixo &
+Variáveis independentes que não constituem fatores nem blocos e são mantidas constantes durante a execução do experimento, evitando que suas variações interfiram nos resultados. \\
 \hline
 
 \end{longtable}
-\fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
+\fonte{O Autor, adaptado de \citeonline{wohlin2024}.}
 
-Essa distinção entre fator, bloco e variáveis mantidas em nível fixo é
-central para o planejamento de um experimento, pois orienta quais fontes de
-variação serão estudadas, quais serão controladas e neutralizadas por
-blocagem, e quais serão simplesmente mantidas constantes \citeonline{wohlin2024}.
+A distinção entre essas categorias orienta a definição das fontes de variação que serão investigadas, controladas por blocagem ou mantidas constantes durante a execução do experimento. A aplicação dessas categorias ao desenho desta pesquisa é apresentada na Seção~\ref{sec:selecao_de_variaveis}.
 
-\subsubsection{Seleção de Sujeitos e Objetos}
 
-A seleção de sujeitos define as unidades experimentais a partir das quais
-os tratamentos são aplicados e os resultados são observados. Essa escolha
-é entendida como um processo de amostragem: uma seleção de elementos
-retirada de uma população mais ampla, cuja representatividade determina o
-quanto os resultados do experimento podem ser generalizados
-\citeonline{wohlin2024}. Os autores distinguem ainda duas formas de
-amostragem: a probabilística, em que a chance de cada elemento da
-população ser selecionado é conhecida, e a não probabilística, como a
-amostragem por conveniência, em que os elementos são escolhidos por
-estarem prontamente disponíveis ao pesquisador. 
+\subsection{Seleção de Sujeitos e Objetos}
 
-Complementarmente, \citeonline{wohlin2024} diferenciam os sujeitos --- responsáveis por
-aplicar os tratamentos --- dos objetos experimentais, que são os artefatos
-sobre os quais esses tratamentos incidem e cujo resultado é avaliado.
+A seleção de sujeitos define as unidades experimentais a partir das quais os tratamentos são aplicados e os resultados são observados. Essa escolha é entendida como um processo de amostragem: uma seleção de elementos retirada de uma população mais ampla, cuja representatividade determina o quanto os resultados do experimento podem ser generalizados \citeonline{wohlin2024}. Os autores distinguem ainda duas formas de amostragem: a probabilística, em que a chance de cada elemento da população ser selecionado é conhecida, e a não probabilística, como a amostragem por conveniência, em que os elementos são escolhidos por estarem prontamente disponíveis ao pesquisador. 
 
-\subsubsection{Desenho Experimental}
+\subsection{Desenho Experimental}
 
-O desenho experimental define a forma como os tratamentos são organizados
-e aplicados aos sujeitos e objetos de um estudo, e essa escolha determina
-diretamente quais métodos de análise estatística poderão ser aplicados aos
-dados coletados \citeonline{wohlin2024}. 
+O desenho experimental define a forma como os tratamentos são organizados e aplicados aos sujeitos e objetos de um estudo, e essa escolha determina diretamente quais métodos de análise estatística poderão ser aplicados aos dados coletados \citeonline{wohlin2024}. 
 
-Sua definição apoia-se em três princípios gerais: a randomização, que consiste em distribuir
-aleatoriamente os tratamentos ou definir aleatoriamente sua ordem de
-aplicação, de modo a evitar que fatores não controlados influenciem
-sistematicamente o resultado; a blocagem, técnica empregada para isolar o
-efeito de uma variável que provavelmente afeta o resultado, mas que não é
-de interesse do estudo; e o balanceamento, que distribui os tratamentos de
-forma equilibrada entre os sujeitos ou objetos disponíveis, tornando a
-análise estatística subsequente mais simples de conduzir
-\citeonline{wohlin2024}.
+Sua definição apoia-se em três princípios gerais: a randomização, que consiste em distribuir aleatoriamente os tratamentos ou definir aleatoriamente sua ordem de aplicação, de modo a evitar que fatores não controlados influenciem sistematicamente o resultado; a blocagem, técnica empregada para isolar o efeito de uma variável que provavelmente afeta o resultado, mas que não é de interesse do estudo; e o balanceamento, que distribui os tratamentos de forma equilibrada entre os sujeitos ou objetos disponíveis, tornando a análise estatística subsequente mais simples de conduzir \citeonline{wohlin2024}.
 
-A partir desses princípios, a literatura descreve diferentes tipos de
-desenho experimental, como os desenhos de um único fator com dois ou mais
-tratamentos, os desenhos fatoriais com múltiplos fatores, os desenhos
-pareados --- nos quais um mesmo sujeito é submetido a todos os tratamentos \citeonline{wohlin2024}.
+A partir desses princípios, a literatura descreve diferentes tipos de desenho experimental, como os desenhos de um único fator com dois ou mais tratamentos, os desenhos fatoriais com múltiplos fatores, os desenhos pareados --- nos quais um mesmo sujeito é submetido a todos os tratamentos \citeonline{wohlin2024}.
 
-\subsubsection{\textit{Randomized Complete Block Design}}
+\subsection{\textit{Randomized Complete Block Design}}
 
-O \textit{Randomized Complete Block Design} (RCBD) é um dos desenhos
-experimentais mais utilizados em Engenharia de Software \citeonline{wohlin2024}.
-Segundo os autores, esse desenho é indicado quando há variabilidade
-relevante entre as unidades experimentais, a qual pode ser minimizada por
-meio da blocagem, tornando os grupos comparados mais homogêneos entre si.
-No RCBD, cada bloco é submetido a todos os tratamentos do fator estudado, e
-a ordem de aplicação desses tratamentos dentro de cada bloco é definida por
-randomização --- daí o bloco representar uma restrição controlada sobre o
-processo de aleatorização, e não sua ausência \citeonline{wohlin2024}. Esse
-desenho generaliza o \textit{paired comparison design} para situações com
-mais de dois tratamentos, sendo indicado quando se deseja isolar o efeito
-de uma ou mais fontes de variação já conhecidas, sem que essas fontes
-sejam, elas próprias, objeto de investigação do experimento.
+O \textit{Randomized Complete Block Design} (RCBD) é um dos desenhos experimentais mais utilizados em Engenharia de Software \citeonline{wohlin2024}. Segundo os autores, esse desenho é indicado quando há variabilidade relevante entre as unidades experimentais, a qual pode ser minimizada por meio da blocagem, tornando os grupos comparados mais homogêneos entre si. No RCBD, cada bloco é submetido a todos os tratamentos do fator estudado, e a ordem de aplicação desses tratamentos dentro de cada bloco é definida por randomização, daí o bloco representar uma restrição controlada sobre o processo de aleatorização, e não sua ausência \citeonline{wohlin2024}. Esse desenho generaliza o \textit{paired comparison design} para situações com mais de dois tratamentos, sendo indicado quando se deseja isolar o efeito de uma ou mais fontes de variação já conhecidas, sem que essas fontes sejam, elas próprias, objeto de investigação do experimento.
 
 A Tabela~\ref{tab:exemplo_rcbd} apresenta um exemplo de atribuição dos
 tratamentos aos sujeitos em um \textit{Randomized Complete Block Design},
@@ -630,11 +414,20 @@ por randomização.
 \end{table}
  
 Os números na tabela não representam o tratamento em si, mas a posição em
-que cada tratamento é aplicado para aquele sujeito --- por exemplo, o
+que cada tratamento é aplicado para aquele sujeito, por exemplo, o
 sujeito 1 aplica primeiro o Tratamento 1, em seguida o Tratamento 3 e, por
-último, o Tratamento 2. Essa randomização da ordem dentro de cada bloco é o
-que caracteriza o desenho como \textit{Randomized Complete Block Design} \cite{wohlin2024}.
+último, o Tratamento 2. Essa randomização da ordem dentro de cada bloco é o que caracteriza o desenho como \textit{Randomized Complete Block Design} \cite{wohlin2024}.
 
-\subsubsection{Ameaças à Validade}
+\section{Testes Estatísticos}
+
+Segundo \citeonline{wohlin2024}, os testes de hipótese podem ser classificados em duas categorias: testes paramétricos e testes não paramétricos. Os testes paramétricos partem de um modelo que pressupõe uma distribuição específica dos dados, geralmente a normalidade de parte dos parâmetros envolvidos, além de exigirem que os dados sejam medidos, no mínimo, em escala intervalar. Já os testes não paramétricos dispensam essas pressuposições, fazendo apenas suposições mais gerais sobre a distribuição dos dados; por serem menos restritivos, podem ser utilizados sempre que um teste paramétrico também poderia, mas o inverso não é válido. A escolha entre uma abordagem e outra deve considerar dois fatores: a aderência dos dados às premissas exigidas por cada teste (\textit{applicability}) e o poder estatístico do teste (\textit{power}), sendo os testes paramétricos geralmente mais poderosos, exigindo, portanto, amostras menores para alcançar significância quando suas premissas são atendidas.
+
+A seleção do teste estatístico adequado depende, ainda, do desenho do experimento, isto é, do número de tratamentos avaliados e da relação entre as amostras (independentes ou pareadas). Para o caso de um único fator com dois tratamentos, os testes paramétricos indicados são o t-test e o F-test, com o Mann-Whitney como alternativa não paramétrica para amostras independentes e o Wilcoxon e o Sign test para amostras pareadas. Quando o fator avaliado possui mais de dois tratamentos, o teste paramétrico correspondente é a ANOVA (\textit{ANalysis Of Variance}), tendo como alternativa não paramétrica o teste de Kruskal-Wallis, aplicável sempre que não há certeza de que as premissas da ANOVA são satisfeitas pelos dados \citeonline{wohlin2024}.
+
+\subsection{Ameaças à Validade}
 
 A validade de um experimento refere-se ao grau de confiança que pode ser depositado em seus resultados e conclusões. \citeonline{wohlin2024} organizam as ameaças à validade em quatro categorias. A \textbf{validade de conclusão} diz respeito à correção da relação estatística identificada entre o tratamento e o resultado. A \textbf{validade interna} refere-se à possibilidade de que a relação observada entre tratamento e resultado seja, de fato, causal, e não decorrente de fatores não controlados. A \textbf{validade de constructo} avalia se as medidas e os tratamentos utilizados representam adequadamente os conceitos teóricos que pretendem operacionalizar. Por fim, a \textbf{validade externa} trata da possibilidade de generalização dos resultados para além do contexto específico em que o experimento foi conduzido. Essas categorias orientam a identificação e a discussão das limitações do experimento proposto neste trabalho.
+
+\section{Uso de Inteligência Artificial}
+
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente ao autor.

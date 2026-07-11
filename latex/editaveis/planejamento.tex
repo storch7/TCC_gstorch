@@ -5,153 +5,89 @@ Este capítulo apresenta o planejamento do experimento controlado projetado para
 
 \section{Definição}
 
-A abordagem experimental proposta para esta pesquisa baseia-se em um experimento controlado em Engenharia de Software. A escolha por essa abordagem decorre da estrutura da questão de pesquisa (Verificar a Seção \ref{sec:questao_de_pesquisa}). Nesse sentido, a pesquisa não se limita à descrição de um fenômeno, mas propõe a comparação entre diferentes tratamentos aplicados a um mesmo tipo de objeto experimental, com o objetivo de observar seus efeitos sobre uma variável de resultado.
+% A abordagem experimental proposta para esta pesquisa baseia-se em um experimento controlado em Engenharia de Software. A escolha por essa abordagem decorre da estrutura da questão de pesquisa (Verificar a Seção \ref{sec:questao_de_pesquisa}). Nesse sentido, a pesquisa não se limita à descrição de um fenômeno, mas propõe a comparação entre diferentes tratamentos aplicados a um mesmo tipo de objeto experimental, com o objetivo de observar seus efeitos sobre uma variável de resultado.
 
-Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para avaliar métodos, técnicas, linguagens, ferramentas ou soluções em Engenharia de Software, especialmente quando se deseja comparar alternativas e obter dados quantitativos que apoiem uma análise empírica. Os autores destacam que a experimentação contribui para tornar a Engenharia de Software uma disciplina mais científica, pois permite avaliar propostas de pesquisa a partir de hipóteses, evidências e observações sistemáticas. Essa perspectiva está alinhada ao propósito deste trabalho, uma vez que se pretende avaliar, de forma controlada, se diferentes estratégias de prompt produzem resultados distintos na avaliação do indicador de manutenibilidade.
+% Da definição de Experimento Controlado, abordada anteriormente na seção \ref{sec:experimento_controlado} no Capítulo \ref{cap:referencial_teorico} - Referencial Teórico, se observa que: a definição é diretamente aplicável ao desenho deste trabalho, pois o padrão de engenharia de prompt representa o fator manipulado, enquanto o resultado da aferição do indicador de manutenibilidade representa a variável dependente observada; da mesma forma, definição do experimento controlado também está alinhada ao propósito deste trabalho, uma vez que se pretende avaliar se diferentes estratégias de prompt produzem resultados distintos na avaliação do indicador de manutenibilidade.
 
-\citeonline{wohlin2024} definem um experimento controlado em Engenharia de Software como uma investigação empírica que manipula um fator ou variável do cenário estudado. Com base na randomização, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto as demais variáveis são mantidas constantes, permitindo medir os efeitos produzidos sobre as variáveis de
-resultado. Essa definição é diretamente aplicável ao desenho deste trabalho, pois o padrão de engenharia de prompt representa o fator manipulado, enquanto o resultado da aferição do indicador de manutenibilidade representa a variável dependente observada.
+% A escolha pelo experimento controlado também se justifica porque o estudo busca avaliar uma possível relação entre tratamento e resultado. De acordo com \citeonline{wohlin2024}, um experimento parte de uma hipótese ou de uma relação esperada entre causa e efeito; a partir disso, os tratamentos são aplicados, os resultados são observados e, caso o experimento seja adequadamente planejado, torna-se possível analisar a relação entre a causa manipulada e o efeito observado. No contexto desta pesquisa, a causa investigada é a variação dos padrões de engenharia de prompt, enquanto o efeito observado é a variação na aferição do indicador de manutenibilidade.
 
-A escolha pelo experimento controlado também se justifica porque o estudo busca avaliar uma possível relação entre tratamento e resultado. De acordo com \citeonline{wohlin2024}, um experimento parte de uma hipótese ou de uma relação esperada entre causa e efeito; a partir disso, os tratamentos são aplicados, os resultados são observados e, caso o experimento seja
-adequadamente planejado, torna-se possível analisar a relação entre a causa manipulada e o efeito observado. No contexto desta pesquisa, a causa investigada é a variação dos padrões de engenharia de prompt, enquanto o efeito observado é a variação na aferição do indicador de manutenibilidade.
+% Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo a validade da investigação e a confiabilidade dos resultados obtidos.
 
-Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo a validade da investigação e a confiabilidade dos resultados obtidos.
+A abordagem metodológica desta pesquisa baseia-se em um experimento controlado em Engenharia de Software, uma vez que o estudo busca comparar diferentes tratamentos e observar seus efeitos sobre uma variável de resultado. Nesse contexto, os padrões de engenharia de prompt correspondem ao fator manipulado, enquanto a aferição do indicador de manutenibilidade representa a variável dependente.
+
+A escolha dessa abordagem permite investigar a relação entre a variação dos padrões de prompt e os resultados obtidos na avaliação da manutenibilidade. Conforme \citeonline{wohlin2024}, experimentos controlados possibilitam analisar relações de causa e efeito por meio da aplicação de tratamentos, da observação dos resultados e do controle de fatores externos.
+
+Assim, o experimento controlado mostra-se adequado ao objetivo da pesquisa, pois viabiliza a comparação sistemática dos tratamentos, o controle das variáveis envolvidas e a análise dos efeitos observados, contribuindo para a transparência, a replicabilidade e a confiabilidade dos resultados.
+
 
 \section{Seleção de Contexto}
 \label{sec:contexto_do_estudo}
 
-A seleção do contexto define o ambiente no qual o experimento será
-conduzido e delimita as condições sob as quais os resultados deverão ser
-interpretados, contemplando tanto os sujeitos envolvidos quanto os artefatos de
-software utilizados como objetos do experimento \cite{wohlin2024}.
+% A seleção do contexto define o ambiente no qual o experimento será conduzido e delimita as condições sob as quais os resultados deverão ser interpretados, contemplando tanto os sujeitos envolvidos quanto os artefatos de software utilizados como objetos do experimento \cite{wohlin2024}.
 
-\citeonline{wohlin2024} caracterizam o contexto de um experimento a
-partir de quatro dimensões: offline versus online, estudante versus
-profissional, problemas de brinquedo (\textit{toy}) versus problemas reais,
-e específico versus geral. Em relação à primeira dimensão, este experimento
-se caracteriza como offline, por ser conduzido em ambiente controlado e não
-em produção. Quanto à segunda dimensão, cabe a observação: sua formulação
-original pressupõe que o tratamento é aplicado por sujeitos humanos com
-diferentes níveis de experiência (estudantes ou profissionais); neste
-experimento, contudo, os tratamentos são aplicados por Modelos de Linguagem
-de Grande Escala, não havendo sujeitos humanos executando a tarefa
-analisada. Essa dimensão, portanto, não se aplica da mesma forma ao desenho
-deste estudo, e é substituída, como fonte equivalente de variação
-controlada, pela ferramenta de LLM utilizada --- tratada como variável de
-bloqueio, conforme detalhado na Seção \ref{sec:selecao_de_variaveis}. Quanto à terceira dimensão, o experimento se baseia em problemas reais, pois utiliza repositórios de
-código-fonte aberto de projetos reais como objetos de análise, em vez de
-exemplos sintéticos ou simplificados. Por fim, quanto à quarta dimensão, o
-experimento se posiciona mais próximo do polo específico: os resultados são
-válidos para o domínio delimitado de projetos de código-fonte aberto
-voltados a aplicações web, não sendo pretendida generalização imediata para
-outros domínios da Engenharia de Software.
+% \citeonline{wohlin2024} caracterizam o contexto de um experimento a partir de quatro dimensões: offline versus online, estudante versus profissional, problemas de brinquedo (\textit{toy}) versus problemas reais, e específico versus geral. Em relação à primeira dimensão, este experimento se caracteriza como offline, por ser conduzido em ambiente controlado e não em produção. Quanto à segunda dimensão, cabe a observação: sua formulação original pressupõe que o tratamento é aplicado por sujeitos humanos com diferentes níveis de experiência (estudantes ou profissionais); neste experimento, contudo, os tratamentos são aplicados por Modelos de Linguagem de Grande Escala, não havendo sujeitos humanos executando a tarefa analisada. Essa dimensão, portanto, não se aplica da mesma forma ao desenho deste estudo, e é substituída, como fonte equivalente de variação controlada, pela ferramenta de LLM utilizada --- tratada como variável de bloqueio, conforme detalhado na Seção \ref{sec:selecao_de_variaveis}. Quanto à terceira dimensão, o experimento se baseia em problemas reais, pois utiliza repositórios de código-fonte aberto de projetos reais como objetos de análise, em vez de exemplos sintéticos ou simplificados. Por fim, quanto à quarta dimensão, o experimento se posiciona mais próximo do polo específico: os resultados são válidos para o domínio delimitado de projetos de código-fonte aberto voltados a aplicações web, não sendo pretendida generalização imediata para outros domínios da Engenharia de Software.
 
-A opção por um ambiente offline e controlado justifica-se, conforme
-discutido pelos próprios autores, por reduzir os riscos e os custos
-associados à execução do experimento e por proporcionar maior controle
-sobre as variáveis envolvidas \citeonline{wohlin2024}.
+% A opção por um ambiente offline e controlado justifica-se, conforme discutido pelos próprios autores, por reduzir os riscos e os custos associados à execução do experimento e por proporcionar maior controle sobre as variáveis envolvidas \citeonline{wohlin2024}.
 
-Dessa forma, o experimento será realizado em um ambiente controlado,
-utilizando os mesmos objetos de análise para os diferentes tratamentos de
-padrão de prompt, de modo a permitir a comparação entre os resultados
-produzidos com os modelos de qualidade de referência adotados como blocos.
+% Dessa forma, o experimento será realizado em um ambiente controlado,    utilizando os mesmos objetos de análise para os diferentes tratamentos de padrão de prompt, de modo a permitir a comparação entre os resultados produzidos com os modelos de qualidade de referência adotados como blocos
+
+A seleção do contexto delimita o ambiente de execução do experimento e as condições de interpretação dos resultados, incluindo os sujeitos e os artefatos de software analisados \cite{wohlin2024}.
+
+Este experimento será conduzido de forma offline, em ambiente controlado, utilizando repositórios reais de código-fonte aberto voltados a aplicações web. A dimensão relacionada à experiência dos sujeitos humanos não se aplica diretamente, pois os tratamentos serão executados por Modelos de Linguagem de Grande Escala. Nesse caso, a ferramenta de LLM será considerada uma variável de bloqueio, conforme descrito na Seção \ref{sec:selecao_de_variaveis}.
+
+O estudo situa-se mais próximo de um contexto específico, uma vez que seus resultados estarão delimitados ao domínio analisado, sem pretensão de generalização imediata para outros tipos de software. A adoção de um ambiente controlado permite reduzir riscos e custos, além de ampliar o controle sobre as variáveis experimentais \citeonline{wohlin2024}. Para garantir a comparabilidade, os mesmos objetos de análise serão submetidos aos diferentes padrões de prompt e avaliados com base nos modelos de qualidade de referência adotados.
 
 \section{Formulação de Hipóteses}
 
-A formulação das hipóteses parte da premissa de que diferentes padrões de engenharia de prompt podem influenciar a forma como um Modelo de Linguagem de Grande Escala avalia o indicador de manutenibilidade de trechos de código-fonte. Como o experimento busca comparar resultados obtidos a partir de diferentes tratamentos, as hipóteses foram definidas de modo a verificar se a variação
-dos padrões de prompt produz diferenças significativas nos resultados de avaliação.
+As hipóteses deste experimento foram formuladas com o objetivo de verificar se diferentes padrões de engenharia de prompt influenciam os resultados da avaliação de manutenibilidade realizada por Modelos de Linguagem de Grande Escala. Conforme \citeonline{wohlin2024}, a análise estatística permite avaliar se as diferenças observadas entre os tratamentos apresentam evidências suficientes para a rejeição da hipótese nula.
 
-Segundo \citeonline{wohlin2024}, a análise estatística de um experimento é
-fundamentada no teste de hipóteses. Os autores explicam que uma hipótese
-deve ser formalmente estabelecida e que os dados coletados durante o
-experimento são utilizados para verificar se há evidências suficientes para
-rejeitá-la. Ainda segundo os autores, a hipótese nula representa a ausência
-de tendências ou padrões reais no ambiente experimental, de modo que
-eventuais diferenças observadas seriam atribuídas ao acaso. É importante
-destacar que a não rejeição da hipótese nula não implica sua aceitação: ela
-pode simplesmente não ter sido rejeitada com os dados disponíveis, sendo
-passível de rejeição com uma amostra maior \citeonline{wohlin2024}.
-
-Neste trabalho, seja $IM$ o indicador de manutenibilidade produzido pela
-avaliação do LLM, conforme definido na Seção 4.4, e sejam $P_1, P_2,
-\ldots, P_n$ os diferentes padrões de engenharia de prompt avaliados. A
-hipótese nula considera que os padrões de prompt apresentam desempenho
-equivalente na avaliação de manutenibilidade, isto é, não há diferença
-significativa entre os resultados produzidos pelos diferentes padrões. A
-hipótese alternativa considera que existe diferença significativa entre os
-resultados produzidos por pelo menos dois padrões de prompt.
-
-Dessa forma, as hipóteses do experimento são formuladas da seguinte
-maneira:
+Seja $IM$ o indicador de manutenibilidade produzido pelo LLM, conforme definido na Seção \ref{sec:selecao_de_variaveis}, e sejam $P_1, P_2, \ldots, P_n$ os padrões de engenharia de prompt avaliados. As hipóteses são definidas da seguinte forma:
 
 \begin{itemize}
-    \item[] $H_0$: diferentes padrões de engenharia de prompt não produzem
-    diferenças significativas na avaliação de manutenibilidade realizada
-    por LLMs.
-    $$H_0 : \mu_{IM}(P_1) = \mu_{IM}(P_2) = \ldots = \mu_{IM}(P_n)$$
+\item[] $H_0$: os padrões de engenharia de prompt não produzem diferenças significativas nos resultados da avaliação de manutenibilidade realizada por LLMs.
 
-    \item[] $H_1$: diferentes padrões de engenharia de prompt produzem
-    diferenças significativas na avaliação de manutenibilidade realizada
-    por LLMs.
-    $$H_1 : \exists\ P_i, P_j\ |\ \mu_{IM}(P_i) \neq \mu_{IM}(P_j)$$
+```
+\[
+H_0 : \mu_{IM}(P_1) = \mu_{IM}(P_2) = \ldots = \mu_{IM}(P_n)
+\]
+
+\item[] $H_1$: pelo menos dois padrões de engenharia de prompt produzem resultados significativamente diferentes na avaliação de manutenibilidade realizada por LLMs.
+
+\[
+H_1 : \exists\, P_i, P_j \mid \mu_{IM}(P_i) \neq \mu_{IM}(P_j)
+\]
+```
+
 \end{itemize}
 
-Assim, a hipótese nula afirma que a média dos resultados do indicador de manutenibilidade é equivalente entre os padrões de prompt avaliados. Já a hipótese alternativa afirma que ao menos um par de padrões de prompt apresenta diferença significativa em relação ao indicador de manutenibilidade observado. Reforçando, as hipóteses $H_0$/$H_1$ tratam apenas dos modelos Q-Rapids e MeasureSoftGram.
+A hipótese nula estabelece, portanto, que a média do indicador de manutenibilidade é equivalente entre os padrões de prompt avaliados. A hipótese alternativa estabelece que pelo menos um par de padrões apresenta diferença estatisticamente significativa. Essas hipóteses serão avaliadas separadamente no contexto dos modelos de qualidade Q-Rapids e MeasureSoftGram.
 
-O teste dessas hipóteses está sujeito a dois tipos de erro, conforme descrito por \citeonline{wohlin2024}. O erro Tipo I ocorre quando o teste estatístico indica uma diferença significativa entre os padrões de prompt mesmo quando, de fato, não existe tal diferença, isto é, $P(\text{erro Tipo I}) = P(\text{rejeitar } H_0\ |\ H_0 \text{ verdadeira})$.
-O erro Tipo II, por sua sua vez, ocorre quando o teste não indica diferença significativa mesmo quando ela de fato existe, isto é, $P(\text{erro Tipo II}) = P(\text{não rejeitar } H_0\ |\ H_0 \text{ falsa})$. A capacidade do teste de revelar uma diferença real quando ela existe é
-chamada de poder do teste, definido como $\text{Poder} = 1 - P(\text{erro Tipo II})$. Esses conceitos orientam, respectivamente, a escolha do nível de significância adotado e o
-dimensionamento da amostra de objetos experimentais (Seção \ref{sec:objetos}), de modo a equilibrar o risco de conclusões falso-positivas com a capacidade do teste
-de detectar diferenças reais entre os tratamentos.
+O nível de significância e o dimensionamento da amostra serão definidos considerando os riscos associados aos erros Tipo I e Tipo II e ao poder estatístico do teste, conforme os conceitos apresentados no referencial teórico.
 
-A avaliação dessas hipóteses será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt. Dessa forma, busca-se verificar se as variações observadas nos resultados podem ser associadas aos tratamentos aplicados ou se permanecem dentro de uma variação esperada entre avaliações
-equivalentes.
+A avaliação será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt. Dessa forma, será analisado se as variações observadas podem ser associadas aos tratamentos aplicados ou se permanecem compatíveis com a variabilidade esperada entre avaliações equivalentes.
 
 \section{Seleção de Variáveis}
 \label{sec:selecao_de_variaveis}
 
-O planejamento de um experimento requer a definição explícita das
-variáveis envolvidas. Todas as variáveis de um processo que são manipuladas
-e controladas pelo pesquisador são chamadas de variáveis independentes;
-quando o propósito da manipulação é justamente estudar o efeito de sua
-variação, essas variáveis são chamadas de fatores, e cada um de seus
-níveis, de tratamentos. A variável dependente, por sua vez, corresponde ao
-efeito observado como resultado da aplicação dos tratamentos
-\citeonline{wohlin2024}.
+% O planejamento de um experimento requer a definição explícita das variáveis envolvidas. Todas as variáveis de um processo que são manipuladas e controladas pelo pesquisador são chamadas de variáveis independentes; quando o propósito da manipulação é justamente estudar o efeito de sua variação, essas variáveis são chamadas de fatores, e cada um de seus níveis, de tratamentos. A variável dependente, por sua vez, corresponde ao efeito observado como resultado da aplicação dos tratamentos \citeonline{wohlin2024}.
 
-Cabe ainda uma distinção relevante para este trabalho: \citeonline{wohlin2024}
-diferenciam experimentos em que sujeitos humanos aplicam os tratamentos a
-objetos daqueles em que essa aplicação é feita por meio de tecnologia. Este
-experimento se enquadra na segunda categoria, uma vez que os tratamentos
-(os padrões de engenharia de prompt) são aplicados por LLMs, e não por
-sujeitos humanos --- o que também fundamenta a caracterização do contexto
-apresentada na Seção \ref{sec:contexto_do_estudo}.
+% Cabe ainda uma distinção relevante para este trabalho: \citeonline{wohlin2024} diferenciam experimentos em que sujeitos humanos aplicam os tratamentos a objetos daqueles em que essa aplicação é feita por meio de tecnologia. Este experimento se enquadra na segunda categoria, uma vez que os tratamentos (os padrões de engenharia de prompt) são aplicados por LLMs, e não por sujeitos humanos --- o que também fundamenta a caracterização do contexto apresentada na Seção \ref{sec:contexto_do_estudo}.
 
-No contexto deste trabalho, considera-se um único fator: o padrão de engenharia de prompt. Esse fator corresponde à forma como a instrução é estruturada para orientar o modelo na análise do indicador de manutenibilidade, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: \textit{zero-shot, few-sho}t e \textit{chain-of-thought}, que representam diferentes estratégias de formulação da
-instrução fornecida ao LLM.
-Essa delimitação a três padrões, em detrimento de um conjunto mais amplo de técnicas de engenharia de prompt discutidas na literatura, decorre do escopo de um Trabalho de Conclusão de Curso de graduação, e recai sobre três das estratégias mais investigadas e replicadas em estudos que relacionam padrões de prompt à qualidade de código gerado ou avaliado por LLMs \cite{DellaPortaEtAll, KhojahEtAll}. \citeonline{KhojahEtAll} observam que a combinação de múltiplas técnicas de prompt não necessariamente produz resultados superiores às técnicas aplicadas isoladamente, o que reforça a adequação de investigar \textit{zero-shot, few-shot} e \textit{chain-of-thought} como estratégias distintas e não combinadas, sem prejuízo à validade da comparação pretendida neste experimento. O objetivo é observar se a variação na estrutura do prompt influencia os resultados produzidos na avaliação de manutenibilidade.
+O planejamento de um experimento requer a identificação das variáveis que podem influenciar seus resultados e a definição da forma como cada uma será tratada no desenho experimental \citeonline{wohlin2024}.
+
+No contexto deste trabalho, considera-se um único fator: o padrão de engenharia de prompt. Esse fator corresponde à forma como a instrução é estruturada para orientar o modelo na análise do indicador de manutenibilidade, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: \textit{zero-shot, few-sho}t e \textit{chain-of-thought}, que representam diferentes estratégias de formulação da instrução fornecida ao LLM. Essa delimitação a três padrões, em detrimento de um conjunto mais amplo de técnicas de engenharia de prompt discutidas na literatura, decorre do escopo de um Trabalho de Conclusão de Curso de graduação, e recai sobre três das estratégias mais investigadas e replicadas em estudos que relacionam padrões de prompt à qualidade de código gerado ou avaliado por LLMs \cite{DellaPortaEtAll, KhojahEtAll}. \citeonline{KhojahEtAll} observam que a combinação de múltiplas técnicas de prompt não necessariamente produz resultados superiores às técnicas aplicadas isoladamente, o que reforça a adequação de investigar \textit{zero-shot, few-shot} e \textit{chain-of-thought} como estratégias distintas e não combinadas, sem prejuízo à validade da comparação pretendida neste experimento. O objetivo é observar se a variação na estrutura do prompt influencia os resultados produzidos na avaliação de manutenibilidade.
 
 A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos, sendo definida, neste experimento, como o resultado da aferição do indicador de manutenibilidade produzido na avaliação. Esse resultado não é tratado como uma simples resposta textual do modelo, mas como uma medida observável a partir de critérios previamente definidos. Por não ser diretamente mensurável, trata-se de uma medida indireta, cuja validação cuidadosa é essencial, já que sua adequação afeta diretamente o resultado do experimento \citeonline{wohlin2024}.
 
-Além do fator e da variável dependente, o experimento adota duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é utilizado quando temos um fator que provavelmente tem um efeito sobre a resposta, mas não estamos interessados nesse efeito. Assim, consegue-se 
-controlar sistematicamente o efeito indesejado na comparação entre os tratamentos e, com isso, aumentar a precisão e confiança dos resultado do experimento. A primeira variável de bloqueio, o modelo de referência, assumirá dois níveis: Q-Rapids e MeasureSoftGram. Esses dois modelos são estatisticamente comparáveis porque possuem as mesmas varáveis independentes, as medidas calculadas e normalizadas. Ou seja, compartilham o mesmo construto. Esse foi uma das principais razões pela escolha de modelos tão próximos. Esses modelos divergem apenas nos mecanismos de agregação e ponderação das medidas, em essência, no cálculo dos indicadores. Isso não compromete o experimento e ainda contribui para a testar  se a inovação matemática do MeasureSoftGram ( transformações matemáticas algébricas, tensoriais, realizadas no espaço $\mathbb{R}^n$ ) produz resultados diferentes de seu antecessor, dado a mesma entrada. Como o objetivo desta pesquisa não é comparar os modelos entre
-si, esse efeito é controlado por bloqueio.
-A segunda variável de bloqueio, a ferramenta de LLM, assumirá igualmente três níveis: ChatGPT, Claude e DeepSeek. A inclusão das três ferramentas não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta no processo de medição, de modo que o efeito observado dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design_do_experimento}.
+Além do fator e da variável dependente, o experimento adota duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é utilizado quando temos um fator que provavelmente tem um efeito sobre a resposta, mas não estamos interessados nesse efeito. Assim, consegue-se controlar sistematicamente o efeito indesejado na comparação entre os tratamentos e, com isso, aumentar a precisão e confiança dos resultado do experimento. A primeira variável de bloqueio, o modelo de referência, assumirá dois níveis: Q-Rapids e MeasureSoftGram. Esses dois modelos são estatisticamente comparáveis porque possuem as mesmas varáveis independentes, as medidas calculadas e normalizadas. Ou seja, compartilham o mesmo construto. Esse foi uma das principais razões pela escolha de modelos tão próximos. Esses modelos divergem apenas nos mecanismos de agregação e ponderação das medidas, em essência, no cálculo dos indicadores. Isso não compromete o experimento e ainda contribui para a testar  se a inovação matemática do MeasureSoftGram ( transformações matemáticas algébricas, tensoriais, realizadas no espaço $\mathbb{R}^n$ ) produz resultados diferentes de seu antecessor, dado a mesma entrada. Como o objetivo desta pesquisa não é comparar os modelos entre si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a ferramenta de LLM, assumirá igualmente três níveis: ChatGPT, Claude e DeepSeek. A inclusão das três ferramentas não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta no processo de medição, de modo que o efeito observado dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design_do_experimento}.
 
-O experimento contará ainda com variáveis mantidas em nível fixo ao longo
-de sua execução, de modo a reduzir interferências externas na interpretação
-dos resultados \citeonline{wohlin2024}. Sua definição detalhada será
-consolidada na etapa de instrumentação; a título de exemplo, incluem-se o
-procedimento de coleta dos resultados e os parâmetros de configuração dos
-modelos de LLM.
+O experimento contará ainda com variáveis mantidas em nível fixo ao longo de sua execução, de modo a reduzir interferências externas na interpretação dos resultados \citeonline{wohlin2024}. Sua definição detalhada será consolidada na etapa de instrumentação; a título de exemplo, incluem-se o procedimento de coleta dos resultados e os parâmetros de configuração dos modelos de LLM.
 
-Assim, a seleção de variáveis deste experimento pode ser sintetizada da
-seguinte forma:
+Assim, a seleção de variáveis deste experimento pode ser sintetizada da seguinte forma:
 
 \begin{itemize}
     \item \textbf{Fator}: padrão de engenharia de prompt.
-    \item \textbf{Tratamentos do fator}: zero-shot, few-shot e
-    chain-of-thought.
+    \item \textbf{Tratamentos do fator}: zero-shot, few-shot e chain-of-thought.
     \item \textbf{Variável dependente}: resultado da aferição do
     indicador de manutenibilidade produzido na avaliação.
     \item \textbf{Variáveis de bloqueio}: modelo de qualidade de
@@ -162,11 +98,7 @@ seguinte forma:
     de configuração dos LLMs).
 \end{itemize}
 
-Portanto, a seleção das variáveis foi definida de modo a permitir a
-comparação entre os diferentes padrões de prompt, mantendo o modelo de
-referência e a ferramenta de LLM como blocos e as demais condições
-constantes. Com isso, busca-se observar se as variações nos resultados de
-manutenibilidade podem ser associadas ao fator manipulado no experimento.
+Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre os diferentes padrões de prompt, mantendo o modelo de referência e a ferramenta de LLM como blocos e as demais condições constantes. Com isso, busca-se observar se as variações nos resultados de manutenibilidade podem ser associadas ao fator manipulado no experimento.
 
 \section{Seleção dos Sujeitos}
 \label{sec:sujeitos}
@@ -316,34 +248,8 @@ Optou-se, portanto, por atribuir ao SQALE um papel complementar de triangulaçã
 
  Cabe ressaltar que essa triangulação é reportada como evidência complementar de robustez, e não como parte do teste de hipóteses formal estabelecido na Seção \ref{sec:selecao_de_variaveis}. Tampouco, eventual discordância entre as ordenações deve ser interpretada como invalidação de qualquer um dos instrumentos, uma vez que construtos parcialmente distintos podem legitimamente produzir avaliações divergentes sobre os mesmos objetos, sem que isso comprometa a validade de nenhuma das abordagens.
 
-
-
 \section{Instrumentação}
 \label{sec:instrumentacao}
-
-
-\todo[inline, color=pink]{Reescrever cuidadosamente esta subseção, conforme conversamos. Precisa incluir:}
-
-\begin{enumerate}
-	\item q-rapids
-	
-	\item github
-	
-	\item github actions
-	\item numpy
-	\item scypy
-	\item pystats
-	\item pandas
-	\item metplotlib
-	\item metplotlib
-	\item scikit-learn
-	
-\end{enumerate}
-
-
-\todo[inline, color=pink]{Obs:insira uma nota de rodapé para cada ferramenta com o link para download. Essa descrição das ferramentas python, github* devem ser sucintas, 3-5 linhas}
-
-
 
 Definido o desenho do experimento, é necessário especificar como ele será,
 de fato, executado na prática. Segundo \citeonline{wohlin2024}, essa etapa,
@@ -381,10 +287,72 @@ de referência para avaliar o alinhamento entre a aferição produzida pelo
 LLM e a aferição obtida por meios já consolidados na literatura de
 qualidade de software.
 
+A operacionalização desses instrumentos apoia-se em um conjunto de
+ferramentas organizadas em três grupos complementares: (i) o instrumento
+de aferição de referência do indicador de manutenibilidade, (ii) a
+infraestrutura de versionamento e automação empregada para orquestrar a
+coleta e a execução padronizada do experimento, e (iii) a pilha de
+bibliotecas Python utilizada na análise estatística e na visualização dos
+resultados.
+
+O primeiro grupo é composto pelo Q-Rapids\footnote{Disponível em:
+\url{https://github.com/q-rapids}. Acesso em: 10 jul. 2026.}, plataforma de
+código aberto resultante do projeto europeu H2020 de mesmo nome, que
+implementa um modelo de qualidade em camadas --- métricas, fatores e
+indicadores estratégicos --- permitindo a agregação de dados brutos em
+indicadores de manutenibilidade configuráveis. Neste experimento, a
+ferramenta é utilizada para o cálculo de referência do indicador de
+manutenibilidade segundo o modelo homônimo, servindo de base de comparação
+independente para os resultados produzidos pelos LLMs.
+
+O segundo grupo é composto pelo GitHub\footnote{Disponível em:
+\url{https://github.com}. Acesso em: 10 jul. 2026.}, plataforma de hospedagem de
+repositórios Git utilizada tanto para a obtenção dos objetos experimentais
+--- os repositórios de código-fonte aberto selecionados (Seção
+\ref{sec:objetos}) --- quanto para hospedar o próprio pipeline de execução
+do experimento, e pelo GitHub Actions\footnote{Disponível em:
+\url{https://github.com/features/actions}. Acesso em: 10 jul. 2026.}, serviço de
+integração contínua integrado ao GitHub, empregado para automatizar a
+execução padronizada das 18 combinações de tratamento e bloco definidas na
+Seção \ref{sec:design_do_experimento}, garantindo que cada arquivo seja
+submetido às mesmas condições de execução e reduzindo a variação
+decorrente de intervenção manual no processo.
+
+O terceiro grupo reúne as bibliotecas Python empregadas no processamento e
+na análise dos dados coletados. O NumPy\footnote{Disponível em:
+\url{https://numpy.org}. Acesso em: 10 jul. 2026.} é a biblioteca fundamental
+para computação numérica em Python, fornecendo estruturas de arranjos
+multidimensionais e operações vetorizadas que servem de base para as
+demais bibliotecas do pipeline estatístico. O SciPy\footnote{Disponível
+em: \url{https://scipy.org}. Acesso em: 10 jul. 2026.} estende o NumPy com
+funções de estatística inferencial, incluindo o coeficiente de correlação
+de postos de Spearman utilizado na triangulação com o SQALE (Seção
+\ref{sec:triangulacao_sqale}). O statsmodels\footnote{Disponível em:
+\url{https://www.statsmodels.org}. Acesso em: 10 jul. 2026.} implementa a
+análise de variância (ANOVA) para desenhos de blocos completos
+aleatorizados (RCBD), sendo a biblioteca utilizada no teste formal das
+hipóteses $H_0$ e $H_1$ definidas na Seção
+\ref{sec:selecao_de_variaveis}. O pandas\footnote{Disponível em:
+\url{https://pandas.pydata.org}. Acesso em: 10 jul. 2026.} é empregado na
+organização dos resultados das 18 combinações de avaliação em estruturas
+de dados tabulares adequadas ao processamento estatístico subsequente. O
+matplotlib\footnote{Disponível em: \url{https://matplotlib.org}. Acesso
+em: 10 jul. 2026.} é utilizado na geração dos gráficos e figuras apresentados
+neste trabalho, seguindo os padrões de formatação estabelecidos, e o
+seaborn\footnote{Disponível em: \url{https://seaborn.pydata.org}. Acesso
+em: 10 jul. 2026.}, construído sobre o matplotlib, é empregado na geração de
+visualizações estatísticas complementares, como \textit{box plots}
+comparativos entre os tratamentos. Por fim, o scikit-learn\footnote{Disponível
+em: \url{https://scikit-learn.org}. Acesso em: 10 jul. 2026.}, biblioteca de
+aprendizado de máquina que também disponibiliza utilitários de
+pré-processamento e normalização de dados, é empregado no tratamento dos
+dados anterior à análise estatística.
+
 Serão tratadas como ferramentas de referência para a aferição do indicador de manutenibilidade: o \textit{SonarQube} e o \textit{MeasureSoftGram}.
 
-\subsection{Ferramenta 1}
-Solicitar o artigo para o Hilmer.
+\subsection{Q-Rapids}
+
+O Q-Rapids é uma plataforma de código aberto que implementa um modelo de qualidade em camadas, permitindo a agregação de dados brutos em indicadores de manutenibilidade configuráveis. Neste experimento, a ferramenta é utilizada para o cálculo de referência do indicador de manutenibilidade segundo o modelo homônimo, servindo de base de comparação independente para os resultados produzidos pelos LLMs.
 
 \subsection{SonarQube}
 
@@ -415,16 +383,7 @@ avaliações de manutenibilidade produzidas pelos LLMs.
 
 \subsection{MeasureSoftGram}
 
-O MeasureSoftGram (MSG) é um modelo de avaliação de qualidade de produto
-de software originalmente proposto por
-\citeonline{neri2018measuresoftgram}, com o objetivo de superar a
-limitação da perspectiva unidimensional adotada pelos modelos de qualidade
-tradicionais. Diferentemente de modelos que avaliam cada característica de
-qualidade isoladamente, o MeasureSoftGram propõe uma representação
-multidimensional das características e subcaracterísticas de qualidade por
-meio de tensores, capturando também as relações e efeitos colaterais entre
-elas, com o objetivo de apoiar decisões de aceitação de releases em
-ambientes de engenharia de software contínua. A escolha do MeasureSoftGram neste trabalho se justifica por três razões:
+O MeasureSoftGram (MSG) é um modelo de avaliação de qualidade de produto de software originalmente proposto por \citeonline{neri2018measuresoftgram}, com o objetivo de superar a limitação da perspectiva unidimensional adotada pelos modelos de qualidade tradicionais. Diferentemente de modelos que avaliam cada característica de qualidade isoladamente, o MeasureSoftGram propõe uma representação multidimensional das características e subcaracterísticas de qualidade por meio de tensores, capturando também as relações e efeitos colaterais entre elas, com o objetivo de apoiar decisões de aceitação de releases em ambientes de engenharia de software contínua. A escolha do MeasureSoftGram neste trabalho se justifica por três razões:
 
 \begin{enumerate}[leftmargin=2\parindent]
 	\item trata-se de um modelo de qualidade desenvolvido no contexto acadêmico brasileiro, o que confere maior aderência ao domínio de aplicação deste estudo;
@@ -582,4 +541,8 @@ a base metodológica necessária para que o experimento seja conduzido de
 forma sistemática, replicável e alinhada aos objetivos de pesquisa
 estabelecidos no Capítulo 1.
 
-\todo[inline, color=pink]{escrever o cap. da conclusão.}
+\section{Conclusão}
+
+\section{Uso de Inteligência Artificial}
+
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente ao autor.
