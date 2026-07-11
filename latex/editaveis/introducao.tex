@@ -4,8 +4,7 @@ Este capítulo apresenta os elementos introdutórios que norteiam o presente tra
 
 \section{Contexto}
 
-A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, 
-sendo frequentemente incorporadas a práticas de Integração Contínua (CI) e Desenvolvimento Contínuo (CD) \cite{LenarduzziEtAll}.
+A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, sendo frequentemente incorporadas a práticas de Integração Contínua (CI) e Desenvolvimento Contínuo (CD) \cite{LenarduzziEtAll}.
 
 Apesar de sua relevância, as ferramentas tradicionais de análise estática operam, em geral, com base em regras previamente definidas, padrões sintáticos e métricas estruturais do código. Estudos empíricos indicam que diferentes ferramentas podem apresentar baixa concordância entre si, além de variações consideráveis em termos de precisão. \citeonline{LenarduzziEtAll}, ao compararem seis ferramentas populares de análise estática, identificaram pouca ou nenhuma concordância entre os problemas detectados e observaram que a precisão prática dessas ferramentas pode ser afetada pela ocorrência de falsos positivos.
 
@@ -15,14 +14,11 @@ Além da capacidade dos modelos, a forma como as solicitações são formuladas 
 
 \section{Problema}
 
-Embora ferramentas de análise estática sejam amplamente utilizadas na avaliação da qualidade de software, sua atuação tende a se concentrar em regras formais, métricas e padrões previamente definidos. Essa característica limita sua capacidade de avaliar aspectos que dependem de maior compreensão semântica e contextual do código, como intenção de uso, comportamento esperado e adequação de determinadas estruturas ao contexto do sistema. Assim, ainda que essas ferramentas sejam úteis para identificar problemas recorrentes, 
-sua aplicação pode não capturar adequadamente dimensões mais interpretativas da qualidade do código \cite{LenarduzziEtAll}.
+Embora ferramentas de análise estática sejam amplamente utilizadas na avaliação da qualidade de software, sua atuação tende a se concentrar em regras formais, métricas e padrões previamente definidos. Essa característica limita sua capacidade de avaliar aspectos que dependem de maior compreensão semântica e contextual do código, como intenção de uso, comportamento esperado e adequação de determinadas estruturas ao contexto do sistema. Assim, ainda que essas ferramentas sejam úteis para identificar problemas recorrentes, sua aplicação pode não capturar adequadamente dimensões mais interpretativas da qualidade do código \cite{LenarduzziEtAll}.
 
-Essa limitação torna-se particularmente relevante quando se consideram atributos de qualidade como a manutenibilidade. A avaliação da manutenibilidade não depende apenas da presença ou ausência de violações sintáticas, mas também da clareza, compreensibilidade, organização e facilidade de evolução do código. 
-Nesse sentido, a baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise ainda apresentam lacunas na representação de atributos de qualidade mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
+Essa limitação torna-se particularmente relevante quando se consideram atributos de qualidade como a manutenibilidade. A avaliação da manutenibilidade não depende apenas da presença ou ausência de violações sintáticas, mas também da clareza, compreensibilidade, organização e facilidade de evolução do código. Nesse sentido, a baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise ainda apresentam lacunas na representação de atributos de qualidade mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
 
-O surgimento dos LLMs acrescenta uma nova dimensão a esse problema. Por serem capazes de processar linguagem natural e código-fonte, esses modelos podem oferecer contribuições para tarefas que exigem interpretação contextual. Entretanto, os resultados disponíveis ainda indicam um cenário heterogêneo: enquanto LLMs apresentaram desempenho promissor em inferência de tipos, métodos tradicionais continuaram superiores em tarefas como análise de grafo de chamadas, especialmente em termos de eficiência e precisão operacional \cite{VenkateshEtAll}. Portanto, ainda não está claro como essas capacidades devem ser relacionadas aos 
-modelos e ferramentas tradicionais de qualidade de software.
+O surgimento dos LLMs acrescenta uma nova dimensão a esse problema. Por serem capazes de processar linguagem natural e código-fonte, esses modelos podem oferecer contribuições para tarefas que exigem interpretação contextual. Entretanto, os resultados disponíveis ainda indicam um cenário heterogêneo: enquanto LLMs apresentaram desempenho promissor em inferência de tipos, métodos tradicionais continuaram superiores em tarefas como análise de grafo de chamadas, especialmente em termos de eficiência e precisão operacional \cite{VenkateshEtAll}. Portanto, ainda não está claro como essas capacidades devem ser relacionadas aos modelos e ferramentas tradicionais de qualidade de software.
 
 Além disso, permanece em aberto a compreensão sobre como padrões de prompt influenciam atributos de qualidade do código.\citeonline{DellaPortaEtAll} investigaram a relação entre padrões de prompt e qualidade do código gerado por ChatGPT, considerando manutenibilidade, segurança e confiabilidade, mas indicaram que essa relação ainda demanda investigação. De forma complementar, \citeonline{KhojahEtAll} observaram que técnicas de prompt podem afetar correção e qualidade, mas que combinações de técnicas não necessariamente produzem melhores resultados. 
 
@@ -152,7 +148,7 @@ Esta sessão esclarece as atividades desenvolvidas durante a primeira etapa do t
   artigos retornados de acordo com critérios de inclusão e exclusão, resultando
   no conjunto final de estudos primários.
 
-  \item \textbf{Leitura e extração de dados} -- Leitura integral dos artigos
+  \item \textbf{Leitura e extração de dados} -- Leitura integral dos artigos 
   selecionados e extração das informações relevantes para responder às
   questões de pesquisa, organizando os dados para as etapas seguintes de
   análise.
@@ -207,3 +203,7 @@ Esta seção esclarece as atividades que serão desenvolvidas durante a segunda 
 
   \item \textbf{Revisão final e defesa pública} -- Revisão de todo o trabalho acadêmico consolidado e preparação para a defesa pública perante a banca examinadora.
 \end{itemize}
+
+\section{Uso de Inteligência Artificial}
+
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente do autor.
