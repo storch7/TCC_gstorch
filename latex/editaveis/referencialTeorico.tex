@@ -172,6 +172,8 @@ O modelo padrão define quatro indicadores estratégicos: \textbf{Product Qualit
     \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
 \end{figure}
 
+A avaliação da qualidade no Q-Rapids segue uma abordagem \textit{bottom-up}, inspirada no mecanismo de agregação do Quamoco. Cada métrica avaliada é calculada diretamente a partir dos dados brutos coletados pelas ferramentas de origem, por meio de fórmulas de razão ou densidade que produzem valores já normalizados no intervalo entre 0 e 1. Por exemplo, o fator \textit{Code Quality} inclui a métrica \textit{densidade de arquivos não complexos}, calculada como a razão entre o número de arquivos abaixo do limiar de complexidade ciclomática (10, por padrão) e o número total de arquivos do sistema, com os dados brutos extraídos via SonarQube \cite{martinezfernandez2019qrapids}. Essas métricas avaliadas são então agregadas em fatores de produto ou de processo, os quais, por sua vez, são agregados nos indicadores estratégicos correspondentes, seguindo o mesmo princípio \textit{bottom-up} de composição hierárquica.
+
 Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
 
 \subsection{Modelo Q-Squale}
@@ -213,6 +215,20 @@ Como as demais características dependem da camada de Testabilidade, o método r
 
 \subsection{Modelo MeasureSoftGram}
 \label{sec:measure_softgram}
+
+O MeasureSoftGram (MSG) é um modelo de avaliação de qualidade de produto de software proposto originalmente por \citeonline{neri2018measuresoftgram} e posteriormente formalizado por \citeonline{neri2020tensors}, com o objetivo de superar a limitação da perspectiva unidimensional adotada pelos modelos de qualidade tradicionais. Segundo os autores, modelos como SQALE e Quamoco, apesar de avançarem na operacionalização de normas ISO, ainda avaliam cada característica de qualidade isoladamente, sem capturar as relações e efeitos existentes entre elas, o que é uma limitação especialmente relevante em ambientes de engenharia de software contínua, nos quais decisões de aceitação de \textit{releases} precisam considerar múltiplas dimensões de qualidade de forma simultânea.
+
+O modelo segue a estrutura hierárquica de características e subcaracterísticas de qualidade estabelecida pela norma ISO/IEC 25010:2011, sendo cada característica composta por um conjunto de subcaracterísticas, e cada subcaracterística, por sua vez, mensurada por medidas avaliadas obtidas a partir de métricas extraídas diretamente do código-fonte. Diferentemente de modelos que agregam essas medidas por meio de médias ponderadas, o MeasureSoftGram propõe representar as características, subcaracterísticas e medidas como tensores (uma generalização matemática de escalares e vetores para espaços de $n$ dimensões), permitindo capturar, além dos valores individuais de cada dimensão de qualidade, as relações existentes entre elas \cite{neri2020tensors}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Cadeia hierárquica do modelo de qualidade MeasureSoftGram}
+    \includegraphics[width=14cm]{figuras/measuresoftgram_cadeia_hierarquica.png}
+    \label{fig:msgHierarquia}
+    \fonte{O Autor, adaptado de \citeonline{neri2020tensors}.}
+\end{figure}
+
+A viabilidade do modelo foi avaliada por meio de um estudo exploratório de prova de conceito, no qual medidas extraídas com o auxílio da ferramenta SonarQube foram organizadas em tensores de qualidade referentes aos modelos SQUALE e Q-Rapids, aplicados a um produto de software real \cite{neri2020tensors}. Os resultados preliminares indicaram a viabilidade técnica da abordagem, ainda que os próprios autores apontem a necessidade de estudos experimentais adicionais para caracterizar sua eficácia frente aos modelos de qualidade tradicionais.
 
 
 \section{Ferramentas de Análise Estática de Código-Fonte}
@@ -274,21 +290,6 @@ A pesquisa empírica em Engenharia de Software produz conhecimento por meio da o
 O levantamento busca caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador. O estudo de caso analisa um fenômeno em seu contexto real, com controle limitado sobre as variáveis. O experimento, por sua vez, envolve a manipulação deliberada de um ou mais fatores para observar seus efeitos sobre uma variável de resultado, mantendo as demais condições controladas \cite{wohlin2024}.
 
 Segundo \citeonline{wohlin2024}, os experimentos são adequados para comparar métodos, técnicas, ferramentas e soluções em Engenharia de Software, produzindo evidências quantitativas para a avaliação de hipóteses. Para garantir a validade dos resultados, sua execução deve seguir um processo estruturado, desde a definição do problema até a análise e a apresentação dos resultados, conforme detalhado nas subseções seguintes.
-
-\subsection{O Processo de Experimentação}
-\label{sec:experimentacao}
-
-Segundo \citeonline{wohlin2024}, a condução de um experimento em Engenharia de Software segue um processo estruturado em cinco fases: \textbf{Definição}, \textbf{Planejamento}, \textbf{Operação}, \textbf{Análise e Interpretação} e \textbf{Apresentação e Empacotamento}, ilustradas na Figura \ref{fig:processoExperimentacao}. Na Definição, estabelecem-se o propósito e o escopo da investigação; no Planejamento, são detalhados o desenho, as variáveis e os procedimentos que viabilizam a execução; na Operação, os tratamentos são efetivamente aplicados e os dados, coletados; na Análise e Interpretação, os dados coletados são examinados à luz das hipóteses formuladas; e, por fim, na Apresentação e Empacotamento, os resultados são documentados e comunicados de forma a permitir sua avaliação e eventual replicação.
-
-\begin{figure}[H]
-    \centering
-    \caption{Processo de experimentação em Engenharia de Software}
-    \includegraphics[width=16cm]{figuras/processo_experimentacao.png}
-    \label{fig:processoExperimentacao}
-    \fonte{O Autor, adaptado da \citeonline{wohlin2024}.}
-\end{figure}
-
-O Capítulo \ref{cap:planejamento}, de Planejamento, concentra-se na segunda fase desse processo, detalhando os elementos que a compõem: definição do experimento, seleção de contexto, formulação de hipóteses, seleção de variáveis, seleção de sujeitos e objetos, e desenho experimental.
 
 \subsection{Definição do Experimento}
 
