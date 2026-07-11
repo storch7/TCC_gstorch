@@ -1,8 +1,5 @@
 \chapter[Revisão Estruturada da Literatura]{Revisão Estruturada da Literatura}
-Este capítulo apresenta o procedimento adotado para identificação, seleção e organização 
-do material bibliográfico utilizado neste trabalho. A busca foi conduzida na base Scopus, 
-escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências relevantes para a comunidade acadêmica \cite{elsevier2024}.
-
+Este capítulo apresenta o procedimento adotado para identificação, seleção e organização do material bibliográfico utilizado neste trabalho. A busca foi conduzida na base Scopus, escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências relevantes para a comunidade acadêmica \cite{elsevier2024}.
 
 \section{Planejamento e Protocolo}
 Inicialmente, foram realizadas leituras exploratórias sobre qualidade de software, análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa contribuiu para a contextualização do problema, a delimitação do escopo da pesquisa, a formulação da questão principal e a identificação dos termos utilizados na estratégia de busca.
@@ -23,9 +20,7 @@ Por fim, foi elaborado um formulário de extração de dados contemplando inform
 
 Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular uma questão de pesquisa clara e focada, especialmente em revisões sistemáticas. 
 
-O acrônimo representa quatro componentes principais de uma pergunta bem construída: \textit{Patient}, \textit{Intervention}, \textit{Comparison} e \textit{Outcome}; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. 
-
-A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
+O acrônimo representa quatro componentes principais de uma pergunta bem construída: \textit{Patient}, \textit{Intervention}, \textit{Comparison} e \textit{Outcome}; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. gitr A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
 
 \begin{figure}[H]
     \centering
@@ -95,9 +90,7 @@ A execução da string de busca foi realizada em 05 de maio de 2026, na base de 
 
 Após essa triagem inicial, foram selecionados 35 artigos para leitura em maior profundidade. No entanto, dois desses estudos foram excluídos por indisponibilidade de acesso ao texto completo, impossibilitando sua análise integral. Dessa forma, a seleção resultante da execução da string de busca foi composta por 33 artigos.
 
-Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir da execução da string de busca. 
-
-Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
+Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir da execução da string de busca. Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
 
 \begin{longtable}{|p{3.5cm}|p{11cm}|}
 \caption{Protocolo de Busca} \label{tab:protocolo_busca} \\
@@ -170,7 +163,7 @@ A representação visual do processo de realização do protocolo de busca tamb�
 \begin{figure}[H]
     \centering
     \caption{Fluxo da realização do protocolo de busca}
-    \includegraphics[width=13cm]{figuras/fluxo_selecao_artigos.png}
+    \includegraphics[width=12cm]{figuras/fluxo_selecao_artigos.png}
     \label{fig:fluxo_selecao}
     \fonte{O Autor}
 \end{figure}
@@ -468,8 +461,6 @@ Assim, a aplicação de modelos de qualidade em código produzido por LLMs pode 
 
 % Os artigos apresentam uma variedade de padrões de prompt avaliados e comparados entre si. O que se observa é que não há um padrão de prompt específico utilizado para operacionalizar a característica de manutenibilidade em produtos de software; no entanto, grande parte dos artigos apontam um melhor desempenho em padrões de prompt que tendem a trazer uma diminuição da janela de contexto de analise e uma divisão das solicitações em tarefas menores, mostrando um melhor desempenho das LLMs para realização destas atividades.
 
-\subsection{Quais são os principais padrões de engenharia de prompt aplicados à análise de código-fonte com respeito a menutenibilidade?}
-
 Os principais padrões de engenharia de prompt identificados nos estudos são \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, \textit{Tree-of-Thought}, \textit{Guided Tree-of-Thought}, \textit{Context-Specific}, \textit{Output Constraints}, \textit{Personas}, prompts genéricos, prompts detalhados e prompts baseados em \textit{feedback} de ferramentas estáticas. \citeonline[p.~18, tradução nossa]{MartinezEtAll} sintetizam esse conjunto ao afirmar que as técnicas observadas incluem ``\textit{Zero-Shot, One-Shot, Few-Shot, Chain-of-Thought, Context-Specific, Output Constraints e Ranking}'', o que sustenta que a literatura sobre refatoração e qualidade com LLMs já trabalha com uma variedade de padrões, muitas vezes combinados.
 
 \citeonline[p.~1, tradução nossa]{DellaPortaEtAll} analisam especificamente os padrões \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}, afirmando que ``quatro padrões de prompt foram analisados: \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}''. Já \citeonline[p.~1, tradução nossa]{OuedraogoEtAll} ampliam esse conjunto no contexto de geração de testes, avaliando ``Aprendizado \textit{Zero-Shot} (ZSL), Aprendizado \textit{Few-Shot} (FSL), \textit{Chain-of-Thought} (CoT), \textit{Tree-of-Thought} (ToT) e \textit{Guided Tree-of-Thought} (GToT)''.
@@ -528,3 +519,7 @@ Em relação aos produtos de software de código-fonte aberto avaliados nos estu
 Entre os produtos explicitamente mencionados nos estudos, destacam-se projetos como Django, Flask, React, pandas, SciPy, scikit-learn, SymPy, seaborn, xarray, MariaDB, cURL, libpng, Apache Lucene, Apache Solr, Checkstyle, JGit, JavaParser, Google Guava, Guice, jsoup, ZXing, ArgoUML, OrangeHRM e Cypress. Esses produtos foram utilizados em diferentes contextos de avaliação, incluindo análise de manutenibilidade, refatoração, geração de testes, detecção de code smells, compreensão de código e avaliação de qualidade de software com apoio de modelos de linguagem.
 
 Além dos produtos diretamente nomeados, parte dos estudos recorreu a benchmarks e datasets compostos por múltiplos repositórios de código aberto, como SWE-bench, Defects4J, DevGPT, CoderEval, SF110 e SmellyCodeDataset. Nesses casos, os artigos nem sempre apresentam individualmente todos os produtos avaliados, mas indicam o uso de bases públicas formadas por projetos open source. Assim, os resultados evidenciam que a literatura recente tem utilizado tanto produtos open source específicos quanto conjuntos de dados amplos para investigar a aplicação de LLMs em tarefas relacionadas à qualidade e manutenção de software.
+
+\section{Uso de Inteligência Artificial}
+
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente ao autor.

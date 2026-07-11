@@ -1,4 +1,5 @@
 \chapter[Referencial Teórico]{Referencial Teórico}
+\label{cap:referencial_teorico}
 
 O referencial teórico apresenta os conceitos fundamentais que sustentam o desenvolvimento desta pesquisa, oferecendo ao(à) leitor(a) uma contextualização teórica acerca dos principais temas abordados ao longo do trabalho. Inicialmente, são discutidos aspectos relacionados à qualidade de software, aos modelos de qualidade de produto de software e à característica de manutenibilidade. Em seguida, são apresentados os conceitos sobre Modelos de Linguagem de Grande Escala (LLMs) e engenharia de prompt. Por fim, são descritos os fundamentos sobre a experimentação no contexto da Engenharia de Software.
 
@@ -232,6 +233,7 @@ A viabilidade do modelo foi avaliada por meio de um estudo exploratório de prov
 
 
 \section{Ferramentas de Análise Estática de Código-Fonte}
+\label{sec:ferramentas_referencial}
 
 Uma ferramenta de análise estática de código-fonte pode ser compreendida como um instrumento automatizado, interno ou externo, capaz de identificar violações de regras de codificação em um conjunto de código-fonte, associando cada violação encontrada à sua localização específica (arquivo, classe, método ou linha). Ferramentas desse tipo constituem o elo entre os modelos teóricos de qualidade, que por definição são amplos e não diretamente mensuráveis, e sua operacionalização prática, uma vez que fornecem os dados brutos, a partir dos quais métricas e medidas associadas aos atributos e subatributos definidos nos modelos de referência de qualidade de software podem ser calculadas \citeonline{griffith2017industry}.
 
@@ -295,10 +297,12 @@ Segundo \citeonline{wohlin2024}, experimentos são instrumentos relevantes para 
 A definição de um experimento controlado em no contexto da Engenharia de Software pode ser entendida como uma investigação empírica que manipula um fator ou variável do cenário estudado. Com base na randomização, diferentes tratamentos são aplicados aos sujeitos ou objetos, enquanto as demais variáveis são mantidas constantes, permitindo medir os efeitos produzidos sobre as variáveis de resultado \cite{wohlin2024}.
 
 \subsection{Seleção de Contexto}
+\label{sec:selecao_de_contexto_ref}
 
 A seleção de contexto delimita o ambiente experimental e as condições sob as quais os resultados podem ser interpretados e generalizados. De acordo com \citeonline[p.~116]{wohlin2024}, o contexto de um experimento pode ser caracterizado a partir de quatro dimensões: \textit{offline} versus \textit{online} (execução em ambiente controlado ou em produção), estudante versus profissional (nível de experiência dos sujeitos), problema de \textit{brinquedo} (\textit{toy}) versus problema real (grau de realismo dos objetos avaliados), e específico versus geral (amplitude pretendida para os resultados). Essas dimensões orientam decisões que impactam diretamente o equilíbrio entre controle experimental e validade externa dos achados.
 
 \subsection{Formulação de Hipóteses}
+\label{sec:formulacao_hipoteses_ref}
 
 A análise estatística de um experimento é fundamentada no teste de hipóteses \citeonline{wohlin2024}. Uma hipótese deve ser formalmente estabelecida antes da coleta de dados, de modo que estes sejam utilizados para verificar se há evidências suficientes para rejeitá-la. Formulam-se tipicamente duas hipóteses complementares: a \textbf{hipótese nula} ($H_0$), que assume a ausência de diferença ou relação real entre os tratamentos investigados -- de modo que eventuais diferenças observadas seriam atribuídas ao acaso --, e a \textbf{hipótese alternativa} ($H_1$), que assume a existência dessa diferença. O experimento é então conduzido com o propósito de reunir evidências que permitam decidir pela rejeição ou não rejeição de $H_0$.
  
@@ -358,10 +362,12 @@ Variáveis independentes que não constituem fatores nem blocos e são mantidas 
 
 A distinção entre essas categorias orienta a definição das fontes de variação que serão investigadas, controladas por blocagem ou mantidas constantes durante a execução do experimento. A aplicação dessas categorias ao desenho desta pesquisa é apresentada na Seção~\ref{sec:selecao_de_variaveis}.
 
-
 \subsection{Seleção de Sujeitos e Objetos}
+\label{sec:selecao_sujeitos_ref}
 
-A seleção de sujeitos define as unidades experimentais a partir das quais os tratamentos são aplicados e os resultados são observados. Essa escolha é entendida como um processo de amostragem: uma seleção de elementos retirada de uma população mais ampla, cuja representatividade determina o quanto os resultados do experimento podem ser generalizados \citeonline{wohlin2024}. Os autores distinguem ainda duas formas de amostragem: a probabilística, em que a chance de cada elemento da população ser selecionado é conhecida, e a não probabilística, como a amostragem por conveniência, em que os elementos são escolhidos por estarem prontamente disponíveis ao pesquisador. 
+A seleção de sujeitos define as unidades experimentais a partir das quais os tratamentos são aplicados e os resultados são observados. Essa escolha é entendida como um processo de amostragem: uma seleção de elementos retirada de uma população mais ampla, cuja representatividade determina o quanto os resultados do experimento podem ser generalizados \citeonline{wohlin2024}. Os autores distinguem ainda duas formas de amostragem: a probabilística, em que a chance de cada elemento da população ser selecionado é conhecida, e a não probabilística, como a amostragem por conveniência, em que os elementos são escolhidos por estarem prontamente disponíveis ao pesquisador.
+
+Já os objetos são os artefatos sobre os quais os tratamentos são efetivamente aplicados, distintos do sujeito, o agente responsável por aplicá-los. Em Engenharia de Software, correspondem tipicamente a especificações, documentos de projeto ou código-fonte. Assim como os sujeitos, os objetos são selecionados por amostragem, e sua representatividade também é determinante para a validade e a generalização dos resultados \citeonline{wohlin2024}.
 
 \subsection{Desenho Experimental}
 
@@ -414,6 +420,7 @@ Segundo \citeonline{wohlin2024}, os testes de hipótese podem ser classificados 
 A seleção do teste estatístico adequado depende, ainda, do desenho do experimento, isto é, do número de tratamentos avaliados e da relação entre as amostras (independentes ou pareadas). Para o caso de um único fator com dois tratamentos, os testes paramétricos indicados são o t-test e o F-test, com o Mann-Whitney como alternativa não paramétrica para amostras independentes e o Wilcoxon e o Sign test para amostras pareadas. Quando o fator avaliado possui mais de dois tratamentos, o teste paramétrico correspondente é a ANOVA (\textit{ANalysis Of Variance}), tendo como alternativa não paramétrica o teste de Kruskal-Wallis, aplicável sempre que não há certeza de que as premissas da ANOVA são satisfeitas pelos dados \citeonline{wohlin2024}.
 
 \subsection{Ameaças à Validade}
+\label{sec:ameacas_validade_ref}
 
 A validade de um experimento refere-se ao grau de confiança que pode ser depositado em seus resultados e conclusões. \citeonline{wohlin2024} organizam as ameaças à validade em quatro categorias. A \textbf{validade de conclusão} diz respeito à correção da relação estatística identificada entre o tratamento e o resultado. A \textbf{validade interna} refere-se à possibilidade de que a relação observada entre tratamento e resultado seja, de fato, causal, e não decorrente de fatores não controlados. A \textbf{validade de constructo} avalia se as medidas e os tratamentos utilizados representam adequadamente os conceitos teóricos que pretendem operacionalizar. Por fim, a \textbf{validade externa} trata da possibilidade de generalização dos resultados para além do contexto específico em que o experimento foi conduzido. Essas categorias orientam a identificação e a discussão das limitações do experimento proposto neste trabalho.
 

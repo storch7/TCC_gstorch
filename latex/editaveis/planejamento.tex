@@ -13,11 +13,11 @@ Este capítulo apresenta o planejamento do experimento controlado projetado para
 
 % Portanto, a adoção de um experimento controlado é coerente com o desenho desta pesquisa, pois permite manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre uma variável dependente. Essa abordagem contribui para que o trabalho prático seja conduzido de forma sistemática, transparente e passível de replicação, fortalecendo a validade da investigação e a confiabilidade dos resultados obtidos.
 
-A abordagem metodológica desta pesquisa baseia-se em um experimento controlado em Engenharia de Software, uma vez que o estudo busca comparar diferentes tratamentos e observar seus efeitos sobre uma variável de resultado. Nesse contexto, os padrões de engenharia de prompt correspondem ao fator manipulado, enquanto a aferição do indicador de manutenibilidade representa a variável dependente.
+A abordagem experimental adotada nesta pesquisa é o experimento controlado em Engenharia de Software, conforme caracterizado na Seção \ref{sec:experimento_controlado}. A escolha decorre da estrutura da questão de pesquisa (Seção \ref{sec:questao_de_pesquisa}): não se pretende apenas descrever um fenômeno, mas comparar diferentes tratamentos aplicados a um mesmo tipo de objeto experimental, observando seus efeitos sobre uma variável de resultado.
 
-A escolha dessa abordagem permite investigar a relação entre a variação dos padrões de prompt e os resultados obtidos na avaliação da manutenibilidade. Conforme \citeonline{wohlin2024}, experimentos controlados possibilitam analisar relações de causa e efeito por meio da aplicação de tratamentos, da observação dos resultados e do controle de fatores externos.
+Nesse desenho, o padrão de engenharia de prompt corresponde ao fator manipulado, e o resultado da aferição do indicador de manutenibilidade corresponde à variável dependente observada. A causa investigada é, portanto, a variação dos padrões de prompt, e o efeito observado é a variação na aferição do indicador de manutenibilidade, relação que orienta a formulação de hipóteses da Seção \ref{sec:formulação_de_hipóteses} e o teste da relação entre causa e efeito conduzido a partir dos dados coletados \cite{wohlin2024}.
 
-Assim, o experimento controlado mostra-se adequado ao objetivo da pesquisa, pois viabiliza a comparação sistemática dos tratamentos, o controle das variáveis envolvidas e a análise dos efeitos observados, contribuindo para a transparência, a replicabilidade e a confiabilidade dos resultados.
+A adoção do experimento controlado permite, assim, manipular as variáveis de interesse, controlar fatores externos, comparar tratamentos e analisar os efeitos observados sobre a variável dependente, conduzindo o trabalho prático de forma sistemática, transparente e passível de replicação.
 
 
 \section{Seleção de Contexto}
@@ -31,57 +31,47 @@ Assim, o experimento controlado mostra-se adequado ao objetivo da pesquisa, pois
 
 % Dessa forma, o experimento será realizado em um ambiente controlado,    utilizando os mesmos objetos de análise para os diferentes tratamentos de padrão de prompt, de modo a permitir a comparação entre os resultados produzidos com os modelos de qualidade de referência adotados como blocos
 
-A seleção do contexto delimita o ambiente de execução do experimento e as condições de interpretação dos resultados, incluindo os sujeitos e os artefatos de software analisados \cite{wohlin2024}.
+A seleção do contexto delimita o ambiente no qual o experimento será conduzido e as condições sob as quais os resultados deverão ser interpretados, contemplando tanto os sujeitos envolvidos quanto os artefatos de software utilizados como objetos do experimento \cite{wohlin2024}. Classificando este experimento segundo as quatro dimensões apresentadas na Seção \ref{sec:selecao_de_contexto_ref} do referencial teórico, tem-se: (i) offline, por ser conduzido em ambiente controlado e não em produção; (ii) quanto à dimensão estudante versus profissional, ela não se aplica diretamente ao desenho deste estudo, uma vez que os tratamentos são aplicados por Modelos de Linguagem de Grande Escala, e não por sujeitos humanos; essa fonte de variação é substituída, de forma equivalente, pela ferramenta de LLM utilizada, tratada como variável de bloqueio (Seção \ref{sec:selecao_de_variaveis}); (iii) baseado em problemas reais, pois utiliza repositórios de código-fonte aberto de projetos reais como objetos de análise, em vez de exemplos sintéticos ou simplificados; e (iv) específico, uma vez que os resultados são válidos para o domínio delimitado de projetos de código-fonte aberto voltados a aplicações web, não sendo pretendida generalização imediata para outros domínios da Engenharia de Software.
 
-Este experimento será conduzido de forma offline, em ambiente controlado, utilizando repositórios reais de código-fonte aberto voltados a aplicações web. A dimensão relacionada à experiência dos sujeitos humanos não se aplica diretamente, pois os tratamentos serão executados por Modelos de Linguagem de Grande Escala. Nesse caso, a ferramenta de LLM será considerada uma variável de bloqueio, conforme será descrito na Seção \ref{sec:selecao_de_variaveis}.
+A opção por um ambiente offline e controlado justifica-se por reduzir os riscos e os custos associados à execução do experimento e por proporcionar maior controle sobre as variáveis envolvidas \citeonline{wohlin2024}.
 
-O estudo situa-se mais próximo de um contexto específico, uma vez que seus resultados estarão delimitados ao domínio analisado, sem pretensão de generalização imediata para outros tipos de software. A adoção de um ambiente controlado permite reduzir riscos e custos, além de ampliar o controle sobre as variáveis experimentais \citeonline{wohlin2024}. Para garantir a comparabilidade, os mesmos objetos de análise serão submetidos aos diferentes padrões de prompt e avaliados com base nos modelos de qualidade de referência adotados.
+Dessa forma, o experimento será realizado em um ambiente controlado, utilizando os mesmos objetos de análise para os diferentes tratamentos de padrão de prompt, de modo a permitir a comparação entre os resultados produzidos com os modelos de qualidade de referência adotados como blocos.
 
 \section{Formulação de Hipóteses}
+\label{sec:formulação_de_hipóteses}
 
-As hipóteses deste experimento foram formuladas com o objetivo de verificar se diferentes padrões de engenharia de prompt influenciam os resultados da avaliação de manutenibilidade realizada por Modelos de Linguagem de Grande Escala. Conforme \citeonline{wohlin2024}, a análise estatística permite avaliar se as diferenças observadas entre os tratamentos apresentam evidências suficientes para a rejeição da hipótese nula.
+A formulação das hipóteses parte da premissa de que diferentes padrões de engenharia de prompt podem influenciar a forma como um Modelo de Linguagem de Grande Escala avalia o indicador de manutenibilidade de trechos de código-fonte. Segundo os conceitos de teste de hipóteses apresentados na Seção \ref{sec:formulacao_hipoteses_ref} do referencial teórico \citeonline{wohlin2024}, as hipóteses deste experimento foram formuladas de modo a verificar se a variação dos padrões de prompt produz diferenças significativas nos resultados de avaliação.
 
-Seja $IM$ o indicador de manutenibilidade produzido pelo LLM, conforme definido na Seção \ref{sec:selecao_de_variaveis}, e sejam $P_1, P_2, \ldots, P_n$ os padrões de engenharia de prompt avaliados. As hipóteses são definidas da seguinte forma:
+Neste trabalho, seja $IM$ o indicador de manutenibilidade produzido pela avaliação do LLM, conforme definido na Seção \ref{sec:instrumentacao}, e sejam $P_1, P_2, \ldots, P_n$ os diferentes padrões de engenharia de prompt avaliados. As hipóteses do experimento são formuladas da seguinte maneira:
 
 \begin{itemize}
-\item[] $H_0$: os padrões de engenharia de prompt não produzem diferenças significativas nos resultados da avaliação de manutenibilidade realizada por LLMs.
+    \item[] $H_0$: diferentes padrões de engenharia de prompt não produzem
+    diferenças significativas na avaliação de manutenibilidade realizada
+    por LLMs.
+    $$H_0 : \mu_{IM}(P_1) = \mu_{IM}(P_2) = \ldots = \mu_{IM}(P_n)$$
 
-```
-\[
-H_0 : \mu_{IM}(P_1) = \mu_{IM}(P_2) = \ldots = \mu_{IM}(P_n)
-\]
-
-\item[] $H_1$: pelo menos dois padrões de engenharia de prompt produzem resultados significativamente diferentes na avaliação de manutenibilidade realizada por LLMs.
-
-\[
-H_1 : \exists\, P_i, P_j \mid \mu_{IM}(P_i) \neq \mu_{IM}(P_j)
-\]
-```
-
+    \item[] $H_1$: diferentes padrões de engenharia de prompt produzem
+    diferenças significativas na avaliação de manutenibilidade realizada
+    por LLMs.
+    $$H_1 : \exists\ P_i, P_j\ |\ \mu_{IM}(P_i) \neq \mu_{IM}(P_j)$$
 \end{itemize}
 
-A hipótese nula estabelece, portanto, que a média do indicador de manutenibilidade é equivalente entre os padrões de prompt avaliados. A hipótese alternativa estabelece que pelo menos um par de padrões apresenta diferença estatisticamente significativa. Essas hipóteses serão avaliadas separadamente no contexto dos modelos de qualidade Q-Rapids e MeasureSoftGram.
+Ou seja, a hipótese nula afirma que a média dos resultados do indicador de manutenibilidade é equivalente entre os padrões de prompt avaliados, enquanto a hipótese alternativa afirma que ao menos um par de padrões apresenta diferença significativa. Reforça-se que as hipóteses $H_0$/$H_1$ tratam apenas dos modelos Q-Rapids e MeasureSoftGram, conforme delimitado na Seção \ref{sec:selecao_de_variaveis}.
 
-O nível de significância e o dimensionamento da amostra serão definidos considerando os riscos associados aos erros Tipo I e Tipo II e ao poder estatístico do teste, conforme os conceitos apresentados no referencial teórico.
+O nível de significância adotado e o dimensionamento da amostra de objetos experimentais (Seção \ref{sec:objetos}) foram definidos de modo a equilibrar o risco de conclusões falso-positivas (erro Tipo I) com a capacidade do teste de detectar diferenças reais entre os tratamentos (poder do teste), conforme os conceitos apresentados na Seção \ref{sec:formulacao_hipoteses_ref}.
 
-A avaliação será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt. Dessa forma, será analisado se as variações observadas podem ser associadas aos tratamentos aplicados ou se permanecem compatíveis com a variabilidade esperada entre avaliações equivalentes.
+A avaliação dessas hipóteses será realizada a partir dos resultados gerados pelos LLMs para os mesmos objetos experimentais, submetidos aos diferentes padrões de prompt, verificando-se se as variações observadas podem ser associadas aos tratamentos aplicados ou se permanecem dentro de uma variação esperada entre avaliações equivalentes.
 
 \section{Seleção de Variáveis}
 \label{sec:selecao_de_variaveis}
 
-% O planejamento de um experimento requer a definição explícita das variáveis envolvidas. Todas as variáveis de um processo que são manipuladas e controladas pelo pesquisador são chamadas de variáveis independentes; quando o propósito da manipulação é justamente estudar o efeito de sua variação, essas variáveis são chamadas de fatores, e cada um de seus níveis, de tratamentos. A variável dependente, por sua vez, corresponde ao efeito observado como resultado da aplicação dos tratamentos \citeonline{wohlin2024}.
+Este experimento adota um único fator: o padrão de engenharia de prompt, forma como a instrução é estruturada para orientar o modelo na análise do indicador de manutenibilidade, composto por três tratamentos: \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}, estratégias distintas de formulação da instrução fornecida ao LLM. A delimitação a três padrões, em detrimento de um conjunto mais amplo de técnicas discutidas na literatura, decorre do escopo de um Trabalho de Conclusão de Curso de graduação e recai sobre as estratégias mais investigadas e replicadas em estudos que relacionam padrões de prompt à qualidade de código gerado ou avaliado por LLMs \cite{DellaPortaEtAll, KhojahEtAll}. Essa escolha é reforçada pela observação de \citeonline{KhojahEtAll} de que a combinação de múltiplas técnicas de prompt não necessariamente produz resultados superiores às técnicas aplicadas isoladamente, o que sustenta a adequação de investigar os três padrões como estratégias distintas e não combinadas, sem prejuízo à validade da comparação pretendida.
 
-% Cabe ainda uma distinção relevante para este trabalho: \citeonline{wohlin2024} diferenciam experimentos em que sujeitos humanos aplicam os tratamentos a objetos daqueles em que essa aplicação é feita por meio de tecnologia. Este experimento se enquadra na segunda categoria, uma vez que os tratamentos (os padrões de engenharia de prompt) são aplicados por LLMs, e não por sujeitos humanos --- o que também fundamenta a caracterização do contexto apresentada na Seção \ref{sec:contexto_do_estudo}.
+A variável dependente é o resultado da aferição do indicador de manutenibilidade produzido na avaliação, tratado não como uma simples resposta textual do modelo, mas como uma medida indireta, observável a partir de critérios previamente definidos e cuja validação cuidadosa é essencial ao resultado do experimento \citeonline{wohlin2024}.
 
-O planejamento de um experimento requer a identificação das variáveis que podem influenciar seus resultados e a definição da forma como cada uma será tratada no desenho experimental \citeonline{wohlin2024}.
+O experimento adota ainda duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. A primeira assume dois níveis, Q-Rapids e MeasureSoftGram, escolhidos por serem estatisticamente comparáveis: compartilham o mesmo construto, com as mesmas variáveis independentes e medidas calculadas e normalizadas, divergindo apenas nos mecanismos de agregação e ponderação no cálculo dos indicadores. Isso não compromete o experimento e ainda contribui para testar se a inovação matemática do MeasureSoftGram (transformações algébricas e tensoriais realizadas no espaço $\mathbb{R}^n$) produz resultados diferentes de seu antecessor, dada a mesma entrada; como o objetivo desta pesquisa não é comparar os modelos entre si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a ferramenta de LLM, assume três níveis: ChatGPT, Claude e DeepSeek, cuja inclusão não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta, de modo que o efeito dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo; sua operacionalização é detalhada na Seção \ref{sec:design_do_experimento}.
 
-No contexto deste trabalho, considera-se um único fator: o padrão de engenharia de prompt. Esse fator corresponde à forma como a instrução é estruturada para orientar o modelo na análise do indicador de manutenibilidade, e é o elemento cujo efeito o experimento se propõe a estudar. O fator será composto por três tratamentos: \textit{zero-shot, few-sho}t e \textit{chain-of-thought}, que representam diferentes estratégias de formulação da instrução fornecida ao LLM. Essa delimitação a três padrões, em detrimento de um conjunto mais amplo de técnicas de engenharia de prompt discutidas na literatura, decorre do escopo de um Trabalho de Conclusão de Curso de graduação, e recai sobre três das estratégias mais investigadas e replicadas em estudos que relacionam padrões de prompt à qualidade de código gerado ou avaliado por LLMs \cite{DellaPortaEtAll, KhojahEtAll}. \citeonline{KhojahEtAll} observam que a combinação de múltiplas técnicas de prompt não necessariamente produz resultados superiores às técnicas aplicadas isoladamente, o que reforça a adequação de investigar \textit{zero-shot, few-shot} e \textit{chain-of-thought} como estratégias distintas e não combinadas, sem prejuízo à validade da comparação pretendida neste experimento. O objetivo é observar se a variação na estrutura do prompt influencia os resultados produzidos na avaliação de manutenibilidade.
-
-A variável dependente corresponde ao resultado observado após a aplicação dos tratamentos, sendo definida, neste experimento, como o resultado da aferição do indicador de manutenibilidade produzido na avaliação. Esse resultado não é tratado como uma simples resposta textual do modelo, mas como uma medida observável a partir de critérios previamente definidos. Por não ser diretamente mensurável, trata-se de uma medida indireta, cuja validação cuidadosa é essencial, já que sua adequação afeta diretamente o resultado do experimento \citeonline{wohlin2024}.
-
-Além do fator e da variável dependente, o experimento adota duas variáveis de bloqueio: o modelo de qualidade de referência e a ferramenta de LLM. Segundo \citeonline[p.~120, tradução nossa]{wohlin2024}, o bloqueio é utilizado quando temos um fator que provavelmente tem um efeito sobre a resposta, mas não estamos interessados nesse efeito. Assim, consegue-se controlar sistematicamente o efeito indesejado na comparação entre os tratamentos e, com isso, aumentar a precisão e confiança dos resultado do experimento. A primeira variável de bloqueio, o modelo de referência, assumirá dois níveis: Q-Rapids e MeasureSoftGram. Esses dois modelos são estatisticamente comparáveis porque possuem as mesmas varáveis independentes, as medidas calculadas e normalizadas. Ou seja, compartilham o mesmo construto. Esse foi uma das principais razões pela escolha de modelos tão próximos. Esses modelos divergem apenas nos mecanismos de agregação e ponderação das medidas, em essência, no cálculo dos indicadores. Isso não compromete o experimento e ainda contribui para a testar  se a inovação matemática do MeasureSoftGram ( transformações matemáticas algébricas, tensoriais, realizadas no espaço $\mathbb{R}^n$ ) produz resultados diferentes de seu antecessor, dado a mesma entrada. Como o objetivo desta pesquisa não é comparar os modelos entre si, esse efeito é controlado por bloqueio. A segunda variável de bloqueio, a ferramenta de LLM, assumirá igualmente três níveis: ChatGPT, Claude e DeepSeek. A inclusão das três ferramentas não visa determinar qual delas avalia melhor a manutenibilidade, mas controlar a variação introduzida pela escolha da ferramenta no processo de medição, de modo que o efeito observado dos padrões de prompt não seja confundido com particularidades de um LLM específico. Em ambos os casos, o efeito entre blocos não é objeto de estudo. A operacionalização do bloqueio é detalhada na Seção \ref{sec:design_do_experimento}.
-
-O experimento contará ainda com variáveis mantidas em nível fixo ao longo de sua execução, de modo a reduzir interferências externas na interpretação dos resultados \citeonline{wohlin2024}. Sua definição detalhada será consolidada na etapa de instrumentação; a título de exemplo, incluem-se o procedimento de coleta dos resultados e os parâmetros de configuração dos modelos de LLM.
+O experimento contará ainda com variáveis mantidas em nível fixo ao longo de sua execução, cuja definição detalhada será consolidada na etapa de instrumentação, incluindo, por exemplo, o procedimento de coleta dos resultados e os parâmetros de configuração dos modelos de LLM.
 
 Assim, a seleção de variáveis deste experimento pode ser sintetizada da seguinte forma:
 
@@ -98,290 +88,89 @@ Assim, a seleção de variáveis deste experimento pode ser sintetizada da segui
     de configuração dos LLMs).
 \end{itemize}
 
-Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre os diferentes padrões de prompt, mantendo o modelo de referência e a ferramenta de LLM como blocos e as demais condições constantes. Com isso, busca-se observar se as variações nos resultados de manutenibilidade podem ser associadas ao fator manipulado no experimento.
+Portanto, a seleção das variáveis foi definida de modo a permitir a comparação entre os diferentes padrões de prompt, mantendo o modelo de referência e a ferramenta de LLM como blocos e as demais condições constantes, de modo a observar se as variações nos resultados de manutenibilidade podem ser associadas ao fator manipulado no experimento.
 
 \section{Seleção dos Sujeitos}
 \label{sec:sujeitos}
 
-A seleção dos sujeitos corresponde à definição das unidades a partir das
-quais os tratamentos são aplicados e os resultados observados. A escolha
-dos sujeitos impacta diretamente a capacidade de generalização dos achados
-do experimento, uma vez que só é possível estender os resultados a uma
-população mais ampla quando a amostra selecionada a representa
-adequadamente; por isso, \citeonline{wohlin2024} descrevem essa escolha
-como um processo de amostragem sobre uma população de interesse.
+A seleção dos sujeitos, segundo Wohlin et al. (2024), corresponde a um processo de amostragem sobre uma população de interesse, conforme apresentado na Seção \ref{sec:selecao_sujeitos_ref} do referencial teórico. Neste trabalho, essa etapa exige uma adaptação à natureza tecnológica do experimento: como os tratamentos são aplicados por LLMs, e não por sujeitos humanos, a ferramenta de LLM é tratada como variável de bloqueio (Seção \ref{sec:selecao_de_variaveis}), e não como sujeito a ser amostrado de uma população. A decisão mais crítica de amostragem recai, portanto, sobre os objetos experimentais, os repositórios de código-fonte aberto e os arquivos neles contidos, e é a essa decisão que esta seção se dedica, ainda que mantenha o nome "Seleção dos Sujeitos" por coerência com a estrutura de planejamento proposta por \citeonline{wohlin2024}.
 
-No contexto desta pesquisa, essa etapa exige uma adaptação à natureza
-tecnológica do experimento. \citeonline{wohlin2024} distinguem estudos em que pessoas executam os
-tratamentos daqueles em que essa execução cabe a uma tecnologia; nesse
-segundo caso, o controle experimental tende a ser maior, já que o
-comportamento da tecnologia pode ser reproduzido de forma consistente entre
-execuções. Por essa razão, a ferramenta de LLM utilizada neste experimento
-é tratada como variável de bloqueio, e não como sujeito a ser
-amostrado de uma população. Em contrapartida, \citeonline[p.~78, tradução
-nossa]{wohlin2024} apontam que, nesse tipo de experimento, a variável fora
-de controle costuma ser justamente a seleção dos objetos: "é fundamental
-para o resultado a forma como os objetos são selecionados". Assim, a
-decisão mais crítica de amostragem neste estudo recai sobre os objetos
-experimentais --- os repositórios de código-fonte aberto e os arquivos
-neles contidos --- e é a essa decisão que esta seção se dedica, ainda que
-mantenha o nome "Seleção dos Sujeitos" por coerência com a estrutura de
-planejamento proposta por \citeonline{wohlin2024}.
+Adota-se uma organização em dois níveis: no nível do projeto, os repositórios de código-fonte aberto constituem as unidades amostrais; no nível do artefato, os arquivos extraídos desses repositórios constituem os objetos submetidos aos tratamentos, conforme detalhado na Subseção \ref{sec:objetos}.
 
-Adota-se, portanto, uma organização em dois níveis: no nível do projeto, os
-repositórios de código-fonte aberto constituem as unidades amostrais; no
-nível do artefato, os arquivos extraídos desses repositórios constituem os
-objetos submetidos aos tratamentos, conforme detalhado na Subseção \ref{sec:objetos}.
+A seleção dos repositórios é feita por amostragem não probabilística do tipo por conveniência, tomando como base os projetos de código-fonte aberto previamente identificados na revisão estruturada da literatura conduzida neste trabalho. Essa escolha mantém a continuidade metodológica entre o levantamento bibliográfico e o experimento, favorecendo a rastreabilidade e a transparência do estudo. Aplica-se, contudo, um critério de inclusão adicional decorrente da questão de pesquisa: embora a revisão estruturada tenha recuperado projetos de domínios diversos, apenas os projetos do domínio de aplicações web integram o experimento, enquanto os demais, ainda que levantados na revisão, são excluídos da avaliação empírica.
 
-A seleção dos repositórios é feita por amostragem não probabilística, do
-tipo por conveniência, conforme descrito por \citeonline{wohlin2024},
-tomando como base os projetos de código-fonte aberto previamente
-identificados na revisão estruturada da literatura conduzida neste
-trabalho. Essa escolha mantém a continuidade metodológica entre o
-levantamento bibliográfico e o experimento: os mesmos produtos de software
-que sustentaram a caracterização do problema passam a compor o objeto de
-avaliação empírica, favorecendo a rastreabilidade e a transparência do
-estudo.
-
-Sobre esse conjunto, contudo, aplica-se um critério de inclusão adicional,
-decorrente da própria questão de pesquisa. A revisão estruturada, ao
-responder quais são os produtos de código-fonte aberto avaliados nos
-estudos, recuperou projetos de domínios diversos, incluindo bibliotecas
-científicas e ferramentas de infraestrutura. A questão principal desta
-pesquisa, porém, delimita o escopo a projetos de código-fonte aberto do
-domínio de aplicações web. Estabelece-se, portanto, uma distinção entre o
-conjunto amplo (projetos de código aberto, qualquer domínio) e o
-subconjunto de interesse (projetos de código aberto e de aplicações web):
-apenas os projetos pertencentes ao domínio web integram o experimento,
-enquanto os demais, ainda que levantados na revisão, são excluídos da
-avaliação empírica por não atenderem ao recorte da questão de pesquisa.
-
-Cabe registrar que a amostragem por conveniência tem implicações sobre a
-generalização dos resultados: as conclusões não se estendem à totalidade
-dos projetos de aplicações web de código aberto, mas ao conjunto
-representado pela amostra, isto é, os projetos web consolidados na
-literatura recente sobre LLMs e qualidade de software. Além disso, quanto
-maior a variabilidade existente entre os objetos avaliados, maior deve ser
-o tamanho da amostra utilizada, já que o tamanho amostral influencia
-diretamente a capacidade do teste estatístico de detectar diferenças reais,
-conforme discutido por \citeonline{wohlin2024}. Essas limitações são
-retomadas na avaliação de validade (Seção \ref{sec:avaliacao}).
+A amostragem por conveniência implica que as conclusões não se estendem à totalidade dos projetos de aplicações web de código aberto, mas ao conjunto representado pela amostra, isto é, os projetos web consolidados na literatura recente sobre LLMs e qualidade de software. Essas limitações são retomadas na avaliação de validade (Seção \ref{sec:avaliacao}).
 
 \subsection{Definição dos Objetos}
 \label{sec:objetos}
 
-Os objetos do experimento correspondem aos artefatos de software
-diretamente submetidos aos tratamentos. Nesta pesquisa, os objetos são os
-arquivos de código-fonte extraídos dos repositórios selecionados. O termo
-arquivo é empregado de forma abrangente, contemplando diferentes formas de
-organização do código --- como classes, módulos, componentes, funções ou
-trechos --- conforme a estrutura de cada projeto analisado. A adoção desse
-termo mantém a definição dos objetos suficientemente geral para abranger as
-distintas linguagens, arquiteturas e convenções de organização presentes em
-projetos de aplicações web, evitando restringir o experimento a uma
-estrutura específica que possa não estar presente de maneira uniforme em
-todos os projetos.
+Os objetos do experimento são os arquivos de código-fonte extraídos dos repositórios selecionados. O termo arquivo é empregado de forma abrangente, contemplando diferentes formas de organização do código, como classes, módulos, componentes, funções ou trechos, conforme a estrutura de cada projeto, de modo a abranger as distintas linguagens, arquiteturas e convenções presentes em projetos de aplicações web sem restringir o experimento a uma estrutura específica.
 
-Para garantir maior controle experimental, os mesmos arquivos são
-submetidos a todas as combinações de tratamento e blocos, característica
-própria do desenho pareado adotado e detalhada na Seção \ref{sec:design_do_experimento}. Essa
-estratégia permite comparar os resultados obtidos entre os diferentes
-tratamentos reduzindo a influência de variações decorrentes da escolha de
-artefatos distintos, uma vez que cada arquivo funciona como sua própria
-referência de comparação.
+Para garantir maior controle experimental, os mesmos arquivos são submetidos a todas as combinações de tratamento e blocos, característica do desenho pareado adotado (Seção \ref{sec:design_do_experimento}), reduzindo a influência de variações decorrentes da escolha de artefatos distintos, uma vez que cada arquivo funciona como sua própria referência de comparação.
 
-O critério de seleção dos arquivos dentro de cada projeto será consolidado
-na etapa de instrumentação, avaliando-se, por exemplo, a adoção de seleção
-aleatória ou de critérios de relevância estrutural, como tamanho ou
-complexidade dos arquivos. Dessa forma, os repositórios de código-fonte
-aberto do domínio web atuam como unidades amostrais no nível do projeto,
-enquanto os arquivos deles extraídos constituem os objetos concretos de
-análise, sobre os quais os tratamentos são aplicados e os resultados
-aferidos.
+O critério de seleção dos arquivos dentro de cada projeto será consolidado na etapa de instrumentação, avaliando-se, por exemplo, a adoção de seleção aleatória ou de critérios de relevância estrutural, como tamanho ou complexidade dos arquivos.
 
 \section{Design do Experimento}
 \label{sec:design_do_experimento}
 
-O design de um experimento descreve como os testes são organizados e
-executados, definindo a estrutura sobre a qual os dados serão coletados e
-posteriormente analisados. A escolha do desenho condiciona diretamente os
-métodos de análise estatística aplicáveis aos dados coletados, de modo que
-design e análise devem ser pensados em conjunto desde o planejamento
-\citeonline{wohlin2024}.
+O design de um experimento define a estrutura sobre a qual os dados serão coletados e analisados, condicionando diretamente os métodos estatísticos aplicáveis \citeonline{wohlin2024}.
 
+O delineamento adotado é o \textit{Randomized Complete Block Design} (RCBD), indicado quando a variabilidade entre unidades experimentais é relevante e se deseja controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada unidade de forma aleatorizada \citeonline{wohlin2024}. Neste experimento, o bloco é composto pela combinação entre modelo de qualidade de referência e ferramenta de LLM, resultando em seis blocos (2 modelos × 3 ferramentas), cada um recebendo os três tratamentos do fator estudado, totalizando 18 combinações de avaliação (3 prompts × 3 LLMs × 2 modelos de qualidade). O uso combinado das duas variáveis de bloqueio reduz a variância residual atribuível a essas fontes de variação não estudadas, concentrando a análise no efeito do fator de interesse, o padrão de engenharia de prompt. O delineamento apoia-se nos três princípios gerais de desenho descritos por \citeonline{wohlin2024}: randomização, blocagem e balanceamento.
 
+A blocagem isola o efeito dos dois modelos de qualidade e das três ferramentas de LLM que, como discutido na Seção \ref{sec:sujeitos}, afetam o resultado da aferição sem constituir o objeto da investigação, tornando mais precisa a comparação entre padrões de prompt sem que o efeito entre blocos seja, em si, estudado. A aleatorização é aplicada à ordem de aplicação dos tratamentos: para cada arquivo, a sequência dos três padrões de prompt é definida aleatoriamente, evitando um efeito sistemático da ordem e atendendo ao requisito de independência das observações \citeonline{wohlin2024}. O balanceamento é assegurado pela aplicação uniforme dos tratamentos a todos os blocos, resultando nas 18 combinações de avaliação sobre as quais o indicador de manutenibilidade é aferido para cada arquivo, o que torna a análise estatística subsequente mais simples e robusta \citeonline{wohlin2024}.
 
-O delineamento, desenho, adotado neste experimento é o \textit{Randomized Complete Block Design} (RCBD). Esse desenho é indicado quando a variabilidade entre as unidades experimentais é relevante e se deseja controlá-la por meio de blocos, aplicando-se todos os tratamentos a cada unidade de forma aleatorizada \citeonline{wohlin2024}. Neste experimento, o bloco é composto pela combinação entre modelo de qualidade de referência e ferramenta de LLM, resultando em seis blocos (2 modelos de qualidade × 3 ferramentas de LLM), cada um recebendo os três tratamentos do fator estudado, totalizando 18 combinações de avaliação (3 prompts × 3 LLMs × 2 modelos de qualidade).
-
-
-O uso de duas variáveis de bloqueio combinadas segue o mesmo princípio geral, reduzindo conjuntamente a variância residual atribuível a fontes de variação não estudadas,  o modelo de qualidade de referência e a ferramenta de LLM. Dessa maneira, a análise é concentrada no efeito do fator de interesse, o padrão de engenharia de prompt. Este delineamento experimental apoia-se nos três princípios gerais de desenho descritos por \citeonline{wohlin2024}: randomização, blocagem e balanceamento.
-
-
-A blocagem é aplicada às duas fontes de variação não estudadas: os dois modelos de qualidade de referência e as três ferramentas de LLM. Como discutido na Seção \ref{sec:sujeitos}, esses elementos afetam o resultado da aferição, mas não constituem o objeto da investigação. Ao tratá-los como blocos, seu efeito é isolado e a comparação entre os padrões de prompt ganha precisão, sem que o efeito entre blocos seja, em si, estudado.
-
-A aleatorização diz respeito sobre a ordem de aplicação dos tratamentos. Para cada arquivo submetido à avaliação, a sequência em que os três padrões de prompt
-são aplicados é definida aleatoriamente, de modo a evitar que a ordem introduza um efeito sistemático nos resultados. Esse procedimento busca atender ao requisito de independência das observações exigido pelos métodos de análise estatística \citeonline{wohlin2024}. 
-
-O balanceamento é assegurado pela aplicação uniforme dos tratamentos em
-relação aos blocos: cada padrão de prompt é avaliado sob cada modelo de qualidade e cada ferramenta de LLM. Da combinação entre os três padrões de prompt, os dois modelos de qualidade e as três ferramentas de LLM resulta o conjunto de 18 combinações de avaliação, sobre as quais o indicador de
-manutenibilidade é aferido para cada arquivo. Um desenho balanceado dessa
-forma tem a vantagem de tornar a análise estatística subsequente mais
-simples de conduzir e mais robusta \citeonline{wohlin2024}.
-
-Cabe destacar que os mesmos arquivos são submetidos a todas as 18
-combinações de tratamento e blocos, de modo que cada arquivo funciona como
-sua própria referência de comparação entre os tratamentos, reduzindo a
-influência da variabilidade entre artefatos distintos sobre os resultados
-observados. Por fim, um desenho adequadamente estruturado e documentado
-constitui a base para que o experimento possa ser replicado por outros
-pesquisadores \citeonline{wohlin2024}, objetivo reforçado, neste trabalho,
-pelo uso de repositórios de código-fonte aberto e pela documentação
-detalhada dos procedimentos adotados.
-
+Os mesmos arquivos são submetidos a todas as 18 combinações de tratamento e blocos, de modo que cada arquivo funciona como sua própria referência de comparação, reduzindo a influência da variabilidade entre artefatos distintos. Por fim, um desenho adequadamente estruturado e documentado constitui a base para a replicação do experimento por outros pesquisadores \citeonline{wohlin2024}, objetivo reforçado, neste trabalho, pelo uso de repositórios de código-fonte aberto e pela documentação detalhada dos procedimentos adotados.
 
 \subsection{Triangulação com Instrumento Independente}
 \label{sec:triangulacao_sqale}
 
-Além das 18 combinações que compõem o desenho fatorial principal (Seção \ref{sec:design_do_experimento}), os mesmos arquivos selecionados como objetos experimentais serão submetidos à análise do SonarQube, operacionalizando o método SQALE. Diferentemente dos modelos Q-Rapids e MeasureSoftGram,  que compartilham as mesmas variáveis independentes subjacentes, divergindo apenas nos mecanismos de agregação e ponderação, o SQALE opera sobre um construto de manutenibilidade parcialmente distinto, fundamentado no cálculo de dívida técnica a partir de funções de remediação associadas a violações de regras sintáticas. Por essa razão, o indicador de manutenibilidade produzido pelo SonarQube não é diretamente comparável, em escala, aos indicadores produzidos pelos demais modelos. Isso inviabiliza sua incorporação ao bloco estatístico do desenho fatorial sem incorrer em uma ameaça à validade de construto.
+Além das 18 combinações do desenho fatorial principal, os mesmos arquivos selecionados serão submetidos à análise do SonarQube, operacionalizando o método SQALE. Diferentemente de Q-Rapids e MeasureSoftGram, que compartilham as mesmas variáveis independentes e divergem apenas nos mecanismos de agregação e ponderação, o SQALE opera sobre um construto de manutenibilidade parcialmente distinto, fundamentado no cálculo de dívida técnica a partir de funções de remediação associadas a violações de regras sintáticas. Por isso, seu indicador não é diretamente comparável, em escala, aos dos demais modelos, o que inviabiliza sua incorporação ao bloco estatístico do desenho fatorial sem ameaça à validade de construto.
 
-Optou-se, portanto, por atribuir ao SQALE um papel complementar de triangulação: para cada arquivo do corpus, será calculada a correlação de postos (coeficiente de Spearman) entre a ordenação de manutenibilidade produzida pelo SonarQube e a ordenação produzida pelo indicador médio produzido pelos modelos Q-Rapids e MeasureSoftGram. Essa análise verifica a concordância direcional entre um instrumento amplamente consolidado na indústria e na literatura acadêmica e os modelos comparáveis estatisticamente, sem pressupor equivalência de escala entre eles.
+Optou-se, portanto, por atribuir ao SQALE um papel complementar de triangulação: para cada arquivo do corpus, será calculada a correlação de postos (coeficiente de Spearman) entre a ordenação de manutenibilidade produzida pelo SonarQube e a ordenação produzida pelo indicador médio de Q-Rapids e MeasureSoftGram, verificando a concordância direcional entre um instrumento consolidado na indústria e os modelos comparáveis estatisticamente, sem pressupor equivalência de escala entre eles.
 
- Cabe ressaltar que essa triangulação é reportada como evidência complementar de robustez, e não como parte do teste de hipóteses formal estabelecido na Seção \ref{sec:selecao_de_variaveis}. Tampouco, eventual discordância entre as ordenações deve ser interpretada como invalidação de qualquer um dos instrumentos, uma vez que construtos parcialmente distintos podem legitimamente produzir avaliações divergentes sobre os mesmos objetos, sem que isso comprometa a validade de nenhuma das abordagens.
+Essa triangulação é reportada como evidência complementar de robustez, e não como parte do teste de hipóteses formal (Seção \ref{sec:selecao_de_variaveis}). Eventual discordância entre as ordenações tampouco deve ser interpretada como invalidação de qualquer um dos instrumentos, uma vez que construtos parcialmente distintos podem legitimamente produzir avaliações divergentes sobre os mesmos objetos, sem comprometer a validade de nenhuma das abordagens.
 
 \section{Instrumentação}
 \label{sec:instrumentacao}
 
-Definido o desenho do experimento, é necessário especificar como ele será,
-de fato, executado na prática. Segundo \citeonline{wohlin2024}, essa etapa,
-a instrumentação, é composta por três elementos: os objetos do
-experimento, as diretrizes que orientam a aplicação padronizada dos
-tratamentos, e os instrumentos de medição que produzem os dados a serem
-analisados. O objetivo da instrumentação é viabilizar a execução e o
-acompanhamento do experimento sem que o próprio processo de instrumentação
-introduza variação nos resultados.
+Definido o desenho do experimento, é necessário especificar como ele será, de fato, executado na prática. Segundo \citeonline{wohlin2024}, essa etapa, a instrumentação, é composta por três elementos: os objetos do experimento, as diretrizes que orientam a aplicação padronizada dos tratamentos, e os instrumentos de medição que produzem os dados a serem analisados. O objetivo da instrumentação é viabilizar a execução e o acompanhamento do experimento sem que o próprio processo de instrumentação introduza variação nos resultados.
 
-Os objetos do experimento já foram definidos na Seção \ref{sec:objetos}: os arquivos de
-código-fonte extraídos dos repositórios selecionados no domínio de
-aplicações web.
+As diretrizes correspondem, neste experimento, ao protocolo padronizado de aplicação de cada tratamento, isto é, à forma como cada padrão de prompt (zero-shot, few-shot e chain-of-thought) é estruturado e submetido às ferramentas de LLM, de modo que a variação entre execuções decorra apenas do padrão de prompt em si, e não de inconsistências na forma como cada prompt é redigido ou aplicado.
 
-As diretrizes correspondem, neste experimento, ao protocolo padronizado de
-aplicação de cada tratamento --- isto é, à forma como cada padrão de prompt
-(zero-shot, few-shot e chain-of-thought) é estruturado e submetido às
-ferramentas de LLM, de modo que a variação entre execuções decorra apenas
-do padrão de prompt em si, e não de inconsistências na forma como cada
-prompt é redigido ou aplicado.
+Já os instrumentos de medição correspondem às ferramentas responsáveis por gerar os valores a serem comparados neste experimento. A execução ocorre em duas etapas complementares. Na primeira, aplicam-se as 18 combinações definidas na Seção \ref{sec:design_do_experimento}: cada um dos três padrões de prompt é submetido a cada uma das três ferramentas de LLM, orientando-as a avaliar o indicador de manutenibilidade do código-fonte segundo cada um dos dois modelos de qualidade de referência, obtendo-se, assim, o indicador de manutenibilidade produzido pelo LLM para cada arquivo. Na segunda etapa, esse resultado é comparado ao indicador de manutenibilidade obtido de forma independente, ou seja, sem o uso de LLMs, por meio das ferramentas de análise estática que operacionalizam cada um dos dois modelos de qualidade de referência: o Q-Rapids, para o modelo homônimo, e o MeasureSoftGram, para o modelo homônimo. Essas ferramentas funcionam, portanto, como instrumento de referência para avaliar o alinhamento entre a aferição produzida pelo LLM e a aferição obtida por meios já consolidados na literatura de qualidade de software, conforme caracterizado na Seção 2.4 do referencial teórico.
 
-Já os instrumentos de medição correspondem às ferramentas responsáveis por
-gerar os valores a serem comparados neste experimento. A execução ocorre em
-duas etapas complementares. Na primeira, aplicam-se as 18 combinações
-definidas na Seção \ref{sec:design_do_experimento}: cada um dos três
-padrões de prompt é submetido a cada uma das três ferramentas de LLM,
-orientando-as a avaliar o indicador de manutenibilidade do código-fonte
-segundo cada um dos dois modelos de qualidade de referência, obtendo-se,
-assim, o indicador de manutenibilidade produzido pelo LLM para cada
-arquivo. Na segunda etapa, esse resultado é comparado ao indicador de
-manutenibilidade obtido de forma independente, por meio de ferramentas de
-análise estática de código-fonte que implementam os mesmos modelos de
-qualidade --- ou seja, sem o uso de LLMs ---, funcionando como instrumento
-de referência para avaliar o alinhamento entre a aferição produzida pelo
-LLM e a aferição obtida por meios já consolidados na literatura de
-qualidade de software.
+A operacionalização desses instrumentos apoia-se em um conjunto de ferramentas organizadas em três grupos complementares: (i) as ferramentas de análise estática de código-fonte que operacionalizam os modelos de qualidade de referência, (ii) a infraestrutura de versionamento e automação empregada para orquestrar a coleta e a execução padronizada do experimento, e (iii) a pilha de bibliotecas Python utilizada na análise estatística e na visualização dos resultados.
 
-A operacionalização desses instrumentos apoia-se em um conjunto de
-ferramentas organizadas em três grupos complementares: (i) o instrumento
-de aferição de referência do indicador de manutenibilidade, (ii) a
-infraestrutura de versionamento e automação empregada para orquestrar a
-coleta e a execução padronizada do experimento, e (iii) a pilha de
-bibliotecas Python utilizada na análise estatística e na visualização dos
-resultados.
+O primeiro grupo é composto pelas três ferramentas de análise estática apresentadas na Seção 2.4: Q-Rapids\footnote{Disponível em: \url{https://github.com/q-rapids}. Acesso em: 10 jul. 2026.}, MeasureSoftGram\footnote{Disponível em: \url{https://github.com/fga-eps-mds/2022-1-MeasureSoftGram-Core}. Acesso em: 10 jul. 2026.} e SonarQube\footnote{Disponível em: \url{https://www.sonarsource.com/products/sonarqube/}. Acesso em: 10 jul. 2026.}. O Q-Rapids é uma plataforma de código aberto resultante do projeto europeu H2020 de mesmo nome, que implementa um modelo de qualidade em camadas, composto por métricas, fatores e indicadores estratégicos, permitindo a agregação de dados brutos em indicadores de manutenibilidade configuráveis. O MeasureSoftGram é o núcleo computacional do modelo homônimo, responsável pelas transformações matemáticas algébricas e tensoriais empregadas na agregação de métricas em indicadores de qualidade. O SonarQube é a plataforma de análise estática que operacionaliza o método SQALE, sendo empregado neste trabalho não como parte do bloco estatístico principal, mas como instrumento de triangulação (Seção \ref{sec:triangulacao_sqale}). Assim como caracterizado na Seção \ref{sec:ferramentas_referencial}, cada uma dessas ferramentas constitui a operacionalização de um modelo de qualidade de referência específico: o Q-Rapids e o MeasureSoftGram traduzem, respectivamente, os modelos homônimos adotados como variáveis de bloqueio (Seção \ref{sec:selecao_de_variaveis}), enquanto o SonarQube traduz o modelo SQALE, empregado exclusivamente na análise complementar de triangulação. A justificativa detalhada para a escolha dessas três ferramentas é apresentada na Seções \ref{sec:qrapids_justificativa}, \ref{sec:sonarqube_justificativa} e \ref{sec:msg_justificativa}.
 
-O primeiro grupo é composto pelo Q-Rapids\footnote{Disponível em:
-\url{https://github.com/q-rapids}. Acesso em: 10 jul. 2026.}, plataforma de
-código aberto resultante do projeto europeu H2020 de mesmo nome, que
-implementa um modelo de qualidade em camadas --- métricas, fatores e
-indicadores estratégicos --- permitindo a agregação de dados brutos em
-indicadores de manutenibilidade configuráveis. Neste experimento, a
-ferramenta é utilizada para o cálculo de referência do indicador de
-manutenibilidade segundo o modelo homônimo, servindo de base de comparação
-independente para os resultados produzidos pelos LLMs.
+O segundo grupo é composto pelo GitHub\footnote{Disponível em: \url{https://github.com}. Acesso em: 10 jul. 2026.}, plataforma de hospedagem de repositórios Git utilizada tanto para a obtenção dos objetos experimentais, os repositórios de código-fonte aberto selecionados (Seção \ref{sec:objetos}), quanto para hospedar o próprio pipeline de execução do experimento, e pelo GitHub Actions\footnote{Disponível em: \url{https://github.com/features/actions}. Acesso em: 10 jul. 2026.}, serviço de integração contínua integrado ao GitHub, empregado para automatizar a execução padronizada das 18 combinações de tratamento e bloco definidas na Seção \ref{sec:design_do_experimento}, garantindo que cada arquivo seja submetido às mesmas condições de execução e reduzindo a variação decorrente de intervenção manual no processo.
 
-O segundo grupo é composto pelo GitHub\footnote{Disponível em:
-\url{https://github.com}. Acesso em: 10 jul. 2026.}, plataforma de hospedagem de
-repositórios Git utilizada tanto para a obtenção dos objetos experimentais
---- os repositórios de código-fonte aberto selecionados (Seção
-\ref{sec:objetos}) --- quanto para hospedar o próprio pipeline de execução
-do experimento, e pelo GitHub Actions\footnote{Disponível em:
-\url{https://github.com/features/actions}. Acesso em: 10 jul. 2026.}, serviço de
-integração contínua integrado ao GitHub, empregado para automatizar a
-execução padronizada das 18 combinações de tratamento e bloco definidas na
-Seção \ref{sec:design_do_experimento}, garantindo que cada arquivo seja
-submetido às mesmas condições de execução e reduzindo a variação
-decorrente de intervenção manual no processo.
-
-O terceiro grupo reúne as bibliotecas Python empregadas no processamento e
-na análise dos dados coletados. O NumPy\footnote{Disponível em:
-\url{https://numpy.org}. Acesso em: 10 jul. 2026.} é a biblioteca fundamental
-para computação numérica em Python, fornecendo estruturas de arranjos
-multidimensionais e operações vetorizadas que servem de base para as
-demais bibliotecas do pipeline estatístico. O SciPy\footnote{Disponível
-em: \url{https://scipy.org}. Acesso em: 10 jul. 2026.} estende o NumPy com
-funções de estatística inferencial, incluindo o coeficiente de correlação
-de postos de Spearman utilizado na triangulação com o SQALE (Seção
-\ref{sec:triangulacao_sqale}). O statsmodels\footnote{Disponível em:
-\url{https://www.statsmodels.org}. Acesso em: 10 jul. 2026.} implementa a
-análise de variância (ANOVA) para desenhos de blocos completos
-aleatorizados (RCBD), sendo a biblioteca utilizada no teste formal das
-hipóteses $H_0$ e $H_1$ definidas na Seção
-\ref{sec:selecao_de_variaveis}. O pandas\footnote{Disponível em:
-\url{https://pandas.pydata.org}. Acesso em: 10 jul. 2026.} é empregado na
-organização dos resultados das 18 combinações de avaliação em estruturas
-de dados tabulares adequadas ao processamento estatístico subsequente. O
-matplotlib\footnote{Disponível em: \url{https://matplotlib.org}. Acesso
-em: 10 jul. 2026.} é utilizado na geração dos gráficos e figuras apresentados
-neste trabalho, seguindo os padrões de formatação estabelecidos, e o
-seaborn\footnote{Disponível em: \url{https://seaborn.pydata.org}. Acesso
-em: 10 jul. 2026.}, construído sobre o matplotlib, é empregado na geração de
-visualizações estatísticas complementares, como \textit{box plots}
-comparativos entre os tratamentos. Por fim, o scikit-learn\footnote{Disponível
-em: \url{https://scikit-learn.org}. Acesso em: 10 jul. 2026.}, biblioteca de
-aprendizado de máquina que também disponibiliza utilitários de
-pré-processamento e normalização de dados, é empregado no tratamento dos
-dados anterior à análise estatística.
-
-Serão tratadas como ferramentas de referência para a aferição do indicador de manutenibilidade: o \textit{SonarQube} e o \textit{MeasureSoftGram}.
+O terceiro grupo reúne as bibliotecas Python empregadas no processamento e na análise dos dados coletados. O NumPy\footnote{Disponível em: \url{https://numpy.org}. Acesso em: 10 jul. 2026.} é a biblioteca fundamental para computação numérica em Python, fornecendo estruturas de arranjos multidimensionais e operações vetorizadas que servem de base para as demais bibliotecas do pipeline estatístico. O SciPy\footnote{Disponível em: \url{https://scipy.org}. Acesso em: 10 jul. 2026.} estende o NumPy com funções de estatística inferencial, incluindo o coeficiente de correlação de postos de Spearman utilizado na triangulação com o SQALE (Seção \ref{sec:triangulacao_sqale}). O statsmodels\footnote{Disponível em: \url{https://www.statsmodels.org}. Acesso em: 10 jul. 2026.} implementa a análise de variância (ANOVA) para desenhos de blocos completos aleatorizados (RCBD), sendo a biblioteca utilizada no teste formal das hipóteses $H_0$ e $H_1$ definidas na Seção \ref{sec:selecao_de_variaveis}. O pandas\footnote{Disponível em: \url{https://pandas.pydata.org}. Acesso em: 10 jul. 2026.} é empregado na organização dos resultados das 18 combinações de avaliação em estruturas de dados tabulares adequadas ao processamento estatístico subsequente. O matplotlib\footnote{Disponível em: \url{https://matplotlib.org}. Acesso em: 10 jul. 2026.} é utilizado na geração dos gráficos e figuras apresentados neste trabalho, seguindo os padrões de formatação estabelecidos, e o seaborn\footnote{Disponível em: \url{https://seaborn.pydata.org}. Acesso em: 10 jul. 2026.}, construído sobre o matplotlib, é empregado na geração de visualizações estatísticas complementares, como \textit{box plots} comparativos entre os tratamentos. Por fim, o scikit-learn\footnote{Disponível em: \url{https://scikit-learn.org}. Acesso em: 10 jul. 2026.}, biblioteca de aprendizado de máquina que também disponibiliza utilitários de pré-processamento e normalização de dados, é empregado no tratamento dos dados anterior à análise estatística.
 
 \subsection{Q-Rapids}
+\label{sec:qrapids_justificativa}
 
-O Q-Rapids é uma plataforma de código aberto que implementa um modelo de qualidade em camadas, permitindo a agregação de dados brutos em indicadores de manutenibilidade configuráveis. Neste experimento, a ferramenta é utilizada para o cálculo de referência do indicador de manutenibilidade segundo o modelo homônimo, servindo de base de comparação independente para os resultados produzidos pelos LLMs.
+O Q-Rapids é uma plataforma de código aberto resultante do projeto europeu H2020 de mesmo nome, que propõe um modelo de qualidade em camadas, estruturado em métricas, fatores e indicadores estratégicos, permitindo a agregação de dados brutos extraídos de repositórios de código-fonte em indicadores de manutenibilidade configuráveis \citeonline{martinezfernandez2019qrapids}. Diferentemente de ferramentas baseadas exclusivamente em catálogos de regras ou violações sintáticas, o Q-Rapids formaliza a agregação dessas medidas em indicadores estratégicos por meio de fórmulas de composição documentadas, associando explicitamente cada fator de qualidade, entre eles o fator \textit{Code Quality}, às métricas que o compõem \cite{qrapids2019}. A escolha do Q-Rapids neste trabalho se justifica por três razões:
+
+\begin{enumerate}[leftmargin=2\parindent]
+	\item trata-se de um modelo de qualidade validado academicamente, resultante de um consórcio de pesquisa europeu e avaliado em ambientes industriais reais, o que confere maior robustez ao indicador de referência utilizado como base de comparação neste experimento;
+
+	\item o Q-Rapids é disponibilizado como ferramenta de código-fonte aberto, com seus componentes de cálculo documentados e publicamente acessíveis, o que favorece a transparência e a reprodutibilidade do experimento;
+
+	\item sua adoção estabelece a base de comparabilidade estatística com o MeasureSoftGram (Seção \ref{sec:selecao_de_variaveis}): por compartilhar as mesmas variáveis independentes e medidas normalizadas, divergindo apenas nos mecanismos de agregação e ponderação, o Q-Rapids constitui o antecessor teórico direto cujos resultados servem de referência para investigar se a inovação matemática do MeasureSoftGram produz indicadores distintos a partir do mesmo insumo de entrada.
+\end{enumerate}
+
+Neste experimento, a ferramenta é utilizada para o cálculo de referência do indicador de manutenibilidade segundo o modelo homônimo, servindo de base de comparação independente para os resultados produzidos pelos LLMs.
 
 \subsection{SonarQube}
+\label{sec:sonarqube_justificativa}
 
-O SonarQube é uma das ferramentas de análise estática de código-fonte mais
-consolidadas tanto na indústria quanto na literatura acadêmica de
-Engenharia de Software, sendo amplamente utilizada para inspeção contínua
-da qualidade de código em ambientes de integração e entrega contínuas.
-Sua adoção neste trabalho se justifica, em primeiro lugar, pela sua ligação
-histórica com o método SQALE: o SonarQube foi, por meio de um plugin
-dedicado, uma das primeiras ferramentas a operacionalizar o método,
-permitindo o cálculo de índices de dívida técnica e indicadores de
-manutenibilidade diretamente a partir do código-fonte analisado
-\citeonline{letouzey2012sqale}. Embora a ferramenta tenha evoluído desde
-então e não mantenha mais uma implementação literal do plugin original, o
-modelo de dívida técnica que utiliza atualmente para calcular suas
-classificações de manutenibilidade e confiabilidade é descendente direto
-dos princípios estabelecidos pelo SQALE --- a saber, a associação de
-funções de remediação a violações de requisitos de qualidade e a
-consolidação desses custos em índices agregados.
+O SonarQube é uma das ferramentas de análise estática de código-fonte mais consolidadas tanto na indústria quanto na literatura acadêmica de Engenharia de Software, sendo amplamente utilizada para inspeção contínua da qualidade de código em ambientes de integração e entrega contínuas. Sua adoção neste trabalho se justifica, em primeiro lugar, pela sua ligação histórica com o método SQALE: o SonarQube foi, por meio de um plugin dedicado, uma das primeiras ferramentas a operacionalizar o método, permitindo o cálculo de índices de dívida técnica e indicadores de manutenibilidade diretamente a partir do código-fonte analisado \citeonline{letouzey2012sqale}. Embora a ferramenta tenha evoluído desde então e não mantenha mais uma implementação literal do plugin original, o modelo de dívida técnica que utiliza atualmente para calcular suas classificações de manutenibilidade e confiabilidade é descendente direto dos princípios estabelecidos pelo SQALE --- a saber, a associação de funções de remediação a violações de requisitos de qualidade e a consolidação desses custos em índices agregados.
 
-Em segundo lugar, a escolha do SonarQube se justifica por sua maturidade e
-ampla adoção em projetos de software reais, o que confere maior
-representatividade ao indicador de referência utilizado neste experimento:
-trata-se de uma ferramenta cujos critérios de avaliação já são
-consolidados e validados em larga escala pela comunidade de
-desenvolvimento, servindo como um ponto de comparação robusto para as
-avaliações de manutenibilidade produzidas pelos LLMs.
+Em segundo lugar, a escolha do SonarQube se justifica por sua maturidade e ampla adoção em projetos de software reais, o que confere maior representatividade ao indicador de referência utilizado neste experimento: trata-se de uma ferramenta cujos critérios de avaliação já são consolidados e validados em larga escala pela comunidade de desenvolvimento, servindo como um ponto de comparação robusto para as avaliações de manutenibilidade produzidas pelos LLMs.
 
 \subsection{MeasureSoftGram}
+\label{sec:msg_justificativa}
 
 O MeasureSoftGram (MSG) é um modelo de avaliação de qualidade de produto de software originalmente proposto por \citeonline{neri2018measuresoftgram}, com o objetivo de superar a limitação da perspectiva unidimensional adotada pelos modelos de qualidade tradicionais. Diferentemente de modelos que avaliam cada característica de qualidade isoladamente, o MeasureSoftGram propõe uma representação multidimensional das características e subcaracterísticas de qualidade por meio de tensores, capturando também as relações e efeitos colaterais entre elas, com o objetivo de apoiar decisões de aceitação de releases em ambientes de engenharia de software contínua. A escolha do MeasureSoftGram neste trabalho se justifica por três razões:
 
@@ -398,150 +187,72 @@ Complementarmente, o SonarQube/SQALE, por operar sobre um construto de manutenib
 \section{Avaliação}
 \label{sec:avaliacao}
 
-A validade de um experimento refere-se ao grau de confiança que pode ser
-depositado em seus resultados e conclusões. \citeonline{wohlin2024}
-organizam as ameaças à validade em quatro categorias --- conclusão,
-interna, construto e externa --- que orientam a identificação e a
-discussão das limitações deste experimento. Antes de detalhá-las, cabe uma
-ressalva: por se tratar de um experimento orientado a tecnologia, diversas ameaças descritas pelos autores pressupõem
-a presença de sujeitos humanos reagindo ao próprio fato de estarem sendo
-avaliados --- como adivinhação de hipótese, apreensão avaliativa e
-rivalidade compensatória --- e, portanto, não se aplicam a este estudo. As
-ameaças discutidas a seguir são as que efetivamente incidem sobre um
-experimento em que os tratamentos são aplicados por LLMs.
+A discussão das ameaças à validade deste experimento segue as quatro categorias apresentadas na Seção \ref{sec:ameacas_validade_ref} do referencial teórico: conclusão, interna, construto e externa \citeonline{wohlin2024}. Cabe uma ressalva inicial: por se tratar de um experimento orientado a tecnologia, diversas ameaças descritas pelos autores pressupõem a presença de sujeitos humanos reagindo ao fato de estarem sendo avaliados, como adivinhação de hipótese, apreensão avaliativa e rivalidade compensatória, e, portanto, não se aplicam a este estudo. As ameaças discutidas a seguir são as que efetivamente incidem sobre um experimento em que os tratamentos são aplicados por LLMs.
 
 \subsection{Validade de Conclusão}
 
-A validade de conclusão diz respeito à correção da relação estatística
-identificada entre o tratamento e o resultado. A principal ameaça
-identificada para este experimento é a confiabilidade das medidas: LLMs
-podem produzir respostas distintas para uma mesma entrada em execuções
-diferentes, mesmo mantendo-se fixos o prompt e os parâmetros de
-configuração. Essa variabilidade, caso não seja controlada, pode ser
-confundida com o efeito do próprio fator estudado, comprometendo a
-confiabilidade do indicador de manutenibilidade coletado. Some-se a isso o
-risco de "fishing and the error rate": como o desenho envolve múltiplas
-comparações entre tratamentos e blocos, a taxa de erro Tipo I acumulada ao
-longo das análises deve ser ajustada, sob pena de aumentar a probabilidade
-de conclusões falso-positivas. Por fim, o poder do teste estatístico depende diretamente do tamanho da amostra de objetos
-definida na instrumentação, o que só poderá ser plenamente avaliado na fase de
-execução do experimento.
-
+A principal ameaça identificada é a confiabilidade das medidas: LLMs podem produzir respostas distintas para uma mesma entrada em execuções diferentes, mesmo mantendo-se fixos o prompt e os parâmetros de configuração. Essa variabilidade, caso não seja controlada, pode ser confundida com o efeito do próprio fator estudado, comprometendo a confiabilidade do indicador de manutenibilidade coletado. Some-se a isso o risco de \textit{fishing and the error rate}: como o desenho envolve múltiplas comparações entre tratamentos e blocos, a taxa de erro Tipo I acumulada ao longo das análises deve ser ajustada, sob pena de aumentar a probabilidade de conclusões falso-positivas. Por fim, o poder do teste estatístico depende diretamente do tamanho da amostra de objetos definida na instrumentação, o que só poderá ser plenamente avaliado na fase de execução do experimento.
 
 \subsubsection{Considerações Éticas: Declaração de Conflito de Interesse}
 \label{sec:conflito_interesse}
-Em conformidade com boas práticas de condução de pesquisa empírica em Engenharia de Software \citeonline{wohlin2024}, declara-se a existência de um potencial conflito de interesse relacionado a este experimento: o orientador deste trabalho é autor do MeasureSoftGram, um dos modelos de qualidade avaliados.
 
-Essa relação de autoria constitui uma ameaça potencial à validade de conclusão, na medida em que decisões tomadas ao longo da pesquisa, como a inclusão do modelo no escopo do experimento, a formulação dos padrões de prompt, a seleção dos repositórios que compõem o corpus e, futuramente, a interpretação dos resultados obtidos, poderiam ser influenciadas, ainda que não intencionalmente, por essa relação. 
+Em conformidade com boas práticas de condução de pesquisa empírica em Engenharia de Software \citeonline{wohlin2024}, declara-se um potencial conflito de interesse relacionado a este experimento: o orientador deste trabalho é autor do MeasureSoftGram, um dos modelos de qualidade avaliados.
 
+Essa relação de autoria constitui uma ameaça potencial à validade de conclusão, na medida em que decisões tomadas ao longo da pesquisa, como a inclusão do modelo no escopo do experimento, a formulação dos padrões de prompt, a seleção dos repositórios que comporão o corpus e, futuramente, a interpretação dos resultados obtidos, poderiam ser influenciadas, ainda que não intencionalmente, por essa relação.
 
-O desenho experimental adotado mitiga parcialmente esse risco: a aplicação dos tratamentos e a aferição do indicador de manutenibilidade são realizadas de forma automatizada por LLMs, sem intervenção humana subjetiva na coleta individual dos resultados. Isso reduz o canal mais direto pelo qual um viés de confirmação poderia atuar sobre os dados observados. 
+O desenho experimental mitiga parcialmente esse risco: a aplicação dos tratamentos e a aferição do indicador de manutenibilidade são realizadas de forma automatizada por LLMs, sem intervenção humana subjetiva na coleta individual dos resultados, o que reduz o canal mais direto pelo qual um viés de confirmação poderia atuar sobre os dados observados. Contribui adicionalmente para essa mitigação a inclusão do SQALE/SonarQube como instrumento de triangulação independente (Seção \ref{sec:triangulacao_sqale}), por não possuir vínculo com o orientador e ser amplamente adotado na indústria e na academia, servindo como verificação externa da concordância direcional entre os ranques de manutenibilidade produzidos.
 
-Contribui adicionalmente para essa mitigação a inclusão do SQALE/SonarQube como instrumento de triangulação independente (Seção \ref{sec:triangulacao_sqale}), por não possuir qualquer vínculo com o orientador, ser amplamente adotado em pesquisas acadêmicas e pela indústria, servindo como verificação externa da concordância direcional dos resultados. Ou seja, se a ordem gerada por cada um dos ranques aponta para uma mesma direção de interpretação: a qualidade está decaindo ou melhorando ou estável.
-
-Não obstante, essas medidas não eliminam por completo a ameaça: as decisões humanas anteriores à fase de coleta automatizada, especialmente a escolha de incluir o MeasureSoftGram como objeto de comparação e a futura interpretação qualitativa dos resultados, permanecem sujeitas a esse potencial viés, e são aqui reconhecidas como limitação residual do experimento, não plenamente mitigável pelo desenho adotado.
-
+Ainda assim, essas medidas não eliminam por completo a ameaça: as decisões humanas anteriores à coleta automatizada, especialmente a escolha de incluir o MeasureSoftGram como objeto de comparação e a futura interpretação qualitativa dos resultados, permanecem sujeitas a esse potencial viés, sendo reconhecidas como limitação residual do experimento, não plenamente mitigável pelo desenho adotado.
 
 \subsection{Validade Interna}
 
-A validade interna refere-se à possibilidade de que a relação observada
-entre tratamento e resultado seja, de fato, causal, e não decorrente de
-fatores não controlados. Uma ameaça central neste experimento, não prevista
-originalmente por \citeonline{wohlin2024} mas diretamente relacionada ao
-conceito de fator confundido que os autores discutem, é a possível
-contaminação por dados de treinamento: como os repositórios selecionados
-são projetos de código aberto amplamente conhecidos, é possível que os
-LLMs avaliados já tenham sido expostos a esse código-fonte --- ou até
-mesmo a discussões públicas sobre sua qualidade --- durante o treinamento.
-Nesse caso, a avaliação produzida pelo modelo poderia refletir conhecimento
-memorizado sobre o projeto, e não uma análise genuína do código
-apresentado no prompt, o que ameaçaria a validade da relação causal entre
-padrão de prompt e indicador de manutenibilidade observado. Adicionalmente,
-a instrumentação --- os artefatos utilizados para conduzir o experimento,
-como os próprios modelos de prompt --- deve ser cuidadosamente padronizada
-entre os tratamentos, de modo que diferenças mal formuladas na redação de
-cada padrão não sejam confundidas com o efeito do padrão em si.
+Uma ameaça central, não prevista originalmente por \citeonline{wohlin2024} mas diretamente relacionada ao conceito de fator confundido discutido pelos autores, é a possível contaminação por dados de treinamento: como os repositórios selecionados são projetos de código aberto amplamente conhecidos, é possível que os LLMs avaliados já tenham sido expostos a esse código-fonte, ou até a discussões públicas sobre sua qualidade, durante o treinamento. Nesse caso, a avaliação produzida pelo modelo poderia refletir conhecimento memorizado sobre o projeto, e não uma análise genuína do código apresentado no prompt, ameaçando a validade da relação causal entre padrão de prompt e indicador de manutenibilidade observado. Adicionalmente, a instrumentação, sobretudo os próprios modelos de prompt, deve ser cuidadosamente padronizada entre os tratamentos, de modo que diferenças mal formuladas na redação de cada padrão não sejam confundidas com o efeito do padrão em si.
 
 \subsection{Validade de Construto}
 
-A validade de construto avalia se as medidas e os tratamentos utilizados
-representam adequadamente os conceitos teóricos que pretendem
-operacionalizar. A ameaça mais relevante aqui é o viés de mono-método: o
-indicador de manutenibilidade é obtido por um único tipo de medida --- a
-resposta do LLM interpretada segundo critérios previamente definidos --- o
-que impede o cruzamento com outras formas de observação do mesmo
-construto. Some-se a isso o risco de explicação pré-operacional
-inadequada dos construtos: o indicador de
-manutenibilidade é uma medida indireta, e sua tradução em um valor
-comparável exige uma definição operacional clara o suficiente para que o
-que está de fato sendo medido corresponda ao conceito teórico de
-manutenibilidade apresentado no referencial teórico, e não a um artefato
-do formato de resposta do modelo.
+A ameaça mais relevante é o viés de mono-método: o indicador de manutenibilidade é obtido por um único tipo de medida, a resposta do LLM interpretada segundo critérios previamente definidos, o que impede o cruzamento com outras formas de observação do mesmo construto. Some-se a isso o risco de explicação pré-operacional inadequada dos construtos: o indicador de manutenibilidade é uma medida indireta, e sua tradução em um valor comparável exige uma definição operacional clara o suficiente para que o que está de fato sendo medido corresponda ao conceito teórico de manutenibilidade apresentado no referencial teórico, e não a um artefato do formato de resposta do modelo.
 
 \subsection{Validade Externa}
 
-A validade externa trata da possibilidade de generalização dos resultados
-para além do contexto específico em que o experimento foi conduzido. A
-amostragem por conveniência utilizada na seleção dos repositórios já implica uma ameaça de interação entre seleção e tratamento: os
-resultados são válidos para o conjunto de projetos de código aberto do
-domínio de aplicações web efetivamente selecionados, não podendo ser
-generalizados de forma imediata à totalidade desse domínio, tampouco a
-outros domínios de aplicação. Há também uma ameaça de interação entre
-história e tratamento particular a experimentos com LLMs: como esses
-modelos são frequentemente atualizados por seus provedores, os resultados
-obtidos podem não se sustentar caso o experimento seja replicado com
-versões futuras das mesmas ferramentas, o que limita a validade dos
-achados a um recorte temporal específico das ferramentas avaliadas.
+A amostragem por conveniência utilizada na seleção dos repositórios já implica uma ameaça de interação entre seleção e tratamento: os resultados são válidos para o conjunto de projetos de código aberto do domínio de aplicações web efetivamente selecionados, não podendo ser generalizados de forma imediata à totalidade desse domínio, tampouco a outros domínios de aplicação. Há também uma ameaça de interação entre história e tratamento particular a experimentos com LLMs: como esses modelos são frequentemente atualizados por seus provedores, os resultados obtidos podem não se sustentar caso o experimento seja replicado com versões futuras das mesmas ferramentas, limitando a validade dos achados a um recorte temporal específico das ferramentas avaliadas.
 
 \section{Próximos Passos do Experimento}
+\label{sec:proximos_passos}
 
-Este capítulo apresentou o planejamento completo do experimento controlado
-proposto para investigar a influência de diferentes padrões de engenharia
-de prompt na aferição do indicador de manutenibilidade de software. Foram
-definidos o objeto de estudo e a meta do experimento segundo o template GQM, o contexto experimental, as hipóteses a serem testadas, as variáveis envolvidas e seus papéis --- fator, variáveis de bloqueio e variáveis mantidas em nível fixo ---
-os sujeitos e objetos da amostra, o desenho experimental do
-tipo RCBD com bloco composto, os instrumentos de medição a
-serem utilizados e as principais ameaças à validade já
-antecipadas nesta fase de planejamento.
+Este capítulo apresentou o planejamento completo do experimento controlado proposto para investigar a influência de diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade de software: o objeto de estudo e a meta do experimento segundo o template GQM, o contexto experimental, as hipóteses a serem testadas, as variáveis envolvidas e seus papéis (fator, variáveis de bloqueio e variáveis mantidas em nível fixo), os sujeitos e objetos da amostra, o desenho experimental do tipo RCBD com bloco composto, os instrumentos de medição a serem utilizados e as principais ameaças à validade já antecipadas nesta fase de planejamento.
 
-A etapa de planejamento aqui descrita constitui o insumo necessário para a
-condução da fase de operação do experimento, prevista para a segunda etapa
-deste trabalho. Essa etapa seguinte compreenderá, principalmente:
-
-
+A etapa de planejamento aqui descrita constitui o insumo necessário para a condução da fase de operação do experimento, prevista para a segunda etapa deste trabalho. Essa etapa seguinte compreenderá, principalmente:
 
 \begin{itemize}
-    \item a aplicação prática das 18 combinações definidas,
-    submetendo cada arquivo selecionado a cada um dos três padrões de
-    prompt, por meio de cada uma das três ferramentas de LLM, orientadas
-    a avaliar a manutenibilidade segundo cada um dos dois modelos de
-    qualidade de referência;
+    \item a aplicação prática das 18 combinações definidas, submetendo cada arquivo selecionado a cada um dos três padrões de prompt, por meio de cada uma das três ferramentas de LLM, orientadas a avaliar a manutenibilidade segundo cada um dos dois modelos de qualidade de referência;
 
     \item a execução dos instrumentos de medição definidos, gerando os indicadores de referência por meio do SonarQube/SQALE, do Q-Rapids e do MeasureSoftGram sobre os mesmos arquivos avaliados pelos LLMs, seguida do cálculo da correlação de postos (coeficiente de Spearman) entre a ordenação produzida pelo SonarQube e a ordenação produzida pelo indicador médio de Q-Rapids e MeasureSoftGram, conforme o protocolo de triangulação definido na Seção \ref{sec:triangulacao_sqale};
 
-    \item a coleta e a organização dos dados obtidos em ambas as etapas
-    anteriores, de modo a viabilizar sua análise estatística;
+    \item a coleta e a organização dos dados obtidos em ambas as etapas anteriores, de modo a viabilizar sua análise estatística;
 
-    \item o teste das hipóteses formuladas, a partir dos
-    dados coletados, incluindo a verificação dos pressupostos
-    estatísticos aplicáveis ao desenho RCBD adotado;
+    \item o teste das hipóteses formuladas, a partir dos dados coletados, incluindo a verificação dos pressupostos estatísticos aplicáveis ao desenho RCBD adotado;
 
-    \item o aprofundamento da avaliação de validade antecipada, com a identificação de ameaças adicionais que só poderão ser
-    plenamente observadas durante a execução --- por exemplo, taxas de
-    falha ou de resposta inválida dos LLMs --- e a discussão de como
-    tais ameaças foram tratadas ou mitigadas ao longo do experimento;
+    \item o aprofundamento da avaliação de validade antecipada, com a identificação de ameaças adicionais que só poderão ser plenamente observadas durante a execução, como taxas de falha ou de resposta inválida dos LLMs, e a discussão de como tais ameaças foram tratadas ou mitigadas ao longo do experimento;
 
-    \item a apresentação e o empacotamento dos resultados obtidos,
-    encerrando o processo de experimentação descrito.
+    \item a apresentação e o empacotamento dos resultados obtidos, encerrando o processo de experimentação descrito.
 \end{itemize}
 
-Dessa forma, o planejamento apresentado neste capítulo delimita com
-precisão o que será executado na etapa seguinte deste trabalho, fornecendo
-a base metodológica necessária para que o experimento seja conduzido de
-forma sistemática, replicável e alinhada aos objetivos de pesquisa
-estabelecidos no Capítulo 1.
+Dessa forma, o planejamento apresentado neste capítulo delimita com precisão o que será executado na etapa seguinte deste trabalho, fornecendo a base metodológica necessária para que o experimento seja conduzido de forma sistemática, replicável e alinhada aos objetivos de pesquisa estabelecidos no Capítulo 1.
 
 \section{Conclusão}
+\label{sec:conclusao}
+
+Este trabalho teve como propósito investigar a influência de diferentes padrões de engenharia de prompt na aferição do indicador de manutenibilidade de software por Modelos de Linguagem de Grande Escala, delimitando o domínio de projetos de código-fonte aberto voltados a aplicações web. Para isso, esta primeira etapa do trabalho conduziu uma revisão estruturada da literatura e o planejamento de um experimento controlado, cujos principais resultados são retomados a seguir.
+
+A revisão estruturada da literatura, apresentada no Capítulo \ref{cap:referencial_teorico}, permitiu responder às questões de pesquisa que orientaram este estudo. Verificou-se que a maior parte dos artigos analisados não declara explicitamente um modelo de qualidade de referência para operacionalizar a manutenibilidade, sendo o SQALE, majoritariamente por meio do SonarQube, o único modelo identificado com consistência. Quanto às medidas empregadas, destacam-se complexidade (ciclomática, cognitiva, métricas de Halstead), \textit{code smells}, duplicação e dívida técnica como indicadores recorrentes do esforço de compreensão, modificação e evolução do software. Por fim, quanto aos padrões de engenharia de prompt, observou-se uma variedade de técnicas aplicadas na literatura (\textit{zero-shot}, \textit{few-shot}, \textit{chain-of-thought}, entre outras), sem que exista um padrão consolidado para a avaliação de manutenibilidade, ainda que estudos apontem melhor desempenho de LLMs em tarefas com janelas de contexto reduzidas e divididas em subtarefas menores.
+
+A partir dessas constatações, o Capítulo \ref{cap:planejamento} estabeleceu o planejamento do experimento controlado a ser conduzido na etapa seguinte deste trabalho. Foram formuladas as hipóteses de pesquisa, definidas as variáveis do estudo (o padrão de engenharia de prompt como fator, o resultado da aferição de manutenibilidade como variável dependente, e o modelo de qualidade de referência e a ferramenta de LLM como variáveis de bloqueio), e adotado o desenho \textit{Randomized Complete Block Design} (RCBD) para o controle dessas fontes de variação. Definiu-se ainda a instrumentação necessária à execução do experimento, incluindo as ferramentas de análise estática que operacionalizam os modelos de qualidade de referência (Q-Rapids e MeasureSoftGram), o uso complementar do SonarQube/SQALE como instrumento de triangulação, e a pilha de ferramentas empregada na automação e na análise estatística dos dados. Por fim, foram antecipadas as principais ameaças à validade do experimento, incluindo a declaração de um potencial conflito de interesse decorrente da autoria do orientador sobre um dos modelos avaliados.
+
+Como principal limitação desta etapa, destaca-se que a seleção efetiva dos repositórios e arquivos que comporão o corpus experimental ainda não foi realizada, sendo prevista para a fase de operação do experimento. Da mesma forma, o planejamento aqui apresentado antecipa ameaças à validade que só poderão ser plenamente avaliadas durante a execução, como a taxa de falha ou de resposta inválida das ferramentas de LLM.
+
+A condução da fase de operação do experimento, incluindo a aplicação das 18 combinações de tratamento e bloco definidas, a coleta dos indicadores de manutenibilidade e o teste formal das hipóteses estabelecidas, constitui o objeto da segunda etapa deste trabalho, cujos passos foram detalhados na Seção \ref{sec:proximos_passos} do capítulo anterior.
+
+Conclui-se, portanto, que esta etapa cumpriu seu objetivo de fundamentar teoricamente e planejar metodologicamente a investigação proposta, fornecendo a base necessária para que a etapa seguinte produza evidências empíricas sobre a influência dos padrões de engenharia de prompt na avaliação da manutenibilidade de software por LLMs.
 
 \section{Uso de Inteligência Artificial}
 
