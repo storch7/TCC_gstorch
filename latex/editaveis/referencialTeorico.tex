@@ -146,36 +146,36 @@ Essa evolução contribuiu para a consolidação de normas internacionais voltad
 
 Apesar da relevância da padronização trazida pela norma, há uma lacuna deixada em aberto em relação à aferição da qualidade de produto de software: a norma não estabelece uma especificação para mensuração das características por ela padronizada. Isso leva os pesquisadores a desenvolverem modelos particulares e métodos próprios de avaliação de qualidade de produto de software. Desta lacuna, surge o modelo proposto por \citeonline{dromey1995model}, que passou a associar propriedades de qualidade diretamente aos componentes de software, permitindo avaliações mais granulares e detalhadas.
 
-No entanto, ainda permanecia em aberto a necessidade de uma avaliação global de qualidade de sofware; ou seja, uma avaliação que permitisse relacionar as propriedades de qualidade aos componentes de software, mas também avaliar a qualidade global do produto. Desta necessidade surge o desenvolvimento de abordagens como o SQALE, o Quamoco e o Q-Rapids. Esses abordagens buscam superar as limitações dos modelos tradicionais de qualidade de software, oferecendo uma abordagem mais completa e integrada para a avaliação da qualidade de produto de software \cite{wagner2012quamoco, letouzey2012sqale, martinezfernandez2019qrapids}.
+No entanto, ainda permanecia em aberto a necessidade de uma avaliação global de qualidade de sofware; ou seja, uma avaliação que permitisse relacionar as propriedades de qualidade aos componentes de software, mas também avaliar a qualidade global do produto. Desta necessidade surge o desenvolvimento de abordagens como o SQALE, o Quamoco e o Q-Rapids. Esses abordagens buscam superar as limitações dos modelos tradicionais de qualidade de software, oferecendo uma abordagem mais completa e integrada para a avaliação da qualidade de produto de software \cite{wagner2012quamoco, letouzey2012sqale, MartinezEtAll}.
 
 \subsection{Modelo Q-Rapids}
 \label{sec:qrapids}
 
-O Q-Rapids é um modelo de qualidade desenvolvido no âmbito do projeto europeu homônimo, utilizado por uma ferramenta de software analytics para monitorar continuamente a qualidade de produtos e processos de software \cite{martinezfernandez2019qrapids}. Diferentemente de modelos focados apenas no código-fonte, o Q-Rapids combina dados de múltiplas fontes (como Jira, SonarQube, Jenkins e GitLab) para compor indicadores de alto nível voltados à tomada de decisão.
+O Q-Rapids é um modelo de qualidade desenvolvido no âmbito do projeto europeu homônimo, utilizado por uma ferramenta de software analytics para monitorar continuamente a qualidade de produtos e processos de software \cite{martinezfernandez2018qrapids}. Diferentemente de modelos focados apenas no código-fonte, o Q-Rapids combina dados de múltiplas fontes (como Jira, SonarQube, Jenkins e GitLab) para compor indicadores de alto nível voltados à tomada de decisão.
 
-O modelo é estruturado em uma cadeia hierárquica de cinco níveis: \textbf{Indicador Estratégico}, \textbf{Fator} (de produto ou de processo), \textbf{Métrica Avaliada}, \textbf{Dado Bruto} e \textbf{Fonte de Dados}, conforme ilustrado na Figura \ref{fig:qrapidsHierarquia}. Cada indicador estratégico é decomposto em fatores, que por sua vez são mensurados por métricas calculadas a partir de dados brutos extraídos diretamente das ferramentas utilizadas pela equipe de desenvolvimento \cite{martinezfernandez2019qrapids}.
+O modelo é estruturado em uma cadeia hierárquica de cinco níveis: \textbf{Indicador Estratégico}, \textbf{Fator} (de produto ou de processo), \textbf{Métrica Avaliada}, \textbf{Dado Bruto} e \textbf{Fonte de Dados}, conforme ilustrado na Figura \ref{fig:qrapidsHierarquia}. Cada indicador estratégico é decomposto em fatores, que por sua vez são mensurados por métricas calculadas a partir de dados brutos extraídos diretamente das ferramentas utilizadas pela equipe de desenvolvimento \cite{martinezfernandez2018qrapids}.
 
 \begin{figure}[H]
     \centering
     \caption{Cadeia hierárquica do modelo de qualidade Q-Rapids}
     \includegraphics[width=16cm]{figuras/qrapids_hierarquia_modelo.png}
     \label{fig:qrapidsHierarquia}
-    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2018qrapids}.}
 \end{figure}
 
-O modelo padrão define quatro indicadores estratégicos: \textbf{Product Quality} (manutenibilidade, confiabilidade e adequação funcional do produto), \textbf{Product Readiness} (prontidão do produto para uma próxima release), \textbf{Process Performance} (eficiência e qualidade dos processos do ciclo de vida) e \textbf{Blocking} (condições que travam o andamento do projeto, como issues mal especificadas ou código bloqueante). Cada um desses indicadores agrega um conjunto de fatores de produto ou de processo, como mostra a Figura \ref{fig:qrapidsIndicadores} \cite{martinezfernandez2019qrapids}.
+O modelo padrão define quatro indicadores estratégicos: \textbf{Product Quality} (manutenibilidade, confiabilidade e adequação funcional do produto), \textbf{Product Readiness} (prontidão do produto para uma próxima release), \textbf{Process Performance} (eficiência e qualidade dos processos do ciclo de vida) e \textbf{Blocking} (condições que travam o andamento do projeto, como issues mal especificadas ou código bloqueante). Cada um desses indicadores agrega um conjunto de fatores de produto ou de processo, como mostra a Figura \ref{fig:qrapidsIndicadores} \cite{martinezfernandez2018qrapids}.
 
 \begin{figure}[H]
     \centering
     \caption{Indicadores estratégicos e seus fatores no modelo Q-Rapids}
     \includegraphics[width=14cm]{figuras/qrapids_indicadores_estrategicos.png}
     \label{fig:qrapidsIndicadores}
-    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2019qrapids}.}
+    \fonte{O Autor, adaptado da \citeonline{martinezfernandez2018qrapids}.}
 \end{figure}
 
-A avaliação da qualidade no Q-Rapids segue uma abordagem \textit{bottom-up}, inspirada no mecanismo de agregação do Quamoco. Cada métrica avaliada é calculada diretamente a partir dos dados brutos coletados pelas ferramentas de origem, por meio de fórmulas de razão ou densidade que produzem valores já normalizados no intervalo entre 0 e 1. Por exemplo, o fator \textit{Code Quality} inclui a métrica \textit{densidade de arquivos não complexos}, calculada como a razão entre o número de arquivos abaixo do limiar de complexidade ciclomática (10, por padrão) e o número total de arquivos do sistema, com os dados brutos extraídos via SonarQube \cite{martinezfernandez2019qrapids}. Essas métricas avaliadas são então agregadas em fatores de produto ou de processo, os quais, por sua vez, são agregados nos indicadores estratégicos correspondentes, seguindo o mesmo princípio \textit{bottom-up} de composição hierárquica.
+A avaliação da qualidade no Q-Rapids segue uma abordagem \textit{bottom-up}, inspirada no mecanismo de agregação do Quamoco. Cada métrica avaliada é calculada diretamente a partir dos dados brutos coletados pelas ferramentas de origem, por meio de fórmulas de razão ou densidade que produzem valores já normalizados no intervalo entre 0 e 1. Por exemplo, o fator \textit{Code Quality} inclui a métrica \textit{densidade de arquivos não complexos}, calculada como a razão entre o número de arquivos abaixo do limiar de complexidade ciclomática (10, por padrão) e o número total de arquivos do sistema, com os dados brutos extraídos via SonarQube \cite{martinezfernandez2018qrapids}. Essas métricas avaliadas são então agregadas em fatores de produto ou de processo, os quais, por sua vez, são agregados nos indicadores estratégicos correspondentes, seguindo o mesmo princípio \textit{bottom-up} de composição hierárquica.
 
-Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2019qrapids}.
+Por ser orientado a dados de múltiplas fontes e não apenas ao código-fonte, o Q-Rapids permite associar decisões de negócio (como priorização de release ou alocação de esforço de manutenção) a evidências quantitativas coletadas continuamente ao longo do desenvolvimento \cite{martinezfernandez2018qrapids}.
 
 \subsection{Modelo SQALE}
 \label{sec:sqale}
@@ -231,21 +231,11 @@ O modelo segue a estrutura hierárquica de características e subcaracterística
 
 A viabilidade do modelo foi avaliada por meio de um estudo exploratório de prova de conceito, no qual medidas extraídas com o auxílio da ferramenta SonarQube foram organizadas em tensores de qualidade referentes aos modelos SQUALE e Q-Rapids, aplicados a um produto de software real \cite{neri2020tensors}. Os resultados preliminares indicaram a viabilidade técnica da abordagem, ainda que os próprios autores apontem a necessidade de estudos experimentais adicionais para caracterizar sua eficácia frente aos modelos de qualidade tradicionais.
 
-
-\section{Ferramentas de Análise Estática de Código-Fonte}
-\label{sec:ferramentas_referencial}
-
-Uma ferramenta de análise estática de código-fonte pode ser compreendida como um instrumento automatizado, interno ou externo, capaz de identificar violações de regras de codificação em um conjunto de código-fonte, associando cada violação encontrada à sua localização específica (arquivo, classe, método ou linha). Ferramentas desse tipo constituem o elo entre os modelos teóricos de qualidade, que por definição são amplos e não diretamente mensuráveis, e sua operacionalização prática, uma vez que fornecem os dados brutos, a partir dos quais métricas e medidas associadas aos atributos e subatributos definidos nos modelos de referência de qualidade de software podem ser calculadas \cite{griffith2017industry}.
-
-No presente trabalho, serão utilizadas três ferramentas de análise estática de código-fonte: Q-Rapids, SonarQube e MeasureSoftGram. A justificativa para a escolha dessas ferramentas de análise estpatica de código fonte no contexto do deste trabalho é trazida na Seção \ref{sec:instrumentacao} do Capítulo \ref{cap:planejamento} - Planejamento.
-
-Cada ferramenta de análise estática utilizada neste trabalho constitui a operacionalização de um modelo de qualidade de referência específico, sendo responsável por traduzir suas características e subcaracterísticas teóricas em métricas calculáveis a partir do código-fonte. Nesse sentido, o SonarQube opera como a ferramenta de referência para o \textbf{SQALE}, enquanto o Q-Rapids e o MeasureSoftGram referenciam, respectivamente, os modelos homônimos \textbf{Q-Rapids} e \textbf{MeasureSoftGram}.
-
 \section{Modelos de Linguagem de Grande Escala}
 
-Modelos de Linguagem de Grande Escala, ou LLMs, são treinados com grandes volumes de código e documentação, o que lhes permite compreender trechos de código e inferir aspectos relacionados ao seu comportamento. Na Engenharia de Software, esses modelos têm sido aplicados em tarefas como geração e complementação de código, análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
+Modelos de Linguagem de Grande Escala, ou LLMs, são treinados com grandes volumes de código e documentação, o que lhes permite compreender trechos de código e inferir aspectos relacionados ao seu comportamento. Na Engenharia de Software, esses modelos têm sido aplicados em tarefas como geração e complementação de código, análise estática, inferência de tipos e detecção de problemas em código-fonte \cite{wang2025boosting,VenkateshEtAll,KhojahEtAll}.
 
-Embora apresentem resultados promissores e possam complementar técnicas tradicionais de desenvolvimento e inspeção de código, os LLMs ainda possuem limitações. Entre elas, destacam-se a ocorrência de alucinações, a interpretação incorreta da intenção do código e a geração de soluções incorretas ou irrelevantes, especialmente em tarefas de maior complexidade. Dessa forma, os resultados produzidos por esses modelos devem ser submetidos a procedimentos de validação antes de serem considerados confiáveis \cite{wang2025boosting,venkatesh2024emergence,khojah2024promptprogramming}.
+Embora apresentem resultados promissores e possam complementar técnicas tradicionais de desenvolvimento e inspeção de código, os LLMs ainda possuem limitações. Entre elas, destacam-se a ocorrência de alucinações, a interpretação incorreta da intenção do código e a geração de soluções incorretas ou irrelevantes, especialmente em tarefas de maior complexidade. Dessa forma, os resultados produzidos por esses modelos devem ser submetidos a procedimentos de validação antes de serem considerados confiáveis \cite{wang2025boosting,VenkateshEtAll,KhojahEtAll}.
 
 \subsection{Engenharia de Prompt}
 
@@ -279,11 +269,9 @@ Em tarefas de Engenharia de Software, esse padrão pode favorecer a organizaçã
 
 \section{Experimentação em Engenharia de Software}
 
-A pesquisa empírica em Engenharia de Software produz conhecimento por meio da observação sistemática de fenômenos relacionados ao desenvolvimento e à manutenção de software. Entre suas principais estratégias estão o levantamento, o estudo de caso e o experimento, que se diferenciam pelo grau de controle sobre as variáveis e pelo realismo do ambiente investigado \cite{wohlin2024}.
+Segundo \citeonline{wohlin2024}, a pesquisa empírica em Engenharia de Software pode ser conduzida por diferentes estratégias, entre elas a revisão sistemática da literatura, o levantamento (\textit{survey}), o estudo de caso e o experimento, que se diferenciam pelo grau de controle sobre as variáveis e pelo realismo do ambiente investigado. A revisão sistemática sintetiza o conhecimento já produzido sobre um tema; o levantamento caracteriza uma população a partir de uma amostra, sem intervenção do pesquisador; e o estudo de caso investiga um fenômeno em seu contexto real, com controle limitado. O experimento, por sua vez, envolve a manipulação deliberada de um fator para observar seu efeito sobre uma variável de resultado, mantendo as demais condições controladas, o que lhe confere o maior grau de controle entre as estratégias, em troca de menor realismo.
 
-O levantamento busca caracterizar uma população a partir de uma amostra, sem intervenção direta do pesquisador. O estudo de caso analisa um fenômeno em seu contexto real, com controle limitado sobre as variáveis. O experimento, por sua vez, envolve a manipulação deliberada de um ou mais fatores para observar seus efeitos sobre uma variável de resultado, mantendo as demais condições controladas \cite{wohlin2024}.
-
-Segundo \citeonline{wohlin2024}, os experimentos são adequados para comparar métodos, técnicas, ferramentas e soluções em Engenharia de Software, produzindo evidências quantitativas para a avaliação de hipóteses. Para garantir a validade dos resultados, sua execução deve seguir um processo estruturado, desde a definição do problema até a análise e a apresentação dos resultados, conforme detalhado nas subseções seguintes.
+Segundo \citeonline{wohlin2024}, experimentos são particularmente adequados para comparar métodos, técnicas, ferramentas e soluções em Engenharia de Software, produzindo evidências quantitativas para a avaliação de hipóteses. É por essa razão, alinhada ao propósito deste trabalho de comparar o efeito de diferentes padrões de engenharia de prompt sobre a aferição do indicador de manutenibilidade, que o experimento foi adotado como estratégia de pesquisa nesta etapa. Sua execução deve seguir um processo estruturado, desde a definição do problema até a análise e a apresentação dos resultados, conforme detalhado nas subseções seguintes.
 
 \subsection{Definição do Experimento}
 
@@ -310,55 +298,13 @@ Ao testar uma hipótese, dois tipos de erro podem ocorrer, conforme descrito por
 
 \subsection{Seleção de Variáveis}
 
-O planejamento de um experimento requer a identificação das variáveis que podem influenciar seus resultados e a definição da forma como cada uma será tratada no desenho experimental \citeonline{wohlin2024}. Neste trabalho, essas variáveis são organizadas nas categorias apresentadas na Tabela~\ref{tab:categorias_variaveis}.
+O planejamento de um experimento requer a identificação das variáveis que podem influenciar seus resultados e a definição da forma como cada uma será tratada no desenho experimental \citeonline{wohlin2024}. 
 
-\begin{longtable}{|p{3.5cm}|p{11cm}|}
-\caption{Categorias de variáveis do planejamento experimental}
-\label{tab:categorias_variaveis} \\
-\hline
-\textbf{Categoria} & \textbf{Definição} \\
-\hline
-\endfirsthead
+A variável independente é aquela cujos valores são manipulados, controlados ou considerados no desenho experimental por poderem influenciar a variável de resposta. Quando a influência dessa variável sobre o resultado constitui o próprio objeto de interesse do experimento, ela é chamada de fator, e seus valores são deliberadamente modificados para que seus efeitos possam ser observados; cada valor ou nível específico assumido por um fator durante o experimento é denominado tratamento.
 
-\multicolumn{2}{c}{{\bfseries \tablename\ \thetable{} -- Continuação da página anterior}} \\
-\hline
-\textbf{Categoria} & \textbf{Definição} \\
-\hline
-\endhead
+A variável dependente, por sua vez, corresponde ao resultado observado após a aplicação dos tratamentos, sendo utilizada para avaliar seus possíveis efeitos; sua definição está diretamente relacionada às hipóteses do experimento.
 
-\hline
-\multicolumn{2}{r}{{Continua na próxima página}} \\
-\endfoot
-
-\hline
-\endlastfoot
-
-Variável independente &
-Variável cujos valores são manipulados, controlados ou considerados no desenho experimental por poderem influenciar a variável de resposta. \\
-\hline
-
-Fator &
-Variável independente cuja influência sobre o resultado constitui o objeto de interesse do experimento. Seus valores são deliberadamente modificados para que seus efeitos possam ser observados. \\
-\hline
-
-Tratamento &
-Cada valor ou nível específico assumido por um fator durante o experimento. \\
-\hline
-
-Variável dependente &
-Resultado observado após a aplicação dos tratamentos e utilizado para avaliar seus possíveis efeitos. Sua definição está diretamente relacionada às hipóteses do experimento. \\
-\hline
-
-Variável de bloqueio &
-Variável independente que pode influenciar o resultado, mas cujo efeito não constitui o objeto principal da investigação. Por meio da blocagem, sua influência é controlada no desenho e na análise do experimento, reduzindo sua interferência na comparação entre os tratamentos. \\
-\hline
-
-Variáveis mantidas em nível fixo &
-Variáveis independentes que não constituem fatores nem blocos e são mantidas constantes durante a execução do experimento, evitando que suas variações interfiram nos resultados. \\
-\hline
-
-\end{longtable}
-\fonte{O Autor, adaptado de \citeonline{wohlin2024}.}
+Além do fator, o experimento pode envolver variáveis independentes que também influenciam o resultado, mas cujo efeito não constitui o objeto principal da investigação. Quando essa influência é controlada por meio de blocagem no desenho e na análise do experimento, de modo a reduzir sua interferência na comparação entre os tratamentos, tem-se uma variável de bloqueio. Já as variáveis independentes que não constituem fatores nem blocos, e que são mantidas constantes ao longo de toda a execução do experimento para evitar que suas variações interfiram nos resultados, são chamadas de variáveis mantidas em nível fixo.
 
 A distinção entre essas categorias orienta a definição das fontes de variação que serão investigadas, controladas por blocagem ou mantidas constantes durante a execução do experimento. A aplicação dessas categorias ao desenho desta pesquisa é apresentada na Seção~\ref{sec:selecao_de_variaveis}.
 
@@ -375,7 +321,7 @@ O desenho experimental define a forma como os tratamentos são organizados e apl
 
 \subsection{\textit{Randomized Complete Block Design}}
 
-O \textit{Randomized Complete Block Design} (RCBD) é um dos desenhos experimentais mais utilizados em Engenharia de Software \citeonline{wohlin2024}. Segundo os autores, esse desenho é indicado quando há variabilidade relevante entre as unidades experimentais, a qual pode ser minimizada por meio da blocagem, tornando os grupos comparados mais homogêneos entre si. No RCBD, cada bloco é submetido a todos os tratamentos do fator estudado, e a ordem de aplicação desses tratamentos dentro de cada bloco é definida por randomização, daí o bloco representar uma restrição controlada sobre o processo de aleatorização, e não sua ausência \citeonline{wohlin2024}. Esse desenho generaliza o \textit{paired comparison design} para situações com mais de dois tratamentos, sendo indicado quando se deseja isolar o efeito de uma ou mais fontes de variação já conhecidas, sem que essas fontes sejam, elas próprias, objeto de investigação do experimento.
+O \textit{Randomized Complete Block Design} (RCBD), traduzido como Desenhos de Blocos Completos Aleatorizados, é um dos desenhos experimentais mais utilizados em Engenharia de Software \citeonline{wohlin2024}. Segundo os autores, esse desenho é indicado quando há variabilidade relevante entre as unidades experimentais, a qual pode ser minimizada por meio da blocagem, tornando os grupos comparados mais homogêneos entre si. No RCBD, cada bloco é submetido a todos os tratamentos do fator estudado, e a ordem de aplicação desses tratamentos dentro de cada bloco é definida por randomização, daí o bloco representar uma restrição controlada sobre o processo de aleatorização, e não sua ausência \citeonline{wohlin2024}. Esse desenho generaliza o \textit{paired comparison design} para situações com mais de dois tratamentos, sendo indicado quando se deseja isolar o efeito de uma ou mais fontes de variação já conhecidas, sem que essas fontes sejam, elas próprias, objeto de investigação do experimento.
 
 A Tabela~\ref{tab:exemplo_rcbd} apresenta um exemplo de atribuição dos
 tratamentos aos sujeitos em um \textit{Randomized Complete Block Design},
@@ -413,9 +359,21 @@ que cada tratamento é aplicado para aquele sujeito, por exemplo, o
 sujeito 1 aplica primeiro o Tratamento 1, em seguida o Tratamento 3 e, por
 último, o Tratamento 2. Essa randomização da ordem dentro de cada bloco é o que caracteriza o desenho como \textit{Randomized Complete Block Design} \cite{wohlin2024}.
 
-\section{Testes Estatísticos}
+\subsection{Análise Estatística}
 
-Segundo \citeonline{wohlin2024}, os testes de hipótese podem ser classificados em duas categorias: testes paramétricos e testes não paramétricos. Os testes paramétricos partem de um modelo que pressupõe uma distribuição específica dos dados, geralmente a normalidade de parte dos parâmetros envolvidos, além de exigirem que os dados sejam medidos, no mínimo, em escala intervalar. Já os testes não paramétricos dispensam essas pressuposições, fazendo apenas suposições mais gerais sobre a distribuição dos dados; por serem menos restritivos, podem ser utilizados sempre que um teste paramétrico também poderia, mas o inverso não é válido. A escolha entre uma abordagem e outra deve considerar dois fatores: a aderência dos dados às premissas exigidas por cada teste (\textit{applicability}) e o poder estatístico do teste (\textit{power}), sendo os testes paramétricos geralmente mais poderosos, exigindo, portanto, amostras menores para alcançar significância quando suas premissas são atendidas.
+\subsubsection{Estatística Descritiva}
+
+Antes da aplicação de qualquer teste de hipótese, \citeonline{wohlin2024} recomendam a condução de uma análise estatística descritiva dos dados coletados, com o objetivo de resumir suas principais características, identificar padrões gerais e detectar possíveis valores discrepantes ou inconsistências antes da etapa inferencial. Os autores organizam essa análise em torno de três tipos de medidas: de tendência central, de dispersão e de forma da distribuição, complementadas por representações gráficas dos dados.
+
+As medidas de tendência central indicam o valor em torno do qual os dados se concentram, sendo as mais utilizadas a média, a mediana e a moda. \citeonline{wohlin2024} destacam que a média é sensível a valores extremos, enquanto a mediana, por corresponder ao valor central da distribuição ordenada, é uma medida mais robusta nesses casos, sendo preferível quando os dados apresentam assimetria ou \textit{outliers}. As medidas de dispersão, por sua vez, indicam o grau de variabilidade dos dados em torno da tendência central, incluindo a variância, o desvio padrão, a amplitude (diferença entre os valores máximo e mínimo) e os quartis, sendo o desvio padrão a medida mais comumente utilizada por expressar a dispersão na mesma unidade dos dados originais.
+
+Complementarmente, \citeonline{wohlin2024} recomendam o uso de representações gráficas para apoiar a interpretação dos dados, como o \textit{box plot}, que resume a mediana, os quartis e os valores extremos de uma distribuição, permitindo a comparação visual entre grupos, e o \textit{scatter plot}, útil para identificar possíveis relações entre duas variáveis. Essas ferramentas gráficas auxiliam ainda na verificação preliminar de pressupostos relevantes para a escolha do teste estatístico subsequente, como a simetria e a normalidade aproximada da distribuição dos dados.
+
+Neste trabalho, a estatística descritiva será aplicada aos resultados do indicador de manutenibilidade obtidos nas 18 combinações de tratamento e bloco, previamente à condução dos testes de hipótese, permitindo uma caracterização inicial do comportamento dos dados por padrão de prompt, modelo de qualidade de referência e ferramenta de LLM.
+
+\subsubsection{Testes Estatísticos}
+
+Segundo \citeonline{wohlin2024}, os testes de hipótese podem ser classificados em duas categorias: testes paramétricos e testes não paramétricos. Os testes paramétricos partem de um modelo que pressupõe uma distribuição específica dos dados, geralmente a normalidade de parte dos parâmetros envolvidos, além de exigirem que os dados sejam medidos, no mínimo, em escala intervalar. Já os testes não paramétricos dispensam essas pressuposições, fazendo apenas suposições mais gerais sobre a distribuição dos dados; por serem menos restritivos, podem ser utilizados sempre que um teste paramétrico também poderia, mas o inverso não é válido. A escolha entre uma abordagem e outra deve considerar dois fatores: a aderência dos dados às premissas exigidas por cada teste e o poder estatístico do teste, sendo os testes paramétricos geralmente mais poderosos, exigindo, portanto, amostras menores para alcançar significância quando suas premissas são atendidas.
 
 A seleção do teste estatístico adequado depende, ainda, do desenho do experimento, isto é, do número de tratamentos avaliados e da relação entre as amostras (independentes ou pareadas). Para o caso de um único fator com dois tratamentos, os testes paramétricos indicados são o t-test e o F-test, com o Mann-Whitney como alternativa não paramétrica para amostras independentes e o Wilcoxon e o Sign test para amostras pareadas. Quando o fator avaliado possui mais de dois tratamentos, o teste paramétrico correspondente é a ANOVA (\textit{ANalysis Of Variance}), tendo como alternativa não paramétrica o teste de Kruskal-Wallis, aplicável sempre que não há certeza de que as premissas da ANOVA são satisfeitas pelos dados \citeonline{wohlin2024}.
 

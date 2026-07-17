@@ -1,0 +1,14 @@
+\chapter{Conclusão}
+\label{cap:conclusao}
+
+Esta primeira etapa conduziu a fundamentação teórica do problema, uma revisão estruturada da literatura e o planejamento de um experimento controlado, cujos principais resultados são retomados a seguir.
+
+O Capítulos 1 e 2 se preocuparam com as definições inicias da pesquisa e sua fundamentação referencial, respecitivamente. A delimitação do problema de investigação, da questão de pesquisa e dos objetivos deste estudo, bem como a sua fundamentação formam o arcabouço teórico introdutório necessário para a leitura e compreensão das projeções deste trabalho.
+
+A revisão estruturada da literatura, apresentada no Capítulo 3, respondeu às questões de pesquisa propostas. Constatou-se que a maioria dos artigos não declara explicitamente um modelo de qualidade de referência, sendo o SQALE, majoritariamente via SonarQube, o único identificado com consistência. As medidas mais recorrentes foram complexidade, code smells, duplicação e dívida técnica. Quanto aos padrões de prompt, observou-se ampla variedade de técnicas, sem consolidação de um padrão específico para manutenibilidade, embora estratégias com janelas de contexto reduzidas tendam a favorecer o desempenho dos LLMs.
+
+O Capítulo 4 estabeleceu o planejamento do experimento controlado a ser executado na etapa seguinte. Foram formuladas as hipóteses, definidas as variáveis (padrão de prompt como fator, resultado da aferição como variável dependente, modelo de qualidade e ferramenta de LLM como blocos) e adotado o desenho RCBD. Definiu-se também a instrumentação necessária, incluindo Q-Rapids e MeasureSoftGram como ferramentas principais e o SonarQube/SQALE como instrumento de triangulação, além das principais ameaças à validade.
+
+Como limitação desta etapa, destaca-se que a seleção dos repositórios e arquivos do corpus experimental ainda não foi realizada, assim como algumas ameaças à validade só poderão ser plenamente avaliadas durante a execução, a depender da estrutura e distribuição dos dados de coleta do experimento. A condução da fase de operação, incluindo a aplicação das 18 combinações de tratamento e bloco, a coleta dos indicadores e o teste formal das hipóteses, constitui o objeto da segunda etapa deste trabalho.
+
+Conclui-se que esta etapa cumpriu seu objetivo de delimitar o problema, fundamentar teoricamente a investigação e planejar metodologicamente o experimento proposto, fornecendo a base necessária para que a etapa seguinte produza evidências empíricas sobre a influência dos padrões de engenharia de prompt na avaliação da manutenibilidade de software por LLMs.
