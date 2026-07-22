@@ -1,32 +1,36 @@
 \chapter[Introdução]{Introdução}
 
-Este capítulo apresta os elementos intridutórios que norteiam o presente trabalho, a saber: a apresentação do tema e contextualização, o delineamento do problema investigado e a questão de pesquisa que orienta este estudo, bem como seus objetivos. A partir dessa fundamentação, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
+Este capítulo apresenta os elementos introdutórios que norteiam o presente trabalho, a saber: a apresentação do tema e contextualização, o delineamento do problema investigado e a questão de pesquisa que orienta este estudo, bem como seus objetivos. A partir dessa fundamentação, são descritos os procedimentos metodológicos adotados, incluindo a estratégia de pesquisa utilizada para condução da investigação, coleta e análise dos dados, de modo a garantir coerência científica e alinhamento aos objetivos propostos.
 
 \section{Contexto}
 
-A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, 
-sendo frequentemente incorporadas a práticas de Integração Contínua (CI) e Desenvolvimento Contínuo (CD) \cite{LenarduzziEtAll}.
+A qualidade de software constitui um tema central na Engenharia de Software, uma vez que influencia diretamente a confiabilidade, a evolução e a manutenção dos sistemas ao longo de seu ciclo de vida. Nesse contexto, ferramentas de análise estática têm sido amplamente utilizadas para identificar potenciais problemas no código-fonte sem a necessidade de execução do sistema. Essas ferramentas apoiam a detecção de defeitos, violações de regras, indícios de dívida técnica e problemas associados à manutenibilidade, sendo frequentemente incorporadas a práticas de Integração Contínua (CI) e Desenvolvimento Contínuo (CD) \cite{LenarduzziEtAll}.
 
 Apesar de sua relevância, as ferramentas tradicionais de análise estática operam, em geral, com base em regras previamente definidas, padrões sintáticos e métricas estruturais do código. Estudos empíricos indicam que diferentes ferramentas podem apresentar baixa concordância entre si, além de variações consideráveis em termos de precisão. \citeonline{LenarduzziEtAll}, ao compararem seis ferramentas populares de análise estática, identificaram pouca ou nenhuma concordância entre os problemas detectados e observaram que a precisão prática dessas ferramentas pode ser afetada pela ocorrência de falsos positivos.
 
 Com o avanço dos Modelos de Linguagem de Grande Escala, ou \textit{Large Language Models} (LLM), novas possibilidades passaram a ser investigadas na Engenharia de Software, especialmente em tarefas relacionadas à geração, compreensão e análise de código. Esses modelos têm demonstrado potencial para interpretar elementos do código a partir de informações contextuais e semânticas, aproximando-se de tarefas tradicionalmente associadas à análise estática. \citeonline{VenkateshEtAll} investigaram o uso de LLMs em tarefas como inferência de tipos e análise de grafo de chamadas, apontando resultados promissores em alguns cenários, mas também limitações relevantes em outros.
 
-Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. A engenharia de prompts e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
+Além da capacidade dos modelos, a forma como as solicitações são formuladas também se tornou um fator importante no uso de LLMs em tarefas de programação. A engenharia de \textit{prompts} e os padrões de prompt surgem como estratégias para orientar os modelos na produção de respostas mais adequadas. Estudos recentes indicam que diferentes técnicas de prompt podem influenciar aspectos como correção, similaridade com código humano e qualidade do código gerado, embora seus efeitos ainda não sejam totalmente previsíveis ou consistentes entre tarefas e modelos \cite{DellaPortaEtAll, KhojahEtAll}.
 
 \section{Problema}
 
-Embora ferramentas de análise estática sejam amplamente utilizadas na avaliação da qualidade de software, sua atuação tende a se concentrar em regras formais, métricas e padrões previamente definidos. Essa característica limita sua capacidade de avaliar aspectos que dependem de maior compreensão semântica e contextual do código, como intenção de uso, comportamento esperado e adequação de determinadas estruturas ao contexto do sistema. Assim, ainda que essas ferramentas sejam úteis para identificar problemas recorrentes, 
-sua aplicação pode não capturar adequadamente dimensões mais interpretativas da qualidade do código \cite{LenarduzziEtAll}.
+% Embora ferramentas de análise estática sejam amplamente utilizadas na avaliação da qualidade de software, sua atuação tende a se concentrar em regras formais, métricas e padrões previamente definidos. Essa característica limita sua capacidade de avaliar aspectos que dependem de maior compreensão semântica e contextual do código, como intenção de uso, comportamento esperado e adequação de determinadas estruturas ao contexto do sistema. Assim, ainda que essas ferramentas sejam úteis para identificar problemas recorrentes, sua aplicação pode não capturar adequadamente dimensões mais interpretativas da qualidade do código \cite{LenarduzziEtAll}.
 
-Essa limitação torna-se particularmente relevante quando se consideram atributos de qualidade como a manutenibilidade. A avaliação da manutenibilidade não depende apenas da presença ou ausência de violações sintáticas, mas também da clareza, compreensibilidade, organização e facilidade de evolução do código. 
-Nesse sentido, a baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise ainda apresentam lacunas na representação de atributos de qualidade mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
+% Essa limitação torna-se particularmente relevante quando se consideram atributos de qualidade como a manutenibilidade. A avaliação da manutenibilidade não depende apenas da presença ou ausência de violações sintáticas, mas também da clareza, compreensibilidade, organização e facilidade de evolução do código. Nesse sentido, a baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise ainda apresentam lacunas na representação de atributos de qualidade mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
 
-O surgimento dos LLMs acrescenta uma nova dimensão a esse problema. Por serem capazes de processar linguagem natural e código-fonte, esses modelos podem oferecer contribuições para tarefas que exigem interpretação contextual. Entretanto, os resultados disponíveis ainda indicam um cenário heterogêneo: enquanto LLMs apresentaram desempenho promissor em inferência de tipos, métodos tradicionais continuaram superiores em tarefas como análise de grafo de chamadas, especialmente em termos de eficiência e precisão operacional \cite{VenkateshEtAll}. Portanto, ainda não está claro como essas capacidades devem ser relacionadas aos 
-modelos e ferramentas tradicionais de qualidade de software.
+% O surgimento dos LLMs acrescenta uma nova dimensão a esse problema. Por serem capazes de processar linguagem natural e código-fonte, esses modelos podem oferecer contribuições para tarefas que exigem interpretação contextual. Entretanto, os resultados disponíveis ainda indicam um cenário heterogêneo: enquanto LLMs apresentaram desempenho promissor em inferência de tipos, métodos tradicionais continuaram superiores em tarefas como análise de grafo de chamadas, especialmente em termos de eficiência e precisão operacional \cite{VenkateshEtAll}. Portanto, ainda não está claro como essas capacidades devem ser relacionadas aos modelos e ferramentas tradicionais de qualidade de software.
 
-Além disso, permanece em aberto a compreensão sobre como padrões de prompt influenciam atributos de qualidade do código.\citeonline{DellaPortaEtAll} investigaram a relação entre padrões de prompt e qualidade do código gerado por ChatGPT, considerando manutenibilidade, segurança e confiabilidade, mas indicaram que essa relação ainda demanda investigação. De forma complementar, \citeonline{KhojahEtAll} observaram que técnicas de prompt podem afetar correção e qualidade, mas que combinações de técnicas não necessariamente produzem melhores resultados. 
+% Além disso, permanece em aberto a compreensão sobre como padrões de prompt influenciam atributos de qualidade do código.\citeonline{DellaPortaEtAll} investigaram a relação entre padrões de prompt e qualidade do código gerado por ChatGPT, considerando manutenibilidade, segurança e confiabilidade, mas indicaram que essa relação ainda demanda investigação. De forma complementar, \citeonline{KhojahEtAll} observaram que técnicas de prompt podem afetar correção e qualidade, mas que combinações de técnicas não necessariamente produzem melhores resultados. 
 
-Assim, o problema deste trabalho concentra-se na seguinte lacuna: ferramentas tradicionais de qualidade de software, baseadas em análise estática, apresentam limitações na avaliação de aspectos semânticos e contextuais do código; com o surgimento dos LLMs, ainda não está claro como essas novas capacidades se relacionam com modelos de qualidade existentes nem como padrões de prompt influenciam atributos de qualidade, como manutenibilidade, em específico \cite{DellaPortaEtAll, KhojahEtAll}.
+% Assim, o problema deste trabalho concentra-se na seguinte lacuna: ferramentas tradicionais de qualidade de software, baseadas em análise estática, apresentam limitações na avaliação de aspectos semânticos e contextuais do código; com o surgimento dos LLMs, ainda não está claro como essas novas capacidades se relacionam com modelos de qualidade existentes nem como padrões de prompt influenciam atributos de qualidade, como manutenibilidade, em específico \cite{DellaPortaEtAll, KhojahEtAll}.
+
+Ferramentas de análise estática, embora amplamente utilizadas na avaliação da qualidade de software, concentram-se em regras formais, métricas e padrões previamente definidos, o que limita sua capacidade de avaliar aspectos que dependem de compreensão semântica e contextual do código, como intenção de uso, comportamento esperado e adequação de estruturas ao contexto do sistema. Essa limitação é particularmente relevante para a manutenibilidade, atributo que depende não apenas da ausência de violações sintáticas, mas também da clareza, compreensibilidade e facilidade de evolução do código. A baixa concordância entre ferramentas e a variação de precisão observadas em estudos empíricos sugerem que os mecanismos tradicionais de análise ainda apresentam lacunas na representação desses atributos mais amplos e dependentes de contexto \cite{LenarduzziEtAll}.
+
+O surgimento dos LLMs acrescenta uma nova dimensão a esse problema: por processarem linguagem natural e código-fonte, esses modelos podem contribuir em tarefas que exigem interpretação contextual. Contudo, os resultados disponíveis ainda são heterogêneos: LLMs apresentaram desempenho promissor em inferência de tipos, mas métodos tradicionais permaneceram superiores em tarefas como análise de grafo de chamadas, sobretudo em eficiência e precisão operacional \cite{VenkateshEtAll}, não estando claro como essas capacidades se relacionam aos modelos e ferramentas tradicionais de qualidade de software.
+
+Também permanece em aberto como padrões de prompt influenciam atributos de qualidade do código. \citeonline{DellaPortaEtAll} investigaram a relação entre padrões de prompt e qualidade do código gerado por ChatGPT, considerando manutenibilidade, segurança e confiabilidade, indicando que essa relação ainda demanda investigação, enquanto \citeonline{KhojahEtAll} observaram que técnicas de prompt podem afetar correção e qualidade, mas que sua combinação não necessariamente produz melhores resultados.
+
+Assim, o problema deste trabalho concentra-se na seguinte lacuna: ferramentas tradicionais de análise estática apresentam limitações na avaliação de aspectos semânticos e contextuais do código; com o surgimento dos LLMs, ainda não está claro como essas novas capacidades se relacionam com os modelos de qualidade existentes, nem como padrões de prompt influenciam atributos de qualidade, em especial a manutenibilidade \cite{DellaPortaEtAll, KhojahEtAll}.
 
 \section{Questão de Pesquisa} \label{sec:questao_de_pesquisa}
 
@@ -53,7 +57,7 @@ Seguindo essa estrutura proposta por \citeonline{BasiliEtAll}, o método foi ada
     \midrule
     \textbf{Propósito} & Controlar a influência de diferentes padrões de engenharia de prompt \\
     \midrule
-    \textbf{Foco} & Comparação dos diferentes modelos de qualidade e dos prompts em relação à característica de manutenibilidade \\
+    \textbf{Foco} & avaliar a influência dos padrões de prompt sobre o indicador de manutenibilidade, controlando o modelo de qualidade e a ferramenta de LLM como fatores de bloqueio, com triangulação complementar via instrumento independente \\
     \midrule
     \textbf{Objeto de Estudo} & Produto de software \\
     \midrule
@@ -64,7 +68,9 @@ Seguindo essa estrutura proposta por \citeonline{BasiliEtAll}, o método foi ada
 
 Com isso, foi formulada a questão de pesquisa que norteia este trabalho: 
 
-\textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?}
+\textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade por LLMs, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?}
+
+
 
 \section{Objetivos}
 
@@ -103,10 +109,47 @@ Esta sessão esclarece a estrutura desta monografia e o que está presente em ca
 
 Esta sessão esclarece as atividades desenvolvidas durante a primeira etapa do trabalho. O Fluxograma da Figura \ref{fig:fluxograma_primeira_etapa} discrimina as atividades e o Cronograma da Figura \ref{tab:cronograma_primeira_etapa} apresenta a visão cronológica das atividades da primeira etapa do trabalho.
 
+\begin{itemize}
+
+\item \textbf{Contextualização da experimentação em Engenharia de Software:}
+Estudo inicial sobre o papel dos métodos empíricos na validação de práticas, técnicas e ferramentas da área.
+
+\item \textbf{Contextualização da Revisão Estruturada:}
+Estudo das etapas, diretrizes e boas práticas da Revisão Sistemática da Literatura em Engenharia de Software, adotadas como base metodológica deste trabalho.
+
+\item \textbf{Definição do problema:}
+Delimitação do problema, do escopo e da relevância da pesquisa.
+
+\item \textbf{Estruturação do GQM:}
+Aplicação do método \textit{Goal-Question-Metric} para relacionar a meta do estudo, as questões de pesquisa e as métricas utilizadas.
+
+\item \textbf{Definição dos objetivos:}
+Estabelecimento dos objetivos geral e específicos com base na meta definida no GQM.
+
+\item \textbf{Definição da string de busca:}
+Seleção e combinação de termos, sinônimos e operadores booleanos utilizados na busca dos estudos.
+
+\item \textbf{Aplicação da string e seleção dos artigos:}
+Execução da busca na base Scopus e seleção dos estudos de acordo com os critérios de inclusão e exclusão.
+
+\item \textbf{Leitura e extração de dados:}
+Leitura integral dos estudos selecionados e organização das informações necessárias para responder às questões de pesquisa.
+
+\item \textbf{Escrita da monografia:}
+Redação dos capítulos com base no referencial teórico, na metodologia e nos resultados obtidos.
+
+\item \textbf{Revisão da monografia:}
+Verificação da consistência do conteúdo, da clareza textual e da adequação às normas de formatação.
+
+\item \textbf{Apresentação da monografia:}
+Apresentação do trabalho e coleta de considerações para o aprimoramento das etapas seguintes do TCC.
+
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \caption{Fluxograma das atividades realizadas na primeira etapa}
-    \includegraphics[width=14cm]{figuras/fluxograma_primeira_etapa.png}
+    \includegraphics[width=16.5cm]{figuras/fluxograma_primeira_etapa.png}
     \label{fig:fluxograma_primeira_etapa}
     \fonte{O Autor.}
 \end{figure}
@@ -120,63 +163,39 @@ Esta sessão esclarece as atividades desenvolvidas durante a primeira etapa do t
 \end{figure}
 
 
-\begin{itemize}
-
-  \item \textbf{Contextualização: Experimentação na Engenharia de Software} --
-  Levantamento inicial sobre o papel da experimentação na Engenharia de
-  Software, buscando compreender como estudos empíricos são conduzidos na área
-  e sua relevância para a validação de práticas, técnicas e ferramentas.
-
-  \item \textbf{Contextualização: Revisão Sistemática em Engenharia de
-  Software} -- Estudo sobre o método de Revisão Sistemática da Literatura
-  (RSL), neste trabalho denominada de Revisão Estruturada, aplicado à Engenharia de Software, contemplando etapas, diretrizes e boas práticas adotadas na área, servindo de base para a escolha metodológica do trabalho.
-
-  \item \textbf{Definição do problema} -- Delimitação do problema de pesquisa
-  a ser investigado, definindo o escopo do trabalho e justificando sua
-  relevância dentro do cenário identificado.
-
-  \item \textbf{Estruturação do GQM} -- Aplicação do método GQM
-  (\textit{Goal-Question-Metric}) para estruturar a pesquisa, relacionando a
-  meta geral do estudo, as questões de pesquisa derivadas dela e as métricas
-  utilizadas para respondê-las.
-
-  \item \textbf{Definição dos objetivos} -- Definição dos objetivos do trabalho, com base na meta estabelecida no GQM, orientando as etapas subsequentes da revisão sistemática.
-
-  \item \textbf{Definição da string de busca} -- Elaboração da string de busca
-  utilizada na Revisão Estruturada, com seleção de termos e sinônimos relacionados ao tema, combinados por meio de operadores booleanos para maximizar a cobertura e a precisão dos resultados.
-
-  \item \textbf{Aplicação da string de busca e seleção dos artigos} --
-  Aplicação da string de busca nas bases de dados selecionadas e avaliação dos
-  artigos retornados de acordo com critérios de inclusão e exclusão, resultando
-  no conjunto final de estudos primários.
-
-  \item \textbf{Leitura e extração de dados} -- Leitura integral dos artigos
-  selecionados e extração das informações relevantes para responder às
-  questões de pesquisa, organizando os dados para as etapas seguintes de
-  análise.
-
-  \item \textbf{Escrita da monografia} -- Redação da monografia com base nos
-  dados extraídos e analisados, estruturando os capítulos de forma a
-  apresentar o referencial teórico, a metodologia e os resultados obtidos.
-
-  \item \textbf{Revisão da monografia} -- Revisão do texto produzido para
-  verificar consistência do conteúdo, clareza da escrita e adequação às normas
-  de formatação, corrigindo eventuais inconsistências identificadas.
-
-  \item \textbf{Apresentação da monografia} -- Apresentação do trabalho,
-  encerrando a primeira etapa do TCC e possibilitando o recebimento de
-  considerações e sugestões para as etapas seguintes.
-
-\end{itemize}
-
 \subsection{Atividades da Segunda Etapa}
 
 Esta seção esclarece as atividades que serão desenvolvidas durante a segunda etapa do trabalho, com foco na execução prática, análise e documentação do experimento planejado. O Fluxograma da Figura \ref{fig:fluxograma_segunda_etapa} discrimina as atividades e o Cronograma da Figura \ref{tab:cronograma_segunda_etapa} apresenta a visão cronológica das atividades da segunda etapa do trabalho.
 
+\begin{itemize}
+
+\item \textbf{Instrumentação e configuração do ambiente:} 
+Preparação dos scripts para execução das 18 combinações experimentais e configuração das ferramentas de análise de referência; Q-Rapids, SonarQube e MeasureSoftGram.
+
+\item \textbf{Execução do experimento e coleta de dados:} 
+Submissão dos códigos-fonte ao ChatGPT, Claude e DeepSeek, utilizando os padrões \textit{zero-shot}, \textit{few-shot} e \textit{chain-of-thought}, além da execução das ferramentas de análise sobre os mesmos objetos.
+
+\item \textbf{Consolidação e tratamento dos resultados:} 
+Organização das avaliações e métricas em bases estruturadas, incluindo a identificação e o tratamento de respostas inconsistentes.
+
+\item \textbf{Análise estatística e teste de hipóteses:} 
+Aplicação de testes estatísticos adequados ao desenho em blocos completos casualizados, com o objetivo de verificar diferenças significativas entre os padrões de prompt.
+
+\item \textbf{Análise de ameaças e limitações:} 
+Avaliação das ocorrências registradas durante a execução e das ameaças às validades interna, de conclusão, de construto e externa.
+
+\item \textbf{Escrita dos resultados e conclusão:} 
+Redação dos resultados, discussão do alinhamento entre os LLMs e os modelos de qualidade e apresentação das conclusões e propostas de trabalhos futuros.
+
+\item \textbf{Revisão final e defesa pública:} 
+Revisão da monografia consolidada e preparação para a apresentação perante a banca examinadora.
+
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \caption{Fluxograma das atividades realizadas na segunda etapa}
-    \includegraphics[width=14cm]{figuras/fluxograma_segunda_etapa.png}
+    \includegraphics[width=16.5cm]{figuras/fluxograma_segunda_etapa.png}
     \label{fig:fluxograma_segunda_etapa}
     \fonte{O Autor.}
 \end{figure}
@@ -189,19 +208,6 @@ Esta seção esclarece as atividades que serão desenvolvidas durante a segunda 
     \fonte{O Autor.}
 \end{figure}
 
+\section{Uso de Inteligência Artificial}
 
-\begin{itemize}
-  \item \textbf{Instrumentação e setup do ambiente} -- Preparação do ambiente prático do experimento, incluindo a configuração de scripts para submissão das 27 combinações de tratamento e blocagem às ferramentas de LLM, bem como o setup das ferramentas de análise estática de referência (SonarQube e MeasureSoftGram).
-
-  \item \textbf{Execução do experimento e coleta de dados} -- Submissão sistemática dos códigos-fonte selecionados aos modelos de linguagem (ChatGPT, Claude e DeepSeek) sob os três padrões de prompt (zero-shot, few-shot e chain-of-thought) e execução paralela das ferramentas de análise estática de código-fonte nos mesmos objetos para gerar os dados comparativos.
-
-  \item \textbf{Consolidação e tratamento dos resultados} -- Agrupamento e tabulação das avaliações do indicador de manutenibilidade coletadas nas etapas de execução, organizando as métricas obtidas em bases de dados estruturadas e realização da limpeza de eventuais respostas inconsistentes.
-
-  \item \textbf{Análise estatística e teste de hipóteses} -- Aplicação de testes estatísticos de hipóteses apropriados ao desenho de blocos completos casualizados (RCBD) adotado, permitindo avaliar formalmente se a variação dos padrões de prompt causa diferenças significativas na aferição de manutenibilidade.
-
-  \item \textbf{Análise de ameaças e limitações} -- Avaliação crítica de ameaças adicionais ocorridas durante a execução (como taxas de falhas nas chamadas das APIs dos LLMs) e verificação de limitações associadas à validade interna, de conclusão, de constructo e externa.
-
-  \item \textbf{Escrita dos resultados e conclusão} -- Redação dos capítulos finais da monografia contendo a apresentação dos dados empíricos, a discussão teórica do alinhamento entre LLMs e modelos tradicionais, e propostas de trabalhos futuros.
-
-  \item \textbf{Revisão final e defesa pública} -- Revisão de todo o trabalho acadêmico consolidado e preparação para a defesa pública perante a banca examinadora.
-\end{itemize}
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente ao autor.
