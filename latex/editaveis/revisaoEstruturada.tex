@@ -1,47 +1,31 @@
 \chapter[Revisão Estruturada da Literatura]{Revisão Estruturada da Literatura}
-Este capítulo apresenta o procedimento adotado para identificação, seleção e organização 
-do material bibliográfico utilizado neste trabalho. A busca foi conduzida na base Scopus, 
-escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências relevantes para a comunidade acadêmica \cite{elsevier2024}.
-
+Este capítulo apresenta o procedimento adotado para identificação, seleção e organização do material bibliográfico utilizado neste trabalho. A busca foi conduzida na base Scopus, escolhida por sua ampla cobertura de publicações científicas e por reunir periódicos e conferências relevantes para a comunidade acadêmica \cite{elsevier2024}.
 
 \section{Planejamento e Protocolo}
-Inicialmente, foram realizadas leituras exploratórias de estudos relacionados à qualidade de software, análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa teve como objetivo contextualizar o problema de pesquisa, compreender os principais conceitos associados ao tema e apoiar a delimitação 
-da problemática investigada. Os estudos analisados nessa fase inicial também contribuíram para a formulação da questão principal de pesquisa e para a identificação dos termos utilizados posteriormente na construção da string de busca.
+Inicialmente, foram realizadas leituras exploratórias sobre qualidade de software, análise de código-fonte, Modelos de Linguagem de Grande Escala e engenharia de prompt. Essa etapa contribuiu para a contextualização do problema, a delimitação do escopo da pesquisa, a formulação da questão principal e a identificação dos termos utilizados na estratégia de busca.
 
-Após essa etapa exploratória, procedeu-se à formalização do protocolo de pesquisa. Embora este trabalho não se caracterize  como uma revisão sistemática da literatura em sentido estrito, optou-se por adotar uma estrutura metodológica inspirada nas diretrizes propostas por \citeonline{kitchenhamCharters2007} para revisões sistemáticas em Engenharia de Software. Essa escolha teve como finalidade conferir maior rigor, organização e transparência ao processo de busca, seleção e análise dos estudos,  permitindo que as etapas adotadas fossem documentadas de forma clara e passível de verificação.
+Em seguida, foi formalizado um protocolo de pesquisa inspirado nas diretrizes de \citeonline{kitchenhamCharters2007}. Embora este trabalho não constitua uma revisão sistemática da literatura em sentido estrito, a adoção dessas diretrizes buscou conferir maior rigor, organização e transparência ao processo de busca, seleção e análise dos estudos.
 
-As diretrizes de \citeonline{kitchenhamCharters2007} indicam que uma revisão estruturada deve ser orientada por questões de pesquisa previamente definidas, critérios explícitos de inclusão e exclusão, estratégia de busca documentada, processo de seleção dos estudos e definição dos dados a serem extraídos. Dessa forma, o protocolo deste trabalho foi elaborado com o objetivo de orientar a identificação de estudos relacionados ao uso de LLMs e padrões de engenharia de prompt na avaliação de atributos de qualidade de software, com foco específico na característica de manutenibilidade.
+O protocolo foi estruturado a partir da questão principal de pesquisa: \textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?} Com base nessa questão, foram definidos o escopo da busca, a string, os critérios de inclusão e exclusão e os dados a serem extraídos.
 
-A construção do protocolo partiu da questão principal de pesquisa definida neste trabalho: \textit{Como diferentes padrões de engenharia de prompt influenciam a aferição do indicador de manutenibilidade, considerando modelos de qualidade de referência de produto de software, no contexto de projetos de código-fonte aberto para aplicações web?} A partir dessa questão, foram delimitados o escopo da busca, os termos utilizados na string, os critérios de elegibilidade e os dados a serem coletados dos estudos selecionados.
+Para apoiar a construção da estratégia de busca, foi utilizada uma adaptação da estrutura PICO. A população foi associada à Engenharia de Software e às aplicações web; a intervenção, à engenharia de prompt aplicada a LLMs; e o resultado, à qualidade de software, com ênfase na manutenibilidade e em suas métricas. A dimensão de comparação não foi utilizada, pois a busca teve como objetivo identificar estudos sobre diferentes estratégias de prompt, sem exigir uma comparação direta entre intervenções.
 
-Para apoiar a organização da estratégia de busca, foi utilizada uma adaptação da estrutura PICO, originalmente empregada na formulação de questões de pesquisa em revisões sistemáticas. No contexto deste trabalho, a camada de população foi relacionada ao domínio da Engenharia de Software e ao desenvolvimento de aplicações web. A camada de intervenção foi associada à engenharia de prompt e aos padrões de prompt aplicados a LLMs. A camada de resultado foi vinculada à qualidade de software, especialmente à manutenibilidade e às métricas relacionadas a essa característica. A camada de comparação 
-não foi utilizada, pois o objetivo da busca não foi recuperar estudos que comparassem uma intervenção específica contra outra, mas identificar evidências sobre 
-a aplicação de diferentes estratégias de prompt e sua relação com a avaliação da manutenibilidade.
+A busca foi planejada para a base Scopus, devido à sua abrangência e aderência às áreas contempladas pela pesquisa. A string foi organizada em três grupos conceituais: domínio da pesquisa, engenharia de prompt e manutenibilidade. Os grupos foram conectados pelo operador \textit{AND}, enquanto seus termos internos foram combinados por \textit{OR}, com o uso de truncamentos para ampliar a recuperação de variações terminológicas.
 
-A busca foi planejada para ser executada na base de dados Scopus, por se tratar de uma base ampla de resumos e citações de literatura científica. A escolha dessa 
-base também se justifica pela aderência ao escopo deste trabalho, que demanda a recuperação de publicações nas áreas de Engenharia de Software, qualidade de software, 
-inteligência artificial e modelos generativos. A string de busca foi construída a partir da combinação de três grupos conceituais: domínio da pesquisa, engenharia de prompt e 
-manutenibilidade. Os grupos foram conectados pelo operador lógico \textit{AND}, enquanto os termos internos de cada grupo foram conectados pelo operador \textit{OR}. 
-Também foram utilizados recursos de truncamento, como o caractere ``*'', para ampliar a recuperação de variações terminológicas.
+Também foram definidos critérios de elegibilidade. Foram incluídos estudos sobre o uso de LLMs em tarefas relacionadas a código-fonte, que abordassem atributos de qualidade de software, especialmente manutenibilidade, publicados em português ou inglês a partir de 2022 e com texto completo disponível. Foram excluídos trabalhos sem relação direta com manutenibilidade, com abordagem superficial do tema, voltados exclusivamente a aplicações gerais de processamento de linguagem natural, duplicados ou sem documentação suficiente para análise.
 
-Além da definição da string, foram estabelecidos critérios de inclusão e exclusão para orientar a seleção dos estudos. Os critérios de inclusão contemplaram estudos 
-relacionados ao uso de LLMs em tarefas de geração, análise ou avaliação de código-fonte; estudos que abordassem atributos de qualidade de software, especialmente manutenibilidade; publicações em português ou inglês; trabalhos publicados a partir de 2022; e estudos com texto completo disponível. Os critérios de exclusão, por sua vez, contemplaram estudos sem relação direta com manutenibilidade, trabalhos que apenas mencionassem LLMs ou qualidade de software de forma superficial, estudos voltados exclusivamente a aplicações gerais de processamento de linguagem natural sem avaliação de código-fonte, publicações duplicadas e estudos sem documentação suficiente para análise.
-
-O protocolo também definiu os dados a serem extraídos dos estudos selecionados. Para isso, foi elaborado um formulário de extração contemplando informações demográficas, 
-características dos LLMs utilizados, contexto dos projetos avaliados, modelos de qualidade adotados, definições e métricas de manutenibilidade, estratégias de prompt empregadas, resultados encontrados e limitações apontadas pelos autores. Essa estrutura foi planejada para garantir que os dados coletados estivessem alinhados às questões de pesquisa e permitissem a posterior síntese das evidências. Uma descrição mais detalhada de cada uma destas etapas pode ser vista nas subsessões a seguir.
+Por fim, foi elaborado um formulário de extração de dados contemplando informações sobre os estudos, os LLMs utilizados, os projetos avaliados, os modelos de qualidade, as definições e métricas de manutenibilidade, as estratégias de prompt, os resultados e as limitações identificadas. As etapas do protocolo são detalhadas nas subseções seguintes.
 
 \section{Estruturação da String de Busca}
 
 Como forma de garantir a completude e a qualidade da pesquisa, foi aplicado, de acordo com as contribuições de \citeonline{paiEtAll}, o protocolo PICO; uma estrutura utilizada para formular uma questão de pesquisa clara e focada, especialmente em revisões sistemáticas. 
 
-O acrônimo representa quatro componentes principais de uma pergunta bem construída: \textit{Patient}, \textit{Intervention}, \textit{Comparison} e \textit{Outcome}; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. 
-
-A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
+O acrônimo representa quatro componentes principais de uma pergunta bem construída: \textit{Patient}, \textit{Intervention}, \textit{Comparison} e \textit{Outcome}; ou seja: paciente/população, intervenção, comparação e desfecho. O protocolo é inicialmente proposto para pesquisas na área médica; as devidas adequações de uso foram feitas para o seu aproveitamento no contexto de experimentação em Engenharia de Software \cite{paiEtAll}. A repesentação visual do protocolo proposto pode ser observada na Figura \ref{fig:picose_software}: 
 
 \begin{figure}[H]
     \centering
     \caption{Protocolo PICO adaptado para Engenharia de Software}
-    \includegraphics[height=9cm]{figuras/picose_software.png}
+    \includegraphics[height=6cm]{figuras/picose_software.png}
     \label{fig:picose_software}
     \fonte{Adaptado de \citeonline{paiEtAll}.}
 \end{figure}
@@ -72,9 +56,7 @@ Resultado & \textit{software quality} &
 `maintainability'', `software maintainability'', `maintainability index'', `modularity'', `reusability'', `analysability'', `modifiability'', `testability'', `cyclomatic complexity'', `coupling'', `cohesion'', `code smell'' \\
 \end{longtable}
 
-A definição dos termos de busca foi realizada a partir da combinação entre a string utilizada no estudo de controle e os principais vocábulos identificados por esse mesmo estudo como recorrentes na literatura para representar a experimentação contínua e temas correlatos. Na construção da string, os grupos conceituais derivados do protocolo foram conectados por meio do operador lógico \textit{AND}, de modo a garantir a recuperação de estudos que contemplassem simultaneamente as dimensões definidas. Dentro de cada grupo, utilizou-se o operador \textit{OR} para contemplar variações terminológicas, palavras-chave equivalentes e sinônimos. Além disso, foram incorporados recursos próprios da base de dados consultada, como operadores de truncamento, com o objetivo de ampliar a abrangência da busca e recuperar diferentes formas de escrita associadas aos mesmos termos.
-
-A partir disto, foi construída a string de busca final:
+Os termos de busca foram definidos com base na string do estudo de controle e nos vocábulos identificados por esse estudo como recorrentes na literatura sobre experimentação contínua e temas correlatos. Os grupos conceituais foram combinados pelo operador lógico \textit{AND}, enquanto os termos equivalentes e suas variações foram conectados por \textit{OR}. Também foram utilizados operadores de truncamento específicos da base consultada, com o objetivo de ampliar a abrangência da busca e recuperar diferentes formas de escrita dos termos selecionados. A partir disto, foi construída a string de busca final:
 
 \begin{quote}
 \small
@@ -108,9 +90,7 @@ A execução da string de busca foi realizada em 05 de maio de 2026, na base de 
 
 Após essa triagem inicial, foram selecionados 35 artigos para leitura em maior profundidade. No entanto, dois desses estudos foram excluídos por indisponibilidade de acesso ao texto completo, impossibilitando sua análise integral. Dessa forma, a seleção resultante da execução da string de busca foi composta por 33 artigos.
 
-Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir da execução da string de busca. 
-
-Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
+Além desses estudos, foram considerados cinco artigos previamente analisados durante a etapa inicial da pesquisa, os quais contribuíram para a delimitação da problemática e para a formulação da questão principal de pesquisa. Assim, o conjunto final de leitura compreendeu 38 artigos, sendo cinco provenientes da fase exploratória inicial e 33 selecionados a partir da execução da string de busca. Uma versão condensada dos elementos estabelecidos para execução do protocolo de busca deste trabalho pode ser encontrada na tabela \ref{tab:protocolo_busca}.
 
 \begin{longtable}{|p{3.5cm}|p{11cm}|}
 \caption{Protocolo de Busca} \label{tab:protocolo_busca} \\
@@ -183,7 +163,7 @@ A representação visual do processo de realização do protocolo de busca tamb�
 \begin{figure}[H]
     \centering
     \caption{Fluxo da realização do protocolo de busca}
-    \includegraphics[width=16cm]{figuras/fluxo_selecao_artigos.png}
+    \includegraphics[width=12cm]{figuras/fluxo_selecao_artigos.png}
     \label{fig:fluxo_selecao}
     \fonte{O Autor}
 \end{figure}
@@ -217,7 +197,7 @@ A Tabela \ref{tab:artigos_leitura_inicial} apresenta a relação do conjunto ini
 3 & Do Prompt Patterns Affect Code Quality? A First Empirical Assessment of ChatGPT-Generated Code & \citeonline{DellaPortaEtAll} \\
 \hline
 
-4 & The Impact of Prompt Programming on Function-Level Code Generation & \citeonline{khojah2024promptprogramming} \\
+4 & The Impact of Prompt Programming on Function-Level Code Generation & \citeonline{KhojahEtAll} \\
 \hline
 
 5 & Boosting Static Resource Leak Detection via LLM-Based Resource-Oriented Intention Inference & \citeonline{wang2025boosting} \\
@@ -347,25 +327,15 @@ A Tabela \ref{tab:artigos_leitura_inicial} apresenta a relação do conjunto ini
 
 \section{Extração de Dados}
 
-Após a definição dos estudos selecionados para leitura integral, foi elaborado um formulário de extração de dados com o objetivo de sistematizar as informações relevantes de cada artigo analisado. Essa etapa foi conduzida com base nas diretrizes propostas por \citeonline{kitchenhamCharters2007}, segundo as quais a extração de dados deve ser previamente planejada e estruturada de forma a registrar as informações necessárias para responder às questões de pesquisa da revisão.
+Após a seleção dos estudos para leitura integral, foi elaborado um formulário de extração de dados para sistematizar as informações relevantes de cada publicação. Conforme \citeonline{kitchenhamCharters2007}, essa etapa deve ser previamente planejada e alinhada às questões de pesquisa, de modo a padronizar a coleta, reduzir a subjetividade e garantir a rastreabilidade das evidências.
 
-Em revisões sistemáticas na área de Engenharia de Software, o formulário de extração tem papel central na organização das evidências, pois permite padronizar os dados coletados, reduzir a subjetividade da análise e favorecer a rastreabilidade das informações 
-extraídas dos estudos selecionados. Além disso, a definição prévia dos campos de extração contribui para que os dados coletados estejam alinhados ao protocolo da pesquisa, às questões de investigação e à estratégia de síntese dos resultados \cite{kitchenhamCharters2007}.
+O formulário foi organizado em cinco grupos: dados demográficos; LLM, código-fonte e contexto do projeto; modelo de qualidade e manutenibilidade; engenharia de prompt; e alinhamento, limitações e resultados.
 
-Neste trabalho, o formulário foi organizado em cinco grupos principais: dados demográficos do estudo; LLM, código-fonte e contexto do projeto; modelo de qualidade e manutenibilidade; engenharia de prompt; e alinhamento, limitações e resultados. Essa organização buscou contemplar tanto informações descritivas sobre os artigos quanto dados diretamente relacionados aos objetivos desta pesquisa, especialmente no que se refere à avaliação da manutenibilidade, ao uso de Modelos de Linguagem de Grande Escala e à aplicação de padrões de engenharia de prompt.
+O primeiro grupo reúne informações de identificação e caracterização dos estudos, como título, resumo, autores, ano, veículo de publicação, tipo de estudo e objetivo. O segundo contempla os LLMs utilizados, o contexto da análise, os projetos avaliados, a natureza do código-fonte e as linguagens de programação consideradas.
 
-O primeiro grupo, denominado dados demográficos, reúne informações básicas de identificação e caracterização dos estudos analisados. Foram coletados o título completo, o resumo, os autores, o ano de publicação, o veículo de publicação, o tipo de estudo realizado e o objetivo principal. Esses dados permitem caracterizar o conjunto de publicações selecionadas e compreender o perfil geral da produção científica considerada na revisão.
+O terceiro grupo concentra informações sobre os modelos de qualidade, as definições e subcaracterísticas de manutenibilidade, as métricas, as medidas, os indicadores e as ferramentas empregadas. O quarto registra os padrões e estratégias de prompt, suas descrições, comparações e impactos relatados na avaliação da qualidade do código.
 
-O segundo grupo contempla informações relacionadas aos Modelos de Linguagem de Grande Escala, ao código-fonte e ao contexto dos projetos avaliados. Nesse eixo, foram identificados os LLMs ou modelos generativos utilizados nos estudos, o contexto em que a análise de código-fonte foi conduzida, os projetos avaliados, a natureza aberta ou não do código-fonte e as linguagens de programação consideradas. Essas questões são relevantes para verificar a aderência dos estudos ao escopo desta pesquisa, voltado à análise de produtos de software, especialmente em projetos de código aberto e aplicações web.
-
-O terceiro grupo concentra-se nos modelos de qualidade de software e na característica de manutenibilidade. Foram extraídas informações sobre o modelo de qualidade utilizado como referência, a definição de manutenibilidade adotada ou apresentada, as características ou subcaracterísticas avaliadas, as métricas, medidas ou indicadores empregados e as ferramentas utilizadas. Esse conjunto de dados permite compreender como a literatura operacionaliza a manutenibilidade e quais critérios são empregados para 
-avaliá-la no contexto de estudos envolvendo LLMs e análise de código-fonte.
-
-O quarto grupo aborda especificamente a engenharia de prompt. Foram registrados os padrões, estratégias ou variações de prompt utilizados nos estudos, bem como suas descrições e eventuais comparações entre diferentes formulações. Também foi observado o impacto relatado dessas estratégias nos resultados obtidos, especialmente quanto à avaliação de qualidade e manutenibilidade do código-fonte.
-
-Por fim, o quinto grupo reúne informações relacionadas ao alinhamento, às limitações e aos resultados dos estudos analisados. Foram registradas as limitações apontadas pelos próprios autores e os principais resultados de cada estudo. Esses dados apoiam a síntese das evidências e permitem identificar convergências, lacunas e oportunidades de pesquisa relacionadas ao uso de LLMs na avaliação da manutenibilidade.
-
-A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário de extração de dados utilizado nesta pesquisa.
+Por fim, o quinto grupo reúne os principais resultados, as limitações apontadas pelos autores e o alinhamento dos estudos aos objetivos desta pesquisa. Esses dados permitem identificar convergências, lacunas e oportunidades relacionadas ao uso de LLMs na avaliação da manutenibilidade. A Tabela~\ref{tab:formulario_extracao} apresenta a estrutura consolidada do formulário utilizado.
 
 \begin{longtable}{|p{3.5cm}|p{11cm}|}
 \caption{Formulário de extração de dados} \label{tab:formulario_extracao} \\
@@ -415,210 +385,87 @@ A partir desse formulário, os dados extraídos foram organizados de maneira pad
 
 \subsection{Quais são os modelos de qualidade de referência que definem a operacionalização da característica de manutenibilidade em produtos de software?}
 
-{\color{red}
-    A análise dos artigos selecionados indica que, em sua maioria, os estudos
-não declaram explicitamente qual modelo de referência é utilizado para
-operacionalizar a característica de manutenibilidade. Em geral, os artigos
-descrevem as ferramentas, bibliotecas ou procedimentos empregados para
-avaliar a qualidade do código, mas não especificam o modelo de qualidade
-que fundamenta essa operacionalização. Essa lacuna foi observada, por
-exemplo, em estudos que utilizam SonarQube, Radon, Pylint, Bandit, CodeQL,
-PMD, SpotBugs, EvoSuite e Arcan como mecanismos de avaliação, sem que o
-modelo de referência associado a cada ferramenta seja explicitado
-\cite{abtahiazim2025, KrebsEtAll, NunesEtAll, santamolison2025, blythEtAll}.
+ %A análise dos artigos selecionados indica que, em sua maioria, os estudos não declaram explicitamente qual modelo de referência é utilizado para operacionalizar a característica de manutenibilidade. Em geral, os artigos descrevem as ferramentas, bibliotecas ou procedimentos empregados para avaliar a qualidade do código, mas não especificam o modelo de qualidade que fundamenta essa operacionalização. Essa lacuna foi observada, por exemplo, em estudos que utilizam SonarQube, Radon, Pylint, Bandit, CodeQL, PMD, SpotBugs, EvoSuite e Arcan como mecanismos de avaliação, sem que o modelo de referência associado a cada ferramenta seja explicitado \cite{abtahiazim2025, KrebsEtAll, NunesEtAll, santamolison2025, blythEtAll}.
 
-Diante dessa limitação, esta revisão adotou um procedimento complementar em
-duas etapas. Primeiro, foram identificadas as ferramentas de avaliação de
-qualidade utilizadas em cada artigo. Em seguida, verificou-se, a partir da
-documentação de cada ferramenta, se havia associação com um modelo de
-referência formal ou com uma lógica operacional própria de cálculo. Quando
-essa associação existia, o modelo correspondente foi registrado; quando
-não havia vínculo declarado, a ferramenta foi tratada apenas como
-instrumento de cálculo ou coleta de indicadores, e não como modelo de
-referência.
+ %Diante dessa limitação, esta revisão adotou um procedimento complementar em duas etapas. Primeiro, foram identificadas as ferramentas de avaliação de qualidade utilizadas em cada artigo. Em seguida, verificou-se, a partir da documentação de cada ferramenta, se havia associação com um modelo de referência formal ou com uma lógica operacional própria de cálculo. Quando essa associação existia, o modelo correspondente foi registrado; quando não havia vínculo declarado, a ferramenta foi tratada apenas como instrumento de cálculo ou coleta de indicadores, e não como modelo de referência.
 
-Com base nesse procedimento, o único modelo de referência identificado com
-consistência foi o SQALE, cuja relação com os estudos analisados ocorre
-majoritariamente de forma indireta, por meio do uso do SonarQube. Esse é o
-caso dos estudos de \citeonline{abtahiazim2025}, \citeonline{NunesEtAll},
-\citeonline{santamolison2025} e \citeonline{chenjiang2025}, nos quais o
-SonarQube aparece como ferramenta de avaliação de qualidade, manutenibilidade
-ou \textit{issues} de código. Para os demais artigos, não foi possível
-afirmar a existência de um modelo formal de referência, uma vez que os
-estudos não o declaram expressamente e as ferramentas utilizadas não estão
-necessariamente associadas a um modelo de qualidade de produto. Nesses
-casos, a revisão registrou apenas a forma operacional pela qual cada
-ferramenta produz seus resultados, evitando atribuir indevidamente a uma
-biblioteca ou analisador estático um modelo de referência que ela não
-declara utilizar.
+ %Com base nesse procedimento, o único modelo de referência identificado com consistência foi o SQALE, cuja relação com os estudos analisados ocorre majoritariamente de forma indireta, por meio do uso do SonarQube. Esse é o caso dos estudos de \citeonline{abtahiazim2025}, \citeonline{NunesEtAll}, \citeonline{santamolison2025} e \citeonline{chenjiang2025}, nos quais o SonarQube aparece como ferramenta de avaliação de qualidade, manutenibilidade ou \textit{issues} de código. Para os demais artigos, não foi possível afirmar a existência de um modelo formal de referência, uma vez que os estudos não o declaram expressamente e as ferramentas utilizadas não estão necessariamente associadas a um modelo de qualidade de produto. Nesses casos, a revisão registrou apenas a forma operacional pela qual cada ferramenta produz seus resultados, evitando atribuir indevidamente a uma biblioteca ou analisador estático um modelo de referência que ela não declara utilizar.
 
-Cabe destacar que normas como a ISO/IEC 5055 e a ISO/IEC 25010 definem
-características e subcaracterísticas de qualidade, mas não estabelecem, por
-si só, o processo de cálculo ou agregação das métricas em uma pontuação.
-Por esse motivo, estudos que utilizam essas normas apenas como taxonomia
-para organizar métricas próprias não foram classificados como adoção de um
-modelo de referência formal. É o caso de \citeonline{KrebsEtAll}, que
-organiza suas métricas segundo as quatro categorias da ISO/IEC 5055:2021.
+% Cabe destacar que normas como a ISO/IEC 5055 e a ISO/IEC 25010 definem características e subcaracterísticas de qualidade, mas não estabelecem, por si só, o processo de cálculo ou agregação das métricas em uma pontuação. Por esse motivo, estudos que utilizam essas normas apenas como taxonomia para organizar métricas próprias não foram classificados como adoção de um modelo de referência formal. É o caso de \citeonline{KrebsEtAll}, que organiza suas métricas segundo as quatro categorias da ISO/IEC 5055:2021.
 
-Nas ferramentas baseadas em métricas clássicas de código -- Radon, Lizard e
-Multimetric --, a operacionalização ocorre por meio de fórmulas e contagens
-estruturais. O Radon calcula complexidade ciclomática, métricas de
-Halstead, linhas de código e o \textit{Maintainability Index}, sendo este
-último obtido a partir de SLOC, complexidade ciclomática e volume de
-Halstead \cite{radon2026}. O Lizard é descrito como um analisador
-extensível de complexidade ciclomática que contabiliza NLOC, CCN, tokens e
-parâmetros de funções \cite{lizard2026}, enquanto o Multimetric
-calcula métricas como complexidade de McCabe, métricas de Halstead,
-\textit{fan-out}, linhas de código e \textit{Maintainability Index}
-\cite{multimetric2026}. Esses instrumentos aparecem em estudos como
-\citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{sepidbandEtAll},
-\citeonline{takerngsaksiriEtAll}, \citeonline{aljohanialjuhani2026}\ e
-\citeonline{DellaPortaEtAll}, mas não foram classificados como modelos de
-referência de qualidade.
+% Nas ferramentas baseadas em métricas clássicas de código -- Radon, Lizard e Multimetric --, a operacionalização ocorre por meio de fórmulas e contagens estruturais. O Radon calcula complexidade ciclomática, métricas de Halstead, linhas de código e o \textit{Maintainability Index}, sendo este último obtido a partir de SLOC, complexidade ciclomática e volume de Halstead \cite{radon2026}. O Lizard é descrito como um analisador extensível de complexidade ciclomática que contabiliza NLOC, CCN, tokens e parâmetros de funções \cite{lizard2026}, enquanto o Multimetric calcula métricas como complexidade de McCabe, métricas de Halstead, \textit{fan-out}, linhas de código e \textit{Maintainability Index} \cite{multimetric2026}. Esses instrumentos aparecem em estudos como \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{sepidbandEtAll}, \citeonline{takerngsaksiriEtAll}, \citeonline{aljohanialjuhani2026}\ e \citeonline{DellaPortaEtAll}, mas não foram classificados como modelos de referência de qualidade.
 
-Em outro grupo, ferramentas como Pylint, PMD, Checkstyle e SpotBugs operam
-por catálogos de mensagens, regras ou padrões de defeitos. O Pylint atribui
-uma pontuação global de até 10 pontos e permite customizar a fórmula de
-avaliação, além de organizar mensagens por categorias próprias
-\cite{pylint2026}. O PMD opera por \textit{rulesets}, isto é, arquivos
-de configuração que descrevem coleções de regras a serem executadas em uma
-análise \cite{pmd2026}. O Checkstyle automatiza a verificação de
-aderência do código Java a padrões de codificação configuráveis
-\cite{checkstyle2026}, e o SpotBugs utiliza análise estática para
-localizar defeitos em programas Java a partir de padrões e categorias
-próprias \citeonline{spotbugs2026}. Essas ferramentas aparecem, por
-exemplo, em \citeonline{batoleEtAll}, \citeonline{KrebsEtAll},
-\citeonline{liuEtAll}, \citeonline{OuedraogoEtAll} e \citeonline{blythEtAll},
-tendo sido tratadas como instrumentos baseados em regras, e não como
-modelos formais de operacionalização da manutenibilidade.
+% Em outro grupo, ferramentas como Pylint, PMD, Checkstyle e SpotBugs operam por catálogos de mensagens, regras ou padrões de defeitos. O Pylint atribui uma pontuação global de até 10 pontos e permite customizar a fórmula de avaliação, além de organizar mensagens por categorias próprias \cite{pylint2026}. O PMD opera por \textit{rulesets}, isto é, arquivos de configuração que descrevem coleções de regras a serem executadas em uma análise \cite{pmd2026}. O Checkstyle automatiza a verificação de aderência do código Java a padrões de codificação configuráveis \cite{checkstyle2026}, e o SpotBugs utiliza análise estática para localizar defeitos em programas Java a partir de padrões e categorias próprias \citeonline{spotbugs2026}. Essas ferramentas aparecem, por exemplo, em \citeonline{batoleEtAll}, \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{OuedraogoEtAll} e \citeonline{blythEtAll}, tendo sido tratadas como instrumentos baseados em regras, e não como modelos formais de operacionalização da manutenibilidade.
 
-Também foram identificadas ferramentas cuja base operacional se relaciona
-mais diretamente a segurança, testes ou refatoração do que a um modelo
-geral de manutenibilidade. O Bandit processa arquivos Python, constrói uma
-\textit{Abstract Syntax Tree} (AST) e executa plugins de segurança sobre
-seus nós, gerando um relatório de achados \cite{bandit2026}. O CodeQL
-analisa o código por meio de consultas e apresenta os resultados como
-alertas de \textit{code scanning}, voltados sobretudo à identificação de
-vulnerabilidades e erros \cite{github2026}. O EvoSuite, por sua vez,
-gera testes unitários com base em critérios de cobertura, como
-\textit{branch coverage} \cite{evosuite2026}. Essas ferramentas
-aparecem em estudos como \citeonline{KrebsEtAll}, \citeonline{liuEtAll},
-\citeonline{OuedraogoEtAll} e \citeonline{blythEtAll}, mas, pelo mesmo
-critério adotado para os demais grupos, não foram classificadas como
-modelos de referência para manutenibilidade.
+% Também foram identificadas ferramentas cuja base operacional se relaciona mais diretamente a segurança, testes ou refatoração do que a um modelo geral de manutenibilidade. O Bandit processa arquivos Python, constrói uma \textit{Abstract Syntax Tree} (AST) e executa plugins de segurança sobre seus nós, gerando um relatório de achados \cite{bandit2026}. O CodeQL analisa o código por meio de consultas e apresenta os resultados como alertas de \textit{code scanning}, voltados sobretudo à identificação de vulnerabilidades e erros \cite{github2026}. O EvoSuite, por sua vez, gera testes unitários com base em critérios de cobertura, como \textit{branch coverage} \cite{evosuite2026}. Essas ferramentas aparecem em estudos como \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{OuedraogoEtAll} e \citeonline{blythEtAll}, mas, pelo mesmo critério adotado para os demais grupos, não foram classificadas como modelos de referência para manutenibilidade.
 
-Por fim, no caso de ferramentas e abordagens voltadas a \textit{smells} ou
-dívida técnica arquitetural, como o Arcan e datasets como o MLCQ, a
-avaliação ocorre a partir de taxonomias ou classificações específicas. O
-Arcan é apresentado como uma ferramenta de análise arquitetural que
-monitora a dívida técnica arquitetural e detecta \textit{architectural
-smells}, relacionando-os a custos e à evolução da arquitetura
-\cite{arcan2025}. Essa abordagem aparece, por exemplo, no estudo de
-\citeonline{tessaEtAll}, que compara a detecção de \textit{architectural
-smells} por LLM com a ferramenta Arcan. Embora dialogue diretamente com a
-manutenibilidade, essa abordagem foi classificada como taxonomia ou
-mecanismo específico de avaliação arquitetural, e não como modelo geral de
-referência equivalente ao SQALE.
+% Por fim, no caso de ferramentas e abordagens voltadas a \textit{smells} ou dívida técnica arquitetural, como o Arcan e datasets como o MLCQ, a avaliação ocorre a partir de taxonomias ou classificações específicas. O Arcan é apresentado como uma ferramenta de análise arquitetural que monitora a dívida técnica arquitetural e detecta \textit{architectural smells}, relacionando-os a custos e à evolução da arquitetura \cite{arcan2025}. Essa abordagem aparece, por exemplo, no estudo de \citeonline{tessaEtAll}, que compara a detecção de \textit{architectural smells} por LLM com a ferramenta Arcan. Embora dialogue diretamente com a manutenibilidade, essa abordagem foi classificada como taxonomia ou mecanismo específico de avaliação arquitetural, e não como modelo geral de referência equivalente ao SQALE.
 
-Portanto, a resposta a esta questão de pesquisa é que o SQALE é o modelo de
-referência mais claramente identificado entre os artigos analisados, ainda
-que sua identificação tenha ocorrido predominantemente de forma indireta, a
-partir do uso do SonarQube. Para os demais estudos, a ausência de
-declaração explícita de um modelo de referência exigiu a análise das
-ferramentas utilizadas; quando essas ferramentas não apresentaram
-associação com um modelo formal, a revisão limitou-se a descrever sua base
-operacional de cálculo -- fórmulas clássicas, catálogos de regras,
-taxonomias de \textit{smells}, critérios de cobertura, alertas de segurança
-ou benchmarks. 
+% Portanto, a resposta a esta questão de pesquisa é que o SQALE é o modelo de referência mais claramente identificado entre os artigos analisados, ainda que sua identificação tenha ocorrido predominantemente de forma indireta, a partir do uso do SonarQube. Para os demais estudos, a ausência de declaração explícita de um modelo de referência exigiu a análise das ferramentas utilizadas; quando essas ferramentas não apresentaram associação com um modelo formal, a revisão limitou-se a descrever sua base operacional de cálculo -- fórmulas clássicas, catálogos de regras, taxonomias de \textit{smells}, critérios de cobertura, alertas de segurança ou benchmarks. 
 
-Conclui-se, assim, que a literatura analisada não converge
-para múltiplos modelos formais de referência para a operacionalização da
-manutenibilidade: o modelo mais defensável a ser destacado é o SQALE,
-enquanto os demais estudos tendem a operacionalizar a avaliação por meio de
-instrumentos técnicos e mecanismos de cálculo próprios de cada ferramenta.
-}
+% Conclui-se, assim, que a literatura analisada não converge para múltiplos modelos formais de referência para a operacionalização da manutenibilidade: o modelo mais defensável a ser destacado é o SQALE, enquanto os demais estudos tendem a operacionalizar a avaliação por meio de instrumentos técnicos e mecanismos de cálculo próprios de cada ferramenta.
+
+A maioria dos artigos selecionados não declara explicitamente qual modelo de referência utiliza para operacionalizar a manutenibilidade: em geral, descrevem-se ferramentas, bibliotecas ou procedimentos de avaliação de qualidade sem especificar o modelo que os fundamenta. Essa lacuna foi observada em estudos que utilizam SonarQube, Radon, Pylint, Bandit, CodeQL, PMD, SpotBugs, EvoSuite e Arcan, sem que o modelo de referência associado a cada ferramenta seja explicitado \cite{abtahiazim2025, KrebsEtAll, NunesEtAll, santamolison2025, blythEtAll}.
+
+Diante dessa limitação, esta revisão identificou as ferramentas de avaliação utilizadas em cada artigo e verificou, a partir de sua documentação, se havia associação com um modelo de referência formal ou com uma lógica operacional própria de cálculo. Quando existente, o modelo foi registrado; quando ausente, a ferramenta foi tratada apenas como instrumento de cálculo ou coleta de indicadores, e não como modelo de referência.
+
+O único modelo identificado com consistência foi o SQALE, cuja relação com os estudos ocorre majoritariamente de forma indireta, por meio do SonarQube, como em \citeonline{abtahiazim2025}, \citeonline{NunesEtAll}, \citeonline{santamolison2025} e \citeonline{chenjiang2025}. Para os demais artigos, a ausência de declaração explícita e a falta de associação formal das ferramentas a um modelo de qualidade de produto levaram a revisão a registrar apenas a forma operacional de cada instrumento, evitando atribuir indevidamente um modelo de referência não declarado.
+
+Normas como a ISO/IEC 5055 e a ISO/IEC 25010 definem características e subcaracterísticas de qualidade, mas não estabelecem, por si só, o processo de cálculo ou agregação das métricas em uma pontuação. Por isso, estudos que as utilizam apenas como taxonomia para organizar métricas próprias, como \citeonline{KrebsEtAll} (que organiza suas métricas segundo as quatro categorias da ISO/IEC 5055:2021), não foram classificados como adoção de um modelo de referência formal.
+
+Nas ferramentas baseadas em métricas clássicas de código (Radon, Lizard e Multimetric), a operacionalização ocorre por fórmulas e contagens estruturais: o Radon calcula complexidade ciclomática, métricas de Halstead, linhas de código e o \textit{Maintainability Index} \cite{radon2026}; o Lizard contabiliza NLOC, CCN, tokens e parâmetros de funções \cite{lizard2026}; e o Multimetric calcula complexidade de McCabe, métricas de Halstead, \textit{fan-out}, linhas de código e \textit{Maintainability Index} \cite{multimetric2026}. Esses instrumentos aparecem em \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{sepidbandEtAll}, \citeonline{takerngsaksiriEtAll}, \citeonline{aljohanialjuhani2026} e \citeonline{DellaPortaEtAll}, mas não como modelos de referência.
+
+Outro grupo, Pylint, PMD, Checkstyle e SpotBugs, opera por catálogos de mensagens, regras ou padrões de defeitos: o Pylint atribui uma pontuação global de até 10 pontos e permite customizar a fórmula de avaliação \cite{pylint2026}; o PMD opera por \textit{rulesets} \cite{pmd2026}; o Checkstyle verifica a aderência do código Java a padrões configuráveis \cite{checkstyle2026}; e o SpotBugs localiza defeitos em programas Java a partir de padrões próprios \citeonline{spotbugs2026}. Essas ferramentas aparecem em \citeonline{batoleEtAll}, \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{OuedraogoEtAll} e \citeonline{blythEtAll}, tratadas como instrumentos baseados em regras, não como modelos formais.
+
+Outras ferramentas relacionam-se mais a segurança, testes ou refatoração do que a um modelo geral de manutenibilidade: o Bandit constrói uma \textit{Abstract Syntax Tree} (AST) de arquivos Python e executa plugins de segurança sobre seus nós \cite{bandit2026}; o CodeQL analisa código por consultas, gerando alertas de \textit{code scanning} voltados a vulnerabilidades e erros \cite{github2026}; e o EvoSuite gera testes unitários com base em critérios de cobertura, como \textit{branch coverage} \cite{evosuite2026}. Aparecem em \citeonline{KrebsEtAll}, \citeonline{liuEtAll}, \citeonline{OuedraogoEtAll} e \citeonline{blythEtAll}, mas, pelo mesmo critério, não foram classificadas como modelos de referência.
+
+Por fim, ferramentas voltadas a \textit{smells} ou dívida técnica arquitetural, como o Arcan e datasets como o MLCQ, avaliam a partir de taxonomias específicas. O Arcan monitora a dívida técnica arquitetural e detecta \textit{architectural smells}, relacionando-os a custos e à evolução da arquitetura \cite{arcan2025}, abordagem presente em \citeonline{tessaEtAll}, que compara a detecção de \textit{architectural smells} por LLM com o Arcan. Embora dialogue diretamente com a manutenibilidade, foi classificada como taxonomia ou mecanismo específico de avaliação arquitetural, e não como modelo geral equivalente ao SQALE.
+
+Portanto, o SQALE é o modelo de referência mais claramente identificado entre os artigos analisados, ainda que predominantemente de forma indireta, via SonarQube. Para os demais estudos, a ausência de declaração explícita exigiu a análise das ferramentas utilizadas, cuja base operacional (fórmulas clássicas, catálogos de regras, taxonomias de \textit{smells}, critérios de cobertura, alertas de segurança ou benchmarks) foi descrita sem atribuição de modelo formal. Conclui-se que a literatura analisada não converge para múltiplos modelos formais de referência para a manutenibilidade: o SQALE é o mais defensável, enquanto os demais estudos operacionalizam a avaliação por meio de instrumentos técnicos e mecanismos de cálculo próprios de cada ferramenta.
 
 \subsection{Quais são as medidas mais utilizadas para análise da característica de manutenibilidade em produtos de software?}
 
-{\color{red}
-    A análise dos artigos indica que a manutenibilidade é operacionalizada,
-majoritariamente, por meio de medidas relacionadas às propriedades internas do
-código-fonte. Essa interpretação é sustentada por estudos que avaliam diretamente
-atributos internos do código. \citeonline[p.~1, tradução nossa]{santamolison2025}
-afirmam que seu estudo ``compara os atributos internos de qualidade do código
-gerado por LLMs e do código escrito por humanos''. De forma convergente, o modelo
-Q-Rapids, por exemplo, associa a manutenibilidade ao fator \textit{Code Quality},
-que ``mede o impacto das mudanças de código na qualidade do código-fonte''
-\cite[p.~10, tradução nossa]{qrapids2019}. Nesse modelo, a manutenibilidade é
-avaliada por métricas como complexidade, comentários e duplicação, além de
-violações críticas ou bloqueadoras de regras de qualidade no fator
-\textit{Blocking Code} \cite[p.~5]{qrapids2019}.
+A análise dos artigos indica que a manutenibilidade é operacionalizada, majoritariamente, por medidas relacionadas às propriedades internas do código-fonte. \citeonline[p.~1, tradução nossa]{santamolison2025} afirmam que seu estudo ``compara os atributos internos de qualidade do código gerado por LLMs e do código escrito por humanos''. De forma convergente, o modelo Q-Rapids associa a manutenibilidade ao fator \textit{Code Quality}, que ``mede o impacto das mudanças de código na qualidade do código-fonte'' \cite[p.~10, tradução nossa]{qrapids2019}, avaliado por métricas como complexidade, comentários e duplicação, além de violações críticas ou bloqueadoras de regras de qualidade no fator \textit{Blocking Code} \cite[p.~5]{qrapids2019}.
 
-A centralidade da complexidade também aparece de forma recorrente nos artigos.
-\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} indicam que as ``métricas de
-complexidade avaliadas incluem LOC, complexidade ciclomática e métricas de
-Halstead''. De modo semelhante, \citeonline[p.~4, tradução nossa]{NunesEtAll}
-tratam a complexidade como um problema de manutenibilidade ao incluir, entre os
-127 problemas analisados, a regra segundo a qual ``a complexidade cognitiva dos
-métodos não deve ser muito alta''. Esses achados reforçam que medidas como
-complexidade ciclomática, complexidade cognitiva, LOC e métricas de Halstead são
-utilizadas como indicadores do esforço necessário para compreender, modificar e
-evoluir o software.
+A centralidade da complexidade também aparece de forma recorrente: \citeonline[p.~1, tradução nossa]{DellaPortaEtAll} indicam que as ``métricas de complexidade avaliadas incluem LOC, complexidade ciclomática e métricas de Halstead'', enquanto \citeonline[p.~4, tradução nossa]{NunesEtAll} tratam a complexidade como um problema de manutenibilidade ao incluir, entre os 127 problemas analisados, a regra segundo a qual ``a complexidade cognitiva dos métodos não deve ser muito alta''. Esses achados reforçam que medidas como complexidade ciclomática, complexidade cognitiva, LOC e métricas de Halstead são utilizadas como indicadores do esforço necessário para compreender, modificar e evoluir o software.
 
-Além da complexidade, os artigos destacam \textit{code smells} e problemas de
-projeto como medidas relevantes para a análise da manutenibilidade.
-\citeonline[p.~1, tradução nossa]{amorim2025} afirmam que ``a detecção de
-\textit{code smells} é uma tarefa crítica'', pois permite identificar
-``problemas de design que podem comprometer a qualidade do código e a
-manutenibilidade''. Na mesma direção, \citeonline[p.~1, tradução nossa]{alomari2026}
-definem \textit{code smells} como ``decisões pobres de projeto'' que podem ser
-resolvidas pela alteração da ``estrutura interna do código'' sem afetar seu
-comportamento externo. Essa evidência justifica o uso de \textit{code smells}
-como medidas associadas à degradação da manutenibilidade.
+Além da complexidade, os artigos destacam \textit{code smells} e problemas de projeto como medidas relevantes. \citeonline[p.~1, tradução nossa]{amorim2025} afirmam que ``a detecção de \textit{code smells} é uma tarefa crítica'', pois permite identificar ``problemas de design que podem comprometer a qualidade do código e a manutenibilidade''; na mesma direção, \citeonline[p.~1, tradução nossa]{alomari2026} definem \textit{code smells} como ``decisões pobres de projeto'' que podem ser resolvidas pela alteração da ``estrutura interna do código'' sem afetar seu comportamento externo, o que justifica seu uso como medida associada à degradação da manutenibilidade.
 
-Conclui-se, portanto, que as medidas mais utilizadas para análise da
-manutenibilidade são aquelas capazes de indicar esforço futuro de compreensão,
-modificação e correção do software. Nesse sentido, destacam-se complexidade,
-\textit{code smells}, duplicação e dívida técnica. Essas medidas evidenciam que a
-literatura recente sobre LLMs e qualidade de software tende a tratar a
-manutenibilidade não apenas como um atributo técnico mensurável por métricas
-tradicionais, mas também como uma propriedade associada à interpretação semântica
-do código e à identificação de problemas de projeto que impactam sua evolução.
-}
+Conclui-se, portanto, que as medidas mais utilizadas para análise da manutenibilidade são aquelas capazes de indicar esforço futuro de compreensão, modificação e correção do software, destacando-se complexidade, \textit{code smells}, duplicação e dívida técnica. Isso evidencia que a literatura recente sobre LLMs e qualidade de software tende a tratar a manutenibilidade não apenas como atributo técnico mensurável por métricas tradicionais, mas também como propriedade associada à interpretação semântica do código e à identificação de problemas de projeto que impactam sua evolução.
 
 \subsection{Quais atributos de manutenibilidade, presentes em modelos de referência de qualidade de software, são mais relevantes para a aferição de qualidade gerados por LLMs?}
 
-Os atributos mais relevantes para aferir manutenibilidade em código gerado por LLMs são legibilidade, compreensibilidade, modularidade, testabilidade, complexidade, 
-ausência de code smells, documentação adequada e facilidade de modificação. 
+Os atributos mais relevantes para aferir manutenibilidade em código gerado por LLMs são legibilidade, compreensibilidade, modularidade, estabilidade, complexidade, ausência de code smells, documentação adequada e facilidade de modificação. 
 
-\citeonline[p.~1, tradução nossa]{NunesEtAll}, por exemplo, sintetizam a importância da manutenibilidade ao afirmar que “A manutenibilidade do código é importante porque afeta a facilidade com que o código pode ser compreendido, alterado e aprimorado.”. 
-Essa formulação se aproxima diretamente dos atributos tradicionalmente associados à manutenibilidade, como analisabilidade, modificabilidade e compreensibilidade.
+\citeonline[p.~1, tradução nossa]{NunesEtAll}, por exemplo, sintetizam a importância da manutenibilidade ao afirmar que “A manutenibilidade do código é importante porque afeta a facilidade com que o código pode ser compreendido, alterado e aprimorado.”. Essa formulação se aproxima diretamente dos atributos tradicionalmente associados à manutenibilidade, como analisabilidade, modificabilidade e compreensibilidade.
 
-\citeonline[p.~1, tradução nossa]{SunEtAll} também mostram que, na percepção de profissionais, a manutenibilidade se conecta fortemente à legibilidade, ao afirmar que “Os profissionais priorizam a manutenibilidade e a legibilidade, alertando que o código gerado pode acelerar o acúmulo de dívida técnica.”. 
-Esse trecho é relevante porque indica que, no contexto de código gerado por LLMs, a manutenibilidade 
-não é tratada apenas como uma métrica técnica, mas como uma preocupação prática ligada à dívida técnica e à capacidade futura de evolução do software.
+\citeonline[p.~1, tradução nossa]{SunEtAll} também mostram que, na percepção de profissionais, a manutenibilidade se conecta fortemente à legibilidade, ao afirmar que “Os profissionais priorizam a anutenibilidade e a legibilidade, alertando que o código gerado pode acelerar o acúmulo de dívida técnica.”. Esse trecho é relevante porque indica que, no contexto de código gerado por LLMs, a manutenibilidade não é tratada apenas como uma métrica técnica, mas como uma preocupação prática ligada à dívida técnica e à capacidade futura de evolução do software.
 
 \subsection{Como modelos de referência de qualidade de produto de software podem ser aplicados na avaliação de código-fonte feito por LLMs?}
 
 Os modelos de referência podem ser aplicados por meio do mapeamento entre características de qualidade e métricas observáveis em código-fonte, geralmente combinando normas, ferramentas de análise estática e validação empírica.
 
-\citeonline[p.~1, tradução nossa]{KrebsEtAll} mostram essa aplicação ao organizar métricas de ferramentas estáticas nas categorias da ISO/IEC 5055, afirmando que “As métricas foram organizadas nas quatro categorias da norma ISO 5055, e pontuações compostas foram calculadas para cada categoria.”. 
-Dessa forma, o modelo de qualidade funciona como uma estrutura classificatória para interpretar métricas heterogêneas.
+\citeonline[p.~1, tradução nossa]{KrebsEtAll} mostram essa aplicação ao organizar métricas de ferramentas estáticas nas categorias da ISO/IEC 5055, afirmando que “As métricas foram organizadas nas quatro categorias da norma ISO 5055, e pontuações compostas foram calculadas para cada categoria.”. Dessa forma, o modelo de qualidade funciona como uma estrutura classificatória para interpretar métricas heterogêneas.
 
-\citeonline[p.~2, tradução nossa]{SunEtAll} adotam estratégia semelhante com a ISO/IEC 25010, ao afirmar que utilizam esse modelo “como uma referência comum para estruturar e relacionar a investigação de NFQCs [características de qualidade não funcionais]”. 
-Os autores explicam que o estudo conecta definições conceituais, expectativas de profissionais e observações empíricas, oferecendo uma perspectiva integrada sobre características não funcionais do código gerado.
+\citeonline[p.~2, tradução nossa]{SunEtAll} adotam estratégia semelhante com a ISO/IEC 25010, ao afirmar que utilizam esse modelo “como uma referência comum para estruturar e relacionar a investigação de NFQCs [características de qualidade não funcionais]”. Os autores explicam que o estudo conecta definições conceituais, expectativas de profissionais e observações empíricas, oferecendo uma perspectiva integrada sobre características não funcionais do código gerado.
 
 Assim, a aplicação de modelos de qualidade em código produzido por LLMs pode ser feita por um fluxo que parte do modelo de referência, seleciona atributos relevantes, associa métricas e ferramentas, e depois interpreta os resultados em relação à qualidade esperada. 
 
-\subsection{Quais são os principais padrões de engenharia de prompt aplicados à análise de código-fonte com respeito a menutenibilidade?}
+\subsection{Quais são os principais padrões de engenharia de prompt aplicados à análise de código-fonte com respeito a manutenibilidade?}
 
-Os principais padrões de engenharia de prompt identificados nos estudos são \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, \textit{Tree-of-Thought}, \textit{Guided Tree-of-Thought}, \textit{Context-Specific}, \textit{Output Constraints}, \textit{Personas}, prompts genéricos, prompts detalhados e prompts baseados em \textit{feedback} de ferramentas estáticas.
+% Os principais padrões de engenharia de prompt identificados nos estudos são \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, \textit{Tree-of-Thought}, \textit{Guided Tree-of-Thought}, \textit{Context-Specific}, \textit{Output Constraints}, \textit{Personas}, prompts genéricos, prompts detalhados e prompts baseados em \textit{feedback} de ferramentas estáticas.
 
-\citeonline[p.~18, tradução nossa]{MartinezEtAll} sintetizam esse conjunto ao afirmar que as técnicas observadas incluem ``\textit{Zero-Shot, One-Shot, Few-Shot, Chain-of-Thought, Context-Specific, Output Constraints e Ranking}''. Esse trecho sustenta que a literatura sobre refatoração e qualidade com LLMs já trabalha com uma variedade de padrões, muitas vezes combinados.
+% \citeonline[p.~18, tradução nossa]{MartinezEtAll} sintetizam esse conjunto ao afirmar que as técnicas observadas incluem ``\textit{Zero-Shot, One-Shot, Few-Shot, Chain-of-Thought, Context-Specific, Output Constraints e Ranking}''. Esse trecho sustenta que a literatura sobre refatoração e qualidade com LLMs já trabalha com uma variedade de padrões, muitas vezes combinados.
 
-\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} analisam especificamente os padrões \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}, afirmando que ``quatro padrões de prompt foram analisados: Zero-shot, Few-shot, Chain-of-Thought e Personas''. Já \citeonline[p.~1, tradução nossa]{OuedraogoEtAll} ampliam esse conjunto no contexto de geração de testes, avaliando ``Aprendizado \textit{Zero-Shot} (ZSL), Aprendizado \textit{Few-Shot} (FSL), \textit{Chain-of-Thought} (CoT), \textit{Tree-of-Thought} (ToT) e \textit{Guided Tree-of-Thought} (GToT)''.
+% \citeonline[p.~1, tradução nossa]{DellaPortaEtAll} analisam especificamente os padrões \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}, afirmando que ``quatro padrões de prompt foram analisados: \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}''. Já \citeonline[p.~1, tradução nossa]{OuedraogoEtAll} ampliam esse conjunto no contexto de geração de testes, avaliando ``Aprendizado \textit{Zero-Shot} (ZSL), Aprendizado \textit{Few-Shot} (FSL), \textit{Chain-of-Thought} (CoT), \textit{Tree-of-Thought} (ToT) e \textit{Guided Tree-of-Thought} (GToT)''.
 
-Os artigos apresentam uma variedade de padrões de prompt avaliados e comparados entre si. O que se observa é que não há um padrão de prompt específico utilizado para operacionalizar a característica de manutenibilidade em produtos de software; no entanto, grande parte dos artigos apontam um melhor desempenho em padrões de prompt que tendem a trazer uma diminuição da janela de contexto de analise e uma divisão das solicitações em tarefas menores, mostrando um melhor desempenho das LLMs para realização destas atividades.
+% Os artigos apresentam uma variedade de padrões de prompt avaliados e comparados entre si. O que se observa é que não há um padrão de prompt específico utilizado para operacionalizar a característica de manutenibilidade em produtos de software; no entanto, grande parte dos artigos apontam um melhor desempenho em padrões de prompt que tendem a trazer uma diminuição da janela de contexto de analise e uma divisão das solicitações em tarefas menores, mostrando um melhor desempenho das LLMs para realização destas atividades.
+
+Os principais padrões de engenharia de prompt identificados nos estudos são \textit{Zero-shot}, \textit{One-shot}, \textit{Few-shot}, \textit{Chain-of-Thought}, \textit{Tree-of-Thought}, \textit{Guided Tree-of-Thought}, \textit{Context-Specific}, \textit{Output Constraints}, \textit{Personas}, prompts genéricos, prompts detalhados e prompts baseados em \textit{feedback} de ferramentas estáticas. \citeonline[p.~18, tradução nossa]{MartinezEtAll} sintetizam esse conjunto ao afirmar que as técnicas observadas incluem ``\textit{Zero-Shot, One-Shot, Few-Shot, Chain-of-Thought, Context-Specific, Output Constraints e Ranking}'', o que sustenta que a literatura sobre refatoração e qualidade com LLMs já trabalha com uma variedade de padrões, muitas vezes combinados.
+
+\citeonline[p.~1, tradução nossa]{DellaPortaEtAll} analisam especificamente os padrões \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}, afirmando que ``quatro padrões de prompt foram analisados: \textit{Zero-shot}, \textit{Few-shot}, \textit{Chain-of-Thought} e \textit{Personas}''. Já \citeonline[p.~1, tradução nossa]{OuedraogoEtAll} ampliam esse conjunto no contexto de geração de testes, avaliando ``Aprendizado \textit{Zero-Shot} (ZSL), Aprendizado \textit{Few-Shot} (FSL), \textit{Chain-of-Thought} (CoT), \textit{Tree-of-Thought} (ToT) e \textit{Guided Tree-of-Thought} (GToT)''.
+
+Os artigos apresentam, portanto, uma variedade de padrões de prompt avaliados e comparados entre si, sem que haja um padrão específico consolidado para operacionalizar a manutenibilidade. Ainda assim, grande parte deles aponta melhor desempenho em padrões que reduzem a janela de contexto de análise e dividem as solicitações em tarefas menores, favorecendo o desempenho das LLMs nessas atividades.
 
 \subsection{Quais atributos de manutenibilidade são mais impactados pela variação dos padrões de prompt utilizados?}
 
@@ -632,11 +479,9 @@ Assim, os atributos mais sensíveis à variação de prompts são aqueles relaci
 
 \subsection{Como a complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade, com foco em manutenibilidade, de código-fonte em projetos de código aberto para aplicações web?}
 
-A complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade ao alterar tanto a estrutura do código gerado quanto a capacidade do LLM de identificar ou corrigir problemas de manutenibilidade. 
-\citeonline[p.~2, tradução nossa]{KrebsEtAll} afirmam que “A extensão do prompt influenciou significativamente a confiabilidade do código e as taxas de erro”, mas também alertam que características específicas dos modelos afetam o desempenho, de modo que a otimização 
-do prompt, isoladamente, não garante qualidade consistente. 
+A complexidade e o nível de detalhamento dos prompts influenciam a avaliação de qualidade ao alterar tanto a estrutura do código gerado quanto a capacidade do LLM de identificar ou corrigir problemas de manutenibilidade. \citeonline[p.~2, tradução nossa]{KrebsEtAll} afirmam que “A extensão do prompt influenciou significativamente a confiabilidade do código e as taxas de erro”, mas também alertam que características específicas dos modelos afetam o desempenho, de modo que a otimização do prompt, isoladamente, não garante qualidade consistente. 
 
-O mesmo artigo indica que prompts de tamanho médio, com especificação de estrutura, documentação e padrões de codificação, alcançaram melhor equilíbrio entre qualidade e manutenibilidade, enquanto prompts curtos podem reduzir a qualidade e prompts excessivamente detalhados podem aumentar a complexidade desnecessária \cite{KrebsEtAll}.
+Prompts de tamanho médio, com especificação de estrutura, documentação e padrões de codificação, alcançaram melhor equilíbrio entre qualidade e manutenibilidade, enquanto prompts curtos podem reduzir a qualidade e prompts excessivamente detalhados podem aumentar a complexidade desnecessária \cite{KrebsEtAll}.
 
 \citeonline[p.~18, tradução nossa]{MartinezEtAll} reforçam que a qualidade do resultado depende da especificidade da orientação fornecida. Ao discutir desafios da refatoração com LLMs, os autores afirmam que “A confiabilidade dos LLMs para refatoração depende fortemente da complexidade da tarefa e da especificidade das orientações fornecidas.”.
 
@@ -661,21 +506,20 @@ Existem diferenças observadas entre resultados obtidos por diferentes padrões 
 
 \subsection{Quais limitações dos modelos tradicionais de qualidade de software se tornam evidentes na avaliação de qualidade, com foco no atributo de manutenibilidade, feita por LLMs?}
 
-As limitações mais evidentes dos modelos e ferramentas tradicionais são a dificuldade de capturar aspectos semânticos e contextuais, a dependência de regras estáticas, a possibilidade de falsos positivos ou falsos negativos e a incapacidade de garantir preservação comportamental em refatorações. 
-\citeonline[p.~1 tradução nossa]{NunesEtAll} destacam que corrigir problemas de manutenibilidade é desafiador porque ``uma análise especializada é cara e lenta, enquanto ferramentas automatizadas são imprecisas e exigem interpretação humana''. Em outras palavras, ferramentas tradicionais ajudam a identificar problemas, mas nem sempre oferecem diagnóstico suficiente ou solução adequada.
+As limitações mais evidentes dos modelos e ferramentas tradicionais são a dificuldade de capturar aspectos semânticos e contextuais, a dependência de regras estáticas, a possibilidade de falsos positivos ou falsos negativos e a incapacidade de garantir preservação comportamental em refatorações. \citeonline[p.~1 tradução nossa]{NunesEtAll} destacam que corrigir problemas de manutenibilidade é desafiador porque ``uma análise especializada é cara e lenta, enquanto ferramentas automatizadas são imprecisas e exigem interpretação humana''. Em outras palavras, ferramentas tradicionais ajudam a identificar problemas, mas nem sempre oferecem diagnóstico suficiente ou solução adequada.
 
-\citeonline{SunEtAll} também apontam uma limitação importante: benchmarks tradicionais de geração de código enfatizam correção funcional, mas dão suporte limitado à avaliação de características não funcionais. Os autores afirmam que ``Embora esses benchmarks forneçam uma boa base para avaliar a capacidade de LLMs de gerar código funcionalmente correto, eles oferecem suporte limitado para avaliar as características de qualidade não funcionais (NFQCs) do código gerado''. 
-Isto evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente. Além disso, o mesmo estudo mostra instabilidade na otimização de características não funcionais por prompts, ao afirmar que ``A avaliação empírica demonstra a instabilidade da otimização de NFQCs por meio de prompts em contextos práticos de engenharia de software'' \cite[p.~1, tradução nossa]{SunEtAll}.
+\citeonline{SunEtAll} também apontam uma limitação importante: benchmarks tradicionais de geração de código enfatizam correção funcional, mas dão suporte limitado à avaliação de características não funcionais. Os autores afirmam que ``Embora esses benchmarks forneçam uma boa base para avaliar a capacidade de LLMs de gerar código funcionalmente correto, eles oferecem suporte limitado para avaliar as características de qualidade não funcionais (NFQCs) do código gerado''. Isto evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente. Além disso, o mesmo estudo mostra instabilidade na otimização de características não funcionais por prompts, ao afirmar que ``A avaliação empírica demonstra a instabilidade da otimização de NFQCs por meio de prompts em contextos práticos de engenharia de software'' \cite[p.~1, tradução nossa]{SunEtAll}.
 
 Portanto, a avaliação da manutenibilidade com LLMs evidencia que métricas tradicionais são necessárias, mas insuficientes quando usadas isoladamente.
 
 \subsection{Quais são os produtos de software de código-fonte aberto avaliados nos estudos?}
 
-{
-    \color{red}
-    Em relação aos produtos de software de código-fonte aberto avaliados nos estudos analisados, observou-se uma predominância de bibliotecas, frameworks, ferramentas de desenvolvimento e aplicações web utilizadas como objeto de avaliação empírica. Os projetos identificados contemplam diferentes linguagens de programação, com maior recorrência de ecossistemas associados a Java, Python, JavaScript e C/C++.
+Em relação aos produtos de software de código-fonte aberto avaliados nos estudos analisados, observou-se uma predominância de bibliotecas, frameworks, ferramentas de desenvolvimento e aplicações web utilizadas como objeto de avaliação empírica. Os projetos identificados contemplam diferentes linguagens de programação, com maior recorrência de ecossistemas associados a Java, Python, JavaScript e C/C++.
 
-    Entre os produtos explicitamente mencionados nos estudos, destacam-se projetos como Django, Flask, React, pandas, SciPy, scikit-learn, SymPy, seaborn, xarray, MariaDB, cURL, libpng, Apache Lucene, Apache Solr, Checkstyle, JGit, JavaParser, Google Guava, Guice, jsoup, ZXing, ArgoUML, OrangeHRM e Cypress. Esses produtos foram utilizados em diferentes contextos de avaliação, incluindo análise de manutenibilidade, refatoração, geração de testes, detecção de code smells, compreensão de código e avaliação de qualidade de software com apoio de modelos de linguagem.
+Entre os produtos explicitamente mencionados nos estudos, destacam-se projetos como Django, Flask, React, pandas, SciPy, scikit-learn, SymPy, seaborn, xarray, MariaDB, cURL, libpng, Apache Lucene, Apache Solr, Checkstyle, JGit, JavaParser, Google Guava, Guice, jsoup, ZXing, ArgoUML, OrangeHRM e Cypress. Esses produtos foram utilizados em diferentes contextos de avaliação, incluindo análise de manutenibilidade, refatoração, geração de testes, detecção de code smells, compreensão de código e avaliação de qualidade de software com apoio de modelos de linguagem.
 
-    Além dos produtos diretamente nomeados, parte dos estudos recorreu a benchmarks e datasets compostos por múltiplos repositórios de código aberto, como SWE-bench, Defects4J, DevGPT, CoderEval, SF110 e SmellyCodeDataset. Nesses casos, os artigos nem sempre apresentam individualmente todos os produtos avaliados, mas indicam o uso de bases públicas formadas por projetos open source. Assim, os resultados evidenciam que a literatura recente tem utilizado tanto produtos open source específicos quanto conjuntos de dados amplos para investigar a aplicação de LLMs em tarefas relacionadas à qualidade e manutenção de software.
-}
+Além dos produtos diretamente nomeados, parte dos estudos recorreu a benchmarks e datasets compostos por múltiplos repositórios de código aberto, como SWE-bench, Defects4J, DevGPT, CoderEval, SF110 e SmellyCodeDataset. Nesses casos, os artigos nem sempre apresentam individualmente todos os produtos avaliados, mas indicam o uso de bases públicas formadas por projetos open source. Assim, os resultados evidenciam que a literatura recente tem utilizado tanto produtos open source específicos quanto conjuntos de dados amplos para investigar a aplicação de LLMs em tarefas relacionadas à qualidade e manutenção de software.
+
+\section{Uso de Inteligência Artificial}
+
+Em conformidade com as diretrizes e boas práticas acadêmicas, declara-se o uso de ferramentas baseadas em Inteligência Artificial (IA) generativa e Modelos de Linguagem de Grande Escala (LLMs) ao longo do desenvolvimento deste capítulo. A utilização dessas tecnologias ocorreu com o propósito de auxiliar na revisão ortográfica e gramatical e na geração de imagens e diagramas para ilustração procedimental. Ressalta-se que a responsabilidade final pelo conteúdo, análises, conclusões e integridade acadêmica desta monografia permanece inteiramente ao autor.
