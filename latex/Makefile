@@ -13,12 +13,12 @@ FIXOS_SOURCES = informacoes.tex fichaCatalografica.tex \
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = informacoes.tex introducao.tex referencialTeorico.tex \
+EDITAVEIS_SOURCES = informacoes.tex introducao.tex metodologia.tex referencialTeorico.tex \
 					revisaoEstruturada.tex planejamento.tex conclusao.tex \
 					preTextuais/dedicatoria.tex preTextuais/agradecimentos.tex \
 					preTextuais/epigrafe.tex preTextuais/resumo.tex \
 					preTextuais/abstract.tex preTextuais/abreviaturas.tex \
-					poesias/fibonacci.tex poesias/mockingBird.tex \
+					poesias/fibonacci.tex poesias/noiteEstrelada.tex poesias/girassois.tex \
 					poesias/amarilis.tex poesias/ipes.tex poesias/elisio.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
